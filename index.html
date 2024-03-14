@@ -1,88 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>CasaComidas</title>
-  <style>
-  body {
-    background-color: #D9D9D9; /* color de fondo */
-    margin: 0; /*no margen en el cuerpo */
-    padding: 0; /*no relleno en el cuerpo */
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>La Rapida Gula</title>
+  </head>
+  <body>
+    <header>
+      <img id="logo" src="assets/LogoRapidaGulapng.png" />
 
-  header {
-    background-color: #333; /* Color de fondo del encabezado */
-    padding: 10px 0; /* espaciado interno del encabezado */
-    display: flex; /*flexbox para alinear los elementos */
-    justify-content: space-between; /* elementos a los extremos */
-    align-items: center; /* centrar verticalmente los elementos */
-  }
-
-  nav {
-    text-align: center; /*contenido centrado*/
-  }
-
-  nav ul {
-    list-style-type: none; /* eliminar los estilos de lista */
-    padding: 0;
-  }
-
-  nav ul li {
-    display: inline; /* elementos de la lista en línea */
-    margin-right: 20px; /* espacio entre elementos */
-  }
-
-  nav ul li a {
-    color: white; 
-    text-decoration: none; /* quita subrayado de los enlaces */
-  }
-
-  nav ul li a:hover {
-    color: #95CAFF; /* color del texto al pasar el mouse por encima */
-  }
-
-  #logo {
-    max-width: 20px; 
-    height: auto;
-  }
-
-  #nombre {
-    color: #95CAFF;
-  }
-
-  #hamburguesa {
-    width: 100%;
-    height: auto;
-  }
-  #copyright{
-      text-align: center;
-  }
-  </style>
-</head>
-<body>
-
-  <header>
-        <div>
-        <img id="logo" src="assets/LogoCasaComidas.png">
-        <span id="nombre">CasaComidas</span>
-        </div>
-        <nav>
+      <nav>
         <ul>
-            <li><a href="#">Reservar mesa</a></li>
-            <li><a href="#">Realizar pedido</a></li>
-          <li><a href="#">Menu</a></li>
-            <li><a href="#">Gestion de consumo</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="#">Reservar mesa</a></li>
+          <li><a href="#">Realizar pedido</a></li>
         </ul>
-        </nav>
-  </header>
-      <img id="hamburguesa" src="assets/Hamburguesa.jpg">
+      </nav>
 
-      <footer>
-          <div id="copyright">
-              <p> <em>Copyright AlumnosPAW @2024. Todos los derechos reservados.</em> </p>
-          </div>
+      <button><a href="">Login/Registrarse</a></button>
+    </header>
+    <main>
+      <section id="promociones">
+        <a href="#"><img src="assets/promo1.jpeg" alt="Promo 1" /></a>
+        <a href="#"><img src="assets/Hamburguesa.jpg" alt="Promo 2" /></a>
+        <button id="cambioIzquierda">Cambio izquierda</button>
+        <button id="cambioDerecha">Cambio derecha</button>
+      </section>
+
+      <section id="pedirMain">
+        <img src="assets/delivery.jpg" alt="Foto delivery" />
+        <p>Pide a domicilio y disfruta de tu comida</p>
+        <button>Pedir ahora</button>
+      </section>
+
+      <section id="reservarMesaMain">
+        <img src="assets/ReservarMesa.png" alt="Foto Reservar Mesa" />
+        <p>Pide con aticipacion</p>
+        <button>Reserver Mesa</button>
+      </section>
+
+      <section id="novedades">
+        <h1>Novedades</h1>
+
+        <div>
+          <img src="" alt="Imagen novedadd">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde quidem et, quod quisquam harum ea tempore, suscipit qui eaque odio optio inventore a ipsa eligendi vero laborum tempora officia?</p>
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <footer style="background-color: aliceblue;">
+      <img id="logo" src="assets/LogoRapidaGulapng.png" />
+
+      <ul>
+        <li><a href="#">Locales</a></li>
+        <li><a href="#">Servicio al cliente</a></li>
+        <li><a href="#">G. de consumos</a></li>
+        <li><a href="#">Sobre nosotros</a></li>
+      </ul>
+
+      <ul>
+        <li><a href="#"><img src="" alt="Youtube"></a></li>
+        <li><a href="#"><img src="" alt="Facebook"></a></li>
+        <li><a href="#"><img src="" alt="Twitter"></a></li>
+        <li><a href="#"><img src="" alt="Instagram"></a></li>
+      </ul>
+
+      <div id="copyright">
+        <p>
+          <em>Copyright AlumnosPAW @2024. Todos los derechos reservados.</em>
+        </p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
-
