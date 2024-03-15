@@ -25,34 +25,41 @@
       <button><a href="">Login</a></button>
     </header>
     <main>
-      <section id="promociones">
-        <a href="#"><img src="assets/promo1.jpeg" alt="Promo 1" width="100%"/></a>
-        <a href="#"><img src="assets/Hamburguesa.jpg" alt="Promo 2"  width="100%"/></a>
-        <button id="cambioIzquierda">Cambio izquierda</button>
-        <button id="cambioDerecha">Cambio derecha</button>
-      </section>
+        <h1>Reservas</h1>
+        <section id="ImagenesLocales"></section>
+        <a href="#imagen1"><img src="assets/local1.jpg" alt="Imagen 1" width="100%"></a>
+        <a href="#imagen2"><img src="assets/local2.jpg" alt="Imagen 2" width="100%"></a>
+        <a href="#imagen3"><img src="assets/local3.jpg" alt="Imagen 3" width="100%"></a>
+        
+        <a href="#imagen1">Anterior</a>
+        <a href="#imagen2">Siguiente</a>
+        </section>
+        <section id="FormularioReserva">
+            <form>
+                <label >Seleccionar Local:</label>
+                <select>
+                  <option>Local 1</option>
+                  <option>Local 2</option>
+                </select><br>
+              
+                <label>Cantidad de Personas:</label>
+                <input type="number" min="1"><br>
+              
+                <label>Día de la Reserva:</label>
+                <input type="date"><br>
+              
+                <label >Horario de la Reserva:</label>
+                <select>
+                  <option> 12:00 PM - 3:00 PM</option>
+                  <option> 7:00 PM - 10:00 PM</option>
+                </select><br>
+              
+                <label >Aclaraciones:</label><br>
+                <textarea rows="4" cols="50"></textarea><br>
+                <button>Reservar Mesa</button>
+              </form>
 
-      <section id="pedirMain">
-        <img src="assets/delivery.jpg" alt="Foto delivery" width="50%" />
-        <p>Pide a domicilio y disfruta de tu comida</p>
-        <button>Pedir ahora</button>
-      </section>
-
-      <section id="reservarMesaMain">
-        <img src="assets/ReservarMesa.png" alt="Foto Reservar Mesa"  width="50%"/>
-        <p>Pide con aticipacion</p>
-        <button>Reservar Mesa</button>
-      </section>
-
-      <section id="novedades">
-        <h1>Novedades</h1>
-
-        <div>
-          <img src="" alt="Imagen novedadd">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus unde quidem et, quod quisquam harum ea tempore, suscipit qui eaque odio optio inventore a ipsa eligendi vero laborum tempora officia?</p>
-        </div>
-
-      </section>
+        </section>
 
     </main>
 
