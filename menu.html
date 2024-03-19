@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>La Rapida Gula</title>
+    <title>Menu - La Rapida Gula</title>
     <link rel="icon" href="assets/IconoRG.ico" type="image/x-icon" />
   </head>
   <body>
@@ -19,10 +19,6 @@
       
       <nav>
         <ul>
-          <li><a href="#">Reservar mesa</a></li>
-          <li><a href="#">Realizar pedido</a></li>
-          <li><a href="#">Menu</a></li>
-          <li><a href="#">Gestion de consumo</a></li>
           <li><a href="menu.html">Menu</a></li>
           <li><a href="reserva.html">Reservar mesa</a></li>
           <li><a href="pedido.html">Realizar pedido</a></li>
@@ -34,42 +30,50 @@
       </nav>
     </header>
 
-
+    <!--CODIGO DE MENU-->
     <main>
-      <section id="promociones">
-        <a href="#"><img src="assets/promo1.jpeg" alt="Promo 1"/></a>
-        <a href="#"><img src="assets/Hamburguesa.jpg" alt="Promo 2"/></a>
-        <button id="anterior">Anterior</button>
-        <button id="siguiente">Siguiente</button>
-      </section>
+      <header>
+        <img src="assets/fondoMenu.jpg" alt="Fondo Menu">
+        <h1>MENU</h1>
+      </header>
 
-      <section id="pedirMain">
-        <img src="assets/delivery.jpg" alt="Foto delivery"/>
-        <p>Pide a domicilio y disfruta de tu comida</p>
-        <a href="pedido.html">Pedir ahora</a>
-      </section>
+        <section id="menuComidaMes">
+          <h2>COMIDA DEL MES</h2>
+          <article>
+            <img src="assets/hamburguesa1.jpg" alt="Hamburguesa comida del mes">
+            <h3>Hamburgueas clasica</h3>
+            <p>descripcion</p>
+            <p>$$$$$$$$</p>
+            <button>Pedir</button>
+          </article>
+        </section>
 
-      <section id="reservarMesaMain">
-        <img
-          src="assets/ReservarMesa.png"
-          alt="Foto Reservar Mesa"
-        />
-        <p>Pide con aticipacion</p>
-        <a href="reserva.html">Reservar ahora</a>
-      </section>
+        <section id="menuHamburguesa">
+          <h2>HAMBURGUESAS</h2>
+          <article>
+            <img src="assets/hamburguesa1.jpg" alt="Hamburguesa con queso">
+            <h3>Hamburguesa con queso</h3>
+            <p>descripcion</p>
+            <p>$$$$$$$$</p>
+            <button>Pedir</button>
+          </article>
+          <article>
+            <img src="assets/hamburguesa2.jpg" alt="Hamburguesa completa">
+            <h3>Hamburguesa completa</h3>
+            <p>descripcion</p>
+            <p>$$$$$$$$</p>
+            <button>Pedir</button>
+          </article>
+          <article>
+            <img src="assets/hamburguesa3.jpg" alt="Hamburguesa Americana">
+            <h3>Hamburguesa Americana</h3>
+            <p>descripcion</p>
+            <p>$$$$$$$$</p>
+            <button>Pedir</button>
+          </article>
+        </section>
 
-      <section id="novedades">
-        <h1>Novedades</h1>
-
-        <div>
-          <img src="assets/novedad1.jpg" alt="Imagen novedad" />
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            unde quidem et, quod quisquam harum ea tempore, suscipit qui eaque
-            odio optio inventore a ipsa eligendi vero laborum tempora officia?
-          </p>
-        </div>
-      </section>
+        <a href="carrito.html"><img src="assets/carrito.png" alt="Carrito"></a>
     </main>
 
     <!--FOOTER-->

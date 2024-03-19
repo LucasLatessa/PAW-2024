@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Reservar en La Rapida Gula</title>
+    <link rel="icon" href="assets/IconoRG.ico" type="image/x-icon">
+
+  </head>
+  <body>
+        <!--HEADER-->
+        <header>
+          <a href="index.html">
+            <img id="logoHeader" src="assets/LogoRapidaGulapng.png" alt="Logo de RapidaGula">
+          </a>
+          
+          <nav>
+            <ul>
+              <li><a href="menu.html">Menu</a></li>
+              <li><a href="reserva.html">Reservar mesa</a></li>
+              <li><a href="pedido.html">Realizar pedido</a></li>
+            </ul>
+          </nav>
+    
+          <nav>
+            <a href="login.html">Login/Registrarse</a>
+          </nav>
+        </header>
+    <main>
+        <h1>Reservas</h1>
+        <section id="locales">
+          <a><img src="assets/local1.jpg" alt="Imagen 1" width="100%"></a>
+          <a><img src="assets/local2.jpg" alt="Imagen 2" width="100%"></a>
+          <a><img src="assets/local3.jpg" alt="Imagen 3" width="100%"></a>
+        </section>
+        <button id="anterior">Anterior</button>
+        <button id="siguiente">Siguiente</button>
+        </section>
+        <section id="FormularioReserva">
+            <form>
+                <label>Seleccionar Local:
+                  <input list="listaLocales" required /></label>
+                  <datalist id="listaLocales">
+                    <option value="Local 1">
+                    <option value="Local 2">
+                  </datalist>
+                <br><label>Cantidad de Personas:</label>
+                <input type="number" min="1" required><br>
+              
+                <label>Día de la Reserva:</label>
+                <input type="date" required><br>
+                <label>Horario de la Reserva:
+                  <input list="listaHorarios" required /></label>
+                  <datalist id="listaHorarios">
+                    <option value="12:00 PM - 3:00 PM">
+                    <option value="7:00 PM - 10:00 PM">
+                  </datalist>
+                <br>
+                
+                <label for="inputTexto">
+                  Aclaraciones:
+                  <input type="text" name="inputTexto" 
+                    maxlength="500" minlength="5" size="30"/>
+                </label>
+                <br><button type="submit">Reservar Mesa</button>
+              </form>
+
+        </section>
+
+    </main>
+
+
+    <!--FOOTER-->
+    <footer style="background-color: aliceblue">
+      <img id="logoFooter" src="assets/LogoRapidaGulapng.png" alt="Logo La Rapida Gula"/>
+
+      <ul>
+        <li><a href="locales.html">Locales</a></li>
+        <li><a href="servCliente.html">Servicio al cliente</a></li>
+        <li><a href="consumos.html">G. de consumos</a></li>
+        <li><a href="nosotros.html">Sobre nosotros</a></li>
+      </ul>
+
+      <ul>
+        <li>
+          <a href="#"
+            ><img src="assets/youtube.png" alt="Youtube" width="50"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img src="assets/facebook.png" alt="Facebook" width="50"
+          /></a>
+        </li>
+        <li>
+          <a href="#"><img src="assets/x.png" alt="X" width="50" /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img src="assets/instagram.png" alt="Instagram" width="50"
+          /></a>
+        </li>
+      </ul>
+
+      <div id="copyright">
+        <p>
+          <em>Copyright LaRapidaGula @2024. Todos los derechos reservados.</em>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
