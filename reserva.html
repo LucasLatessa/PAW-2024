@@ -20,12 +20,11 @@
       <nav>
         <ul>
           <li><a href="menu.html">Menu</a></li>
-          <li><a href="reserva.html">Reservar mesa</a></li>
         </ul>
       </nav>
 
       <nav>
-        <a href="login.html">Login/Registrarse</a>
+        <a href="login.html">Mi cuenta</a>
       </nav>
     </header>
 
@@ -42,18 +41,18 @@
 
         <div id="formularioReserva">
             <form>
-                <label>Seleccionar Local:
+                <label>Seleccionar Local*
                   <input list="listaLocales" required /></label>
                   <datalist id="listaLocales">
                     <option value="Local 1">
                     <option value="Local 2">
                   </datalist>
-                <br><label>Cantidad de Personas:</label>
+                <br><label>Cantidad de Personas*</label>
                 <input type="number" min="1" required><br>
               
-                <label>Día de la Reserva:</label>
+                <label>Día de la Reserva*</label>
                 <input type="date" required><br>
-                <label>Horario de la Reserva:
+                <label>Horario de la Reserva*
                   <input list="listaHorarios" required /></label>
                   <datalist id="listaHorarios">
                     <option value="12:00 PM - 3:00 PM">
@@ -62,10 +61,11 @@
                 <br>
                 
                 <label id="lInputTexto" for="inputTexto">
-                  Aclaraciones:
+                  Aclaraciones
                   <input id="inputTexto" type="text" name="inputTexto" 
                     maxlength="500" minlength="5" size="30"/>
                 </label>
+                <p>*requerido</p>
                 <br><button type="submit">Reservar Mesa</button>
               </form>
 

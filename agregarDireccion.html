@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Pedi en La Rapida Gula</title>
+    <title>Agregar direccion</title>
     <link rel="icon" href="assets/IconoRG.ico" type="image/x-icon" />
   </head>
   <body>
@@ -16,32 +16,34 @@
       <a href="index.html">
         <img id="logoHeader" src="assets/LogoRapidaGulapng.png" alt="Logo de RapidaGula">
       </a>
-      
-      <nav>
-        <ul>
-          <li><a href="menu.html">Menu</a></li>
-          <li><a href="reserva.html">Reservar mesa</a></li>
-        </ul>
-      </nav>
 
       <nav>
-        <a href="login.html">Mi cuenta</a>
+        <a href="login.html">Mi cuenta</a> <!--si no estas logueado adonde vas a agregar la direccion?-->
       </nav>
     </header>
     
     <main>
-      <section id="promociones">
-        <h1>Pedidos</h1>
-        <a href="#"><img src="assets/gestion_consumo.png" alt="Gestion 1"/></a>
-        
-      </section>
-
-      <section id="promociones">
-        <h1>Reportes</h1>
-        <a href="#"><img src="assets/gestion_consumo2.png" alt="Gestion 2"/></a>
-
-      </section>
-
+        <form>
+            <label for="pais">País*</label><br>
+            <input type="text" id="pais" name="pais" required><br>
+          
+            <label for="provincia">Provincia*</label><br>
+            <input type="text" id="provincia" name="provincia" required><br>
+          
+            <label for="ciudad">Ciudad/Barrio*</label><br>
+            <input type="text" id="ciudad" name="ciudad" required><br>
+          
+            <label for="ccpp">Código Postal*</label><br>
+            <input type="text" id="ccpp" name="ccpp" required><br>
+          
+            <label for="direccion">Dirección*</label><br>
+            <input type="text" id="direccion" name="direccion" required><br>
+          
+            <label for="aclaraciones">Aclaraciones</label><br>
+            <input type="text" id="aclaraciones" name="aclaraciones" ><br>
+            <p>*requerido</p>
+            <input type="submit" value="Agregar Dirección">
+          </form>
     </main>
 
         <!--FOOTER-->
