@@ -28,20 +28,20 @@
     
     <main>
         <h1>Perfil</h1>
-        <section id="infoUsuario">
-            <label for="email">Correo Electrónico</label><br>
-            <input type="email" id="email" name="email" required><br><!--esto va a contener los datos actuales -->
+        <div id="infoUsuario">
+            <label for="email">Correo Electrónico</label>t<br>
+            <input type="email" id="email" name="email" value="test"><br><!--esto va a contener los datos actuales -->
         
             <label for="nombre">Nombre</label><br>
-            <input type="text" id="nombre" name="nombre" required><br><!--esto va a contener los datos actuales -->
+            <input type="text" id="nombre" name="nombre" value="test" required><br><!--esto va a contener los datos actuales -->
         
             <label for="apellido">Apellido</label><br>
-            <input type="text" id="apellido" name="apellido" required><br><!--esto va a contener los datos actuales -->
+            <input type="text" id="apellido" name="apellido" value="test" required><br><!--esto va a contener los datos actuales -->
         
             <input type="submit" value="Actualizar">
-        </section>
+        </div>
         <section id="direcciones">
-            <h1>Direcciones</h1>
+            <h2>Direcciones</h2>
             <div class="direccion">
                 <p>Pais: Argentina</p>
                 <p>Provincia: Buenos Aires</p>
@@ -49,7 +49,7 @@
                 <p>CCPP: 6620</p>
                 <p>Direccion: 123</p>
                 <p>Aclaraciones: Nada</p>
-                <a href="">Edtar Direccion</a><!--simil al agregar -->
+                <a href="agregarDireccion.html">Edtar Direccion</a><!--simil al agregar, pero con los datos viejos (Update) -->
             </div>
             <div class="direccion">
                 <p>Pais: Argentina</p>
@@ -58,24 +58,24 @@
                 <p>CCPP: 6700</p>
                 <p>Direccion: 123</p>
                 <p>Aclaraciones: Nada</p>
-                <a href="">Edtar Direccion</a><!--simil al agregar -->
+                <a href="agregarDireccion.html">Edtar Direccion</a><!--simil al agregar, pero con los datos viejos (Update) -->
             </div>
             <a href="agregarDireccion.html">Agregar Direccion</a>
         </section>
         <section id="pedidos">
-            <h1>Pedidos</h1>
+            <h2>Pedidos</h2>
             <div class="pedido">
                 <p>Fecha: 13 de marzo de 2024</p>
                 <p>Total pagado: $50.00</p>
                 <p>ID de pedido: 123456</p>
-                <a href="">Ver detalle</a>
+                <button>Ver detalles</button>
             </div>
             
             <div class="pedido">
                 <p>Fecha: 12 de marzo de 2024</p>
                 <p>Total pagado: $35.00</p>
                 <p>ID de pedido: 789012</p>
-                <a href="">Ver detalle</a>
+                <button>Ver detalles</button>
             </div>
         </section>
     </main>
