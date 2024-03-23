@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <title>Perfil</title>
+    <title>Seleccionar direccion</title>
     <link rel="icon" href="assets/IconoRG.ico" type="image/x-icon" />
   </head>
   <body>
@@ -27,22 +27,8 @@
     </header>
     
     <main>
-        <h1>Perfil</h1>
-        <div id="infoUsuario">
-            <label for="email">Correo Electrónico
-              <input type="email" id="email" name="email" value="test">
-            </label><!--esto va a contener los datos actuales -->
+        <h1>Seleccionar direccion</h1>
         
-            <label for="nombre">Nombre
-              <input type="text" id="nombre" name="nombre" value="test" required>
-            </label><!--esto va a contener los datos actuales -->
-        
-            <label for="apellido">Apellido
-              <input type="text" id="apellido" name="apellido" value="test" required>
-            </label><!--esto va a contener los datos actuales -->
-        
-            <input type="submit" value="Actualizar">
-        </div>
         <section id="direcciones">
             <h2>Direcciones</h2>
             <div class="direccion">
@@ -53,6 +39,7 @@
                 <p>Direccion: 123</p>
                 <p>Aclaraciones: Nada</p>
                 <a href="agregarDireccion.html">Editar Direccion</a><!--simil al agregar, pero con los datos viejos (Update) -->
+                <a href="carrito.html">Seleccionar Direccion</a><!--esto va a tener que devolver la sucursal seleccionada, con js¿? -->
             </div>
             <div class="direccion">
                 <p>Pais: Argentina</p>
@@ -62,25 +49,11 @@
                 <p>Direccion: 123</p>
                 <p>Aclaraciones: Nada</p>
                 <a href="agregarDireccion.html">Editar Direccion</a><!--simil al agregar, pero con los datos viejos (Update) -->
+                <a href="carrito.html">Seleccionar Direccion</a><!--esto va a tener que devolver la sucursal seleccionada, con js¿? -->
             </div>
             <a href="agregarDireccion.html">Agregar Direccion</a>
         </section>
-        <section id="pedidos">
-            <h2>Pedidos</h2>
-            <div class="pedido">
-                <p>Fecha: 13 de marzo de 2024</p>
-                <p>Total pagado: $50.00</p>
-                <p>ID de pedido: 123456</p>
-                <button>Ver detalles</button>
-            </div>
-            
-            <div class="pedido">
-                <p>Fecha: 12 de marzo de 2024</p>
-                <p>Total pagado: $35.00</p>
-                <p>ID de pedido: 789012</p>
-                <button>Ver detalles</button>
-            </div>
-        </section>
+        
     </main>
 
 <!--FOOTER-->

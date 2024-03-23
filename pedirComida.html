@@ -49,14 +49,18 @@
                         <input type="checkbox" name="mostaza" id="inputSalsaMostaza" value="Mostaza">
                     </label>
                     <p>$$$</p>
-                    <label for="inputAclaraciones">
-                        Aclaraciones
-                        <textarea name="aclaraciones" id="inputAclaraciones" cols="30" rows="10"></textarea>
+                    <label id="lInputTexto" for="inputTexto">
+                      Aclaraciones
+                      <input id="inputTexto" type="text" name="inputTexto" 
+                        maxlength="500" minlength="5" size="30"/>
                     </label>
-                    <input type="number" id="cantidad" name="cantidad" value="1" min="1">
+                    <label>Cantidad*
+                      <input type="number" min="1" required>
+                    </label>
                     <p>$$$$$$$$$$</p>
                 </form>
-                <button>AGREGAR</button>
+                <button>Volver</button>
+                <button>Pedir</button>
 
             </div>
             

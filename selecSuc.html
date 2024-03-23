@@ -1,44 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Locales - La Rapida Gula</title>
     <link rel="icon" href="assets/IconoRG.ico" type="image/x-icon" />
-    <title>Registrarse - La Rapida Gula</title>
   </head>
   <body>
+
     <!--HEADER-->
     <header>
       <h1><a href="index.html"> 
         <img id="logoHeader" src="assets/LogoRapidaGulapng.png" alt="Rapida Gula" width="500"> 
       </a></h1>
       
+      <nav>
+        <ul>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reserva.html">Reservar mesa</a></li>
+        </ul>
+      </nav>
+
+      <nav>
+        <a href="login.html">Mi cuenta</a>
+      </nav>
     </header>
 
     <main>
-      <h1>Registrarse</h1>
-      <form>
-        <label for="email">Correo Electrónico 
-          <input type="email" id="email" name="email" required>
-        </label>
-      
-        <label for="nombre">Nombre
-          <input type="text" id="nombre" name="nombre" required>
-        </label>
-      
-        <label for="apellido">Apellido 
-          <input type="text" id="apellido" name="apellido" required>
-        </label>
-      
-        <label for="contraseña">Contraseña
-          <input type="password" id="contraseña" name="contraseña" required>
-        </label>
-
-        <label for="validadContraseña">Validar contraseña
-          <input type="password" id="validadContraseña" name="validadContraseña" required>
-        </label>
-        <input type="submit" value="Registrarse">
-      </form>
+      <h1>Seleccionar local</h1>
+      <iframe
+        name="maps"
+        width="900"
+        height="450"
+        loading="lazy"
+        allowfullscreen
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3921.882402661696!2d-76.99068508464688!3d-12.141450291419272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8367e5e3851%3A0xa25aee6eef29f4b9!2sPlaza%20de%20Armas%20de%20Lima!5e0!3m2!1ses-419!2spe!4v1647631886452!5m2!1ses-419!2spe"
+      ></iframe>
+      <ul>
+        <li>
+          <strong>Nombre del Local 1</strong>
+          Dirección del Local 1
+          <a >Retirar aqui</a>
+        </li>
+        <li>
+          <strong>Nombre del Local 2</strong>
+          Dirección del Local 2
+          <a >Retirar aqui</a>
+        </li>
+      </ul>
+      <a href="carrito.html">Volver al carrito</a>
     </main>
 
 <!--FOOTER-->
