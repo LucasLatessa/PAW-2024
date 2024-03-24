@@ -10,7 +10,8 @@
     <link rel="icon" href="assets/IconoRG.ico" type="image/x-icon" />
   </head>
   <body>
-        <!--HEADER-->
+
+    <!--HEADER-->
     <header>
       <h1><a href="index.html"> 
         <img id="logoHeader" src="assets/LogoRapidaGulapng.png" alt="Rapida Gula" width="500"> 
@@ -20,13 +21,13 @@
         <ul>
           <li><a href="menu.html">Menu</a></li>
           <li><a href="reserva.html">Reservar mesa</a></li>
+          <li><a href="login.html">Mi cuenta(solo login por ahora)</a></li>
+          <li><a href="perfil.html">Perfil</a></li><!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
+          <li><a href="carrito.html">Carrito</a></li>
         </ul>
       </nav>
-
-      <nav>
-        <a href="login.html">Mi cuenta</a>
-      </nav>
     </header>
+    
     <main>
     <form>
       <h1>Carrito de Compras</h1>
@@ -59,11 +60,15 @@
         <input type="radio" id="tarjeta" name="pago" value="tarjeta">
         <label for="tarjeta">Tarjeta</label>
 
+        <a href="selecLoc.html">Seleccionar local</a><!--Si se selecciono opcion take away-->
+
+      <h2>Forma de entrega</h2>
+
         <input type="radio" id="takeaway" name="envio" value="Take Away">
         <label for="takeaway">Take Away</label>
         <input type="radio" id="delivery" name="envio" value="Delivery">
         <label for="delivery">Delivery</label>
-        <a href="selecLoc.html">Seleccionar local</a><!--Si se selecciono opcion take away-->
+        
         <a href="selecDirec.html">Seleccionar direccion</a><!--Si se selecciono opcion delivery-->
 
       <h2>Subtotal:$$$</h2>
@@ -112,9 +117,7 @@
       
 
       <small id="copyright">
-        <p> 
           <em>Copyright LaRapidaGula @2024. Todos los derechos reservados.</em> 
-        </p> 
       </small>
     </footer>
   </body>
