@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Reservar en La Rapida Gula</title>
+    <link rel="icon" href="../assets/IconoRG.ico" type="image/x-icon">
+
+  </head>
+  <body>
+
+    <!--HEADER-->
+    <header>
+      <h1><a href="../index.html"> 
+        <img id="logoHeader" src="../assets/LogoRapidaGulapng.png" alt="Rapida Gula" width="500"> 
+      </a></h1>
+      
+      <nav>
+        <ul>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="reserva.html">Reservar mesa</a></li>
+          <li><a href="../cuenta/login.html">Mi cuenta(solo login por ahora)</a></li>
+          <li><a href="../cuenta/perfil.html">Perfil</a></li><!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
+          <li><a href="carrito.html">Carrito</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+        <h1>Reservas</h1>
+
+        <div id="locales">
+          <img src="../assets/local1.jpg" alt="Local 1 - Rapida Gula" width="500" width="500">
+          <img src="../assets/local2.jpg" alt="Local 2 - Rapida Gula" width="500" width="500">
+          <img src="../assets/local3.jpg" alt="Local 3 - Rapida Gula" width="500" width="500">
+        </div>
+
+        <div id="formularioReserva">
+            <form>
+                <label>Seleccionar Local*
+                  <input list="listaLocales" required /></label>
+                  <datalist id="listaLocales">
+                    <option value="Local 1">
+                    <option value="Local 2">
+                  </datalist>
+                <label>Cantidad de Personas*
+                  <input type="number" min="1" required>
+                </label>
+              
+                <label>Día de la Reserva*
+                  <input type="date" required>
+                </label>
+                <label>Horario de la Reserva*
+                  <input list="listaHorarios" required /></label>
+                  <datalist id="listaHorarios">
+                    <option value="12:00 PM - 3:00 PM">
+                    <option value="7:00 PM - 10:00 PM">
+                  </datalist>
+                
+                <label id="lInputTexto" for="inputTexto">
+                  Aclaraciones
+                  <input id="inputTexto" type="text" name="inputTexto" 
+                    maxlength="500" minlength="5" size="30"/>
+                </label>
+                <p>*requerido</p>
+                <button type="submit">Reservar Mesa</button>
+              </form>
+
+        </div>
+
+    </main>
+
+
+    <!--FOOTER-->
+    <footer style="background-color: aliceblue">
+      <!--<img id="logoFooter" src="../assets/LogoRapidaGulapng.png" alt="Logo La Rapida Gula" />-->
+
+      <nav>
+        <ul>
+          <li><a href="../institucional/locales.html">Locales</a></li>
+          <li><a href="../institucional/servCliente.html">Servicio al cliente</a></li>
+          <li><a href="../institucional/nosotros.html">Sobre nosotros</a></li>
+        </ul>
+      </nav>
+      
+      <nav>
+        <ul>
+          <li>
+            <a href="#" rel="external" target="_blank"
+              ><img src="../assets/youtube.png" alt="Youtube" width="50"
+            /></a>
+          </li>
+          <li>
+            <a href="#" rel="external" target="_blank"
+              ><img src="../assets/facebook.png" alt="Facebook" width="50"
+            /></a>
+          </li>
+          <li>
+            <a href="#" rel="external" target="_blank"><img src="../assets/x.png" alt="X" width="50" /></a>
+          </li>
+          <li>
+            <a href="#" rel="external" target="_blank"
+              ><img src="../assets/instagram.png" alt="Instagram" width="50"
+            /></a>
+          </li>
+        </ul>
+      </nav>
+      
+
+      <small id="copyright">
+          <em>Copyright LaRapidaGula @2024. Todos los derechos reservados.</em> 
+      </small>
+    </footer>
+  </body>
+</html>
