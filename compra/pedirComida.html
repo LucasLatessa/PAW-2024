@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<head>
+<html lang="es">
+  <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -8,63 +9,87 @@
     <title>Pedir - La Rapida Gula</title>
     <link rel="icon" href="../assets/IconoRG.ico" type="image/x-icon" />
   </head>
-<body>
+  <body>
     <!--HEADER-->
     <header>
-      <h1><a href="../index.html"> 
-        <img id="logoHeader" src="../assets/LogoRapidaGulapng.png" alt="Rapida Gula" width="500"> 
-      </a></h1>
-      
+      <h1>
+        <a href="../index.html">
+          <img
+            id="logoHeader"
+            src="../assets/LogoRapidaGulapng.png"
+            alt="Rapida Gula"
+            width="500"
+          />
+        </a>
+      </h1>
+
       <nav>
         <ul>
           <li><a href="menu.html">Menu</a></li>
           <li><a href="reserva.html">Reservar mesa</a></li>
-          <li><a href="../cuenta/login.html">Mi cuenta(solo login por ahora)</a></li>
-          <li><a href="../cuenta/perfil.html">Perfil</a></li><!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
+          <li>
+            <a href="../cuenta/login.html">Mi cuenta(solo login por ahora)</a>
+          </li>
+          <li><a href="../cuenta/perfil.html">Perfil</a></li>
+          <!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
           <li><a href="carrito.html">Carrito</a></li>
         </ul>
       </nav>
     </header>
 
-          <main>
-            <!--Codigo comida-->
+    <main>
+      <!--Codigo comida-->
 
-            <section>
-                <h2>Nombre comida seleccionada</h2>
-                <img src="../assets/Hamburguesa.jpg" alt="Comida seleccionada para pedir" width="500">
-                <p>descripcion</p>
-            </section>
-            
-            <div id="formularioPedidoComida">
-                <form method="POST">
-                    <h3>Quieres agregar alguna salsa?</h3>
-                    <label for="inputSalsaBBQ">
-                        BBQ
-                        <input type="checkbox" name="bbq" id="inputSalsaBBQ" value="BBQ">
-                    </label>
-                    <p>$$$</p>
-                    <label for="inputSalsaMostaza">
-                        MOSTAZA
-                        <input type="checkbox" name="mostaza" id="inputSalsaMostaza" value="Mostaza">
-                    </label>
-                    <p>$$$</p>
-                    <label id="lInputTexto" for="inputTexto">
-                      Aclaraciones
-                      <input id="inputTexto" type="text" name="inputTexto" 
-                        maxlength="500" minlength="5" size="30"/>
-                    </label>
-                    <label>Cantidad*
-                      <input type="number" min="1" required>
-                    </label>
-                    <p>$$$$$$$$$$</p>
-                </form>
-                <button>Volver</button>
-                <button>Pedir</button>
+      <section>
+        <h2>Nombre comida seleccionada</h2>
+        <img
+          src="../assets/Hamburguesa.jpg"
+          alt="Comida seleccionada para pedir"
+          width="500"
+        />
+        <p>descripcion</p>
+      </section>
 
-            </div>
-            
-          </main>
-      
+      <div id="formularioPedidoComida">
+        <form method="POST">
+          <h3>Quieres agregar alguna salsa?</h3>
+          <label for="inputSalsaBBQ">
+            BBQ
+            <input type="checkbox" name="bbq" id="inputSalsaBBQ" value="BBQ" />
+          </label>
+          <p>$$$</p>
+          <label for="inputSalsaMostaza">
+            MOSTAZA
+            <input
+              type="checkbox"
+              name="mostaza"
+              id="inputSalsaMostaza"
+              value="Mostaza"
+            />
+          </label>
+          <p>$$$</p>
+          <label id="lInputTexto" for="inputTexto">
+            Aclaraciones
+            <input
+              id="inputTexto"
+              type="text"
+              name="inputTexto"
+              maxlength="500"
+              minlength="5"
+              size="30"
+            />
+          </label>
+          <label
+            >Cantidad*
+            <input type="number" min="1" required />
+          </label>
+          <p>$$$$$$$$$$</p>
+        </form>
+        <button>Volver</button>
+        <button>Pedir</button>
+      </div>
+    </main>
+
     <!--FOOTER-->
     <footer style="background-color: aliceblue">
       <!--<img id="logoFooter" src="../assets/LogoRapidaGulapng.png" alt="Logo La Rapida Gula" />-->
@@ -72,11 +97,13 @@
       <nav>
         <ul>
           <li><a href="../institucional/locales.html">Locales</a></li>
-          <li><a href="../institucional/servCliente.html">Servicio al cliente</a></li>
+          <li>
+            <a href="../institucional/servCliente.html">Servicio al cliente</a>
+          </li>
           <li><a href="../institucional/nosotros.html">Sobre nosotros</a></li>
         </ul>
       </nav>
-      
+
       <nav>
         <ul>
           <li>
@@ -90,7 +117,9 @@
             /></a>
           </li>
           <li>
-            <a href="#" rel="external" target="_blank"><img src="../assets/x.png" alt="X" width="50" /></a>
+            <a href="#" rel="external" target="_blank"
+              ><img src="../assets/x.png" alt="X" width="50"
+            /></a>
           </li>
           <li>
             <a href="#" rel="external" target="_blank"
@@ -99,11 +128,10 @@
           </li>
         </ul>
       </nav>
-      
 
       <small id="copyright">
-          <em>Copyright LaRapidaGula @2024. Todos los derechos reservados.</em> 
+        <em>Copyright LaRapidaGula @2024. Todos los derechos reservados.</em>
       </small>
     </footer>
-</body>
+  </body>
 </html>

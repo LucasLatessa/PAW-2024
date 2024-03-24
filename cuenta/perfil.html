@@ -10,79 +10,103 @@
     <link rel="icon" href="../assets/IconoRG.ico" type="image/x-icon" />
   </head>
   <body>
-
     <!--HEADER-->
     <header>
-      <h1><a href="../index.html"> 
-        <img id="logoHeader" src="../assets/LogoRapidaGulapng.png" alt="Rapida Gula" width="500"> 
-      </a></h1>
-      
+      <h1>
+        <a href="../index.html">
+          <img
+            id="logoHeader"
+            src="../assets/LogoRapidaGulapng.png"
+            alt="Rapida Gula"
+            width="500"
+          />
+        </a>
+      </h1>
+
       <nav>
         <ul>
           <li><a href="../compra/menu.html">Menu</a></li>
           <li><a href="../compra/reserva.html">Reservar mesa</a></li>
           <li><a href="login.html">Mi cuenta(solo login por ahora)</a></li>
-          <li><a href="perfil.html">Perfil</a></li><!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
+          <li><a href="perfil.html">Perfil</a></li>
+          <!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
           <li><a href="../compra/carrito.html">Carrito</a></li>
         </ul>
       </nav>
     </header>
-    
+
     <main>
-        <h1>Perfil</h1>
-        <div id="infoUsuario">
-            <label for="email">Correo Electrónico
-              <input type="email" id="email" name="email" value="test">
-            </label><!--esto va a contener los datos actuales -->
-        
-            <label for="nombre">Nombre
-              <input type="text" id="nombre" name="nombre" value="test" required>
-            </label><!--esto va a contener los datos actuales -->
-        
-            <label for="apellido">Apellido
-              <input type="text" id="apellido" name="apellido" value="test" required>
-            </label><!--esto va a contener los datos actuales -->
-        
-            <input type="submit" value="Actualizar">
+      <h1>Perfil</h1>
+      <div id="infoUsuario">
+        <label for="email"
+          >Correo Electrónico
+          <input type="email" id="email" name="email" value="test" /> </label
+        ><!--esto va a contener los datos actuales -->
+
+        <label for="nombre"
+          >Nombre
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            value="test"
+            required
+          /> </label
+        ><!--esto va a contener los datos actuales -->
+
+        <label for="apellido"
+          >Apellido
+          <input
+            type="text"
+            id="apellido"
+            name="apellido"
+            value="test"
+            required
+          /> </label
+        ><!--esto va a contener los datos actuales -->
+
+        <input type="submit" value="Actualizar" />
+      </div>
+      <section id="direcciones">
+        <h2>Direcciones</h2>
+        <div class="direccion">
+          <p>Pais: Argentina</p>
+          <p>Provincia: Buenos Aires</p>
+          <p>Ciudad/barrio: Chivilcoy</p>
+          <p>CCPP: 6620</p>
+          <p>Direccion: 123</p>
+          <p>Aclaraciones: Nada</p>
+          <a href="agregarDireccion.html">Editar Direccion</a
+          ><!--simil al agregar, pero con los datos viejos (Update) -->
         </div>
-        <section id="direcciones">
-            <h2>Direcciones</h2>
-            <div class="direccion">
-                <p>Pais: Argentina</p>
-                <p>Provincia: Buenos Aires</p>
-                <p>Ciudad/barrio: Chivilcoy</p>
-                <p>CCPP: 6620</p>
-                <p>Direccion: 123</p>
-                <p>Aclaraciones: Nada</p>
-                <a href="agregarDireccion.html">Editar Direccion</a><!--simil al agregar, pero con los datos viejos (Update) -->
-            </div>
-            <div class="direccion">
-                <p>Pais: Argentina</p>
-                <p>Provincia: Buenos Aires</p>
-                <p>Ciudad/barrio: Lujan</p>
-                <p>CCPP: 6700</p>
-                <p>Direccion: 123</p>
-                <p>Aclaraciones: Nada</p>
-                <a href="agregarDireccion.html">Editar Direccion</a><!--simil al agregar, pero con los datos viejos (Update) -->
-            </div>
-            <a href="agregarDireccion.html">Agregar Direccion</a>
-        </section>
-        <section id="pedidos">
-            <h2>Pedidos</h2>
-            <div class="pedido">
-                <p>Fecha: 13 de marzo de 2024</p>
-                <p>Total pagado: $50.00</p>
-                <p>ID de pedido: 123456</p>
-                <button>Ver detalles</button>
-            </div>
-            
-            <div class="pedido">
-                <p>Fecha: 12 de marzo de 2024</p>
-                <p>Total pagado: $35.00</p>
-                <p>ID de pedido: 789012</p>
-                <button>Ver detalles</button>
-            </div>
-        </section>
+        <div class="direccion">
+          <p>Pais: Argentina</p>
+          <p>Provincia: Buenos Aires</p>
+          <p>Ciudad/barrio: Lujan</p>
+          <p>CCPP: 6700</p>
+          <p>Direccion: 123</p>
+          <p>Aclaraciones: Nada</p>
+          <a href="agregarDireccion.html">Editar Direccion</a
+          ><!--simil al agregar, pero con los datos viejos (Update) -->
+        </div>
+        <a href="agregarDireccion.html">Agregar Direccion</a>
+      </section>
+      <section id="pedidos">
+        <h2>Pedidos</h2>
+        <div class="pedido">
+          <p>Fecha: 13 de marzo de 2024</p>
+          <p>Total pagado: $50.00</p>
+          <p>ID de pedido: 123456</p>
+          <button>Ver detalles</button>
+        </div>
+
+        <div class="pedido">
+          <p>Fecha: 12 de marzo de 2024</p>
+          <p>Total pagado: $35.00</p>
+          <p>ID de pedido: 789012</p>
+          <button>Ver detalles</button>
+        </div>
+      </section>
     </main>
 
     <!--FOOTER-->
@@ -92,11 +116,13 @@
       <nav>
         <ul>
           <li><a href="../institucional/locales.html">Locales</a></li>
-          <li><a href="../institucional/servCliente.html">Servicio al cliente</a></li>
+          <li>
+            <a href="../institucional/servCliente.html">Servicio al cliente</a>
+          </li>
           <li><a href="../institucional/nosotros.html">Sobre nosotros</a></li>
         </ul>
       </nav>
-      
+
       <nav>
         <ul>
           <li>
@@ -110,7 +136,9 @@
             /></a>
           </li>
           <li>
-            <a href="#" rel="external" target="_blank"><img src="../assets/x.png" alt="X" width="50" /></a>
+            <a href="#" rel="external" target="_blank"
+              ><img src="../assets/x.png" alt="X" width="50"
+            /></a>
           </li>
           <li>
             <a href="#" rel="external" target="_blank"
@@ -119,10 +147,9 @@
           </li>
         </ul>
       </nav>
-      
 
       <small id="copyright">
-          <em>Copyright LaRapidaGula @2024. Todos los derechos reservados.</em> 
+        <em>Copyright LaRapidaGula @2024. Todos los derechos reservados.</em>
       </small>
     </footer>
   </body>

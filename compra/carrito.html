@@ -10,74 +10,86 @@
     <link rel="icon" href="../assets/IconoRG.ico" type="image/x-icon" />
   </head>
   <body>
-
     <!--HEADER-->
     <header>
-      <h1><a href="../index.html"> 
-        <img id="logoHeader" src="../assets/LogoRapidaGulapng.png" alt="Rapida Gula" width="500"> 
-      </a></h1>
-      
+      <h1>
+        <a href="../index.html">
+          <img
+            id="logoHeader"
+            src="../assets/LogoRapidaGulapng.png"
+            alt="Rapida Gula"
+            width="500"
+          />
+        </a>
+      </h1>
+
       <nav>
         <ul>
           <li><a href="menu.html">Menu</a></li>
           <li><a href="reserva.html">Reservar mesa</a></li>
-          <li><a href="../cuenta/login.html">Mi cuenta(solo login por ahora)</a></li>
-          <li><a href="../cuenta/perfil.html">Perfil</a></li><!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
+          <li>
+            <a href="../cuenta/login.html">Mi cuenta(solo login por ahora)</a>
+          </li>
+          <li><a href="../cuenta/perfil.html">Perfil</a></li>
+          <!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
           <li><a href="carrito.html">Carrito</a></li>
         </ul>
       </nav>
     </header>
-    
+
     <main>
-    <form>
-      <h1>Carrito de Compras</h1>
-      <ul>
-        <li>
-          <p>Nombre</p>
-          <p>Descripcion</p>
-          <p>Precio</p>
-          <p>Notas</p>
-          <label>Cantidad
-            <input type="number" min="1" required>
-          </label>
-          <button>Borrar</button>
-        </li>   
-        <li>
-          <p>Nombre2</p>
-          <p>Descripcion2</p>
-          <p>Precio2</p>
-          <p>Notas</p>
-          <label>Cantidad
-            <input type="number" min="1" required>
-          </label>
-          <button>Borrar</button>
-        </li>               
-      </ul>
-      <h2>Forma de pago</h2>
-      
-        <input type="radio" id="efectivo" name="pago" value="efectivo">
+      <form>
+        <h1>Carrito de Compras</h1>
+        <ul>
+          <li>
+            <p>Nombre</p>
+            <p>Descripcion</p>
+            <p>Precio</p>
+            <p>Notas</p>
+            <label
+              >Cantidad
+              <input type="number" min="1" required />
+            </label>
+            <button>Borrar</button>
+          </li>
+          <li>
+            <p>Nombre2</p>
+            <p>Descripcion2</p>
+            <p>Precio2</p>
+            <p>Notas</p>
+            <label
+              >Cantidad
+              <input type="number" min="1" required />
+            </label>
+            <button>Borrar</button>
+          </li>
+        </ul>
+        <h2>Forma de pago</h2>
+
+        <input type="radio" id="efectivo" name="pago" value="efectivo" />
         <label for="efectivo">Efectivo</label>
-        <input type="radio" id="tarjeta" name="pago" value="tarjeta">
+        <input type="radio" id="tarjeta" name="pago" value="tarjeta" />
         <label for="tarjeta">Tarjeta</label>
 
-        <a href="selecLoc.html">Seleccionar local</a><!--Si se selecciono opcion take away-->
+        <a href="selecLoc.html">Seleccionar local</a
+        ><!--Si se selecciono opcion take away-->
 
-      <h2>Forma de entrega</h2>
+        <h2>Forma de entrega</h2>
 
-        <input type="radio" id="takeaway" name="envio" value="Take Away">
+        <input type="radio" id="takeaway" name="envio" value="Take Away" />
         <label for="takeaway">Take Away</label>
-        <input type="radio" id="delivery" name="envio" value="Delivery">
+        <input type="radio" id="delivery" name="envio" value="Delivery" />
         <label for="delivery">Delivery</label>
-        
-        <a href="selecDirec.html">Seleccionar direccion</a><!--Si se selecciono opcion delivery-->
 
-      <h2>Subtotal:$$$</h2>
-      <button type="submit" onclick="location.href='confirmarCompra.html'">
-        Realizar pedido
-      </button>
-      
-    </form>
-    <a href="menu.html">Volver al menu</a>
+        <a href="selecDirec.html">Seleccionar direccion</a
+        ><!--Si se selecciono opcion delivery-->
+
+        <h2>Subtotal:$$$</h2>
+        <button type="submit" onclick="location.href='confirmarCompra.html'">
+          Realizar pedido
+        </button>
+      </form>
+      <a href="menu.html">Volver al menu</a>
     </main>
 
     <!--FOOTER-->
@@ -87,11 +99,13 @@
       <nav>
         <ul>
           <li><a href="../institucional/locales.html">Locales</a></li>
-          <li><a href="../institucional/servCliente.html">Servicio al cliente</a></li>
+          <li>
+            <a href="../institucional/servCliente.html">Servicio al cliente</a>
+          </li>
           <li><a href="../institucional/nosotros.html">Sobre nosotros</a></li>
         </ul>
       </nav>
-      
+
       <nav>
         <ul>
           <li>
@@ -105,7 +119,9 @@
             /></a>
           </li>
           <li>
-            <a href="#" rel="external" target="_blank"><img src="../assets/x.png" alt="X" width="50" /></a>
+            <a href="#" rel="external" target="_blank"
+              ><img src="../assets/x.png" alt="X" width="50"
+            /></a>
           </li>
           <li>
             <a href="#" rel="external" target="_blank"
@@ -114,10 +130,9 @@
           </li>
         </ul>
       </nav>
-      
 
       <small id="copyright">
-          <em>Copyright LaRapidaGula @2024. Todos los derechos reservados.</em> 
+        <em>Copyright LaRapidaGula @2024. Todos los derechos reservados.</em>
       </small>
     </footer>
   </body>
