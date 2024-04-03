@@ -65,3 +65,66 @@ header h1 {
 .icono-menu:focus + .lista-desplegable {
     display: block;
 }
+
+#pedirMain, #reservarMesaMain {
+    background-color: #9D4E4E; 
+    border-radius: 10px;
+    padding: 8px; 
+    text-align: center; 
+    color: #000000;
+    width: 35%; 
+    display: inline-block; 
+    margin-right: 10px; 
+    font-size: 14px; 
+}
+
+#pedirMain img, #reservarMesaMain img {
+    max-width: 80%; 
+}
+
+#pedirMain a, #reservarMesaMain a {/*Transformar anchors en botones*/
+    display: block; /* Convertir el enlace en un bloque */
+    background-color: #fff; 
+    color: #9D4E4E; 
+    padding: 8px 6px;
+    border-radius: 5px;
+    text-decoration: none; 
+    margin-top: 10px; 
+    margin-left: auto;
+}
+
+#novedades {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center; 
+}
+
+#novedades article {
+    margin-top: 20px;
+    background-color: #fbad18;
+    border-radius: 10px;
+    padding: 15px;
+    flex: 1; 
+    margin-right: 20px; 
+    box-sizing: border-box; 
+}
+
+#novedades article h5 {
+    color: #000000;
+}
+
+#novedades article figure {
+    margin-top: 10px;
+}
+
+#novedades article img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+#novedades article figcaption {
+    margin-top: 10px;
+    color: #000000;
+}
