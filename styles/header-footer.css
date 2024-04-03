@@ -1,0 +1,139 @@
+@font-face {
+  font-family: "Black regular";
+  src: url("../font/ArchivoBlack-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Century Gothic";
+  src: local("Century Gothic"),
+    url("../font/century_gothic.ttf") format("truetype");
+}
+
+html {
+  font-size: 16px; /*definiendo el rem*/
+}
+
+* {
+  font-family: "Black regular";
+}
+
+/*----------Estilos para el header----------*/
+
+header {
+  background-color: #ffffff; /* Color de fondo del encabezado */
+  padding: 1rem 1.2rem; /* Espacio interno del encabezado */
+  display: flex; /* Mostrar elementos en línea */
+  justify-content: space-between; /* Distribuir los elementos horizontalmente */
+  align-items: center; /* Alinear elementos verticalmente */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra del encabezado */
+}
+
+.logo {
+  width: 10rem; /* Ancho del icono de menú */
+  margin: 0 auto; /* Centrar el logotipo horizontalmente */
+}
+
+/* Estilos para el menú de navegación */
+.menu {
+  position: relative; /* Asegurar que la lista desplegable esté posicionada correctamente */
+}
+
+/* Estilos para el icono de menú */
+.icono-menu {
+  width: 2.2rem; /* Ancho del icono*/
+  cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
+}
+/* Estilos para el icono de carrito y usuario */
+.icono-carrito,
+.icono-usuario {
+  width: 2.2rem; /* Ancho de los iconos de carrito y usuario */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
+}
+
+/* Estilos para la lista desplegable */
+.lista-desplegable {
+  display: none; /* Ocultar la lista desplegable por defecto */
+  position: absolute; /* Posición absoluta para la lista desplegable */
+  top: 50%; /* Alinear la parte superior de la lista desplegable con la parte inferior del elemento padre */
+  left: 0; /* Alinear la izquierda de la lista desplegable con la izquierda del elemento padre */
+  background-color: #000000; /* Color de fondo de la lista desplegable */
+  padding: 1rem; /* Espacio interno de la lista desplegable */
+  border-radius: 0.5rem; /* Bordes redondeados de la lista desplegable */
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.1); /* Sombra de la lista desplegable */
+  z-index: 1; /* Asegurar que la lista desplegable esté sobre otros elementos */
+  white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+}
+
+/* Estilos para los elementos de la lista desplegable */
+.lista-desplegable li {
+  margin-bottom: 1rem; /* Espacio entre elementos de la lista */
+  list-style-type: none; /* Ocultar los puntos en los elementos li */
+}
+
+/* Estilos para los enlaces de la lista desplegable */
+.lista-desplegable a {
+  text-decoration: none; /* Eliminar subrayado de los enlaces */
+  color: #ffffff; /* Color del texto de los enlaces */
+  transition: color 0.3s; /* Transición de color al pasar el ratón por encima */
+  text-align: left;
+}
+
+/* Estilos para los enlaces de la lista desplegable al pasar el ratón por encima */
+.lista-desplegable a:hover {
+  color: #fbad18; /* Cambiar el color del texto al pasar el ratón por encima */
+}
+
+/* Estilos para mostrar la lista desplegable al pasar el ratón por encima del menú */
+.menu:hover .lista-desplegable {
+  display: block; /* Mostrar la lista desplegable cuando se pasa el mouse sobre el menú */
+}
+
+
+/*----------estilos footer----------*/
+footer {
+  background-image: url("../assets/Imagotipo.svg");
+  background-position: center left 80px;
+
+  background-size: 200px;
+  background-repeat: no-repeat;
+}
+
+footer nav ul.links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+footer nav ul.links li {
+  margin-top: 20px;
+  margin-right: 30px;
+  font-size: 15px;
+}
+footer nav ul.links li a {
+  color: azure;
+}
+
+footer nav ul.redes {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
+
+footer nav ul.redes li {
+  margin-top: 80px;
+  margin-right: 20px;
+}
+
+footer nav ul.redes li img {
+  width: 30px;
+}
+
+#copyright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
