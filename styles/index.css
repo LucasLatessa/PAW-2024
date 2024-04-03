@@ -65,3 +65,65 @@ header h1 {
 .icono-menu:focus + .lista-desplegable {
     display: block;
 }
+
+
+a{
+    text-decoration: none;
+}
+
+footer {
+    background-image: url('../assets/Imagotipo.svg');
+    background-position: center left 80px ;
+
+    background-size: 200px;
+    background-repeat: no-repeat;
+}
+
+footer nav ul.links{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    text-decoration: none;
+
+}
+
+footer nav ul.links li{
+    margin-top: 20px;
+    margin-right: 30px;
+    font-size: 15px;
+   
+}
+footer nav ul.links li a{
+    color:azure; 
+}
+
+footer nav ul.redes{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+
+}
+
+footer nav ul.redes li{
+    margin-top: 80px;
+    margin-right: 20px;
+
+
+}
+
+footer nav ul.redes li img{
+    width: 30px;
+
+}
+
+
+#copyright{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
