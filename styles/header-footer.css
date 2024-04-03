@@ -103,7 +103,6 @@ footer nav ul.links {
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
-  text-decoration: none;
 }
 
 footer nav ul.links li {
@@ -113,7 +112,8 @@ footer nav ul.links li {
 }
 
 footer nav ul.links li a {
-  color: azure;
+  color: black;
+  text-decoration: none;
 }
 
 footer nav ul.redes {
