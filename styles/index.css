@@ -15,7 +15,7 @@ html {
 *{
     font-family: 'Black regular';
 }
-/* Estilos para el header */
+/*----------Estilos para el header----------*/
 header {
     background-color: #ffffff; /* Color de fondo del encabezado */
     padding: 1rem 1.2rem; /* Espacio interno del encabezado */
@@ -82,7 +82,25 @@ header {
 .menu:hover .lista-desplegable {
     display: block; /* Mostrar la lista desplegable cuando se pasa el mouse sobre el menú */
 }
-/*estilos secciones pedir y reserva en home*/
+/*----------estilos "carrusel simulado"----------*/
+
+.carrusel {
+    overflow-x: auto; /* Permitir desplazamiento horizontal si el contenido es más ancho que el contenedor */
+    white-space: nowrap; /* Evitar que las imágenes se envuelvan a la siguiente línea */
+}
+
+.carrusel figure {
+    display: inline-block;
+    white-space: normal; /* Restaurar el comportamiento de envoltura de texto normal */
+}
+
+.carrusel figure img {
+    width: 100%; 
+}
+.carrusel figcaption {
+    text-align: center;
+}
+/*----------estilos secciones pedir y reserva en home----------*/
 #pedirMain, #reservarMesaMain {
     background-color: #9D4E4E; 
     border-radius: 0.8rem;
@@ -91,12 +109,13 @@ header {
     color: #000000;
     width: 35%; 
     display: inline-block; 
-    margin-right: 0.8rem; 
+    margin-right: 1rem; 
+    margin-left: 5rem; 
     font-size: 1rem; 
 }
 
 #pedirMain img, #reservarMesaMain img {
-    max-width: 100%; 
+    max-width: 50%; 
 }
 
 #pedirMain a, #reservarMesaMain a {/*Transformar anchors en botones*/
@@ -109,7 +128,7 @@ header {
     margin-top: 0.8rem; 
     margin-left: auto;
 }
-/*estilos seccion novedades en home*/
+/*----------estilos seccion novedades en home----------*/
 #novedades {
     text-align: center;
     padding: 2rem;
@@ -145,7 +164,7 @@ header {
     margin-top: 0.8rem;
     color: #000000;
 }
-/* estilos formulario*/
+/*----------estilos formulario----------*/
 form {
     max-width: 25rem; 
     margin: 0 auto; 
@@ -197,7 +216,7 @@ a:hover {
 a{
     text-decoration: none;
 }
-
+/*----------estilos footer----------*/
 footer {
     background-image: url('../assets/Imagotipo.svg');
     background-position: center left 80px ;
