@@ -52,7 +52,13 @@ Barra de navegacion
 
 /*----------estilos "carrusel simulado"----------*/
 
-.carrusel {
+section.carrusel > h2 {
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: auto;
+}
+
+section.carrusel {
   overflow-x: auto; /* Permitir desplazamiento horizontal si el contenido es más ancho que el contenedor */
   white-space: nowrap; /* Evitar que las imágenes se envuelvan a la siguiente línea */
 }
@@ -68,7 +74,9 @@ Barra de navegacion
 .carrusel figcaption {
   text-align: center;
 }
+
 /*----------estilos secciones pedir y reserva en home----------*/
+
 #pedirMain,
 #reservarMesaMain {
   background-color: #9d4e4e;
@@ -100,7 +108,16 @@ Barra de navegacion
   margin-top: 0.8rem;
   margin-left: auto;
 }
+
 /*----------estilos seccion novedades en home----------*/
+
+h4 {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 1em;
+  font-size: 1.5em;
+}
+
 #novedades {
   text-align: center;
   padding: 2rem;
@@ -113,13 +130,14 @@ Barra de navegacion
   margin-top: 2rem;
   background-color: #fbad18;
   border-radius: 0.7rem;
-  padding: 1rem;
   flex: 1;
-  margin-right: 1.2rem;
   box-sizing: border-box;
 }
 
 #novedades article h5 {
+  padding: 0.2em;
+  text-transform: uppercase;
+  font-size: 1.5em;
   color: #000000;
 }
 
@@ -135,55 +153,4 @@ Barra de navegacion
 #novedades article figcaption {
   margin-top: 0.8rem;
   color: #000000;
-}
-/*----------estilos formulario----------*/
-form {
-  max-width: 25rem;
-  margin: 0 auto;
-}
-
-label {
-  display: block;
-  margin-bottom: 0.8rem;
-  color: #000000;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="submit"] {
-  width: calc(100% - 1.6rem);
-  padding: 0.8rem;
-  margin-bottom: 20px;
-  border: 0.1rem solid #000;
-  border-radius: 1.5rem;
-  box-sizing: border-box;
-  background-color: #000;
-  color: #fff;
-}
-
-input[type="submit"] {
-  background-color: #fbad18;
-  color: #fff;
-}
-
-#required {
-  font-size: 1rem;
-  font-style: italic;
-  font-family: "Century Gothic";
-}
-
-a {
-  display: block;
-  text-align: center;
-  color: #fbad18;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-a {
-  text-decoration: none;
 }

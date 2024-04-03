@@ -42,6 +42,7 @@ header {
   width: 2.2rem; /* Ancho del icono*/
   cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
 }
+
 /* Estilos para el icono de carrito y usuario */
 .icono-carrito,
 .icono-usuario {
@@ -87,12 +88,11 @@ header {
   display: block; /* Mostrar la lista desplegable cuando se pasa el mouse sobre el menú */
 }
 
-
 /*----------estilos footer----------*/
+
 footer {
   background-image: url("../assets/Imagotipo.svg");
   background-position: center left 80px;
-
   background-size: 200px;
   background-repeat: no-repeat;
 }
@@ -111,6 +111,7 @@ footer nav ul.links li {
   margin-right: 30px;
   font-size: 15px;
 }
+
 footer nav ul.links li a {
   color: azure;
 }

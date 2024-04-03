@@ -1,0 +1,51 @@
+/*----------estilos formulario----------*/
+form {
+    max-width: 25rem;
+    margin: 0 auto;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #000000;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="submit"] {
+    width: calc(100% - 1.6rem);
+    padding: 0.8rem;
+    margin-bottom: 20px;
+    border: 0.1rem solid #000;
+    border-radius: 1.5rem;
+    box-sizing: border-box;
+    background-color: #000;
+    color: #fff;
+  }
+  
+  input[type="submit"] {
+    background-color: #fbad18;
+    color: #fff;
+  }
+  
+  #required {
+    font-size: 1rem;
+    font-style: italic;
+    font-family: "Century Gothic";
+  }
+  
+  a {
+    display: block;
+    text-align: center;
+    color: #fbad18;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  a {
+    text-decoration: none;
+  }
