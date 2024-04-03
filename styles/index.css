@@ -15,65 +15,74 @@ html {
 *{
     font-family: 'Black regular';
 }
-
+/* Estilos para el header */
 header {
-    background-color: rgb(251, 173, 24);
+    background-color: #ffffff; /* Color de fondo del encabezado */
+    padding: 1rem 1.2rem; /* Espacio interno del encabezado */
+    display: flex; /* Mostrar elementos en línea */
+    justify-content: space-between; /* Distribuir los elementos horizontalmente */
+    align-items: center; /* Alinear elementos verticalmente */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra del encabezado */
 }
 
-header h1 {
-    justify-content: center;
-    width: 1rem;
+.logo {
+    width: 10rem; /* Ancho del icono de menú */
+    margin: 0 auto; /* Centrar el logotipo horizontalmente */
 }
 
-.header-izquierda{
-    text-align: left;
-}
-
-/* .header-derecha{
-    text-align: right;
-}
-
-.header-derecha a{
-    background-image: url(../assets/carrito.png);
-} */
-
+/* Estilos para el menú de navegación */
 .menu {
-    position: relative;
+    position: relative; /* Asegurar que la lista desplegable esté posicionada correctamente */
 }
 
+/* Estilos para el icono de menú */
 .icono-menu {
-    width: 2rem; 
-    height: 2rem; 
-    cursor: pointer;
+    width: 2.2rem; /* Ancho del icono*/
+    cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
+    }
+/* Estilos para el icono de carrito y usuario */
+.icono-carrito, .icono-usuario {
+    width: 2.2rem; /* Ancho de los iconos de carrito y usuario */
+    cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
 }
-
+/* Estilos para la lista desplegable */
 .lista-desplegable {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: #f9f9f9;
-    border: 1px solid #ccc;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+    display: none; /* Ocultar la lista desplegable por defecto */
+    position: absolute; /* Posición absoluta para la lista desplegable */
+    top: 50% ; /* Alinear la parte superior de la lista desplegable con la parte inferior del elemento padre */
+    left: 0; /* Alinear la izquierda de la lista desplegable con la izquierda del elemento padre */
+    background-color: #000000; /* Color de fondo de la lista desplegable */
+    padding: 1rem; /* Espacio interno de la lista desplegable */
+    border-radius: 0.5rem; /* Bordes redondeados de la lista desplegable */
+    box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.1); /* Sombra de la lista desplegable */
+    z-index: 1; /* Asegurar que la lista desplegable esté sobre otros elementos */
+    white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
 }
 
+/* Estilos para los elementos de la lista desplegable */
 .lista-desplegable li {
-    display: block;
+    margin-bottom: 1rem; /* Espacio entre elementos de la lista */
+    list-style-type: none; /* Ocultar los puntos en los elementos li */
 }
 
-.lista-desplegable li a {
-    display: block;
-    padding: 1rem 1.5rem;
-    text-decoration: none;
-    color: #333;
+/* Estilos para los enlaces de la lista desplegable */
+.lista-desplegable a {
+    text-decoration: none; /* Eliminar subrayado de los enlaces */
+    color: #ffffff; /* Color del texto de los enlaces */
+    transition: color 0.3s; /* Transición de color al pasar el ratón por encima */
+    text-align:left;
 }
 
-.icono-menu:focus + .lista-desplegable {
-    display: block;
+/* Estilos para los enlaces de la lista desplegable al pasar el ratón por encima */
+.lista-desplegable a:hover {
+    color: #fbad18; /* Cambiar el color del texto al pasar el ratón por encima */
 }
 
+/* Estilos para mostrar la lista desplegable al pasar el ratón por encima del menú */
+.menu:hover .lista-desplegable {
+    display: block; /* Mostrar la lista desplegable cuando se pasa el mouse sobre el menú */
+}
+/*estilos secciones pedir y reserva en home*/
 #pedirMain, #reservarMesaMain {
     background-color: #9D4E4E; 
     border-radius: 0.8rem;
@@ -100,7 +109,7 @@ header h1 {
     margin-top: 0.8rem; 
     margin-left: auto;
 }
-
+/*estilos seccion novedades en home*/
 #novedades {
     text-align: center;
     padding: 2rem;
@@ -136,7 +145,7 @@ header h1 {
     margin-top: 0.8rem;
     color: #000000;
 }
-/* Estilos para el formulario*/
+/* estilos formulario*/
 form {
     max-width: 25rem; 
     margin: 0 auto; 
@@ -185,65 +194,3 @@ a:hover {
 }
 
 
-/* Estilos para el header */
-header {
-    background-color: #ffffff; /* Color de fondo del encabezado */
-    padding: 10px 20px; /* Espacio interno del encabezado */
-    display: flex; /* Mostrar elementos en línea */
-    justify-content: space-between; /* Distribuir los elementos horizontalmente */
-    align-items: center; /* Alinear elementos verticalmente */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra del encabezado */
-}
-
-
-/* Estilos para el menú de navegación */
-.menu {
-    position: relative; /* Posición relativa para el menú desplegable */
-}
-
-/* Estilos para el icono de menú */
-.icono-menu {
-    width: 2rem; /* Ancho del icono de menú */
-    cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
-}
-
-/* Estilos para la lista desplegable */
-.lista-desplegable {
-    display: none; /* Ocultar la lista desplegable por defecto */
-    position: absolute; /* Posición absoluta para la lista desplegable */
-    top: 100%; /* Alinear la parte superior de la lista desplegable con la parte inferior del elemento padre */
-    background-color: #ffffff; /* Color de fondo de la lista desplegable */
-    padding: 10px; /* Espacio interno de la lista desplegable */
-    border-radius: 5px; /* Bordes redondeados de la lista desplegable */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra de la lista desplegable */
-    z-index: 1; /* Asegurar que la lista desplegable esté sobre otros elementos */
-    white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
-}
-
-/* Estilos para los elementos de la lista desplegable */
-.lista-desplegable li {
-    margin-bottom: 10px; /* Espacio entre elementos de la lista */
-}
-
-/* Estilos para los enlaces de la lista desplegable */
-.lista-desplegable a {
-    text-decoration: none; /* Eliminar subrayado de los enlaces */
-    color: #000000; /* Color del texto de los enlaces */
-    transition: color 0.3s; /* Transición de color al pasar el ratón por encima */
-}
-
-/* Estilos para los enlaces de la lista desplegable al pasar el ratón por encima */
-.lista-desplegable a:hover {
-    color: #fbad18; /* Cambiar el color del texto al pasar el ratón por encima */
-}
-
-/* Estilos para mostrar la lista desplegable al pasar el ratón por encima del icono */
-.menu:hover .lista-desplegable {
-    display: block; /* Mostrar la lista desplegable al pasar el ratón por encima del icono */
-}
-
-/* Ajustar la posición de la lista desplegable si se sale de la pantalla */
-.lista-desplegable.left-aligned {
-    left: auto; /* Reiniciar la posición izquierda */
-    right: 0; /* Alinear la derecha de la lista desplegable con la derecha del elemento padre */
-}
