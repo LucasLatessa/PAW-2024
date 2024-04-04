@@ -1,3 +1,4 @@
+
 /*----------estilos "carrusel simulado"----------*/
 
 section.carrusel > h2 {
@@ -29,6 +30,7 @@ section.carrusel {
 #reservarMesaMain {
   background-color: #9d4e4e;
   border-radius: 0.8rem;
+  margin: 2rem;
   padding: 0.8rem;
   text-align: center;
   color: #000000;
@@ -52,7 +54,7 @@ section.carrusel {
 #reservarMesaMain a {
   /*Transformar anchors en botones*/
   display: block; /* Convertir el enlace en un bloque */
-  background-color: #fff;
+  background-color: #231F20;
   color: #9d4e4e;
   padding: 0.5rem 0.5rem;
   border-radius: 0.3rem;
@@ -76,28 +78,31 @@ h4 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  
 }
 
 #novedades article {
+  background-color: fbad18;
   margin: 1rem;
   border-radius: 0.7rem;
   flex: 1;
   box-sizing: border-box;
   border-radius: 50px;
   box-shadow:  8px 8px 36px #5a5a5a,
-              -8px -8px 36px #ffffff;
+              -8px -8px 36px #231F20;
+  background-color: white;
 }
 
 #novedades article h5 {
   padding: 0.2em;
   text-transform: uppercase;
   font-size: 1.5em;
-  color: #000000;
+  color: #231F20;
 }
 
 #novedades article figure {
   margin-top: 0.8rem;
-  border-color: white;
+  border-color: #231F20;
 }
 
 #novedades article img {
@@ -107,6 +112,6 @@ h4 {
 
 #novedades article figcaption {
   margin-top: 0.8rem;
-  color: #000000;
+  color: #231F20;
   font-family: "Century-Gothic";
 }
