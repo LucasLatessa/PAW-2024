@@ -1,51 +1,86 @@
 /*----------estilos formulario----------*/
 form {
-    max-width: 25rem;
-    margin: 0 auto;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 0.8rem;
-    color: #000000;
-  }
-  
-  input[type="text"],
-  input[type="password"],
-  input[type="email"],
-  input[type="submit"] {
-    width: calc(100% - 1.6rem);
-    padding: 0.8rem;
-    margin-bottom: 20px;
-    border: 0.1rem solid #000;
-    border-radius: 1.5rem;
-    box-sizing: border-box;
-    background-color: #000;
-    color: #fff;
-  }
-  
-  input[type="submit"] {
-    background-color: #fbad18;
-    color: #fff;
-  }
-  
-  #required {
-    font-size: 1rem;
-    font-style: italic;
-    font-family: "Century Gothic";
-  }
-  
+  max-width: 25rem;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-areas:
+    "nombre apellido"
+    "email  email"
+    "contraseña valida"
+    "registrarse registrarse";
+}
+
+/* GRID TEMPLATES */
+label[for="nombre"]{
+  grid-area: nombre;
+}
+
+label[for="apellido"]{
+  grid-area: apellido;
+}
+
+label[for="email"] {
+  grid-area: email;
+}
+
+label[for="contraseña"] {
+  grid-area: contraseña;
+}
+
+label[for="validarContraseña"]{
+  grid-area: valida;
+}
+
+.registrarse {
+  grid-area: registrarse;
+}
+
+/* Estilos para cada label/input */
+label {
+  margin-bottom: 0.8rem;
+  color: #000000;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="submit"] {
+  width: calc(100% - 1.6rem);
+  padding: 0.8rem;
+  margin-bottom: 20px;
+  border: 0.1rem solid #000;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  background-color: #000;
+  color: #fff;
+}
+
+input[type="submit"] {
+  background-color: #fbad18;
+  color: #fff;
+}
+
+#required {
+  font-size: 1rem;
+  font-style: italic;
+  font-family: "Century Gothic";
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Celular
+@media (max-width: 1250px) {
   a {
     display: block;
     text-align: center;
     color: #fbad18;
     text-decoration: none;
   }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  a {
-    text-decoration: none;
-  }
+} */
