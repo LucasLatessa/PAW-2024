@@ -47,8 +47,10 @@ header {
 .icono-carrito,
 .icono-usuario {
   width: 2.2rem; /* Ancho de los iconos de carrito y usuario */
-  cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
+  cursor: pointer;
+   /* Cambiar el cursor al pasar por encima del icono */
 }
+
 
 /* Estilos para la lista desplegable */
 .lista-desplegable {
