@@ -1,6 +1,9 @@
-/* HEADER */
-
+/*------------- HEADER MENU  -----------------*/
 .header-menu{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
     padding: 1rem;
     background-image: url(../../assets/hamburguesa1.jpg);
     background-position: center;
@@ -23,43 +26,71 @@ h2 {
     font-size: 2.5rem;
 }
 
-/*-------------MENU-----------------*/
+/*------------- MENU -----------------*/
 
-/* Comida del mes */
-.menu-comida{
+/* Cada articulo comida - Display grid! */
+article.menu-comida, article.menu-comida-mes{
     display: grid;
     grid-template-areas:
         'titulo titulo'
         'imagen imagen'
         'precio pedir';
+    grid-template-rows: 15% auto auto;
+    grid-template-columns: 50% 50%;
     justify-content: center;
     align-items: center;
     justify-items: center;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow:  -5px 5px 10px #d4d4d4,
+                5px -5px 10px #ffffff;
+    margin: 20px; /*Separacion entre elementos*/
 }
 
-/*Menu */
-#menuHamburguesa{
-    display: inline-block;
+article.menu-comida-mes{
+    grid-template-rows: 15% auto auto;
+    grid-template-columns: 40% 40%;
 }
 
-.figura-hamburguesa{
-    grid-area: imagen;
+/* Secciones - Display flex! */
+section:not(.titulo-comida){
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.titulo-comida {
+    width: 100%;
 }
 
 .figura-hamburguesa figcaption{
     text-align: center;
 }
 
-.menu-comida>h3{
-    grid-area: titulo;
+/* Posicionamiento del contenido de los articulos con grind area y estilos a cada elemento */
+
+.figura-hamburguesa{
+    grid-area: imagen;
 }
 
-.hamburguesa-comida-mes{
+.menu-comida>h3, .menu-comida-mes>h3{
+    grid-area: titulo;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.comida-imagen{
     grid-area: imagen;
 }
 
 .pedir-comida{
+    padding: 10px 50px;
     grid-area: pedir;
+    background-color: #fbad18;
+    text-decoration: none;
+    border-radius: 50px;
+    color: #fff;
 }
 
 .precio-comida{
@@ -68,4 +99,7 @@ h2 {
 
 .descripcion-comida {
     grid-area: descripcion;
+    font-family: "Century Gothic";
 }
+
+
