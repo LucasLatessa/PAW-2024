@@ -12,21 +12,30 @@
   </head>
   <body>
     <!--HEADER-->
-    <header>
+    <header class="header-body">
       <nav class="menu">
-        <img src="../assets/MenuBurger.png" class="icono-menu">
+        <img src="../assets/MenuBurger.png" class="icono-menu" />
         <ul class="lista-desplegable">
           <li><a href="../compra/menu.html">Menu</a></li>
           <li><a href="../compra/reserva.html">Reservar mesa</a></li>
-          <li class="header-derecha" ><a href="../cuenta/perfil.html">Perfil</a></li><!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
+          <li class="header-derecha">
+            <a href="../cuenta/perfil.html">Perfil</a>
+          </li>
+          <!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
           <li></li>
         </ul>
       </nav>
-      <h1><a href="../index.html"> 
-        <img src="../assets/Imagotipo.svg" alt="Paw Power" class="logo"> 
-      </a></h1>
-      <a href="../compra/carrito.html"><img src="../assets/carrito.png" alt="Carrito"class="icono-carrito"></a>
-      <a href="../cuenta/login.html"><img src="../assets/user.png" alt="Usuario"class="icono-usuario"></a>
+      <h1>
+        <a href="../index.html">
+          <img src="../assets/Imagotipo.svg" alt="Paw Power" class="logo" />
+        </a>
+      </h1>
+      <a href="../compra/carrito.html"
+        ><img src="../assets/carrito.png" alt="Carrito" class="icono-carrito"
+      /></a>
+      <a href="../cuenta/login.html"
+        ><img src="../assets/user.png" alt="Usuario" class="icono-usuario"
+      /></a>
     </header>
 
     <main>
@@ -63,7 +72,7 @@
         <input type="radio" id="tarjeta" name="pago" value="tarjeta" />
         <label for="tarjeta">Tarjeta</label>
 
-        <a href="selecLoc.html">Seleccionar local</a
+        <a href="./selecLoc.html">Seleccionar local</a
         ><!--Si se selecciono opcion take away-->
 
         <h2>Forma de entrega</h2>
@@ -73,7 +82,7 @@
         <input type="radio" id="delivery" name="envio" value="Delivery" />
         <label for="delivery">Delivery</label>
 
-        <a href="selecDirec.html">Seleccionar direccion</a
+        <a href="./selecDirec.html">Seleccionar direccion</a
         ><!--Si se selecciono opcion delivery-->
 
         <h2>Subtotal:$$$</h2>
@@ -81,13 +90,12 @@
           Realizar pedido
         </button>
       </form>
-      <a href="menu.html">Volver al menu</a>
+      <a href="./menu.html">Volver al menu</a>
     </main>
 
     <!--FOOTER-->
     <footer style="background-color: aliceblue">
-      <!--<img id="logoFooter" src="assets/Imagotipo.svg" alt="Logo La Rapida Gula" />-->
-
+     
       <nav class = "contenedor-links">
         <ul class="links" >
           <li id = "locales"><a href="../institucional/locales.html">Locales</a></li>

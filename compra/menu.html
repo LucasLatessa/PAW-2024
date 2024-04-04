@@ -8,105 +8,139 @@
     />
     <title>Menu - PAW Power</title>
     <link rel="icon" href="../assets/Isotipo.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="./styles/menu.css">
     <link rel="stylesheet" href="../styles/header-footer.css">
   <body>
     <!--HEADER-->
-    <header>
+    <header class="header-body">
       <nav class="menu">
-        <img src="../assets/MenuBurger.png" class="icono-menu">
+        <img src="../assets/MenuBurger.png" class="icono-menu" />
         <ul class="lista-desplegable">
           <li><a href="../compra/menu.html">Menu</a></li>
           <li><a href="../compra/reserva.html">Reservar mesa</a></li>
-          <li class="header-derecha" ><a href="../cuenta/perfil.html">Perfil</a></li><!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
+          <li class="header-derecha">
+            <a href="../cuenta/perfil.html">Perfil</a>
+          </li>
+          <!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
           <li></li>
         </ul>
       </nav>
-      <h1><a href="../index.html"> 
-        <img src="../assets/Imagotipo.svg" alt="Paw Power" class="logo"> 
-      </a></h1>
-      <a href="../compra/carrito.html"><img src="../assets/carrito.png" alt="Carrito"class="icono-carrito"></a>
-      <a href="../cuenta/login.html"><img src="../assets/user.png" alt="Usuario"class="icono-usuario"></a>
+      <h1>
+        <a href="../index.html">
+          <img src="../assets/Imagotipo.svg" alt="Paw Power" class="logo" />
+        </a>
+      </h1>
+      <a href="../compra/carrito.html"
+        ><img src="../assets/carrito.png" alt="Carrito" class="icono-carrito"
+      /></a>
+      <a href="../cuenta/login.html"
+        ><img src="../assets/user.png" alt="Usuario" class="icono-usuario"
+      /></a>
     </header>
 
     <!--CODIGO DE MENU-->
     <main>
-      <header>
+      <header class="header-menu">
         <!--background <img src="../assets/fondoMenu.jpg" alt="Fondo Menu - Rapida Gula" width="500">-->
-        <h1>MENU</h1>
+        <h1 class="menu-titulo">MENU</h1>
       </header>
 
       <section id="menuComidaMes">
-        <h2>COMIDA DEL MES</h2>
-        <article>
+        <h2 class="titulo-comida">COMIDA DEL MES</h2>
+        <article class="menu-comida-mes">
           <h3>Hamburguesa clasica</h3>
-          <figure>
-            <img
+          <figure class="figura-hamburguesa">
+            <img class="comida-imagen"
               src="../assets/hamburguesa1.jpg"
               alt="Hamburguesa comida del mes"
               width="500"
             />
-            <figcaption>descripcion</figcaption>
+            <figcaption class="descripcion-comida">descripcion</figcaption>
           </figure>
-          <p>$$$$$$$$</p>
-          <a href="pedirComida.html">PEDIR</a>
+          <p class="precio-comida">$$$$$$$$</p>
+          <a class="pedir-comida" href="./pedirComida.html">PEDIR</a>
         </article>
       </section>
 
       <section id="menuHamburguesa">
-        <h2>HAMBURGUESAS</h2>
+        <h2 class="titulo-comida">HAMBURGUESAS</h2>
 
-        <article>
+        <article class="menu-comida">
           <h3>Hamburguesa con queso</h3>
-          <figure>
-            <img
+          <figure class="figura-hamburguesa">
+            <img class="comida-imagen"
               src="../assets/hamburguesa1.jpg"
               alt="Hamburguesa con queso"
               width="500"
             />
-            <figcaption>descripcion</figcaption>
+            <figcaption class="descripcion-comida">descripcion</figcaption>
           </figure>
-          <p>$$$$$$$$</p>
-          <a href="pedirComida.html">PEDIR</a>
+          <p class="precio-comida">$$$$$$$$</p>
+          <a class="pedir-comida" href="./pedirComida.html">PEDIR</a>
         </article>
 
-        <article>
+        <article class="menu-comida">
           <h3>Hamburguesa completa</h3>
-          <figure>
-            <img
+          <figure class="figura-hamburguesa">
+            <img class="comida-imagen"
               src="../assets/hamburguesa2.jpg"
               alt="Hamburguesa completa"
               width="500"
             />
-            <figcaption>descripcion</figcaption>
+            <figcaption class="descripcion-comida">descripcion</figcaption>
           </figure>
-          <p>$$$$$$$$</p>
-          <a href="pedirComida.html">PEDIR</a>
+          <p class="precio-comida">$$$$$$$$</p>
+          <a class="pedir-comida" href="./pedirComida.html">PEDIR</a>
         </article>
 
-        <article>
+        <article class="menu-comida">
           <h3>Hamburguesa Americana</h3>
-          <figure>
-            <img
+          <figure class="figura-hamburguesa">
+            <img class="comida-imagen"
               src="../assets/hamburguesa3.jpg"
               alt="Hamburguesa Americana"
               width="500"
             />
-            <figcaption>descripcion</figcaption>
+            <figcaption class="descripcion-comida">descripcion</figcaption>
           </figure>
-          <p>$$$$$$$$</p>
-          <a href="pedirComida.html">PEDIR</a>
+          <p class="precio-comida">$$$$$$$$</p>
+          <a class="pedir-comida" href="./pedirComida.html">PEDIR</a>
+        </article>
+
+        <article class="menu-comida">
+          <h3>Hamburguesa Americana</h3>
+          <figure class="figura-hamburguesa">
+            <img class="comida-imagen"
+              src="../assets/hamburguesa3.jpg"
+              alt="Hamburguesa Americana"
+              width="500"
+            />
+            <figcaption class="descripcion-comida">descripcion</figcaption>
+          </figure>
+          <p class="precio-comida">$$$$$$$$</p>
+          <a class="pedir-comida" href="./pedirComida.html">PEDIR</a>
+        </article>
+
+        <article class="menu-comida">
+          <h3>Hamburguesa Americana</h3>
+          <figure class="figura-hamburguesa">
+            <img class="comida-imagen"
+              src="../assets/hamburguesa3.jpg"
+              alt="Hamburguesa Americana"
+              width="500"
+            />
+            <figcaption class="descripcion-comida">descripcion</figcaption>
+          </figure>
+          <p class="precio-comida">$$$$$$$$</p>
+          <a class="pedir-comida" href="./pedirComida.html">PEDIR</a>
         </article>
       </section>
 
-      <a href="carrito.html"
-        ><img src="../assets/carrito.png" alt="Carrito" width="200"
-      /></a>
     </main>
 
     <!--FOOTER-->
     <footer style="background-color: aliceblue">
-      <!--<img id="logoFooter" src="assets/Imagotipo.svg" alt="Logo La Rapida Gula" />-->
-
+      
       <nav class = "contenedor-links">
         <ul class="links" >
           <li id = "locales"><a href="../institucional/locales.html">Locales</a></li>
