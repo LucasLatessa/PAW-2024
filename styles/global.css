@@ -1,6 +1,15 @@
 
+html {
+  font-size: 16px; /*definiendo el rem*/
+}
 /*----------estilos "carrusel simulado"----------*/
 
+h1,h4 {
+  text-transform: uppercase;
+  text-align: center;
+  margin: 1rem;
+  font-size: 1.5rem;
+}
 section.carrusel > h2 {
   text-transform: uppercase;
   text-align: center;
@@ -65,12 +74,7 @@ section.carrusel {
 
 /*----------estilos seccion novedades en home----------*/
 
-h4 {
-  text-transform: uppercase;
-  text-align: center;
-  margin: 1em;
-  font-size: 1.5em;
-}
+
 
 #novedades {
   text-align: center;
@@ -94,9 +98,9 @@ h4 {
 }
 
 #novedades article h5 {
-  padding: 0.2em;
+  padding: 0.2rem;
   text-transform: uppercase;
-  font-size: 1.5em;
+  font-size: 1.5rem;
   color: #231F20;
 }
 
