@@ -4,10 +4,6 @@
       url("../font/century_gothic.ttf") format("truetype");
   }
 
-h1 {
-    text-align: center;    
-    text-transform: uppercase;
-}
 
 h2 {
     color:#fbad18;

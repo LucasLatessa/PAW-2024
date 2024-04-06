@@ -4,7 +4,7 @@ html {
 }
 /*----------estilos "carrusel simulado"----------*/
 
-h1,h4 {
+h1,h2,h4 {
   text-transform: uppercase;
   text-align: center;
   margin: 1rem;
