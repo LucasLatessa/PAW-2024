@@ -52,13 +52,14 @@ input[type="submit"] {
   border: 0.1rem solid #000;
   border-radius: 1.5rem;
   box-sizing: border-box;
-  background-color: #000;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
 }
 
 input[type="submit"] {
-  background-color: #fbad18;
-  color: #fff;
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: 5px 5px 10px #000000;
 }
 
 #required {
@@ -73,6 +74,7 @@ a:hover {
 
 a {
   text-decoration: none;
+  color:#000;
 }
 
 /* Celular
