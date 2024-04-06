@@ -4,7 +4,7 @@ html {
 }
 /*----------estilos "carrusel simulado"----------*/
 
-h1,h2,h4 {
+h1,h2, h4 {
   text-transform: uppercase;
   text-align: center;
   margin: 1rem;
@@ -60,13 +60,15 @@ section.carrusel {
 }
 
 #pedirMain a,
-#reservarMesaMain a {
+#reservarMesaMain a,
+.menu-comida-mes a,
+.menu-comida a {
   /*Transformar anchors en botones*/
   display: block; /* Convertir el enlace en un bloque */
   background-color: #231F20;
-  color: #9d4e4e;
+  color: #ffffff;
   padding: 0.5rem 0.5rem;
-  border-radius: 0.3rem;
+  border-radius: 1rem;
   text-decoration: none;
   margin-top: 0.8rem;
   margin-left: auto;
@@ -76,7 +78,9 @@ section.carrusel {
 
 
 
-#novedades {
+#novedades, #menuComidaMes,
+#menuHamburguesa
+ {
   text-align: center;
   padding: 2rem;
   display: flex;
@@ -85,7 +89,7 @@ section.carrusel {
   
 }
 
-#novedades article {
+ article {
   background-color: fbad18;
   margin: 1rem;
   border-radius: 0.7rem;
@@ -97,25 +101,28 @@ section.carrusel {
   background-color: white;
 }
 
-#novedades article h5 {
+ article h5 {
   padding: 0.2rem;
   text-transform: uppercase;
   font-size: 1.5rem;
   color: #231F20;
 }
 
-#novedades article figure {
+ article figure {
   margin-top: 0.8rem;
   border-color: #231F20;
 }
 
-#novedades article img {
+ article img {
   max-width: 100%;
   border-radius: 0.3rem;
 }
 
-#novedades article figcaption {
+ article figcaption {
   margin-top: 0.8rem;
   color: #231F20;
   font-family: "Century-Gothic";
 }
+
+
+
