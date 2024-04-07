@@ -45,8 +45,12 @@ main {
 .serv-cliente{
   background-image: url(../../assets/local3.jpg);
 }
+
+.locales{
+  background-image: url(../../assets/local1.jpg);
+}
   
-.header-institucional>h1 {
+.header-institucional>h1, .locales {
   text-transform: uppercase;
   color: var(--color-terceario);
   font-size: 3.5rem;
@@ -97,3 +101,50 @@ section>h2{
 .correo{grid-area: correo;}
 .numero{grid-area: numero;}
 .ubi{grid-area: ubi;}
+
+iframe{
+  padding: 2rem;
+  display: block;
+  margin: 0 auto;
+}
+
+.lista-locales{
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.lista-locales li{
+  width: 40%;
+  display: grid;
+  grid-template-areas: "local reserva"
+                        "ubi reserva";
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  background-color: var(--color-terceario);
+  grid-template-columns: 70% auto;
+}
+
+.lista-locales>li strong{
+  grid-area: local;
+  padding-bottom: 0.5rem;
+}
+
+.lista-locales>li p{
+  grid-area: ubi;
+  font-family: "Century Gothic";
+}
+
+.lista-locales>li a{
+  grid-area: reserva;
+  margin: auto 0;
+  text-decoration: none;
+  background-color: var(--color-letras);
+  color: var(--color-terceario);
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 10px;
+}
+
+
