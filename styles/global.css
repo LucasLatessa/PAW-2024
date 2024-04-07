@@ -153,6 +153,8 @@ section.carrusel {
 }
 
 /*------------- MENU -----------------*/
+/* PROBAR WIDTH: MIN(80%,25REM) */
+/* BOX-SIZING: BORDER-BOX */
 
 /* Cada articulo comida - Display grid! */
 article.article-comida, article.article-comida-mes{
