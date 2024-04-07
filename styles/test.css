@@ -1,0 +1,116 @@
+
+  /* ------------- MENU ---------------- */
+  
+  /*------------- HEADER MENU  -----------------*/
+  .header-menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+    background-image: url(../../assets/hamburguesa1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .header-menu h1 {
+    text-transform: uppercase;
+    color: white;
+    font-size: 3.5rem;
+    text-shadow: 0 0 3px black;
+  }
+  
+  /* ------------ COMIDA DEL MES ---------*/
+  
+  .titulo-comida {
+    text-align: center;
+    font-size: 2rem;
+    margin: 1rem;
+  }
+  
+  /*------------- MENU -----------------*/
+  /* PROBAR WIDTH: MIN(80%,25REM) */
+  /* BOX-SIZING: BORDER-BOX */
+  
+  /* Cada articulo comida - Display grid! */
+  article.article-comida, article.article-comida-mes{
+    display: grid;
+    grid-template-areas:
+        'titulo titulo'
+        'imagen imagen'
+        'precio pedir';
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    width: 900rem;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow:  -5px 5px 10px #d4d4d4,
+                5px -5px 10px #ffffff;
+  }
+  
+  /* COMIDA DEL MES */
+  
+  article.article-comida-mes{
+  
+    grid-template-rows: 10% auto auto;
+    grid-template-columns: 50% 50%;
+  }
+  
+  .seccion-comida-mes{
+    display: flex;
+    margin: 0 auto;
+  }
+  
+  
+  /* Posicionamiento del contenido de los articulos con grind area y estilos a cada elemento */
+  
+  .figura-hamburguesa, .comida-imagen{
+    grid-area: imagen;
+    max-width: 100%; 
+    max-height: 15rem; 
+    margin-bottom: 1rem; 
+  }
+  
+  .pedir-comida{
+    padding: 0.5rem 2rem;
+    grid-area: pedir;
+    text-decoration: none;
+    border-radius: 50px;
+    color: #000000;
+    background-color: #fbad18;
+  }
+  
+  .precio-comida{
+    grid-area: precio;
+  }
+  
+  .descripcion-comida {
+    grid-area: descripcion;
+    font-family: "Century Gothic";
+  }
+  
+  /* Titulo de la comida */
+  
+  article>h3{
+    grid-area: titulo;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .figura-hamburguesa figcaption{
+    text-align: center;
+  }
+  
+  /* Secciones (ej: Hamburguesas) - Display flex! */
+  
+  .seccion-comida{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
