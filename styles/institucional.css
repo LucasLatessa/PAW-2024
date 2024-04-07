@@ -103,6 +103,8 @@ section>h2{
 .ubi{grid-area: ubi;}
 
 iframe{
+  width: 90%;
+  height: 45vh;
   padding: 2rem;
   display: block;
   margin: 0 auto;
@@ -147,4 +149,14 @@ iframe{
   border-radius: 10px;
 }
 
+@media (max-width: 1024px) {
 
+  .lista-locales{
+    width: 80%;
+    justify-content:center;
+  }
+
+  .lista-locales li{
+    width: 100%;
+  }
+}
