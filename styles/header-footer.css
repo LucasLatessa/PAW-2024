@@ -89,13 +89,13 @@
 }
 
 /*Por elemento*/
-.lista-desplegable li{
+.lista-desplegable li {
   margin-bottom: 1rem; /*Espacio entre elementos*/
   /*list-style-type: none;*/
 }
 
 /*Por enlaces*/
-.lista-desplegable a{
+.lista-desplegable a {
   text-decoration: none;
   color: var(--color-terceario);
   transform: color 0.3s;
@@ -103,7 +103,7 @@
 }
 
 /*Pasar por arriba del enlace*/
-.lista-desplegable a:hover{
+.lista-desplegable a:hover {
   color: var(--color-principal);
 }
 
@@ -125,7 +125,8 @@ footer {
 }
 
 /*Enlaces + Redes */
-footer nav ul.links, footer nav ul.redes {
+footer nav ul.links,
+footer nav ul.redes {
   display: flex;
   justify-content: center;
 }

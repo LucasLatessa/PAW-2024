@@ -1,243 +1,290 @@
-/*----------estilos "carrusel simulado"----------*/
+/* Estilo basico del sitio en raiz */
+:root {
+  /*Colores a utilizar*/
+  --color-principal: #fbad18;
+  --color-principal-claro: #fddf8a;
+  --color-secundario: #231f20;
+  --color-letras: #000000;
+  --color-terceario: #ffffff;
 
-h1, h4 {
+  /*Fuentes*/
+  font-family: "Black regular";
+  font-size: 16px;
+
+}
+
+/* Para que el footer no quede flotando */
+main {
+  min-height: 60vh;
+}
+
+@media (max-width: 540px) {
+  :root{
+    font-size: 12px;
+  }
+}
+
+/* --------------------------
+           INDEX
+-----------------------------*/
+
+/* --------- CARRUSEL -------- */
+
+.titulo-promociones, .titulo-novedades{
   text-transform: uppercase;
   text-align: center;
-  margin: 1rem;
-  font-size: 1.5rem;
-}
-a {
-  text-decoration: none;
-  color: #000000; 
-  display: block;
-}
-a:hover {
-  text-decoration: underline;
-}
-section.carrusel > h2 {
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: auto;
+  font-size: 3rem;
+  padding: 1rem;
 }
 
-section.carrusel {
-  overflow-x: auto; /* Permitir desplazamiento horizontal si el contenido es más ancho que el contenedor */
-  white-space: nowrap; /* Evitar que las imágenes se envuelvan a la siguiente línea */
+section.carrusel{
+  width: 60%;
+  height: auto;
+  margin: 1rem auto 0;
+  overflow: hidden;
 }
 
-.carrusel figure {
-  display: inline-block;
-  white-space: normal; /* Restaurar el comportamiento de envoltura de texto normal */
+section.carrusel > h3{
+  font-size: 2rem;
 }
 
-.carrusel figure img {
+section.carrusel ul{
+  display: flex;
+  padding: 0;
+  width: 400%;
+
+  animation: slide 10s infinite alternate ease-in-out;
+}
+
+section.carrusel li{
   width: 100%;
 }
-.carrusel figcaption {
-  text-align: center;
+
+section.carrusel img{
+  width: 100%;
 }
 
-/*----------estilos secciones pedir y reserva en home----------*/
+@keyframes slide{
+  0% {margin-left: 0%}
+  20% {margin-left: 0%}
 
-#pedirMain,
-#reservarMesaMain {
-  background-color: #9d4e4e;
+  25% {margin-left: -100%}
+  45% {margin-left: -100%}
+
+  50% {margin-left: -200%}
+  70% {margin-left: -200%}
+
+  75% {margin-left: -300%}
+  100% {margin-left: -300%}
+}
+
+/* ---- PEDIR Y RESERVA EN HOME ------*/
+
+.pedirMain, .reservarMesaMain {
+  background-color: var(--color-principal);
   border-radius: 0.8rem;
-  margin: 2rem;
+  margin: 2rem 0;
   padding: 0.8rem;
-  text-align: center;
-  color: #000000;
   width: 35%;
+  text-align: center;
+  color: var(--color-letras);
   display: inline-block;
-  margin-right: 1rem;
-  margin-left: 5rem;
   font-size: 1rem;
   box-sizing: border-box;
-  border-radius: 0.8rem;
-  box-shadow:  8px 8px 36px #5a5a5a,
-              -8px -8px 36px #ffffff;
 }
 
-#pedirMain img,
-#reservarMesaMain img {
+.pedirMain img, .reservarMesaMain img{
   max-width: 50%;
+  padding-top: 1rem;
 }
 
-#pedirMain a,
-#reservarMesaMain a {
-  /*Transformar anchors en botones*/
-  display: block; /* Convertir el enlace en un bloque */
-  background-color: #231F20;
-  color: #ffffff;
-  padding: 0.5rem 0.5rem;
+.pedirMain a, .reservarMesaMain a{
+  display: block;
+  background-color: var(--color-secundario);
+  color: var(--color-terceario);
+  padding: 0.5rem;
   border-radius: 1rem;
   text-decoration: none;
-  margin-left: auto;
 }
 
-/*----------estilos seccion novedades en home----------*/
+/* ------------ NOVEDADES -------- */
 
-#novedades,
-#menuHamburguesa
- {
+.novedades, #menuHamburguesa{
   text-align: center;
   padding: 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  
 }
 
- article {
-  background-color: fbad18;
+.novedades > article{
+  background-color: var(--color-terceario);
   margin: 1rem;
-  border-radius: 0.7rem;
-  flex: 1;
-  box-sizing: border-box;
-  border-radius: 50px;
-  box-shadow:  8px 8px 36px #5a5a5a,
-              -8px -8px 36px #231F20;
-  background-color: white;
 }
 
- article h5 {
-  padding: 0.2rem;
+.novedades > article > h5{
+  padding: 1rem;
   text-transform: uppercase;
   font-size: 1.5rem;
-  color: #231F20;
+  color: var(--color-letras);
 }
 
- article figure {
-  margin-top: 0.8rem;
-  border-color: #231F20;
-}
-
- article img {
-  max-width: 100%;
-  border-radius: 0.3rem;
-}
-
- article figcaption {
-  margin-top: 0.8rem;
-  color: #231F20;
+.novedades > article figcaption{
+  margin: 0.8rem;
+  color: var(--color-letras);
   font-family: "Century-Gothic";
 }
 
-/* ------------- MENU ---------------- */
-
-/*------------- HEADER MENU  -----------------*/
-.header-menu{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 1rem;
-  background-image: url(../../assets/hamburguesa1.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.novedades > article img {
+  width: 100%;
+  height: 30%;
+  object-fit: cover;
 }
 
-.header-menu h1 {
-  text-transform: uppercase;
-  color: white;
-  font-size: 3.5rem;
-  text-shadow: 0 0 3px black;
-}
+/* MEDIA QUERIS INDEX */
+@media (max-width: 1024px) {
 
-/* ------------ COMIDA DEL MES ---------*/
+  .pedirMain, .reservarMesaMain{
+    display: block;
+    margin: 2rem auto;
+    width: 85%;
+  }
 
-.titulo-comida {
-  text-align: center;
-  font-size: 2rem;
-  margin: 1rem;
-}
-
-/*------------- MENU -----------------*/
-/* PROBAR WIDTH: MIN(80%,25REM) */
-/* BOX-SIZING: BORDER-BOX */
-
-/* Cada articulo comida - Display grid! */
-article.article-comida, article.article-comida-mes{
-  display: grid;
-  grid-template-areas:
-      'titulo titulo'
-      'imagen imagen'
-      'precio pedir';
-  justify-content: center;
-  align-items: center;
-  justify-items: center;
-  align-content: center;
-  width: 900rem;
-  border-radius: 8px;
-  background: #ffffff;
-  box-shadow:  -5px 5px 10px #d4d4d4,
-              5px -5px 10px #ffffff;
-}
-
-/* COMIDA DEL MES */
-
-article.article-comida-mes{
-
-  grid-template-rows: 10% auto auto;
-  grid-template-columns: 50% 50%;
-}
-
-.seccion-comida-mes{
-  display: flex;
-  margin: 0 auto;
+  section.carrusel{
+    width: 100%;
+  }
 }
 
 
-/* Posicionamiento del contenido de los articulos con grind area y estilos a cada elemento */
+@media (min-width: 1025px){
+  .pedirMain{
+    position: relative;
+    left: 10%;
+  }
+  
+  .reservarMesaMain{
+    position: absolute;
+    left: 55%;
+  }
 
-.figura-hamburguesa, .comida-imagen{
-  grid-area: imagen;
-  max-width: 100%; 
-  max-height: 15rem; 
-  margin-bottom: 1rem; 
-}
-
-.pedir-comida{
-  padding: 0.5rem 2rem;
-  grid-area: pedir;
-  text-decoration: none;
-  border-radius: 50px;
-  color: #000000;
-  background-color: #fbad18;
-}
-
-.precio-comida{
-  grid-area: precio;
-}
-
-.descripcion-comida {
-  grid-area: descripcion;
-  font-family: "Century Gothic";
-}
-
-/* Titulo de la comida */
-
-article>h3{
-  grid-area: titulo;
-  text-transform: capitalize;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-}
-
-.figura-hamburguesa figcaption{
-  text-align: center;
-}
-
-/* Secciones (ej: Hamburguesas) - Display flex! */
-
-.seccion-comida{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  .novedades > article{
+    flex-basis: 45%;
+  }
 }
 
 
-
-
+  /* ------------- MENU ---------------- */
+  
+  /*------------- HEADER MENU  -----------------*/
+  .header-menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+    background-image: url(../../assets/hamburguesa1.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .header-menu h1 {
+    text-transform: uppercase;
+    color: white;
+    font-size: 3.5rem;
+    text-shadow: 0 0 3px black;
+  }
+  
+  /* ------------ COMIDA DEL MES ---------*/
+  
+  .titulo-comida {
+    text-align: center;
+    font-size: 2rem;
+    margin: 1rem;
+  }
+  
+  /*------------- MENU -----------------*/
+  /* PROBAR WIDTH: MIN(80%,25REM) */
+  /* BOX-SIZING: BORDER-BOX */
+  
+  /* Cada articulo comida - Display grid! */
+  article.article-comida, article.article-comida-mes{
+    display: grid;
+    grid-template-areas:
+        'titulo titulo'
+        'imagen imagen'
+        'precio pedir';
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    width: 900rem;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow:  -5px 5px 10px #d4d4d4,
+                5px -5px 10px #ffffff;
+  }
+  
+  /* COMIDA DEL MES */
+  
+  article.article-comida-mes{
+  
+    grid-template-rows: 10% auto auto;
+    grid-template-columns: 50% 50%;
+  }
+  
+  .seccion-comida-mes{
+    display: flex;
+    margin: 0 auto;
+  }
+  
+  
+  /* Posicionamiento del contenido de los articulos con grind area y estilos a cada elemento */
+  
+  .figura-hamburguesa, .comida-imagen{
+    grid-area: imagen;
+    max-width: 100%; 
+    max-height: 15rem; 
+    margin-bottom: 1rem; 
+  }
+  
+  .pedir-comida{
+    padding: 0.5rem 2rem;
+    grid-area: pedir;
+    text-decoration: none;
+    border-radius: 50px;
+    color: #000000;
+    background-color: #fbad18;
+  }
+  
+  .precio-comida{
+    grid-area: precio;
+  }
+  
+  .descripcion-comida {
+    grid-area: descripcion;
+    font-family: "Century Gothic";
+  }
+  
+  /* Titulo de la comida */
+  
+  article>h3{
+    grid-area: titulo;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .figura-hamburguesa figcaption{
+    text-align: center;
+  }
+  
+  /* Secciones (ej: Hamburguesas) - Display flex! */
+  
+  .seccion-comida{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
