@@ -1,0 +1,99 @@
+/* Estilo basico del sitio en raiz */
+:root {
+  /*Colores a utilizar*/
+  --color-principal: #fbad18;
+  --color-principal-claro: #fddf8a;
+  --color-secundario: #231f20;
+  --color-letras: #000000;
+  --color-terceario: #ffffff;
+
+  /*Fuentes*/
+  font-family: "Black regular";
+  font-size: 16px;
+
+}
+
+/* Para que el footer no quede flotando */
+main {
+  min-height: 60vh;
+}
+
+@media (max-width: 540px) {
+  :root{
+    font-size: 12px;
+  }
+}
+
+/* --------------------------
+        SECCIONS INSTITUCIONAL (LOCALES, SERV CLIENTE, SOBRE NOSOTROS)
+-----------------------------*/
+
+.header-institucional{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sobre-nosotros{
+  background-image: url(../../assets/local2.jpg);
+}
+
+.serv-cliente{
+  background-image: url(../../assets/local3.jpg);
+}
+  
+.header-institucional>h1 {
+  text-transform: uppercase;
+  color: var(--color-terceario);
+  font-size: 3.5rem;
+  text-shadow: 0 0 3px black;
+}
+
+section>h2{
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--color-letras);
+  font-size: 3rem;
+  padding: 1rem 0;
+}
+
+.misionesValores>h2,.equipoTrabajo>h2{
+  background-color: var(--color-terceario);
+}
+
+.preguntas{
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  font-size: 2rem;
+  color: var(--color-terceario);
+  background-color: var(--color-secundario);
+}
+  
+.p-institucional{
+  font-family: "Century Gothic";
+  font-weight: bold;
+  text-align: justify;
+  font-size: 1.5rem;
+  padding: 2rem 1.5rem;
+}
+
+.informacionContacto{
+  display: grid;
+  grid-template-areas: "info info info"
+                        "correo numero ubi";
+}
+
+.infoContactotitulo{grid-area: info; text-align: center;}
+
+.correo,.numero,.ubi{
+  text-align: center;
+  font-size: 1.4rem;
+  padding: 1.5rem;
+}
+
+.correo{grid-area: correo;}
+.numero{grid-area: numero;}
+.ubi{grid-area: ubi;}
