@@ -13,10 +13,9 @@
 }
 .form-login{
   max-width: 30rem;
-  /*text-align: center;*/
+  text-align: center;
   margin: 0 auto;
 }
-
 
 /* GRID TEMPLATES */
 label[for="nombre"]{

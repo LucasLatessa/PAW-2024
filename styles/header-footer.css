@@ -1,3 +1,5 @@
+@import url(reset.css);
+
 @font-face {
   font-family: "Black regular";
   src: url("../font/ArchivoBlack-Regular.ttf") format("truetype");
@@ -7,6 +9,7 @@
   src: local("Century Gothic"),
     url("../font/century_gothic.ttf") format("truetype");
 }
+
 body {/* elimina borde blanco en header */
   margin: 0; 
   padding: 0; 
@@ -30,19 +33,24 @@ main {
   background-color: #ffffff; /* Color de fondo del encabezado */
   padding: 1rem 1.2rem; /* Espacio interno del encabezado */
   display: flex; /* Mostrar elementos en línea */
-  justify-content: space-between; /* Distribuir los elementos horizontalmente */
+  justify-content: center; /* Distribuir los elementos horizontalmente */
   align-items: center; /* Alinear elementos verticalmente */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra del encabezado */
 
 }
 
+.header-body > h1 {
+  flex-basis: 80%;
+}
+
 .logo {
-  width: 10rem; /* Ancho del icono de menú */
+  width: 13rem; /* Ancho del icono de menú */
   margin: 0 auto; /* Centrar el logotipo horizontalmente */
 }
 
 /* Estilos para el menú de navegación */
 .menu {
+  flex-basis: 10%;
   position: relative; /* Asegurar que la lista desplegable esté posicionada correctamente */
 }
 
@@ -52,9 +60,14 @@ main {
   cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
 }
 
+.header-body>a{
+  flex-basis: 5%;
+}
+
 /* Estilos para el icono de carrito y usuario */
 .icono-carrito,
 .icono-usuario {
+  padding: 0.5rem;
   width: 2.2rem; /* Ancho de los iconos de carrito y usuario */
   cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
 }
