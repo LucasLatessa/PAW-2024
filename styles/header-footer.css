@@ -20,6 +20,10 @@ html {
   font-family: "Black regular";
 }
 
+main {
+  min-height: 40vh;
+}
+
 /*----------Estilos para el header----------*/
 
 .header-body {
@@ -147,3 +151,4 @@ body {
   background-color: rgb(253,223,138);
   background: radial-gradient(circle, rgba(253,223,138,1) 10%, rgba(251,173,24,1) 100%);
 };
+

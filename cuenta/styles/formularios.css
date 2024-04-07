@@ -1,5 +1,5 @@
 /*----------estilos formulario----------*/
-form {
+.form-registro {
   max-width: 25rem;
   margin: 0 auto;
 
@@ -9,7 +9,14 @@ form {
     "email  email"
     "contraseña valida"
     "registrarse registrarse";
+  justify-content: center;
 }
+.form-login{
+  max-width: 30rem;
+  /*text-align: center;*/
+  margin: 0 auto;
+}
+
 
 /* GRID TEMPLATES */
 label[for="nombre"]{
@@ -33,6 +40,9 @@ label[for="validarContraseña"]{
 }
 
 .registrarse {
+  grid-area: registrarse;
+}
+.login {
   grid-area: registrarse;
 }
 
@@ -75,6 +85,8 @@ a:hover {
 a {
   text-decoration: none;
   color:#000;
+  display: flex;
+  justify-content: center;
 }
 
 /* Celular
@@ -86,3 +98,4 @@ a {
     text-decoration: none;
   }
 } */
+
