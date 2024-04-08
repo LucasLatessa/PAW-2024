@@ -177,12 +177,9 @@ label[for="inputTexto"]{
 }
 
 input[id="inputTexto"]{
-    display: block;
-    padding: 5rem;
     width: 70%;
     margin: 0 auto;
 }
-
 div button{
     display: flex;
     justify-content: center;
@@ -190,7 +187,15 @@ div button{
     width: 100%;
     height: 5vh;
 }
-
+button[type="submit"]{
+  padding: 0.6rem 1.5rem; 
+  background-color: #231F20; 
+  color: #fff; 
+  border: 0.1rem solid #231F20;
+  border-radius: 0.3rem; 
+  cursor: pointer; 
+  text-decoration: none;
+}
 @media (max-width: 1024px) {
     .img-comida-seleccionada{
         width: 90%;
