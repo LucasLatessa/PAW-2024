@@ -103,16 +103,16 @@ section>h2{
 .ubi{grid-area: ubi;}
 
 iframe{
-  width: 90%;
-  height: 45vh;
+  width: 70%;
+  height: 60vh;
   padding: 2rem;
   display: block;
   margin: 0 auto;
 }
 
 .lista-locales{
-  width: 50%;
-  margin: 0 auto;
+  width: 80%;
+  margin: 1rem auto;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -120,6 +120,7 @@ iframe{
 
 .lista-locales li{
   width: 40%;
+  margin: 1rem auto;
   display: grid;
   grid-template-areas: "local reserva"
                         "ubi reserva";

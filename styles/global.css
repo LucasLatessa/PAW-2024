@@ -81,7 +81,7 @@ section.carrusel img{
 /* ---- PEDIR Y RESERVA EN HOME ------*/
 
 .pedirMain, .reservarMesaMain {
-  background-color: var(--color-principal);
+  background-color: var(--color-terceario);
   border-radius: 0.8rem;
   margin: 2rem 0;
   padding: 0.8rem;
@@ -221,6 +221,7 @@ article.article-comida, article.article-comida-mes{
   align-items: center;
   justify-items: center;
   background-color: var(--color-terceario);
+  margin: 2rem 2rem;
 }
 
 /* COMIDA DEL MES */

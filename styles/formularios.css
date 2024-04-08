@@ -10,7 +10,6 @@
   /*Fuentes*/
   font-family: "Black regular";
   font-size: 16px;
-
 }
 
 /* Para que el footer no quede flotando */
@@ -74,6 +73,7 @@ label[for="validarContraseña"]{
 input.registrarse {
   grid-area: registrarse;
 }
+
 .login {
   grid-area: registrarse;
 }
