@@ -9,7 +9,7 @@
     <title>Pedir - PAW Power</title>
     <link rel="icon" href="../assets/Isotipo.svg" type="image/x-icon" />
     <link rel="stylesheet" href="../styles/header-footer.css">
-    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="../styles/compra.css" />
   </head>
   <body>
     <!--HEADER-->
@@ -57,14 +57,14 @@
         </figure>
       </section>
 
-      <div id="formularioPedidoComida">
+      <div class="formularioPedidoComida">
         <form method="POST">
           <h3>Quieres agregar alguna salsa?</h3>
           <label for="inputSalsaBBQ">
             BBQ
             <input type="checkbox" name="bbq" id="inputSalsaBBQ" value="BBQ" />
           </label>
-          <p>$$$</p>
+          <p class="precio">$$$</p>
           <label for="inputSalsaMostaza">
             MOSTAZA
             <input
@@ -74,8 +74,8 @@
               value="Mostaza"
             />
           </label>
-          <p>$$$</p>
-          <label id="lInputTexto" for="inputTexto">
+          <p class="precio">$$$</p>
+          <label for="inputTexto">
             Aclaraciones
             <input
               id="inputTexto"
@@ -86,14 +86,14 @@
               size="30"
             />
           </label>
-          <label
+          <label class="cantidad-producto"
             >Cantidad*
+            <!--Con javascript sera un contador-->
             <input type="number" min="1" required />
           </label>
-          <p>$$$$$$$$$$</p>
+          <p class="precio total">$$$$$$$$$$</p>
         </form>
-        <button>Volver</button>
-        <button>Pedir</button>
+        <button type="submit">Pedir</button>
       </div>
     </main>
 
