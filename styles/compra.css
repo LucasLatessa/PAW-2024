@@ -280,7 +280,7 @@ a:hover{
     padding-right: 3rem;
 }
 
-button[type="submit"]{
+.realizar-pedido{
     position: absolute;
     width: 20%;
     height: 2rem;
@@ -307,9 +307,7 @@ button[type="submit"]{
         display: block;
     }
 
-    button[type="submit"]{
+    .realizar-pedido{
         right: 42%;
     }
-
-
 }
