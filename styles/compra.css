@@ -23,7 +23,6 @@
     }
   }
 
-
 /* --------------------------
           MENU
 -----------------------------*/
@@ -34,10 +33,13 @@
     flex-wrap: wrap;
     justify-content: center;
     padding: 2rem;
-    background-image: url(../../assets/hamburguesa1.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.menu-background{
+    background-image: url(../../assets/hamburguesa1.jpg);
 }
 
 .header-menu h1 {
@@ -104,6 +106,10 @@ article.article-comida-mes{
   border-radius: 50px;
   color: #000000;
   background-color: #fbad18;
+}
+
+.pedir-comida:hover{
+    font-size: 2rem;
 }
 
 .precio-comida{
@@ -207,4 +213,103 @@ button[type="submit"]{
         display: block;
         width: 60%;
     }
+}
+
+/* --------------------------
+          CARRITO
+-----------------------------*/
+
+.carrito-background{
+    background-image: url(../../assets/carrito-background.png);
+}
+
+.formulario-carrito{
+    padding: 2rem;
+    position: relative;
+}
+
+table>caption{
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding-bottom: 1rem;
+}
+
+.tabla-carrito{
+    width: 80%;
+    height: 20vh;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    
+}
+
+.tabla-carrito, th, td{
+    text-align: center;
+    border: 1px solid black;
+    height: 1rem;
+}
+
+td {
+    padding: 1rem 2rem;
+}
+
+.forma-de-pago, .tipo-entrega{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+}
+
+.forma-de-pago>h3, input, label, .tipo-entrega>h3, .tipo-entrega a{
+    padding: 0rem 1rem;
+}
+
+a{
+    display: block;
+    text-decoration: none;
+    color: var(--color-terceario);
+}
+
+a:hover{
+    color: var(--color-letras);
+}
+
+.subtotal {
+    text-align: right;
+    font-size: 1.5rem;
+    padding-right: 3rem;
+}
+
+button[type="submit"]{
+    position: absolute;
+    width: 20%;
+    height: 2rem;
+    bottom: -1rem;
+    right: calc(2rem + 3rem);
+}
+
+@media (max-width: 1024px) {
+    .subtotal {
+        text-align: center;
+    }
+
+    /*Tabla*/
+    .tabla-carrito tr{
+        display: block;
+    }
+
+    .tabla-carrito td, .tabla-carrito th{
+        display: block;
+    }
+
+    /*Tipo de entrega*/
+    .tipo-entrega{
+        display: block;
+    }
+
+    button[type="submit"]{
+        right: 42%;
+    }
+
+
 }

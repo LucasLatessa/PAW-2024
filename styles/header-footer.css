@@ -142,6 +142,10 @@ footer nav ul.links li a {
   text-decoration: none;
 }
 
+footer nav ul.links li a:hover {
+  color: var(--color-principal);
+}
+
 /* Redes */
 footer nav ul.redes li {
   margin: 11rem 1rem 2rem 1rem;
