@@ -156,7 +156,7 @@ article>h3{
 section.carrusel_reserva {
   width: 60%;
   height: auto;
-  margin: 1rem auto 0;
+  margin: 0 auto;
   overflow: hidden;
  }
 
@@ -164,7 +164,7 @@ section.carrusel_reserva > h2 {
   font-size: 3rem;
   text-transform: uppercase;
   text-align: center;
-  padding: 3rem;
+  padding: 2rem;
 }
 
 section.carrusel_reserva ul {
@@ -180,7 +180,7 @@ section.carrusel_reserva li {
 }
 
 section.carrusel_reserva img {
-  width: 100%;
+  width: 90%;
 }
 
 
@@ -195,9 +195,15 @@ section.carrusel_reserva img {
   100% {margin-left: -200%}
 }
 
-@media (min-width: 1024px){
+@media (min-width: 1025px){
   article:hover{
     border: 15px solid var(--color-principal)
+  }
+}
+
+@media (max-width: 1024px){
+  section.carrusel_reserva{
+    width: 100%;
   }
 }
 
