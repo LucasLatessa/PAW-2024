@@ -75,7 +75,10 @@ article.article-comida, article.article-comida-mes{
   justify-items: center;
   background-color: var(--color-terceario);
   margin: 2rem 2rem;
+  box-shadow:  5px 5px 0px #666666;
 }
+
+
 
 /* COMIDA DEL MES */
 
@@ -195,9 +198,11 @@ section.carrusel_reserva img {
   100% {margin-left: -300%}
 }
 
-/* Formulario reserva */
-
-
+@media (min-width: 1024px){
+  article:hover{
+    border: 15px solid var(--color-principal)
+  }
+}
 
 
 /* --------------------------
