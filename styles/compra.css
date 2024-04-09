@@ -147,6 +147,60 @@ article>h3{
 }
 
 /* --------------------------
+        MENU HAMBURGUESA -> RESERVAR MESA
+-----------------------------*/
+
+section.carrusel_reserva {
+  width: 60%;
+  margin: 1rem auto 0;
+  overflow: hidden;
+ }
+
+section.carrusel_reserva > h2 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 3rem;
+}
+
+section.carrusel_reserva ul {
+  display: flex;
+  padding: 0;
+  width: 300%; 
+  animation: slideX 10s infinite ease-in-out;
+
+}
+
+section.carrusel_reserva li {
+  width: 100%; 
+}
+
+section.carrusel_reserva img {
+  width: 100%;
+  object-fit: cover;
+}
+
+
+@keyframes slideX{
+  0% {margin-left: 0%}
+  20% {margin-left: 0%}
+
+  25% {margin-left: -100%}
+  45% {margin-left: -100%}
+
+  50% {margin-left: -200%}
+  70% {margin-left: -200%}
+
+  75% {margin-left: -300%}
+  100% {margin-left: -300%}
+}
+
+/* Formulario reserva */
+
+
+
+
+/* --------------------------
         PEDIR COMIDA
 -----------------------------*/
 

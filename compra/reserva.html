@@ -10,6 +10,7 @@
     <link rel="icon" href="../assets/Isotipo.svg" type="image/x-icon" />
     <link rel="stylesheet" href="../styles/header-footer.css">
     <link rel="stylesheet" href="../styles/compra.css" />
+    <link rel="stylesheet" href="../styles/formularios.css">
   </head>
   <body>
     <!--HEADER-->
@@ -40,28 +41,30 @@
     </header>
     
     <main>
-      <h1>Reservas</h1>
+       <!---CARRUSEL RESERVA -->
+      <section class="carrusel_reserva">
+        <h2>Reservas</h2>
+        <ul>
+          <li>
+            <a href="../institucional/locales.html"> 
+              <img src="../assets/local1.jpg" alt="Local 1 - PAW POWER">
+            </a>
+          </li>
+          <li>
+            <a href="../institucional/locales.html"> 
+              <img src="../assets/local2.jpg" alt="Local 2 - PAW POWER">
+            </a>
+          </li>
+          <li>
+            <a href="../institucional/locales.html"> 
+              <img src="../assets/local3.jpg" alt="Local 3 - PAW POWER">
+            </a>
+          </li>
+        </ul>
+      </section>
 
-      <div id="locales">
-        <img
-          src="../assets/local1.jpg"
-          alt="Local 1 - Rapida Gula"
-          width="500"
-        />
-        <img
-          src="../assets/local2.jpg"
-          alt="Local 2 - Rapida Gula"
-          width="500"
-        />
-        <img
-          src="../assets/local3.jpg"
-          alt="Local 3 - Rapida Gula"
-          width="500"
-        />
-      </div>
-
-      <div id="formularioReserva">
-        <form>
+      <div id="formularioReserva" class="form-reserva-div">
+        <form class="form-reserva">
           <label
             >Seleccionar Local* <input list="listaLocales" required
           /></label>
@@ -72,7 +75,7 @@
 
           <label
             >Cantidad de Personas*
-            <input type="number" min="1" required />
+            <input type="numeroPersonas" min="1" required />
           </label>
 
           <label
@@ -91,7 +94,7 @@
             Aclaraciones
             <input
               id="inputTexto"
-              type="text"
+              type="textAclaraciones"
               name="inputTexto"
               maxlength="500"
               minlength="5"
