@@ -91,6 +91,7 @@ section.carrusel img{
   display: inline-block;
   font-size: 1rem;
   box-sizing: border-box;
+  box-shadow:  5px 5px 0px #666666;
 }
 
 .pedirMain img, .reservarMesaMain img{
@@ -107,6 +108,10 @@ section.carrusel img{
   text-decoration: none;
 }
 
+.pedirMain a:hover, .reservarMesaMain a:hover{
+  color: var(--color-principal);
+}
+
 /* ------------ NOVEDADES -------- */
 
 .novedades, #menuHamburguesa{
@@ -120,6 +125,7 @@ section.carrusel img{
 .novedades > article{
   background-color: var(--color-terceario);
   margin: 1rem;
+  box-shadow:  5px 5px 0px #666666;
 }
 
 .novedades > article > h5{

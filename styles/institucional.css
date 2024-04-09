@@ -150,6 +150,10 @@ iframe{
   border-radius: 10px;
 }
 
+.lista-locales> li a:hover{
+  color: var(--color-principal);
+}
+
 @media (max-width: 1024px) {
 
   .lista-locales{
