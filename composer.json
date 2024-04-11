@@ -1,0 +1,22 @@
+{
+    "name": "paw/paw-power",
+    "description": "Proyecto para Programacion en Ambiente web",
+    "keyword": ["php","mvc"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Josue Gatica Odato",
+            "email": "josuegaticaodato@gmail.com",
+            "role":"Desarrollador"
+        }
+    ],
+    "require": {
+        "php": ">= 8.2.18",
+        "filp/whoops": "~2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Paw\\": "src/"
+        }
+    }
+}
