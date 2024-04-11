@@ -1,0 +1,162 @@
+/* Estilo basico del sitio en raiz */
+:root {
+  /*Colores a utilizar*/
+  --color-principal: #fbad18;
+  --color-principal-claro: #fddf8a;
+  --color-secundario: #231f20;
+  --color-letras: #000000;
+  --color-terceario: #ffffff;
+
+  /*Fuentes*/
+  font-family: "Black regular";
+  font-size: 16px;
+}
+
+/* Para que el footer no quede flotando */
+main {
+  min-height: 60vh;
+}
+
+@media (max-width: 540px) {
+  :root{
+    font-size: 12px;
+  }
+}
+
+/*----------estilos formulario----------*/
+.login, h1.registrarse{
+  text-transform: uppercase;
+  font-size: 2rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.form-registro {
+  width: 80%;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-areas:
+    "nombre apellido"
+    "email  email"
+    "contraseña valida"
+    "registrarse registrarse";
+  justify-content: center;
+}
+.form-login{
+  max-width: 30rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* GRID TEMPLATES */
+label[for="nombre"]{
+  grid-area: nombre;
+}
+
+label[for="apellido"]{
+  grid-area: apellido;
+}
+
+label[for="email"] {
+  grid-area: email;
+}
+
+label[for="contraseña"] {
+  grid-area: contraseña;
+}
+
+label[for="validarContraseña"]{
+  grid-area: valida;
+}
+
+input.registrarse {
+  grid-area: registrarse;
+}
+
+.login {
+  grid-area: registrarse;
+}
+
+/* Estilos para cada label/input */
+label {
+  margin-bottom: 0.8rem;
+  color: var(--color-letras);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="submit"] {
+  width: calc(100% - 1.6rem);
+  padding: 0.8rem;
+  margin-bottom: 20px;
+  border: 0.1rem solid var(--color-letras);
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  background-color: var(--color-terceario);
+  color: var(--color-letras);
+}
+
+input[type="submit"] {
+  background-color: var(--color-letras);
+  color: var(--color-terceario);
+  box-shadow: 5px 5px 10px var(--color-letras);
+}
+
+#required {
+  font-size: 1rem;
+  font-style: italic;
+  font-family: "Century Gothic";
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+  color:#000;
+  display: flex;
+  justify-content: center;
+}
+
+/* estilos formulario reserva*/
+
+.form-reserva{
+  max-width: 27rem;
+  text-align: center;
+  margin: 5rem auto;
+}
+
+
+input[list="listaLocales"],
+input[list="listaHorarios"],
+input[type="numeroPersonas"],
+input[type="date"]{
+  width: calc(100% - 1.6rem);
+  padding: 1rem;
+  margin-bottom: 10px;
+  border: 0.1rem solid var(--color-letras);
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  background-color: var(--color-terceario);
+  color: var(--color-letras);
+}
+
+input[type="textAclaraciones"]{
+  width: calc(100% - 1.6rem);
+  padding: 1rem;
+  height: 15rem;
+  margin-bottom: 10px;
+  border: 0.1rem solid var(--color-letras);
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+}
+
+.form-reserva p {
+  padding: 0.2rem;
+  text-align: right;
+}
+
+/*-------------------------------*/

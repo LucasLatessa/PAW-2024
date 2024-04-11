@@ -1,0 +1,375 @@
+/* Estilo basico del sitio en raiz */
+:root {
+    /*Colores a utilizar*/
+    --color-principal: #fbad18;
+    --color-principal-claro: #fddf8a;
+    --color-secundario: #231f20;
+    --color-letras: #000000;
+    --color-terceario: #ffffff;
+  
+    /*Fuentes*/
+    font-family: "Black regular";
+    font-size: 16px;
+  }
+  
+  /* Para que el footer no quede flotando */
+  main {
+    min-height: 60vh;
+  }
+  
+  @media (max-width: 540px) {
+    :root{
+      font-size: 12px;
+    }
+  }
+
+/* --------------------------
+          MENU
+-----------------------------*/
+
+/*------------- HEADER MENU  -----------------*/ 
+.header-menu{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.menu-background{
+    background-image: url(../../assets/hamburguesa1.jpg);
+}
+
+.header-menu h1 {
+  text-transform: uppercase;
+  color: white;
+  font-size: 3.5rem;
+  text-shadow: 0 0 3px black;
+}
+
+/* ------------ TITULOS COMIDAS ---------*/
+  
+.titulo-comida, .comida-seleccionada {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.article-comida-mes>h3, .article-comida>h3{
+  font-size: 1.5rem;
+  padding: 1.5rem;
+}
+
+/*------------- MENU -----------------*/
+
+article.article-comida, article.article-comida-mes{
+  display: grid;
+  grid-template-areas:
+    "titulo titulo"
+    "imagen imagen"
+    "precio pedir";
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  background-color: var(--color-terceario);
+  margin: 2rem 2rem;
+  box-shadow:  5px 5px 0px #666666;
+}
+
+
+
+/* COMIDA DEL MES */
+
+article.article-comida-mes{
+  grid-template-rows: 10% auto auto;
+  grid-template-columns: 50% 50%;
+}
+
+.seccion-comida-mes{
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+/* Posicionamiento del contenido de los articulos con grind area y estilos a cada elemento */
+
+.figura-hamburguesa, .comida-imagen{
+  grid-area: imagen;
+  max-width: 100%; 
+  max-height: 15rem; 
+  margin-bottom: 1rem; 
+}
+
+.pedir-comida{
+  padding: 0.5rem 2rem;
+  grid-area: pedir;
+  text-decoration: none;
+  border-radius: 50px;
+  color: #000000;
+  background-color: #fbad18;
+}
+
+.pedir-comida:hover{
+    font-size: 2rem;
+}
+
+.precio-comida{
+  grid-area: precio;
+  padding: 2rem;
+}
+
+.descripcion-comida {
+  grid-area: descripcion;
+  font-family: "Century Gothic";
+}
+
+/* Titulo de la comida */
+
+article>h3{
+  grid-area: titulo;
+  text-transform: capitalize;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+.figura-hamburguesa figcaption{
+  text-align: center;
+}
+
+/* Secciones (ej: Hamburguesas) - Display flex! */
+
+.seccion-comida{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+
+/* --------------------------
+        MENU HAMBURGUESA -> RESERVAR MESA
+-----------------------------*/
+
+section.carrusel_reserva {
+  width: 60%;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+ }
+
+section.carrusel_reserva > h2 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 2rem;
+}
+
+section.carrusel_reserva ul {
+  display: flex;
+  padding: 0;
+  width: 300%; 
+  animation: slideX 10s infinite alternate ease-in-out;
+
+}
+
+section.carrusel_reserva li {
+  width: 100%; 
+}
+
+section.carrusel_reserva img {
+  width: 90%;
+}
+
+
+@keyframes slideX{
+  0% {margin-left: 0%}
+  30% {margin-left: 0%}
+
+  35% {margin-left: -100%}
+  70% {margin-left: -100%}
+
+  75% {margin-left: -200%}
+  100% {margin-left: -200%}
+}
+
+@media (min-width: 1025px){
+  article:hover{
+    border: 15px solid var(--color-principal)
+  }
+}
+
+@media (max-width: 1024px){
+  section.carrusel_reserva{
+    width: 100%;
+  }
+}
+
+
+/* --------------------------
+        PEDIR COMIDA
+-----------------------------*/
+
+.figura-comida-seleccionada{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.img-comida-seleccionada{
+    padding-bottom: 1rem;
+    width: 50%;
+}
+
+.figura-comida-seleccionada figcaption{
+    font-family: "Century Gothic";
+}
+
+.formularioPedidoComida{
+    width: 50%;
+    margin: 0 auto;
+    padding: 1.5rem;
+}
+
+label[for="inputSalsaBBQ"],  label[for="inputSalsaMostaza"], .precio,.cantidad-producto, .precio-total{
+    display: inline-flex;
+    justify-content: space-between;
+    padding: 1.5rem 1rem 1.5rem 0.3rem;
+}
+
+label[for="inputTexto"]{
+    display: block;
+    padding: 1rem 0rem;
+}
+
+input[id="inputTexto"]{
+    width: 70%;
+    margin: 0 auto;
+}
+div button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 5vh;
+}
+button[type="submit"]{
+  padding: 0.6rem 1.5rem; 
+  background-color: #231F20; 
+  color: #fff; 
+  border: 0.1rem solid #231F20;
+  border-radius: 0.3rem; 
+  cursor: pointer; 
+  text-decoration: none;
+}
+@media (max-width: 1024px) {
+    .img-comida-seleccionada{
+        width: 90%;
+    }
+    .formularioPedidoComida{
+        width: 90%;
+    }
+    input[id="inputTexto"]{
+        display: block;
+        width: 60%;
+    }
+}
+
+/* --------------------------
+          CARRITO
+-----------------------------*/
+
+.carrito-background{
+    background-image: url(../../assets/carrito-background.png);
+}
+
+.formulario-carrito{
+    padding: 2rem;
+    position: relative;
+}
+
+table>caption{
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding-bottom: 1rem;
+}
+
+.tabla-carrito{
+    width: 80%;
+    height: 20vh;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    
+}
+
+.tabla-carrito, th, td{
+    text-align: center;
+    border: 1px solid black;
+    height: 1rem;
+}
+
+td {
+    padding: 1rem 2rem;
+}
+
+.forma-de-pago, .tipo-entrega{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+}
+
+.forma-de-pago>h3, input, label, .tipo-entrega>h3, .tipo-entrega a{
+    padding: 0rem 1rem;
+}
+
+a{
+    display: block;
+    text-decoration: none;
+    color: var(--color-terceario);
+}
+
+a:hover{
+    color: var(--color-letras);
+}
+
+.subtotal {
+    text-align: right;
+    font-size: 1.5rem;
+    padding-right: 3rem;
+}
+
+.realizar-pedido{
+    position: absolute;
+    width: 20%;
+    height: 2rem;
+    bottom: -1rem;
+    right: calc(2rem + 3rem);
+}
+
+@media (max-width: 1024px) {
+    .subtotal {
+        text-align: center;
+    }
+
+    /*Tabla*/
+    .tabla-carrito tr{
+        display: block;
+    }
+
+    .tabla-carrito td, .tabla-carrito th{
+        display: block;
+    }
+
+    /*Tipo de entrega*/
+    .tipo-entrega{
+        display: block;
+    }
+
+    .realizar-pedido{
+        right: 42%;
+    }
+}

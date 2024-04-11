@@ -1,0 +1,84 @@
+/* Estilo basico del sitio en raiz */
+:root {
+  /*Colores a utilizar*/
+  --color-principal: #fbad18;
+  --color-principal-claro: #fddf8a;
+  --color-secundario: #231f20;
+  --color-letras: #000000;
+  --color-terceario: #ffffff;
+
+  /*Fuentes*/
+  font-family: "Black regular";
+  font-size: 16px;
+}
+
+/* Para que el footer no quede flotando */
+main {
+  min-height: 60vh;
+}
+
+@media (max-width: 540px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.reportesList,
+.pedidosList,
+.direcciones,
+.pedidos {
+  display: block;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: var(--color-letras);
+}
+
+.direccion, .pedido{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+p {
+    color: var(--color-terceario);
+}
+
+p, div>a {
+    margin: 0.5rem;
+}
+
+a {
+  color: var(--color-principal);
+  text-decoration: none;
+  background-color: var(--);
+}
+
+a:hover{
+    color: var(--color-terceario);
+    text-decoration: none;
+}
+
+button {
+  padding: 0.2rem 1rem;
+  background-color: var(--color-principal);
+  color: var(--color-letras);
+  border: 0.1rem solid var(--color-terceario);
+  border-radius: 0.3rem;
+  cursor: pointer;
+  text-decoration: none;
+  
+}
+
+@media (max-width: 1024px) {
+    .direccion, .pedido{
+        display: block;
+        margin: 0 auto;
+    }
+  }

@@ -1,48 +1,75 @@
+@import url(reset.css);
+
+/* Fuente a utilizar */
 @font-face {
   font-family: "Black regular";
   src: url("../font/ArchivoBlack-Regular.ttf") format("truetype");
 }
+
 @font-face {
   font-family: "Century Gothic";
   src: local("Century Gothic"),
     url("../font/century_gothic.ttf") format("truetype");
 }
-body {/* elimina borde blanco en header */
-  margin: 0; 
-  padding: 0; 
-}
 
-html {
-  font-size: 16px; /*definiendo el rem*/
-}
+/* Estilo basico del sitio en raiz */
+:root {
+  /*Colores a utilizar*/
+  --color-principal: #fbad18;
+  --color-principal-claro: #fddf8a;
+  --color-secundario: #231f20;
+  --color-letras: #000000;
+  --color-terceario: #ffffff;
 
-* {
+  /*Fuentes*/
   font-family: "Black regular";
+  font-size: 16px;
+
+  background: radial-gradient(
+    circle,
+    var(--color-principal-claro) 10%,
+    var(--color-principal) 100%
+  );
+
+  min-height: 40vh;
 }
 
-/*----------Estilos para el header----------*/
+/* --------------------------
+           HEADER
+-----------------------------*/
 
-.header-body {
-  background-color: #ffffff; /* Color de fondo del encabezado */
-  padding: 1rem 1.2rem; /* Espacio interno del encabezado */
-  display: flex; /* Mostrar elementos en línea */
-  justify-content: space-between; /* Distribuir los elementos horizontalmente */
-  align-items: center; /* Alinear elementos verticalmente */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra del encabezado */
+.header-principal {
+  background-color: var(--color-terceario);
+  padding: 1rem 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+/*Ubicacion del logo*/
+.header-principal > h1 {
+  flex-basis: 80%;
+  text-align: center;
 }
 
 .logo {
-  width: 10rem; /* Ancho del icono de menú */
-  margin: 0 auto; /* Centrar el logotipo horizontalmente */
+  width: 13rem;
 }
 
-/* Estilos para el menú de navegación */
+.icono-carrito,
+.icono-usuario {
+  flex-basis: 5%;
+  padding: 0rem 1rem;
+  width: 2.2rem;
+  cursor: pointer;
+}
+
+/* ----------- Menu hamburguesa ------------------ */
 .menu {
-  position: relative; /* Asegurar que la lista desplegable esté posicionada correctamente */
+  flex-basis: 10%;
+  position: relative;
 }
 
-/* Estilos para el icono de menú */
 .icono-menu {
   width: 2.2rem; /* Ancho del icono*/
   cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
@@ -52,70 +79,70 @@ html {
 .icono-carrito,
 .icono-usuario {
   width: 2.2rem; /* Ancho de los iconos de carrito y usuario */
-  cursor: pointer;
-   /* Cambiar el cursor al pasar por encima del icono */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
 }
 
 
-/* Estilos para la lista desplegable */
 .lista-desplegable {
-  display: none; /* Ocultar la lista desplegable por defecto */
-  position: absolute; /* Posición absoluta para la lista desplegable */
-  top: 50%; /* Alinear la parte superior de la lista desplegable con la parte inferior del elemento padre */
-  left: 0; /* Alinear la izquierda de la lista desplegable con la izquierda del elemento padre */
-  background-color: #000000; /* Color de fondo de la lista desplegable */
-  padding: 1rem; /* Espacio interno de la lista desplegable */
-  border-radius: 0.5rem; /* Bordes redondeados de la lista desplegable */
-  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.1); /* Sombra de la lista desplegable */
-  z-index: 1; /* Asegurar que la lista desplegable esté sobre otros elementos */
-  white-space: nowrap; /* Evitar que el texto se divida en varias líneas */
+  display: none; /*Ocultar la lista por defecto*/
+  position: absolute;
+  top: 50%;
+  left: 0;
+  background-color: var(--color-secundario); /*Color de fondo*/
+  padding: 1rem; /*Espacio interno*/
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.1); /*Sombra de la lista*/
+  z-index: 1; /*Asegura que este por arriba de otros elemntos*/
+  white-space: nowrap; /*Evita que el texto se divida en varias lineas*/
 }
 
-/* Estilos para los elementos de la lista desplegable */
+/*Por elemento*/
 .lista-desplegable li {
-  margin-bottom: 1rem; /* Espacio entre elementos de la lista */
-  list-style-type: none; /* Ocultar los puntos en los elementos li */
+  margin-bottom: 1rem; /*Espacio entre elementos*/
+  /*list-style-type: none;*/
 }
 
-/* Estilos para los enlaces de la lista desplegable */
+/*Por enlaces*/
 .lista-desplegable a {
-  text-decoration: none; /* Eliminar subrayado de los enlaces */
-  color: #ffffff; /* Color del texto de los enlaces */
-  transition: color 0.3s; /* Transición de color al pasar el ratón por encima */
+  text-decoration: none;
+  color: var(--color-terceario);
+  transform: color 0.3s;
   text-align: left;
 }
 
-/* Estilos para los enlaces de la lista desplegable al pasar el ratón por encima */
+/*Pasar por arriba del enlace*/
 .lista-desplegable a:hover {
-  color: #fbad18; /* Cambiar el color del texto al pasar el ratón por encima */
+  color: var(--color-principal);
 }
 
-/* Estilos para mostrar la lista desplegable al pasar el ratón por encima del menú */
+/*Mostrar lista cuando pase el raton por encima*/
 .menu:hover .lista-desplegable {
-  display: block; /* Mostrar la lista desplegable cuando se pasa el mouse sobre el menú */
+  display: block; /*Muestra la lista*/
 }
 
-
-/*----------estilos footer----------*/
+/* --------------------------
+           FOOTER
+-----------------------------*/
 
 footer {
-  background-color: #fff;
+  background-color: var(--color-terceario);
   background-image: url("../assets/Imagotipo.svg");
   background-position: center;
   background-size: 20em;
   background-repeat: no-repeat;
-  border-radius: 0px;
 }
 
-footer nav ul.links {
-  list-style: none;
+/*Enlaces + Redes */
+footer nav ul.links,
+footer nav ul.redes {
   display: flex;
   justify-content: center;
 }
 
+/* Enlaces */
 footer nav ul.links li {
-  margin: 1em;
-  font-size: 1em;
+  margin: 1rem;
+  font-size: 1rem;
 }
 
 footer nav ul.links li a {
@@ -123,29 +150,22 @@ footer nav ul.links li a {
   text-decoration: none;
 }
 
-footer nav ul.redes {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
+footer nav ul.links li a:hover {
+  color: var(--color-principal);
 }
 
+/* Redes */
 footer nav ul.redes li {
-  margin-top: 10em;
-  margin-right: 1em;
+  margin: 11rem 1rem 2rem 1rem;
 }
 
 footer nav ul.redes li img {
   width: 2rem;
 }
 
-#copyright {
+/* CopyRight*/
+#copyright{
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-body {
-  background-color: rgb(253,223,138);
-  background: radial-gradient(circle, rgba(253,223,138,1) 10%, rgba(251,173,24,1) 100%);
-};
