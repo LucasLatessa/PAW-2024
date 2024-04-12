@@ -71,9 +71,17 @@
 }
 
 .icono-menu {
-  width: 2.2rem;
-  cursor: pointer;
+  width: 2.2rem; /* Ancho del icono*/
+  cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
 }
+
+/* Estilos para el icono de carrito y usuario */
+.icono-carrito,
+.icono-usuario {
+  width: 2.2rem; /* Ancho de los iconos de carrito y usuario */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima del icono */
+}
+
 
 .lista-desplegable {
   display: none; /*Ocultar la lista por defecto*/

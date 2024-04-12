@@ -8,11 +8,6 @@ disponibles (incluyendo la hamburguesa del mes), tambien se cuenta
 con una sección para registrarse y loguearse que permitira realizar
 la compra
 
-TP2: Diseño del sitio: <br>
-En base a el manual de identidad corporativa de la empresa,
-se llevo a cabo el diseño del sitio web utilizando hojas de estilos css,
-logrando que se adapta a versiones mobiles y desktop.
-
 Entorno de desarrollo: VSCode, <br>
 Sistema Operativo: Windows 11
 
