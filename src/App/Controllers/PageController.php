@@ -26,13 +26,14 @@ class PageController
             ],
             /*Logo header 3*/
             [
-                "href" => '/index',
+                "href" => '/',
                 "name" => "Home",
             ],
             /*Header parte derecha 4-5*/
             [
                 "href" => '/compra/carrito',
-                "name" => "carrito"
+                "name" => "carrito",
+                "titulo" => "Carrito - PAW Power"
             ],
             [
                 "href" => '/cuenta/login',
@@ -60,7 +61,7 @@ class PageController
 
     public function index()
     {
-        $titulo = htmlspecialchars($_GET['nombre'] ?? "PAW");
+        #$titulo = htmlspecialchars($_GET['titulo'] ?? "PAW");
         require $this->viewsDir . 'index.view.php';
     }
 
@@ -68,6 +69,7 @@ class PageController
 
     public function menu()
     {
+        #$titulo = rutas[4].
         require $this->viewsDir . 'compra/menu.view.php';
     }
 

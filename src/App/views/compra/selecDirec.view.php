@@ -18,25 +18,25 @@
       <nav class="menu">
         <img src="../assets/MenuBurger.png" class="icono-menu" />
         <ul class="lista-desplegable">
-          <li><a href="../compra/menu.html">Menu</a></li>
-          <li><a href="../compra/reserva.html">Reservar mesa</a></li>
+          <li><a href="../compra/menu">Menu</a></li>
+          <li><a href="../compra/reserva">Reservar mesa</a></li>
           <li class="header-derecha">
-            <a href="../cuenta/perfil.html">Perfil</a>
+            <a href="../cuenta/perfil">Perfil</a>
           </li>
           <!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
           <li></li>
         </ul>
       </nav>
       <h1>
-        <a href="../index.html">
+        <a href="/">
           <img src="../assets/Imagotipo.svg" alt="Paw Power" class="logo" />
         </a>
       </h1>
-      <a href="../compra/carrito.html"
+      <a href="../compra/carrito"
         ><img src="../assets/carrito.png" alt="Carrito" class="icono-carrito"
       /></a>
-      <a href="../cuenta/login.html"
-        ><img src="../assets/user.png" alt="Usuario" class="icono-usuario"
+      <a href="../cuenta/login"
+        ><img src="../assets/usuario.png" alt="Usuario" class="icono-usuario"
       /></a>
     </header>
     
@@ -52,9 +52,9 @@
           <p>CCPP: 6620</p>
           <p>Direccion: 123</p>
           <p>Aclaraciones: Nada</p>
-          <a href="./agregarDireccion.html">Editar Direccion</a
+          <a href="./agregarDireccion">Editar Direccion</a
           ><!--simil al agregar, pero con los datos viejos (Update) -->
-          <a href="./carrito.html">Seleccionar Direccion</a
+          <a href="./carrito">Seleccionar Direccion</a
           ><!--esto va a tener que devolver la sucursal seleccionada, con js¿? -->
         </div>
         <div class="direccion">
@@ -64,14 +64,14 @@
           <p>CCPP: 6700</p>
           <p>Direccion: 123</p>
           <p>Aclaraciones: Nada</p>
-          <a href="./agregarDireccion.html">Editar Direccion</a
+          <a href="./agregarDireccion">Editar Direccion</a
           ><!--simil al agregar, pero con los datos viejos (Update) -->
-          <a href="./carrito.html">Seleccionar Direccion</a
+          <a href="./carrito">Seleccionar Direccion</a
           ><!--esto va a tener que devolver la sucursal seleccionada, con js¿? -->
         </div>
-        <a class="btn" href="../cuenta/agregarDireccion.html">Agregar Direccion</a>
+        <a class="btn" href="../cuenta/agregarDireccion">Agregar Direccion</a>
 
-        <a class="btn" href="./carrito.html">Volver al carrito</a>
+        <a class="btn" href="./carrito">Volver al carrito</a>
       </section>
     </main>
 
@@ -80,9 +80,9 @@
       
       <nav class = "contenedor-links">
         <ul class="links" >
-          <li id = "locales"><a href="../institucional/locales.html">Locales</a></li>
-          <li id = "Servicio-al-cliente"><a href="../institucional/servCliente.html">Servicio al cliente</a></li>
-          <li id = "Sobre-nosotros"><a href="../institucional/nosotros.html">Sobre nosotros</a></li>
+          <li id = "locales"><a href="../institucional/locales">Locales</a></li>
+          <li id = "Servicio-al-cliente"><a href="../institucional/servCliente">Servicio al cliente</a></li>
+          <li id = "Sobre-nosotros"><a href="../institucional/nosotros">Sobre nosotros</a></li>
         </ul>
       </nav>
       

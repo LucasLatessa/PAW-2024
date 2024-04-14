@@ -14,29 +14,29 @@
   <body>
     <!--HEADER-->
     <header class="header-principal">
-      <nav class="menu">
-        <img src="../assets/MenuBurger.png" class="icono-menu" />
-        <ul class="lista-desplegable">
-          <li><a href="../compra/menu.html">Menu</a></li>
-          <li><a href="../compra/reserva.html">Reservar mesa</a></li>
-          <li class="header-derecha">
-            <a href="../cuenta/perfil.html">Perfil</a>
-          </li>
-          <!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
-          <li></li>
-        </ul>
-      </nav>
-      <h1>
-        <a href="../index.html">
-          <img src="../assets/Imagotipo.svg" alt="Paw Power" class="logo" />
-        </a>
-      </h1>
-      <a href="../compra/carrito.html"
-        ><img src="../assets/carrito.png" alt="Carrito" class="icono-carrito"
-      /></a>
-      <a href="../cuenta/login.html"
-        ><img src="../assets/user.png" alt="Usuario" class="icono-usuario"
-      /></a>
+        <nav class="menu">
+          <img src="../assets/MenuBurger.png" class="icono-menu" />
+          <ul class="lista-desplegable">
+            <li><a href="../compra/menu">Menu</a></li>
+            <li><a href="../compra/reserva">Reservar mesa</a></li>
+            <li class="header-derecha">
+              <a href="../cuenta/perfil">Perfil</a>
+            </li>
+            <!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
+            <li></li>
+          </ul>
+        </nav>
+        <h1>
+          <a href="/">
+            <img src="../assets/Imagotipo.svg" alt="Paw Power" class="logo" />
+          </a>
+        </h1>
+        <a href="../compra/carrito"
+          ><img src="../assets/carrito.png" alt="Carrito" class="icono-carrito"
+        /></a>
+        <a href="../cuenta/login"
+          ><img src="../assets/usuario.png" alt="Usuario" class="icono-usuario"
+        /></a>
     </header>
 
     <!--CODIGO DE MENU-->
@@ -58,7 +58,7 @@
             <figcaption class="descripcion-comida">descripcion</figcaption>
           </figure>
           <p class="precio-comida">$$$$$$$$</p>
-          <a class="pedir-comida" href="./pedirComida.html">PEDIR</a>
+          <a class="pedir-comida" href="./pedirComida">PEDIR</a>
         </article>
       </section>
       
@@ -77,7 +77,7 @@
             <figcaption class="descripcion-comida">descripcion</figcaption>
           </figure>
           <p class="precio-comida">$$$$$$$$</p>
-          <a class="pedir-comida" href="./pedirComida.html">PEDIR</a>
+          <a class="pedir-comida" href="./pedirComida">PEDIR</a>
         </article>
 
         <article class="article-comida">
@@ -91,7 +91,7 @@
             <figcaption class="descripcion-comida">descripcion</figcaption>
           </figure>
           <p class="precio-comida">$$$$$$$$</p>
-          <a class="pedir-comida" href="./pedirComida.html">PEDIR</a>
+          <a class="pedir-comida" href="./pedirComida">PEDIR</a>
         </article>
 
         <article class="article-comida">
@@ -105,7 +105,7 @@
             <figcaption class="descripcion-comida">descripcion</figcaption>
           </figure>
           <p class="precio-comida">$$$$$$$$</p>
-          <a class="pedir-comida" href="./pedirComida.html">PEDIR</a>
+          <a class="pedir-comida" href="./pedirComida">PEDIR</a>
         </article>
 
         <article class="article-comida">
@@ -119,7 +119,7 @@
             <figcaption class="descripcion-comida">descripcion</figcaption>
           </figure>
           <p class="precio-comida">$$$$$$$$</p>
-          <a class="pedir-comida" href="./pedirComida.html">PEDIR</a>
+          <a class="pedir-comida" href="./pedirComida">PEDIR</a>
         </article>
 
         <article class="article-comida">
@@ -133,7 +133,7 @@
             <figcaption class="descripcion-comida">descripcion</figcaption>
           </figure>
           <p class="precio-comida">$$$$$$$$</p>
-          <a class="pedir-comida" href="./pedirComida.html">PEDIR</a>
+          <a class="pedir-comida" href="./pedirComida">PEDIR</a>
         </article>
       </section>
 
@@ -144,9 +144,9 @@
       
       <nav class = "contenedor-links">
         <ul class="links" >
-          <li id = "locales"><a href="../institucional/locales.html">Locales</a></li>
-          <li id = "Servicio-al-cliente"><a href="../institucional/servCliente.html">Servicio al cliente</a></li>
-          <li id = "Sobre-nosotros"><a href="../institucional/nosotros.html">Sobre nosotros</a></li>
+          <li id = "locales"><a href="../institucional/locales">Locales</a></li>
+          <li id = "Servicio-al-cliente"><a href="../institucional/servCliente">Servicio al cliente</a></li>
+          <li id = "Sobre-nosotros"><a href="../institucional/nosotros">Sobre nosotros</a></li>
         </ul>
       </nav>
       

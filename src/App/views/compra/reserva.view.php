@@ -18,25 +18,25 @@
       <nav class="menu">
         <img src="../assets/MenuBurger.png" class="icono-menu" />
         <ul class="lista-desplegable">
-          <li><a href="../compra/menu.html">Menu</a></li>
-          <li><a href="../compra/reserva.html">Reservar mesa</a></li>
+          <li><a href="../compra/menu">Menu</a></li>
+          <li><a href="../compra/reserva">Reservar mesa</a></li>
           <li class="header-derecha">
-            <a href="../cuenta/perfil.html">Perfil</a>
+            <a href="../cuenta/perfil">Perfil</a>
           </li>
           <!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
           <li></li>
         </ul>
       </nav>
       <h1>
-        <a href="../index.html">
+        <a href="/">
           <img src="../assets/Imagotipo.svg" alt="Paw Power" class="logo" />
         </a>
       </h1>
-      <a href="../compra/carrito.html"
+      <a href="../compra/carrito"
         ><img src="../assets/carrito.png" alt="Carrito" class="icono-carrito"
       /></a>
-      <a href="../cuenta/login.html"
-        ><img src="../assets/user.png" alt="Usuario" class="icono-usuario"
+      <a href="../cuenta/login"
+        ><img src="../assets/usuario.png" alt="Usuario" class="icono-usuario"
       /></a>
     </header>
     
@@ -46,17 +46,17 @@
         <h2>Reservas</h2>
         <ul>
           <li>
-            <a href="../institucional/locales.html"> 
+            <a href="../institucional/locales"> 
               <img src="../assets/local1.jpg" alt="Local 1 - PAW POWER">
             </a>
           </li>
           <li>
-            <a href="../institucional/locales.html"> 
+            <a href="../institucional/locales"> 
               <img src="../assets/local2.jpg" alt="Local 2 - PAW POWER">
             </a>
           </li>
           <li>
-            <a href="../institucional/locales.html"> 
+            <a href="../institucional/locales"> 
               <img src="../assets/local3.jpg" alt="Local 3 - PAW POWER">
             </a>
           </li>
@@ -112,9 +112,9 @@
      
       <nav class = "contenedor-links">
         <ul class="links" >
-          <li id = "locales"><a href="../institucional/locales.html">Locales</a></li>
-          <li id = "Servicio-al-cliente"><a href="../institucional/servCliente.html">Servicio al cliente</a></li>
-          <li id = "Sobre-nosotros"><a href="../institucional/nosotros.html">Sobre nosotros</a></li>
+          <li id = "locales"><a href="../institucional/locales">Locales</a></li>
+          <li id = "Servicio-al-cliente"><a href="../institucional/servCliente">Servicio al cliente</a></li>
+          <li id = "Sobre-nosotros"><a href="../institucional/nosotros">Sobre nosotros</a></li>
         </ul>
       </nav>
       

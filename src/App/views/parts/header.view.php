@@ -1,4 +1,3 @@
-<header class="header-principal">
     <nav class="menu">
         <img src="./assets/MenuBurger.png" class="icono-menu" />
         <ul class="lista-desplegable">
@@ -23,9 +22,8 @@
         </a>
     </h1>
     <?php $carrito = $this->rutas[4] ?>
-    <a href=" <?= $carrito["href"] ?>"><img src="./assets/<?= $carrito["name"] ?>carrito.png"
+    <a href=" <?= $carrito["href"] ?>"><img src="./assets/<?= $carrito["name"] ?>.png"
             alt="<?= $carrito["name"] ?>" class="icono-<?= $carrito["name"] ?>" /></a>
     <?php $usuario = $this->rutas[5] ?>
-    <a href=" <?= $usuario["href"] ?>"><img src="./assets/<?= $usuario["name"] ?>carrito.png"
+    <a href=" <?= $usuario["href"] ?>"><img src="./assets/<?= $usuario["name"] ?>.png"
             alt="<?= $usuario["name"] ?>" class="icono-<?= $usuario["name"] ?>" /></a>
-</header>

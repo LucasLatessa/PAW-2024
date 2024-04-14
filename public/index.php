@@ -10,6 +10,7 @@ $path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $log->info("Peticion a: {$path}");
 
 try{
+    #print_r($path);
     $router->direct($path);
     $log->info("Respuesta exitosa: 200 - {$path}");
 } catch (RouteNotFoundException $e){

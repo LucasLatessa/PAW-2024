@@ -13,7 +13,10 @@ class Router
 
     public function direct($path)
     {
+        #print_r($this->routes);
+        #print_r($path);
         if (!array_key_exists($path,$this->routes)){
+            print_r($path);
             throw new RouteNotFoundException("No existe ruta para este Pad");
         }
 

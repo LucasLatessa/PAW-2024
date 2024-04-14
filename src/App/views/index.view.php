@@ -12,11 +12,9 @@
 
 <body>
   <!--HEADER-->
-  <header>
-    <h1><?= $titulo ?></h1>
+  <header class="header-principal">
+    <?php require 'parts/header.view.php'; ?>
   </header>
-
-  <?php require 'parts/header.view.php'; ?>
 
   <main>
     <section class="carrusel">
@@ -24,22 +22,22 @@
       <!-- Agrego lista para carrusel -->
       <ul>
         <li>
-          <a href="./compra/menu.html">
+          <a href="./compra/menu">
             <img src="./assets/promo1.jpeg" alt="Promoción 1 - Descubre nuestras ofertas especiales" />
           </a>
         </li>
         <li>
-          <a href="./compra/menu.html">
+          <a href="./compra/menu">
             <img src="./assets/Hamburguesa.jpg" alt="Promoción 2 - Prueba nuestras hamburguesas" />
           </a>
         </li>
         <li>
-          <a href="./compra/menu.html">
+          <a href="./compra/menu">
             <img src="./assets/promo1.jpeg" alt="Promoción 3 - Descubre nuestras ofertas especiales" />
           </a>
         </li>
         <li>
-          <a href="./compra/menu.html">
+          <a href="./compra/menu">
             <img src="./assets/promo1.jpeg" alt="Promoción 4 - Descubre nuestras ofertas especiales" />
           </a>
         </li>
@@ -49,13 +47,13 @@
     <section class="pedirMain">
       <h3>Pide a domicilio y disfruta de tu comida</h3>
       <img src="./assets/Delivery.png" alt="Delivery - Rapida Gula" />
-      <a href="./compra/menu.html">Pedir ahora</a>
+      <a href="./compra/menu">Pedir ahora</a>
     </section>
 
     <section class="reservarMesaMain">
       <h3>Pide con aticipacion en nuestro locales</h3>
       <img src="./assets/ReservarMesa.png" alt="Reservar Mesa - Rapida Gula" width="300" />
-      <a href="./compra/reserva.html">Reservar ahora</a>
+      <a href="./compra/reserva">Reservar ahora</a>
     </section>
 
     <h4 class="titulo-novedades">Novedades</h4>
@@ -105,7 +103,11 @@
     </section>
   </main>
 
-  <?php require 'parts/footer.view.php'; ?>
+  <!--FOOTER-->
+  <footer>
+    <?php require 'parts/footer.view.php'; ?>
+  </footer>
+
 
 </body>
 
