@@ -14,8 +14,6 @@ use Paw\Core\Config;
 
 $dotenv = Dotenv::createUnsafeImmutable(__DIR__ . '/../');
 $dotenv->load();
-#getenv("LOG_LEVEL");
-#$_ENV("LOG_LEVEL");
 
 $config = new Config;
 
