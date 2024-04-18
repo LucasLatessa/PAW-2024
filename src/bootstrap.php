@@ -31,6 +31,7 @@ $whoops->register(); #Ahora el maneja los errores de PHP
 $request = new Request;
 
 $router = new Router;
+$router->setLoggeable($log); #Agrego el log
 $router->loadRoutes('/','PageController@index'); #Clase y metodo que procesa la peticion
 
 #Compra

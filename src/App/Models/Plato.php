@@ -13,16 +13,6 @@ class Plato{
         $this->descripcion = $descripcion;
         $this->precio = $precio;
     }
-    /*public function getPlato(){
-        $retorno = [];
-        
-        $retorno[0] = $this->nombre;
-        $retorno[1] = $this->descripcion;
-        $retorno[2] = $this->precio;
-        
-        return $retorno;
-    }*/
-
     public function getNombre(){
         return $this->nombre;
     }

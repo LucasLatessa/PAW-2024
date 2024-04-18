@@ -3,9 +3,12 @@
 namespace Paw\Core;
 use Paw\Core\Request;
 use Paw\Core\Exceptions\RouteNotFoundException;
+use Paw\Core\Traits\Loggable;
 
 class Router
 {
+    
+    use Loggable; #Interpreta como un Trait
     public array $routes;
 
     public function loadRoutes($path,$action)
@@ -28,5 +31,11 @@ class Router
         
         $objController = new $controller_name;
         $objController->$method($path);
+        $this->logger->info(
+            "Status code: 200",
+            [
+                "path"=> $path,
+                "method"=> $http_method,
+            ]);
     }
 }

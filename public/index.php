@@ -4,8 +4,6 @@
 
 require __DIR__ . '/../src/bootstrap.php';
 
-//use Paw\Core\Exceptions\RouteNotFoundException;
-
 $router->direct($request);
 
 #$path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
