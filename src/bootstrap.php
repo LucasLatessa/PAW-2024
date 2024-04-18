@@ -8,6 +8,7 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Dotenv\Dotenv;
 
+use Paw\Core\Request;
 use Paw\Core\Router; 
 use Paw\Core\Config;
 
@@ -27,6 +28,8 @@ $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler); #Manejador de errores
 $whoops->register(); #Ahora el maneja los errores de PHP
 
+$request = new Request;
+
 $router = new Router;
 $router->loadRoutes('/','PageController@index'); #Clase y metodo que procesa la peticion
 
@@ -39,7 +42,7 @@ $router->loadRoutes('/compra/reserva','PageController@reserva');
 $router->loadRoutes('/compra/selecDirec','PageController@selecDirec');
 $router->loadRoutes('/compra/selecLoc','PageController@selecLoc');
 
-
+#Creacion de plato
 $router->loadRoutes('/compra/crearPlato','PageController@crearPlato');
 $router->loadRoutes('/compra/prueba','PageController@prueba');
 
