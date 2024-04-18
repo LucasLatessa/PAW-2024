@@ -39,6 +39,10 @@ $router->loadRoutes('/compra/reserva','PageController@reserva');
 $router->loadRoutes('/compra/selecDirec','PageController@selecDirec');
 $router->loadRoutes('/compra/selecLoc','PageController@selecLoc');
 
+
+$router->loadRoutes('/compra/crearPlato','PageController@crearPlato');
+$router->loadRoutes('/compra/prueba','PageController@prueba');
+
 #Cuenta
 $router->loadRoutes('/cuenta/agregarDireccion','PageController@agregarDireccion'); 
 $router->loadRoutes('/cuenta/consumos','PageController@consumos');

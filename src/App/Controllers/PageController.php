@@ -103,6 +103,11 @@ class PageController
         require $this->viewsDir . 'compra/selecLoc.view.php';
     }
 
+    public function crearPlato()
+    {
+        require $this->viewsDir . 'compra/crearPlato.view.php';
+    }
+
     /*--------------CUENTA------------------*/
 
     public function agregarDireccion()
@@ -145,6 +150,11 @@ class PageController
     public function servCliente()
     {
         require $this->viewsDir . 'institucional/servCliente.view.php';
+    }  
+
+    public function prueba()
+    {
+        require $this->viewsDir . 'compra/prueba.php';
     }
 
     /*public function rutas($path)

@@ -14,29 +14,7 @@
   <body>
     <!--HEADER-->
     <header class="header-principal">
-      <nav class="menu">
-        <img src="../assets/MenuBurger.png" class="icono-menu" />
-        <ul class="lista-desplegable">
-          <li><a href="../compra/menu">Menu</a></li>
-          <li><a href="../compra/reserva">Reservar mesa</a></li>
-          <li class="header-derecha">
-            <a href="../cuenta/perfil">Perfil</a>
-          </li>
-          <!--provisorio luego va a ser el mismo boton que actua dependiendo de si estas logueado-->
-          <li></li>
-        </ul>
-      </nav>
-      <h1>
-        <a href="/">
-          <img src="../assets/Imagotipo.svg" alt="Paw Power" class="logo" />
-        </a>
-      </h1>
-      <a href="../compra/carrito"
-        ><img src="../assets/carrito.png" alt="Carrito" class="icono-carrito"
-      /></a>
-      <a href="../cuenta/login"
-        ><img src="../assets/usuario.png" alt="Usuario" class="icono-usuario"
-      /></a>
+      <?php require '../parts/header.view.php'; ?> <!-- PROBLEMA DIRECTORIOS -->
     </header>
 
     <main>
