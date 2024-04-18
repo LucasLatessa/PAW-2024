@@ -13,47 +13,46 @@ class PageController
         $this->rutas = [
             /* Menu hamburguesa 0-2*/ 
             [
-                "href" => '/compra/menu',
+                "href" => '../compra/menu',
                 "name" => "Menu",
             ],
             [
-                "href" => '/compra/reserva',
+                "href" => '../compra/reserva',
                 "name" => "Reserva mesa",
             ],
             [
-                "href" => './cuenta/perfil',
+                "href" => '../cuenta/perfil',
                 "name" => "Perfil"
             ],
             /*Logo header 3*/
             [
-                "href" => '/',
+                "href" => '../',
                 "name" => "Home",
             ],
             /*Header parte derecha 4-5*/
             [
-                "href" => '/compra/carrito',
+                "href" => '../compra/carrito',
                 "name" => "carrito",
-                "titulo" => "Carrito - PAW Power"
             ],
             [
-                "href" => '/cuenta/login',
+                "href" => '../cuenta/login',
                 "name" => "usuario"
             ],
             /*Footer 6-9*/
             [
-                "href" => '/institucional/locales',
+                "href" => '../institucional/locales',
                 "name" => "Locales"
             ],
             [
-                "href" => '/institucional/servCliente',
+                "href" => '../institucional/servCliente',
                 "name" => "Servicio alcliente"
             ],
             [
-                "href" => '/institucional/nosotros',
+                "href" => '../institucional/nosotros',
                 "name" => "Sobre nosotros"
             ],
             [
-                "href" => '/cuenta/consumos',
+                "href" => '../cuenta/consumos',
                 "name" => "Consumos"
             ]
         ];
@@ -61,7 +60,8 @@ class PageController
 
     public function index()
     {
-        #$titulo = htmlspecialchars($_GET['titulo'] ?? "PAW");
+        $title = $this->rutas[3]; #Hardoceado
+        $title = ucfirst($title['name']) . ' - PAW Power';
         require $this->viewsDir . 'index.view.php';
     }
 

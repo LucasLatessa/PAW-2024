@@ -2,6 +2,7 @@
 
 namespace Paw\Core;
 use Paw\Core\Exceptions\RouteNotFoundException;
+use Exception;
 
 class Router
 {
@@ -13,14 +14,17 @@ class Router
 
     public function direct($path)
     {
+        #var_dump($path);
+        #var_dump($this->routes);
+        #var_dump(array_key_exists($path,$this->routes));
         if (!array_key_exists($path,$this->routes)){
-            throw new RouteNotFoundException("No existe ruta para este Pad");
+            throw new Exception("La ruta especificada no existe: $path");
         }
-
+        
         list($controller,$method) = explode('@', $this->routes[$path]);
-            $controller_name = "Paw\\App\\Controllers\\{$controller}";
-            $objController = new $controller_name;
-            $objController->$method($path);
-
+        $controller_name = "Paw\\App\\Controllers\\{$controller}";
+        
+        $objController = new $controller_name;
+        $objController->$method($path);
     }
 }
