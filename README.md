@@ -11,4 +11,8 @@ la compra
 Entorno de desarrollo: VSCode, <br>
 Sistema Operativo: Windows 11
 
+Deploy
+1° php -S localhost:8888 -t public
+2° ./ngrok http http://localhost:8888/
+
 Figma: https://www.figma.com/file/XK3M3D3Ikt8jG1kdT5zQEW/LMJR-(Chiv)---TP1(PAW)?type=design&node-id=58%3A486&mode=design&t=9VBFG6YhUoPuYjwA-1

@@ -45,7 +45,7 @@ class PageController
             ],
             [
                 "href" => '../institucional/servCliente',
-                "name" => "Servicio alcliente"
+                "name" => "Servicio al Cliente"
             ],
             [
                 "href" => '../institucional/nosotros',
