@@ -42,6 +42,7 @@ $router->loadRoutes('/compra/pedirComida','PageController@pedirComida');
 $router->loadRoutes('/compra/reserva','PageController@reserva');
 $router->loadRoutes('/compra/selecDirec','PageController@selecDirec');
 $router->loadRoutes('/compra/selecLoc','PageController@selecLoc');
+$router->loadRoutes('/compra/agregarDireccion','PageController@agregarDireccion');
 
 #Creacion de plato
 $router->loadRoutes('/compra/crearPlato','PageController@crearPlato');

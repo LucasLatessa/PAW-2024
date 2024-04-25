@@ -2,15 +2,13 @@
 <html lang="es">
 
 <head>
-  <?php require 'parts/head.view.php';?>
-  <link rel="stylesheet" href="../styles/global.css" />
+  <?php require __DIR__ . '/parts/head.view.php'; ?>
+  <link rel="stylesheet" href="/assets/styles/global.css" />
 </head>
 
 <body>
   <!--HEADER-->
-  <header class="header-principal">
-    <?php require 'parts/header.view.php'; ?>
-  </header>
+  <?php require __DIR__ . '/parts/header.view.php'; ?>
 
   <main>
     <section class="carrusel">
@@ -100,10 +98,7 @@
   </main>
 
   <!--FOOTER-->
-  <footer>
-    <?php require 'parts/footer.view.php'; ?>
-  </footer>
-
+  <?php require __DIR__ . '/parts/footer.view.php' ?>
 
 </body>
 

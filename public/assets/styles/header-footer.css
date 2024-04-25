@@ -126,7 +126,7 @@
 
 footer {
   background-color: var(--color-terceario);
-  background-image: url("../assets/Imagotipo.svg");
+  background-image: url("/assets/Imagotipo.svg");
   background-position: center;
   background-size: 20em;
   background-repeat: no-repeat;
