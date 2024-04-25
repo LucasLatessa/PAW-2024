@@ -133,7 +133,11 @@ a {
 input[list="listaLocales"],
 input[list="listaHorarios"],
 input[type="numeroPersonas"],
-input[type="date"]{
+input[type="date"],
+input[name="nombre"],
+input[name="descripcion"],
+input[name="precio"],
+input[name="imagen"]{
   width: calc(100% - 1.6rem);
   padding: 1rem;
   margin-bottom: 10px;

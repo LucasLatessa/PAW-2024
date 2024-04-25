@@ -43,10 +43,10 @@ $router->loadRoutes('/compra/reserva','PageController@reserva');
 $router->loadRoutes('/compra/selecDirec','PageController@selecDirec');
 $router->loadRoutes('/compra/selecLoc','PageController@selecLoc');
 $router->loadRoutes('/compra/agregarDireccion','PageController@agregarDireccion');
+$router->loadRoutes('/compra/crearPlato','PageController@crearPlato');
 
 #Creacion de plato
-$router->loadRoutes('/compra/crearPlato','PageController@crearPlato');
-$router->loadRoutes('/compra/prueba','PageController@prueba');
+$router->loadRoutes('/compra/plato/insertar','MenuController@crearPlato');
 
 #Cuenta
 $router->loadRoutes('/cuenta/agregarDireccion','PageController@agregarDireccion'); 

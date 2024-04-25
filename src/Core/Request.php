@@ -18,4 +18,8 @@ class Request{
             $this->method()
         ];
     }
+
+    public function getRequest($valores){
+        return $_POST[$valores] ?? $_GET[$valores] ?? null;
+    }
 }
