@@ -19,7 +19,7 @@
 
     <h1 class="login">Crear plato</h1>
 
-    <form method="POST" class="form-login" action="plato/insertar"> <!--Redirecciona a prueba-->
+    <form method="POST" class="form-login" action="menu"> <!--Post y redireccionamiento a compra/menu -->
       <label for="nombre">
         Nombre
         <input name="nombre" id="nombre" required />

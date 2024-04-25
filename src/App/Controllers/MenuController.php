@@ -73,9 +73,10 @@ class MenuController
 
         #$nuevoPlato = new Plato($nombre, $descripcion, $precio);
         $plato = new Plato($nuevoPlato);
+        #var_dump($plato);
         $title = $this->rutas[0]; #Hardoceado
         $title = ucfirst($title['name']) . ' - PAW Power';
-        require $this->viewsDir . 'compra/menu.view.php';
+        require $this->viewsDir . 'compra/platoagregado.view.php';
     }
 
 }

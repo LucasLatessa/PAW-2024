@@ -32,30 +32,30 @@ $request = new Request;
 
 $router = new Router;
 $router->setLoggeable($log); #Agrego el log
-$router->loadRoutes('/','PageController@index'); #Clase y metodo que procesa la peticion
+$router->get('/','PageController@index'); #Clase y metodo que procesa la peticion
 
 #Compra
-$router->loadRoutes('/compra/menu','PageController@menu'); 
-$router->loadRoutes('/compra/carrito','PageController@carrito');
-$router->loadRoutes('/compra/confirmarCompra','PageController@confirmarCompra');
-$router->loadRoutes('/compra/pedirComida','PageController@pedirComida');
-$router->loadRoutes('/compra/reserva','PageController@reserva');
-$router->loadRoutes('/compra/selecDirec','PageController@selecDirec');
-$router->loadRoutes('/compra/selecLoc','PageController@selecLoc');
-$router->loadRoutes('/compra/agregarDireccion','PageController@agregarDireccion');
-$router->loadRoutes('/compra/crearPlato','PageController@crearPlato');
+$router->get('/compra/menu','PageController@menu'); 
+$router->get('/compra/carrito','PageController@carrito');
+$router->get('/compra/confirmarCompra','PageController@confirmarCompra');
+$router->get('/compra/pedirComida','PageController@pedirComida');
+$router->get('/compra/reserva','PageController@reserva');
+$router->get('/compra/selecDirec','PageController@selecDirec');
+$router->get('/compra/selecLoc','PageController@selecLoc');
+$router->get('/compra/agregarDireccion','PageController@agregarDireccion');
+$router->get('/compra/crearPlato','PageController@crearPlato');
 
 #Creacion de plato
-$router->loadRoutes('/compra/plato/insertar','MenuController@crearPlato');
+$router->post('/compra/menu','MenuController@crearPlato');
 
 #Cuenta
-$router->loadRoutes('/cuenta/agregarDireccion','PageController@agregarDireccion'); 
-$router->loadRoutes('/cuenta/consumos','PageController@consumos');
-$router->loadRoutes('/cuenta/login','PageController@login');
-$router->loadRoutes('/cuenta/perfil','PageController@perfil');
-$router->loadRoutes('/cuenta/registrarse','PageController@registrarse');
+$router->get('/cuenta/agregarDireccion','PageController@agregarDireccion'); 
+$router->get('/cuenta/consumos','PageController@consumos');
+$router->get('/cuenta/login','PageController@login');
+$router->get('/cuenta/perfil','PageController@perfil');
+$router->get('/cuenta/registrarse','PageController@registrarse');
 
 #Institucional
-$router->loadRoutes('/institucional/locales','PageController@locales');
-$router->loadRoutes('/institucional/nosotros','PageController@nosotros');
-$router->loadRoutes('/institucional/servCliente','PageController@servCliente');
+$router->get('/institucional/locales','PageController@locales');
+$router->get('/institucional/nosotros','PageController@nosotros');
+$router->get('/institucional/servCliente','PageController@servCliente');

@@ -1,41 +1,100 @@
 <?php
 
 namespace Paw\Core;
+
+use Exception;
 use Paw\Core\Request;
 use Paw\Core\Exceptions\RouteNotFoundException;
 use Paw\Core\Traits\Loggable;
 
 class Router
 {
-    
-    use Loggable; #Interpreta como un Trait
-    public array $routes;
 
-    public function loadRoutes($path,$action)
+    use Loggable; #Interpreta como un Trait
+    public array $routes = [
+        'GET' => [],
+        'POST' => []
+    ];
+
+    public string $notFound = 'not_found';
+    public string $internalError = 'internal_error';
+
+    public function __construct(){
+        $this->get($this->notFound, 'ErrorController@notFound');
+        $this->get($this->internalError, 'ErrorController@internalError');
+    }
+
+    private function loadRoutes($path, $action, $method = "GET")
     {
-        $this->routes[$path] = $action;
+        $this->routes[$method][$path] = $action;
+    }
+
+    public function get($path, $action)
+    {
+        $this->loadRoutes($path, $action, "GET");
+    }
+
+    public function post($path, $action)
+    {
+        $this->loadRoutes($path, $action, "POST");
+    }
+    public function exists($path, $method)
+    {
+        return array_key_exists($path, $this->routes[$method]);
+    }
+
+    public function getController($path, $http_method)
+    {
+
+        if (!$this->exists($path, $http_method)) {
+            throw new RouteNotFoundException("No existe ruta para este Path");
+        }
+
+        return explode('@', $this->routes[$http_method][$path]);
+    }
+
+    public function call($controller, $method)
+    {
+        $controller = "Paw\\App\\Controllers\\{$controller}";
+        $objController = new $controller;
+        $objController->$method();
     }
 
     public function direct(Request $request)
     {
-        #var_dump($path);
-        #var_dump($this->routes);
-        #var_dump(array_key_exists($path,$this->routes));
-        list($path, $http_method) = $request->route();
-        if (!array_key_exists($path,$this->routes)){
-            throw new RouteNotFoundException("La ruta especificada no existe: $path");
+        try {
+            list($path, $http_method) = $request->route();
+            list($controller, $method) = $this->getController($path, $http_method);
+            $this->logger
+                ->info(
+                    "Status Code: 200",
+                    [
+                        "Path" => $path,
+                        "Controller" => $controller,
+                        "Method" => $method
+                    ]
+                );
+
+        } catch (RouteNotFoundException $e) {
+            list($controller, $method) = $this->getController($this->notFound, "GET");
+            $this->logger
+                ->debug(
+                    "Status Code: 404 - Route Not Found",
+                    [
+                        "ERROR" => $e
+                    ]
+                );
+        } catch (Exception $e) {
+            list($controller, $method) = $this->getController($this->internalError, "GET");
+            $this->logger
+                ->error(
+                    "Status Code: 500 - Internal Server Error",
+                    [
+                        "ERROR" => $e
+                    ]
+                );
+        } finally {
+            $this->call($controller, $method);
         }
-        
-        list($controller,$method) = explode('@', $this->routes[$path]);
-        $controller_name = "Paw\\App\\Controllers\\{$controller}";
-        
-        $objController = new $controller_name;
-        $objController->$method($path);
-        $this->logger->info(
-            "Status code: 200",
-            [
-                "path"=> $path,
-                "method"=> $http_method,
-            ]);
     }
 }
