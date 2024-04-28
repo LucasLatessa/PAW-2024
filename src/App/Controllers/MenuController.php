@@ -64,18 +64,20 @@ class MenuController
 
         global $request;
 
+        $archivoTemporal = $_FILES['imagen']['tmp_name'];
+        $nombreArchivo = $_FILES['imagen']['name'];
+        $rutaDestino = __DIR__ . '/../../../public/assets/' . $nombreArchivo;
+        move_uploaded_file($archivoTemporal, $rutaDestino);
+        
         $nuevoPlato = [
             'nombre' => $request->getRequest('nombre'),
             'descripcion'  => $request->getRequest('descripcion'),
             'precio'  => $request->getRequest('precio'),
-            'foto'  => $request->getRequest('imagen'),
+            'imagen'  => $nombreArchivo,
         ];
-
-        #$nuevoPlato = new Plato($nombre, $descripcion, $precio);
         $plato = new Plato($nuevoPlato);
-        #var_dump($plato);
-        $title = $this->rutas[0]; #Hardoceado
-        $title = ucfirst($title['name']) . ' - PAW Power';
+        /* $title = $this->rutas[0]; #Hardoceado
+        $title = ucfirst($title['name']) . ' - PAW Power'; */
         require $this->viewsDir . 'compra/platoagregado.view.php';
     }
 

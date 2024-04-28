@@ -3,7 +3,7 @@
         'name' => 'paw/paw-power',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'f342bf80acdb1a880b6abde139f33925e6c8db33',
+        'reference' => '4c8ae543e63c51255eb6ffec749479a0d6070b1d',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -40,7 +40,7 @@
         'paw/paw-power' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'f342bf80acdb1a880b6abde139f33925e6c8db33',
+            'reference' => '4c8ae543e63c51255eb6ffec749479a0d6070b1d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

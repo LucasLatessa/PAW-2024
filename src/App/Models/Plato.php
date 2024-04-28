@@ -8,7 +8,7 @@ class Plato{
         'nombre',
         'descripcion',
         'precio',
-        'foto'
+        'imagen'
     ];
 
     /*public function __construct($nombre,$descripcion,$precio,$foto){
@@ -23,7 +23,7 @@ class Plato{
         $this->campos['nombre'] = $camposPOST['nombre'];
         $this->campos['descripcion'] = $camposPOST['descripcion'];
         $this->campos['precio'] = $camposPOST['precio'];
-        $this->campos['foto'] = $camposPOST['foto'];
+        $this->campos['imagen'] = $camposPOST['imagen'];
     }
 
     public function getPlato(){
@@ -41,8 +41,7 @@ class Plato{
     public function getPrecio(){
         return $this->campos['precio'];
     }
-
-    public function getFoto(){
-        return $this->campos['foto'];
+    public function getImagen(){
+        return $this->campos['imagen'];
     }
 }

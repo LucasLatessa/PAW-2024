@@ -19,7 +19,7 @@
 
     <h1 class="login">Crear plato</h1>
 
-    <form method="POST" class="form-login" action="menu"> <!--Post y redireccionamiento a compra/menu -->
+    <form method="POST" enctype="multipart/form-data" class="form-login" action="menu"> <!--Post y redireccionamiento a compra/menu -->
       <label for="nombre">
         Nombre
         <input name="nombre" id="nombre" required />
@@ -34,7 +34,7 @@
       </label>
       <label for="imagen">
         Imagen
-        <input type="file" id="imagen" name="imagen" accept=".jpeg, .png">
+        <input type="file" id="imagen" name="imagen" accept=".jpg, .png">
       </label>
 
       <input name="submit" type="submit" value="Crear Plato" />
