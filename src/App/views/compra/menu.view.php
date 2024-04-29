@@ -83,7 +83,7 @@
       </article>
     </section>
 
-    <a href="./crearPlato"> Crear plato </á>
+    <a href="../menu/crearPlato"> Crear plato </á>
 
   </main>
 

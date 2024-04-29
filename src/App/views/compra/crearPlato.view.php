@@ -19,7 +19,7 @@
 
     <h1 class="login">Crear plato</h1>
 
-    <form method="POST" enctype="multipart/form-data"class="form-login" action="menu"> <!--Post y redireccionamiento a compra/menu -->
+    <form method="POST" enctype="multipart/form-data"class="form-login" action=""> <!--Post y redireccionamiento a compra/menu -->
       <label for="nombre">
         Nombre
         <input name="nombre" id="nombre" required />
