@@ -9,8 +9,7 @@ class PageController
     public function __construct()
     {
         $this->viewsDir = __DIR__ . "/../views/";
-
-        $this->rutas = [
+        $this->rutasMenuBurger = [
             /* Menu hamburguesa 0-2*/ 
             [
                 "href" => '../compra/menu',
@@ -23,12 +22,15 @@ class PageController
             [
                 "href" => '../cuenta/perfil',
                 "name" => "Perfil"
-            ],
+            ]
+            ];
+        $this->rutasLogoHeader =
             /*Logo header 3*/
             [
                 "href" => '../',
                 "name" => "Home",
-            ],
+            ];
+        $this->rutasHeaderDer = [
             /*Header parte derecha 4-5*/
             [
                 "href" => '../compra/carrito',
@@ -38,6 +40,8 @@ class PageController
                 "href" => '../cuenta/login',
                 "name" => "usuario"
             ],
+        ];
+        $this->rutasFooter = [
             /*Footer 6-9*/
             [
                 "href" => '../institucional/locales',
@@ -55,12 +59,12 @@ class PageController
                 "href" => '../cuenta/consumos',
                 "name" => "Consumos"
             ]
-        ];
+            ];
     }
 
     public function index()
     {
-        $title = $this->rutas[3]; #Hardoceado
+        $title = $this->rutasLogoHeader; #Hardoceado
         $title = ucfirst($title['name']) . ' - PAW Power';
         require $this->viewsDir . 'index.view.php';
     }
@@ -69,14 +73,14 @@ class PageController
 
     public function menu()
     {
-        $title = $this->rutas[0]; #Hardoceado
+        $title = $this->rutasMenuBurger[0]; #Hardoceado
         $title = ucfirst($title['name']) . ' - PAW Power';
         require $this->viewsDir . 'compra/menu.view.php';
     }
 
     public function carrito()
     {
-        $title = $this->rutas[4]; #Hardoceado
+        $title = $this->rutasHeaderDer[0]; #Hardoceado
         $title = ucfirst($title['name']) . ' - PAW Power';
         require $this->viewsDir . 'compra/carrito.view.php';
     }
@@ -95,7 +99,7 @@ class PageController
 
     public function reserva()
     {
-        $title = $this->rutas[1]; #Hardoceado
+        $title = $this->rutasMenuBurger[1]; #Hardoceado
         $title = ucfirst($title['name']) . ' - PAW Power';
         require $this->viewsDir . 'compra/reserva.view.php';
     }
@@ -128,21 +132,21 @@ class PageController
 
     public function consumos()
     {
-        $title = $this->rutas[9]; #Hardoceado
+        $title = $this->rutasFooter[3]; #Hardoceado
         $title = ucfirst($title['name']) . ' - PAW Power';
         require $this->viewsDir . 'cuenta/consumos.view.php';
     }
 
     public function login()
     {
-        $title = $this->rutas[5]; #Hardoceado
+        $title = $this->rutasHeaderDer[1]; #Hardoceado
         $title = ucfirst($title['name']) . ' - PAW Power';
         require $this->viewsDir . 'cuenta/login.view.php';
     }
 
     public function perfil()
     {
-        $title = $this->rutas[4]; #Hardoceado
+        $title = $this->rutasMenuBurger[2]; #Hardoceado
         $title = ucfirst($title['name']) . ' - PAW Power';
         require $this->viewsDir . 'cuenta/perfil.view.php';
     }
@@ -157,21 +161,21 @@ class PageController
 
     public function locales()
     {
-        $title = $this->rutas[6]; #Hardoceado
+        $title = $this->rutasFooter[0]; #Hardoceado
         $title = ucfirst($title['name']) . ' - PAW Power';
         require $this->viewsDir . 'institucional/locales.view.php';
     }
 
     public function nosotros()
     {
-        $title = $this->rutas[8]; #Hardoceado
+        $title = $this->rutasFooter[2]; #Hardoceado
         $title = ucfirst($title['name']) . ' - PAW Power';
         require $this->viewsDir . 'institucional/nosotros.view.php';
     }
 
     public function servCliente()
     {
-        $title = $this->rutas[7]; #Hardoceado
+        $title = $this->rutasFooter[1]; #Hardoceado
         $title = ucfirst($title['name']) . ' - PAW Power';
         require $this->viewsDir . 'institucional/servCliente.view.php';
     }  

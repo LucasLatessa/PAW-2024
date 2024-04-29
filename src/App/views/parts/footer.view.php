@@ -4,8 +4,7 @@
     <ul class="links">
 
       <?php
-      $ultimosCuatro = array_slice($this->rutas, -4);
-      foreach ($ultimosCuatro as $item): ?>
+      foreach ($this->rutasFooter as $item): ?>
 
         <li><a href="<?= $item["href"] ?>"> <?= $item["name"] ?></a></li>
 
