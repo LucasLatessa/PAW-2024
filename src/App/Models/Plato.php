@@ -4,40 +4,34 @@ namespace Paw\App\Models;
 
 class Plato{
 
-    public $campos = [
-        'nombre',
-        'descripcion',
-        'precio',
-        'imagen'
-    ];
+    private $nombre;
+    private $descripcion;
+    private $precio;
+    private $imagen;
 
     public function __construct($nombre, $descripcion, $precio, $imagen){
         if (empty($nombre) || empty($descripcion) || empty($precio) || empty($imagen)) {
             throw new \InvalidArgumentException("Nombre, imagen, descripción y precio son campos requeridos.");
         }
 
-        $this->campos['nombre'] = $nombre;
-        $this->campos['descripcion'] = $descripcion;
-        $this->campos['precio'] = $precio;
-        $this->campos['imagen'] = $imagen;
-    }
-
-    public function getPlato(){
-        return $this->campos;
+        $this->nombre = $nombre;
+        $this->descripcion = $descripcion;
+        $this->precio = $precio;
+        $this->imagen = $imagen;
     }
 
     public function getNombre(){
-        return $this->campos['nombre'];
+        return $this->nombre;
     }
 
     public function getDescripcion(){
-        return $this->campos['descripcion'];
+        return $this->descripcion;
     }
 
     public function getPrecio(){
-        return $this->campos['precio'];
+        return $this->precio;
     }
     public function getImagen(){
-        return $this->campos['imagen'];
+        return $this->imagen;
     }
 }
