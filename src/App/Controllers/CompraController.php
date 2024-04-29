@@ -2,6 +2,7 @@
 
 namespace Paw\App\Controllers;
 use Paw\App\Models\Reserva;
+use Paw\App\Models\Carrito;
 
 class CompraController
 {
@@ -91,5 +92,19 @@ class CompraController
             require $this->viewsDir . 'compra/carrito.view.php';
         }
 }
+
+    public function crearFilaCarrito(){
+        global $request;
+
+        $nombre = $request->getRequest('nombre');
+        $descripcion = $request->getRequest('descripcion');
+        $precio = $request->getRequest('precio');
+        $notas = $request->getRequest('notas');
+        $cantidad = $request->getRequest('cantidad');
+        $pago = $request->getRequest('pago');
+        $envio = $request->getRequest('envio');
+
+        $filaCarrito = new Carrito($nombre,$descripcion,$precio, $notas, $cantidad, $pago, $envio);
+    }
 
 }

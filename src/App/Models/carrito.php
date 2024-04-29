@@ -8,12 +8,11 @@ Class Carrito{
     private $precio;
     private $notas;
     private $cantidad;
-    private $borrar;
     private $pago;
     private $envio;
 
-    public function __construct($nombre,$descripcion,$precio, $notas, $cantidad, $borrar, $pago, $envio){
-        if (empty($nombre) || empty($Descripcion) || empty($Precio) || empty($Notas) || empty($Cantidad) || empty($Borrar) || empty($pago) || empty($envio)){            
+    public function __construct($nombre,$descripcion,$precio, $notas, $cantidad, $pago, $envio){
+        if (empty($nombre) || empty($Descripcion) || empty($Precio) || empty($Notas) || empty($Cantidad) || empty($pago) || empty($envio)){            
             throw new \InvalidArgumentException("Nombre, imagen, descripción y precio son campos requeridos.");
         }
 
@@ -22,7 +21,6 @@ Class Carrito{
         $this->precio = $precio;
         $this->notas = $notas;
         $this->cantidad= $cantidad;
-        $this->borrar = $borrar;
         $this->pago = $pago;
         $this->envio = $envio;
     } 
@@ -45,10 +43,6 @@ Class Carrito{
 
     public function getCantidad() {
         return $this->cantidad;
-    }
-
-    public function getBorrar() {
-        return $this->borrar;
     }
     
     public function getPago() {
