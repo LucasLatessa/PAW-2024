@@ -78,7 +78,7 @@ class LoginController extends Controlador{
 
     public function actualizarPerfil(){
         global $request;
-
+        //session_start();
         #Obtengo los datos de la peticion
         $email = $request->getRequest("email");
         $nombre = $request->getRequest("nombre");
@@ -91,6 +91,12 @@ class LoginController extends Controlador{
             $resultado = "¡Perfil actualizado!";
         }
         $title = "Perfil" . ' - PAW Power';
+        
+        // Guarda las variables de sesión antes de la redirección
+        //session_write_close();
+        // Redirigir a otra página
+        //header("Location: /cuenta/perfil");
+        //exit(); 
         require $this->viewsDir . 'cuenta/perfil.view.php';
 
         #Faltaria agregar validaciones con la BD para realizar el intercambio
