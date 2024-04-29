@@ -22,7 +22,7 @@
       <article class="article-comida">
         <h3><?= $plato->getNombre() ?></h3>
         <figure class="figura-hamburguesa">
-          <img class="comida-imagen" src="/assets/<?= $plato->getImagen()?>" alt="Imagen plato agregado" width="500" />
+          <img class="comida-imagen" src="/assets/platos/<?= $plato->getImagen()?>" alt="Imagen plato agregado" width="500" />
           <figcaption class="descripcion-comida"><?= $plato->getDescripcion() ?></figcaption>
         </figure>
         <p class="precio-comida">$<?= $plato->getPrecio() ?></p>

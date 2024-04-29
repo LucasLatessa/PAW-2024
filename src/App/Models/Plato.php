@@ -12,11 +12,11 @@ class Plato{
     ];
 
     
-    public function __construct($camposPOST){
-        $this->campos['nombre'] = $camposPOST['nombre'];
-        $this->campos['descripcion'] = $camposPOST['descripcion'];
-        $this->campos['precio'] = $camposPOST['precio'];
-        $this->campos['imagen'] = $camposPOST['imagen'];
+    public function __construct($nombre,$descripcion,$precio,$imagen){
+        $this->campos['nombre'] = $nombre;
+        $this->campos['descripcion'] = $descripcion;
+        $this->campos['precio'] = $precio;
+        $this->campos['imagen'] = $imagen;
     }
 
     public function getPlato(){
