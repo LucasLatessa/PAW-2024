@@ -42,7 +42,6 @@ $router->get('/compra/menu','PageController@menu');
 $router->get('/compra/carrito','PageController@carrito');
 $router->get('/compra/confirmarCompra','PageController@confirmarCompra');
 $router->get('/compra/pedirComida','PageController@pedirComida');
-<<<<<<< HEAD
 
 #Seleccionar direccion (en carrito)
 $router->get('/compra/selecDirec','PageController@selecDirec');
@@ -50,8 +49,6 @@ $router->get('/compra/selecDirec','PageController@selecDirec');
 #Seleccionar local (en carrito)
 $router->get('/compra/selecLoc','PageController@selecLoc');
 $router->post('/compra/selecLoc','PedidoController@seleccionarLocal');
-=======
->>>>>>> b89f2d56951e14846f3442c348a06cb2293b380e
 
 #Seleccionar local
 $router->get('/compra/selecLoc','PageController@selecLoc');
