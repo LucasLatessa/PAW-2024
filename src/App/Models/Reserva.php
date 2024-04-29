@@ -21,11 +21,11 @@ class Reserva{
     }
 
     public function getLocal(){
-        return $this->nombre;
+        return $this->local;
     }
 
     public function getCantidadPersonas(){
-        return $this->descripcion;
+        return $this->cantidadPersonas;
     }
 
     public function getDia(){
