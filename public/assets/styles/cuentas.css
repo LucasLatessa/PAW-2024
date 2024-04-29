@@ -32,14 +32,15 @@ h1 {
 .reportesList,
 .pedidosList,
 .direcciones,
-.pedidos {
+.pedidos,
+.reservas {
   display: block;
   margin: 1rem;
   padding: 1rem;
   background-color: var(--color-letras);
 }
 
-.direccion, .pedido{
+.direccion, .pedido,.reserva{
     display: flex;
     justify-content: center;
     align-items: center;

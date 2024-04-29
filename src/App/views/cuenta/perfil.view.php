@@ -78,6 +78,20 @@
         <button>Ver detalles</button>
       </div>
     </section>
+    <h2>Reservas</h2>
+    <section class="reservas">
+
+      <div class="reserva">
+
+        <?php if (isset($local)): ?><p>Local: <?php echo $local; ?></p><?php endif; ?>
+        <?php if (isset($cantidadPersonas)): ?><p>Cantidad de personas: <?php echo $cantidadPersonas; ?></p><?php endif; ?>
+        <?php if (isset($dia)): ?><p>Dia: <?php echo $dia; ?></p><?php endif; ?>
+        <?php if (isset($horario)): ?><p>Horario: <?php echo $horario; ?></p><?php endif; ?>
+        <!-- <p>Aclaraciones: <?php if (isset($aclaraciones)): ?><?php echo $aclaraciones; ?><?php endif; ?></p> -->
+        
+      </div>
+
+    </section>
   </main>
 
   <!--FOOTER-->
