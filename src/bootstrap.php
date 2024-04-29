@@ -46,10 +46,6 @@ $router->get('/compra/pedirComida','PageController@pedirComida');
 #Seleccionar direccion (en carrito)
 $router->get('/compra/selecDirec','PageController@selecDirec');
 
-#Seleccionar local (en carrito)
-$router->get('/compra/selecLoc','PageController@selecLoc');
-$router->post('/compra/selecLoc','PedidoController@seleccionarLocal');
-
 #Seleccionar local
 $router->get('/compra/selecLoc','PageController@selecLoc');
 $router->post('/compra/selecLoc','CompraController@selecLoc');
