@@ -106,8 +106,28 @@ class LoginController{
             require $this->viewsDir . 'cuenta/perfil.view.php';
         }
 
-        #Faltaria agregar validaciones con la BD
+        #Faltaria agregar validaciones con la BD para comprobar que existe esa instancia
 
+    }
+
+    public function actualizarPerfil(){
+        global $request;
+
+        #Obtengo los datos de la peticion
+        $email = $request->getRequest("email");
+        $nombre = $request->getRequest("nombre");
+        $apellido = $request->getRequest("apellido");
+
+        #Validacion de correo "Solo formato a@a.com"
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $resultado = "Email invalido!";
+        } else {
+            $resultado = "¡Perfil actualizado!";
+        }
+        $title = "Perfil" . ' - PAW Power';
+        require $this->viewsDir . 'cuenta/perfil.view.php';
+
+        #Faltaria agregar validaciones con la BD para realizar el intercambio
     }
 
 

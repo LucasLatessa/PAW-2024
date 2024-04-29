@@ -59,7 +59,9 @@ $router->post('/menu/crearPlato','MenuController@crearPlato');
 $router->get('/cuenta/agregarDireccion','PageController@agregarDireccion'); 
 $router->get('/cuenta/consumos','PageController@consumos');
 
+#Perfil
 $router->get('/cuenta/perfil','PageController@perfil');
+$router->post('/cuenta/perfil','LoginController@actualizarPerfil');
 
 #Login
 $router->get('/cuenta/login','PageController@login');
