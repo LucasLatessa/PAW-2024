@@ -57,9 +57,17 @@
         <label for="takeaway">Take Away</label>
         <input type="radio" id="delivery" name="envio" value="Delivery" />
         <label for="delivery">Delivery</label>
-
-        <a href="./selecLoc">Seleccionar local</a>
-        <a href="./selecDirec">Seleccionar direccion</a>
+        <?php if (isset($local)): ?>
+        <p>Local: <?php echo $local; ?></p>
+        <?php else: ?>
+          <a href="./selecLoc">Seleccionar local</a>
+        <?php endif; ?>
+        <?php if (isset($direc)): ?>
+        <p>Direccion: <?php echo $direc; ?></p>
+        <?php else: ?>
+          <a href="./selecDirec">Seleccionar direccion</a>
+        <?php endif; ?>
+        
 
       </section>
 

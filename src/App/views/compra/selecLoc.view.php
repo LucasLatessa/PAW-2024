@@ -16,7 +16,7 @@
     <iframe name="maps" width="900" height="450" loading="lazy" allowfullscreen
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3921.882402661696!2d-76.99068508464688!3d-12.141450291419272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8367e5e3851%3A0xa25aee6eef29f4b9!2sPlaza%20de%20Armas%20de%20Lima!5e0!3m2!1ses-419!2spe!4v1647631886452!5m2!1ses-419!2spe"></iframe>
 
-    <form>
+    <form method="POST" action="/compra/selecLoc">
       <label for="local1">Nombre del local 1 - Direccion
         <input type="radio" id="local1" name="local" value="local1" checked /></label>
       <label for="local2">Nombre del local 2 - Direccion
@@ -24,7 +24,6 @@
 
       <button type="submit">
         Seleccionar local
-        <!-- Redireccion a carrito con JS -->
       </button>
     </form>
 
