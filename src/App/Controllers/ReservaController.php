@@ -98,7 +98,7 @@ class ReservaController
         $horario = $request->getRequest('horario');
         if ($this->validarReserva($cantidadPersonas,$dia,$horario)){
             $aclaraciones = $request->getRequest('aclaraciones');
-            $reserva = new reserva($local,$cantidadPersonas,$dia,$horario,$aclaraciones);
+            $reserva = new Reserva($local,$cantidadPersonas,$dia,$horario,$aclaraciones);
             $title = "Reserva agregada - PAW Power";
             require $this->viewsDir . 'cuenta/perfil.view.php';
         }else{

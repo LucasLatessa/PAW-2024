@@ -13,7 +13,7 @@
 
   <main>
     <h1>Agregar direccion</h1>
-    <form method="POST">
+    <form method="POST" action="/cuenta/agregarDireccion">
       <label for="pais">País*
         <input type="text" id="pais" name="pais" required />
       </label>

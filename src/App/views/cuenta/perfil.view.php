@@ -40,15 +40,31 @@
     </div>
 
     <h2>Direcciones</h2>
-    <section class="direcciones">
+    <?php if (isset($creada)): ?>
+        <h2><?= $creada ?></h2>
+      <?php endif; ?>
+    <section id="direcciones" class="direcciones">
+      
       <div class="direccion">
-        <p>Pais: Argentina</p>
-        <p>Provincia: Buenos Aires</p>
-        <p>Ciudad/barrio: Chivilcoy</p>
-        <p>CCPP: 6620</p>
-        <p>Direccion: 123</p>
-        <p>Aclaraciones: Nada</p>
-        <a href="./agregarDireccion">Editar Direccion</a><!--simil al agregar, pero con los datos viejos (Update) -->
+        <?php if (isset($pais)): ?>
+          <p>Pais: <?php echo $pais; ?></p>
+        <?php endif; ?>
+        <?php if (isset($provincia)): ?>
+          <p>Provincia: <?php echo $provincia; ?></p>
+        <?php endif; ?>
+        <?php if (isset($ciudad)): ?>
+          <p>Ciudad/barrio: <?php echo $ciudad; ?></p>
+        <?php endif; ?>
+        <?php if (isset($ccpp)): ?>
+          <p>CCPP: <?php echo $ccpp; ?></p>
+        <?php endif; ?>
+        <?php if (isset($direc)): ?>
+          <p>Direccion: <?php echo $direc; ?></p>
+          <a href="./agregarDireccion">Editar Direccion</a><!--simil al agregar, pero con los datos viejos (Update) -->
+        <?php endif; ?>
+        <!-- <p>Aclaraciones: <?php if (isset($aclaraciones)): ?><?php echo $aclaraciones; ?><?php endif; ?></p> -->
+        
+       
       </div>
       <div class="direccion">
         <p>Pais: Argentina</p>
@@ -62,7 +78,7 @@
       <a href="./agregarDireccion">Agregar Direccion</a>
     </section>
     <h2>Pedidos</h2>
-    <section class="pedidos">
+    <section id="pedidos" class="pedidos">
 
       <div class="pedido">
         <p>Fecha: 13 de marzo de 2024</p>
