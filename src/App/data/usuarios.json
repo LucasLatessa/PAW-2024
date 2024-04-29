@@ -1,0 +1,16 @@
+{
+    "usuarios": [
+      {
+        "email": "josuegaticaodato@gmail.com",
+        "nombre": "josue",
+        "apellido": "gatica",
+        "contraseña": "1234"
+      },
+      {
+        "email": "admin@gmail.com",
+        "nombre": "admin",
+        "apellido": "admin",
+        "contraseña": "admin"
+      }
+    ]
+  }
