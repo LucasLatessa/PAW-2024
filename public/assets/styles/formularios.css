@@ -137,7 +137,7 @@ a {
 
 input[list="listaLocales"],
 input[list="listaHorarios"],
-input[type="numeroPersonas"],
+input[type="number"],
 input[type="date"],
 input[name="nombre"],
 input[name="descripcion"],

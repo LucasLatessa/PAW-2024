@@ -35,29 +35,32 @@
     </section>
 
     <div id="formularioReserva" class="form-reserva-div">
-      <form class="form-reserva">
-        <label>Seleccionar Local* <input list="listaLocales" required /></label>
+      <form method="POST" action="" class="form-reserva">
+        <label>Seleccionar Local* 
+            <input list="listaLocales" name="local" required />
+        </label>
         <datalist id="listaLocales">
-          <option value="Local 1"></option>
-          <option value="Local 2"></option>
+            <option value="Local 1"></option>
+            <option value="Local 2"></option>
         </datalist>
 
         <label>Cantidad de Personas*
-          <input type="numeroPersonas" min="1" required />
+            <input type="number" name="cantidadPersonas" min="1" required />
         </label>
 
         <label>Día de la Reserva*
-          <input type="date" required />
+            <input type="date" name="dia" required />
         </label>
-        <label>Horario de la Reserva* <input list="listaHorarios" required /></label>
+        <label>Horario de la Reserva* 
+            <input list="listaHorarios" name="horario" required />
+        </label>
         <datalist id="listaHorarios">
-          <option value="12:00 PM - 3:00 PM"></option>
-          <option value="7:00 PM - 10:00 PM"></option>
+            <option value="12:00 PM - 3:00 PM"></option>
+            <option value="7:00 PM - 10:00 PM"></option>
         </datalist>
 
-        <label id="lInputTexto" for="inputTexto">
-          Aclaraciones
-          <input id="inputTexto" type="textAclaraciones" name="inputTexto" maxlength="500" minlength="5" size="30" />
+        <label for="inputTexto">Aclaraciones
+            <input id="inputTexto" type="text" name="aclaraciones" maxlength="500" minlength="5" size="30" />
         </label>
         <p id="required">*requerido</p>
         <button type="submit">Reservar Mesa</button>

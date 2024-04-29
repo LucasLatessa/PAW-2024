@@ -39,15 +39,15 @@ $router->get('/compra/menu','PageController@menu');
 $router->get('/compra/carrito','PageController@carrito');
 $router->get('/compra/confirmarCompra','PageController@confirmarCompra');
 $router->get('/compra/pedirComida','PageController@pedirComida');
-$router->get('/compra/reserva','PageController@reserva');
 $router->get('/compra/selecDirec','PageController@selecDirec');
 $router->get('/compra/selecLoc','PageController@selecLoc');
 $router->get('/compra/agregarDireccion','PageController@agregarDireccion');
-
+#Reserva de mesa
+$router->get('/reserva','PageController@reserva');
+$router->post('/reserva','ReservaController@crearReserva');
 #Creacion de plato
 $router->get('/menu/crearPlato','PageController@crearPlato');
 $router->post('/menu/crearPlato','MenuController@crearPlato');
-
 #Cuenta
 $router->get('/cuenta/agregarDireccion','PageController@agregarDireccion'); 
 $router->get('/cuenta/consumos','PageController@consumos');

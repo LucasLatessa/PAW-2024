@@ -16,7 +16,7 @@ class PageController
                 "name" => "Menu",
             ],
             [
-                "href" => '../compra/reserva',
+                "href" => '../reserva',
                 "name" => "Reserva mesa",
             ],
             [
@@ -180,10 +180,6 @@ class PageController
         require $this->viewsDir . 'institucional/servCliente.view.php';
     }  
 
-    public function prueba()
-    {
-        require $this->viewsDir . 'compra/prueba.php';
-    }
 
     /*public function rutas($path)
     {
