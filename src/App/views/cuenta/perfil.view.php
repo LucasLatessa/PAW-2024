@@ -75,6 +75,12 @@
         <p>Aclaraciones: Nada</p>
         <a href="./agregarDireccion">Editar Direccion</a><!--simil al agregar, pero con los datos viejos (Update) -->
       </div>
+      <?php
+        if (session_status() == PHP_SESSION_NONE) {
+          session_start();
+        }
+        $_SESSION['origen'] = 'cuenta/perfil'; // Guardar la página de origen en una variable de sesión
+      ?>
       <a href="./agregarDireccion">Agregar Direccion</a>
     </section>
     <h2>Pedidos</h2>

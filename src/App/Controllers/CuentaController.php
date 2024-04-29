@@ -74,6 +74,17 @@ class CuentaController{
 
         return $errores;
     }
+    private function redirigir() {
+        // Iniciar sesión si aún no está iniciada
+        session_start();
+
+        // Redirigir al usuario a la página de origen
+        if (isset($_SESSION['origen'])) {
+            return $_SESSION['origen'];
+        } else {
+            return null;
+        }
+    }
     public function crearDireccion() {
         global $request;
 
@@ -89,7 +100,10 @@ class CuentaController{
             $direccion=new Direccion($pais,$provincia,$ciudad,$ccpp,$direc,$aclaraciones);
             $title = "Direccion agregada - PAW Power";
             $creada = "Direccion creada!";
-            require __DIR__ . '/../views/cuenta/perfil.view.php';
+            require __DIR__ . '/../views/' . $this->redirigir() . '.view.php';
+
+
+            //require __DIR__ . '/../views/cuenta/perfil.view.php';
         } else {
             $title = "Agregar Dirección - PAW Power";
             require __DIR__ . '/../views/cuenta/agregarDireccion.view.php';
