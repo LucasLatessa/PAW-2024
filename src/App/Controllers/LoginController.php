@@ -6,6 +6,8 @@ use Paw\App\Models\Usuario;
 class LoginController{
 
     public string $viewsDir; #Direccion a la vista indicada
+
+    private $usuariosJSON = __DIR__ . "/../data/usuarios.json";
     public function __construct(){
 
         
@@ -88,16 +90,35 @@ class LoginController{
     
     }
 
+    private function buscadorUsuarios($misUsuarios,$email,$contraseña){
+        $usuarioEncontrado = false;
+        foreach ($misUsuarios['usuarios'] as $usuario) {
+            if ($usuario['email'] === $email && $usuario['contraseña'] === $contraseña) {
+                $usuarioEncontrado = true;
+                break;
+            }
+        }
+        return $usuarioEncontrado;
+    }
+
     public function login(){
         global $request;
 
         #Obtengo los datos de la peticion
         $email = $request->getRequest("email");
         $contraseña = $request->getRequest("contraseña");
+        
+        #Obtengo los datos de todos los usuarios para corrobar que exista
+        $usuarios = json_decode(file_get_contents($this->usuariosJSON), true);
 
         #Validacion de correo "Solo formato a@a.com"
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errorMessage = "Email invalido!";
+            $title = "Login" . ' - PAW Power';
+            require $this->viewsDir . 'cuenta/login.view.php';
+        #Reviso que exista dentro del sistema
+        }elseif (!$this->buscadorUsuarios($usuarios,$email,$contraseña)){
+            $errorMessage = "Credenciales incorrectas";
             $title = "Login" . ' - PAW Power';
             require $this->viewsDir . 'cuenta/login.view.php';
         } else {
@@ -129,6 +150,5 @@ class LoginController{
 
         #Faltaria agregar validaciones con la BD para realizar el intercambio
     }
-
 
 }
