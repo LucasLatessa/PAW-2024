@@ -53,8 +53,8 @@ $router->post('/compra/selecLoc','CompraController@selecLoc');
 $router->get('/compra/selecDirec','PageController@selecDirec');
 $router->post('/compra/selecDirec','CompraController@selecDirec');
 #Reserva de mesa
-$router->get('/reserva','PageController@reserva');
-$router->post('/reserva','ReservaController@crearReserva');
+$router->get('/compra/reserva','PageController@reserva');
+$router->post('/compra/reserva','ReservaController@crearReserva');
 
 #Creacion de plato
 $router->get('/menu/crearPlato','PageController@crearPlato');
