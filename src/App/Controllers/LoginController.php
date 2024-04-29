@@ -77,12 +77,37 @@ class LoginController{
 
     if($contraseña == $validarcontraseña){
         $usuario = new Usuario($nombre,$apellido,$email,$contraseña);
-        $result = "¡Cuenta creada!";
+        $resultado = "¡Cuenta creada!";
+        $title = "Perfil" . ' - PAW Power';
+        require $this->viewsDir . 'cuenta/perfil.view.php';
     }else{
-        $errorMessage = "Las contranseñas no coinciden";  
+        $errorMessage = "Las contranseñas no coinciden"; 
+        $title = "Registrarse" . ' - PAW Power';
+        require $this->viewsDir . 'cuenta/registrarse.view.php';
     }
-    $title = "Registrarse" . ' - PAW Power';
-    require $this->viewsDir . 'cuenta/registrarse.view.php';
+    
+    }
+
+    public function login(){
+        global $request;
+
+        #Obtengo los datos de la peticion
+        $email = $request->getRequest("email");
+        $contraseña = $request->getRequest("contraseña");
+
+        #Validacion de correo "Solo formato a@a.com"
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errorMessage = "Email invalido!";
+            $title = "Login" . ' - PAW Power';
+            require $this->viewsDir . 'cuenta/login.view.php';
+        } else {
+            $title = "Perfil" . ' - PAW Power';
+            $resultado = "¡Logeado!";
+            require $this->viewsDir . 'cuenta/perfil.view.php';
+        }
+
+        #Faltaria agregar validaciones con la BD
+
     }
 
 

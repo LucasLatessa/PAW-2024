@@ -32,9 +32,12 @@ $request = new Request;
 
 $router = new Router;
 $router->setLoggeable($log); #Agrego el log
+
+#Index
 $router->get('/','PageController@index'); #Clase y metodo que procesa la peticion
 
-#Compra
+# ------------------------ COMPRA --------------------------------
+
 $router->get('/compra/menu','PageController@menu'); 
 $router->get('/compra/carrito','PageController@carrito');
 $router->get('/compra/confirmarCompra','PageController@confirmarCompra');
@@ -42,23 +45,32 @@ $router->get('/compra/pedirComida','PageController@pedirComida');
 $router->get('/compra/selecDirec','PageController@selecDirec');
 $router->get('/compra/selecLoc','PageController@selecLoc');
 $router->get('/compra/agregarDireccion','PageController@agregarDireccion');
+
 #Reserva de mesa
 $router->get('/reserva','PageController@reserva');
 $router->post('/reserva','ReservaController@crearReserva');
+
 #Creacion de plato
 $router->get('/menu/crearPlato','PageController@crearPlato');
 $router->post('/menu/crearPlato','MenuController@crearPlato');
-#Cuenta
+
+# ------------------------ CUENTA --------------------------------
+
 $router->get('/cuenta/agregarDireccion','PageController@agregarDireccion'); 
 $router->get('/cuenta/consumos','PageController@consumos');
-$router->get('/cuenta/login','PageController@login');
+
 $router->get('/cuenta/perfil','PageController@perfil');
+
+#Login
+$router->get('/cuenta/login','PageController@login');
+$router->post('/cuenta/login','LoginController@login');
 
 #Registro
 $router->get('/cuenta/registrarse','PageController@registrarse');
 $router->post('/cuenta/registrarse','LoginController@registrarse');
 
-#Institucional
+# ------------------------ INSTITUCIONAL --------------------------------
+
 $router->get('/institucional/locales','PageController@locales');
 $router->get('/institucional/nosotros','PageController@nosotros');
 $router->get('/institucional/servCliente','PageController@servCliente');

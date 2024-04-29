@@ -15,17 +15,23 @@
     <!--Codigo login-->
     <h1 class="login">Iniciar sesión</h1>
 
-    <form action="POST" class="form-login">
+    <form method="POST" class="form-login" action="">
       <label for="inputCorreo¡">
         Correo Electronico
-        <input type="email" id="inputCorreo" required />
+        <input type="email" id="inputCorreo" name="email" required />
       </label>
       <label for="inputPassword">
         Contraseña
-        <input type="password" id="inputPassword" required />
+        <input type="password" id="inputPassword" name="contraseña" required />
       </label>
 
+      <!--Errores posibles a la hora de registrar -->
+      <?php if (isset($errorMessage)): ?>
+        <p class="error-message"><?= $errorMessage ?></p>
+      <?php endif; ?>
+      
       <input type="submit" value="Login" />
+
     </form>
 
     <a class="registrarse-enlace" href="./registrarse">Registrarse</a>

@@ -13,22 +13,30 @@
   <?php require __DIR__ . '\../parts/header.view.php' ?>
 
   <main>
-    
+
     <h1>Perfil</h1>
-    <div id="infoUsuario">
+
+    <?php if (isset($resultado)): ?>
+        <h2><?= $resultado ?></h2>
+      <?php endif; ?>
+
+    <form method="POST" id="infoUsuari" action="">
       <label for="email">Correo Electrónico
-        <input type="email" id="email" name="email" value="test" />
-      </label><!--esto va a contener los datos actuales -->
+        <input type="email" id="email" name="email"
+          value="<?php if (isset($email)): ?><?php echo $email; ?><?php endif; ?>" required />
+      </label><!-- esto va a contener los datos actuales -->
+
 
       <label for="nombre">Nombre
-        <input type="text" id="nombre" name="nombre" value="test" required />
+        <input type="text" id="nombre" name="nombre" value="<?php if (isset($nombre)): ?><?php echo $nombre; ?><?php endif; ?>" required />
       </label><!--esto va a contener los datos actuales -->
 
       <label for="apellido">Apellido
-        <input type="text" id="apellido" name="apellido" value="test" required />
+        <input type="text" id="apellido" name="apellido" value="<?php if (isset($apellido)): ?><?php echo $apellido; ?><?php endif; ?>" required />
       </label><!--esto va a contener los datos actuales -->
 
       <input type="submit" value="Actualizar" />
+    </form>
     </div>
 
     <h2>Direcciones</h2>

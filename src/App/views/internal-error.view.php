@@ -7,7 +7,7 @@
 <body>
     <!--HEADER-->
     <?php require __DIR__ . '/parts/header.view.php' ?>
-    <h1>Pagina no encontrada</h1>   
+    <h1 style="font-size:5rem">Internal error</h1>   
     <!--FOOTER-->
     <?php require __DIR__ . '/parts/footer.view.php' ?>
 </body>
