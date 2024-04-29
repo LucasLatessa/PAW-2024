@@ -59,6 +59,9 @@
         <label for="delivery">Delivery</label>
 
         <a href="./selecLoc">Seleccionar local</a>
+        <?php if (isset($local)): ?>
+          <p><?= $local ?></p>
+        <?php endif; ?>
         <a href="./selecDirec">Seleccionar direccion</a>
 
       </section>

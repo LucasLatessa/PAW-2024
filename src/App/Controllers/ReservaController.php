@@ -108,5 +108,4 @@ class ReservaController
             require $this->viewsDir . 'compra/reserva.view.php';
         }
     }
-
 }
