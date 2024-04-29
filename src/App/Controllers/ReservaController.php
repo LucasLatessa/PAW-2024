@@ -63,28 +63,40 @@ class ReservaController
             ]
             ];
     }
-    private function validarFecha($fecha){
-        // Verificar si la fecha tiene un formato válido
-        $fechaDateTime = \DateTime::createFromFormat('Y-m-d', $fecha);
-        if (!$fechaDateTime || $fechaDateTime->format('Y-m-d') !== $fecha) {
+    private function validarReserva( $cantidadPersonas, $dia, $horario){
+        // Verificar formato fecha
+        $fechaDateTime = \DateTime::createFromFormat('Y-m-d', $dia);
+        if (!$fechaDateTime || $fechaDateTime->format('Y-m-d') !== $dia) {
             throw new \InvalidArgumentException("La fecha no tiene un formato válido. Se esperaba el formato: YYYY-MM-DD");
         }
     
-        // Verificar si la fecha está en el futuro
+        // Verificar fecha en el futuro
         $fechaActual = new \DateTime();
         if ($fechaDateTime < $fechaActual) {
             throw new \InvalidArgumentException("La fecha debe ser en el futuro.");
         }
+    
+        // validar formato de horario
+        $formatoHorario = "/^\d{1,2}:\d{2} [AP]M - \d{1,2}:\d{2} [AP]M$/";
+        if (!preg_match($formatoHorario, $horario)) {
+            throw new \InvalidArgumentException("El formato del horario no es válido. Se esperaba HH:MM AM/PM - HH:MM AM/PM");
+        }
+    
+        // verificar personas > 1
+        if ($cantidadPersonas < 1) {
+            throw new \InvalidArgumentException("La cantidad de personas debe ser mayor a 1.");
+        }
+    
         return true;
     }
 
     public function crearReserva(){
         global $request;
-        if ($this->validarFecha($request->getRequest('dia'))){
-            $local = $request->getRequest('local');
-            $cantidadPersonas = $request->getRequest('cantidadPersonas');
-            $dia = $request->getRequest('dia');
-            $horario = $request->getRequest('horario');
+        $local = $request->getRequest('local');
+        $cantidadPersonas = $request->getRequest('cantidadPersonas');
+        $dia = $request->getRequest('dia');
+        $horario = $request->getRequest('horario');
+        if ($this->validarReserva($cantidadPersonas,$dia,$horario)){
             $aclaraciones = $request->getRequest('aclaraciones');
             $reserva = new reserva($local,$cantidadPersonas,$dia,$horario,$aclaraciones);
             $title = "Reserva agregada - PAW Power";
