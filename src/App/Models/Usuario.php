@@ -13,6 +13,11 @@ class Usuario{
     private $contraseña;
 
     public function __construct($nombre,$apellido, $correo, $contraseña){
+
+        if (empty($nombre) || empty($apellido) || empty($correo) || empty($contraseña)) {
+            throw new \InvalidArgumentException("Nombre, apellido, correo y contraseña son campos requeridos.");
+        }
+
         $this->nombre = $nombre;
         $this->apellido = $apellido;
         $this->correo = $correo;
@@ -40,16 +45,16 @@ class Usuario{
         $this->nombre = $nombre;
     }
 
-    public function setApellido(){
-        $this->nombre = $nombre;
+    public function setApellido($apellido){
+        $this->apellido = $apellido;
     }
 
-    public function setCorreo(){
-        $this->nombre = $nombre;
+    public function setCorreo($correo){
+        $this->correo = $correo;
     }
 
-    public function setContraseña(){
-        $this->nombre = $nombre;
+    public function setContraseña($contraseña){
+        $this->contraseña = $contraseña;
     }
 
 }

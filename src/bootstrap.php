@@ -43,9 +43,9 @@ $router->get('/compra/reserva','PageController@reserva');
 $router->get('/compra/selecDirec','PageController@selecDirec');
 $router->get('/compra/selecLoc','PageController@selecLoc');
 $router->get('/compra/agregarDireccion','PageController@agregarDireccion');
-$router->get('/menu/crearPlato','PageController@crearPlato');
 
 #Creacion de plato
+$router->get('/menu/crearPlato','PageController@crearPlato');
 $router->post('/menu/crearPlato','MenuController@crearPlato');
 
 #Cuenta
@@ -53,7 +53,10 @@ $router->get('/cuenta/agregarDireccion','PageController@agregarDireccion');
 $router->get('/cuenta/consumos','PageController@consumos');
 $router->get('/cuenta/login','PageController@login');
 $router->get('/cuenta/perfil','PageController@perfil');
+
+#Registro
 $router->get('/cuenta/registrarse','PageController@registrarse');
+$router->post('/cuenta/registrarse','LoginController@registrarse');
 
 #Institucional
 $router->get('/institucional/locales','PageController@locales');

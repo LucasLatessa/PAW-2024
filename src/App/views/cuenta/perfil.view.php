@@ -13,6 +13,7 @@
   <?php require __DIR__ . '\../parts/header.view.php' ?>
 
   <main>
+    
     <h1>Perfil</h1>
     <div id="infoUsuario">
       <label for="email">Correo Electrónico

@@ -24,6 +24,11 @@ main {
 }
 
 /*----------estilos formulario----------*/
+
+h2{
+  text-align: center;
+  text-transform: uppercase;
+}
 .login, h1.registrarse{
   text-transform: uppercase;
   font-size: 2rem;
