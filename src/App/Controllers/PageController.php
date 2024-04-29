@@ -1,71 +1,19 @@
 <?php
 
 namespace Paw\App\Controllers;
+use Paw\Core\Controlador;
 
-class PageController
+
+class PageController extends Controlador
 {
     public string $viewsDir; #Direccion a la vista indicada
-
-    public function __construct()
-    {
-        $this->viewsDir = __DIR__ . "/../views/";
-        $this->rutasMenuBurger = [
-            /* Menu hamburguesa 0-2*/ 
-            [
-                "href" => '../compra/menu',
-                "name" => "Menu",
-            ],
-            [
-                "href" => '../reserva',
-                "name" => "Reserva mesa",
-            ],
-            [
-                "href" => '../cuenta/perfil',
-                "name" => "Perfil"
-            ]
-            ];
-        $this->rutasLogoHeader =
-            /*Logo header 3*/
-            [
-                "href" => '../',
-                "name" => "Home",
-            ];
-        $this->rutasHeaderDer = [
-            /*Header parte derecha 4-5*/
-            [
-                "href" => '../compra/carrito',
-                "name" => "carrito",
-            ],
-            [
-                "href" => '../cuenta/login',
-                "name" => "usuario"
-            ],
-        ];
-        $this->rutasFooter = [
-            /*Footer 6-9*/
-            [
-                "href" => '../institucional/locales',
-                "name" => "Locales"
-            ],
-            [
-                "href" => '../institucional/servCliente',
-                "name" => "Servicio al Cliente"
-            ],
-            [
-                "href" => '../institucional/nosotros',
-                "name" => "Sobre nosotros"
-            ],
-            [
-                "href" => '../cuenta/consumos',
-                "name" => "Consumos"
-            ]
-            ];
+    public function __construct(){
+        parent::__construct();
     }
 
     public function index()
     {
-        $title = $this->rutasLogoHeader; #Hardoceado
-        $title = ucfirst($title['name']) . ' - PAW Power';
+        $title = 'Home - PAW Power';
         require $this->viewsDir . 'index.view.php';
     }
 
@@ -73,15 +21,13 @@ class PageController
 
     public function menu()
     {
-        $title = $this->rutasMenuBurger[0]; #Hardoceado
-        $title = ucfirst($title['name']) . ' - PAW Power';
+        $title = 'Menu - PAW Power';
         require $this->viewsDir . 'compra/menu.view.php';
     }
 
     public function carrito()
     {
-        $title = $this->rutasHeaderDer[0]; #Hardoceado
-        $title = ucfirst($title['name']) . ' - PAW Power';
+        $title = 'Carrito - PAW Power';
         require $this->viewsDir . 'compra/carrito.view.php';
     }
 
@@ -99,8 +45,7 @@ class PageController
 
     public function reserva()
     {
-        $title = $this->rutasMenuBurger[1]; #Hardoceado
-        $title = ucfirst($title['name']) . ' - PAW Power';
+        $title = 'Reserva - PAW Power';
         require $this->viewsDir . 'compra/reserva.view.php';
     }
 
@@ -132,22 +77,19 @@ class PageController
 
     public function consumos()
     {
-        $title = $this->rutasFooter[3]; #Hardoceado
-        $title = ucfirst($title['name']) . ' - PAW Power';
+        $title = 'Gestion de consumo - PAW Power';
         require $this->viewsDir . 'cuenta/consumos.view.php';
     }
 
     public function login()
     {
-        $title = $this->rutasHeaderDer[1]; #Hardoceado
-        $title = ucfirst($title['name']) . ' - PAW Power';
+        $title = 'Login - PAW Power';
         require $this->viewsDir . 'cuenta/login.view.php';
     }
 
     public function perfil()
     {
-        $title = $this->rutasMenuBurger[2]; #Hardoceado
-        $title = ucfirst($title['name']) . ' - PAW Power';
+        $title = 'Perfil - PAW Power';
         require $this->viewsDir . 'cuenta/perfil.view.php';
     }
 
@@ -161,31 +103,19 @@ class PageController
 
     public function locales()
     {
-        $title = $this->rutasFooter[0]; #Hardoceado
-        $title = ucfirst($title['name']) . ' - PAW Power';
+        $title = 'Locales - PAW Power';
         require $this->viewsDir . 'institucional/locales.view.php';
     }
 
     public function nosotros()
     {
-        $title = $this->rutasFooter[2]; #Hardoceado
-        $title = ucfirst($title['name']) . ' - PAW Power';
+        $title = 'Sobre nosotros - PAW Power';
         require $this->viewsDir . 'institucional/nosotros.view.php';
     }
 
     public function servCliente()
     {
-        $title = $this->rutasFooter[1]; #Hardoceado
-        $title = ucfirst($title['name']) . ' - PAW Power';
+        $title = 'Servicio al cliente - PAW Power';
         require $this->viewsDir . 'institucional/servCliente.view.php';
     }  
-
-
-    /*public function rutas($path)
-    {
-        $ruta_sin_barra = ltrim($path, '/');
-
-        $titulo = htmlspecialchars($_GET['nombre'] ?? "PAW");
-        require $this->viewsDir . $ruta_sin_barra . '.view.php';
-    }*/
 }

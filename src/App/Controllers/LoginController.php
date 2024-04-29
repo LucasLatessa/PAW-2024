@@ -2,68 +2,13 @@
 
 namespace Paw\App\Controllers;
 use Paw\App\Models\Usuario;
+use Paw\Core\Controlador;
 
-class LoginController{
-
-    public string $viewsDir; #Direccion a la vista indicada
-
+class LoginController extends Controlador{ 
     private $usuariosJSON = __DIR__ . "/../data/usuarios.json";
+    public string $viewsDir; #Direccion a la vista indicada
     public function __construct(){
-
-        
-        $this->viewsDir = __DIR__ . "/../views/";
-
-        $this->rutasMenuBurger = [
-            /* Menu hamburguesa 0-2*/ 
-            [
-                "href" => '../compra/menu',
-                "name" => "Menu",
-            ],
-            [
-                "href" => '../compra/reserva',
-                "name" => "Reserva mesa",
-            ],
-            [
-                "href" => '../cuenta/perfil',
-                "name" => "Perfil"
-            ]
-            ];
-        $this->rutasLogoHeader =
-            /*Logo header 3*/
-            [
-                "href" => '../',
-                "name" => "Home",
-            ];
-        $this->rutasHeaderDer = [
-            /*Header parte derecha 4-5*/
-            [
-                "href" => '../compra/carrito',
-                "name" => "carrito",
-            ],
-            [
-                "href" => '../cuenta/login',
-                "name" => "usuario"
-            ],
-        ];
-        $this->rutasFooter = [
-            /*Footer 6-9*/
-            [
-                "href" => '../institucional/locales',
-                "name" => "Locales"
-            ],
-            [
-                "href" => '../institucional/servCliente',
-                "name" => "Servicio al Cliente"
-            ],
-            [
-                "href" => '../institucional/nosotros',
-                "name" => "Sobre nosotros"
-            ],
-            [
-                "href" => '../cuenta/consumos',
-                "name" => "Consumos"
-            ]
-            ];
+        parent::__construct();
     }
 
     public function registrarse(){
@@ -133,7 +78,7 @@ class LoginController{
 
     public function actualizarPerfil(){
         global $request;
-
+        //session_start();
         #Obtengo los datos de la peticion
         $email = $request->getRequest("email");
         $nombre = $request->getRequest("nombre");
@@ -146,6 +91,12 @@ class LoginController{
             $resultado = "¡Perfil actualizado!";
         }
         $title = "Perfil" . ' - PAW Power';
+        
+        // Guarda las variables de sesión antes de la redirección
+        //session_write_close();
+        // Redirigir a otra página
+        //header("Location: /cuenta/perfil");
+        //exit(); 
         require $this->viewsDir . 'cuenta/perfil.view.php';
 
         #Faltaria agregar validaciones con la BD para realizar el intercambio
