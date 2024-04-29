@@ -3,7 +3,6 @@
 
 <head>
   <?php
-  $title = "Plato agregado - PAW Power";
   require __DIR__ . '\../parts/head.view.php'; ?>
   <link rel="stylesheet" href="/assets/styles/compra.css" />
 </head>

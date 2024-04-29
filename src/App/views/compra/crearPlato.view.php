@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
-  <?php require __DIR__ . '\../parts/head.view.php'; ?>
+  
+  <?php 
+  require __DIR__ . '\../parts/head.view.php'; ?>
   <link rel="stylesheet" href="/assets/styles/global.css" />
   <link rel="stylesheet" href="/assets/styles/compra.css" />
   <link rel="stylesheet" href="/assets/styles/formularios.css">
@@ -36,6 +38,10 @@
         Imagen
         <input type="file" id="imagen" name="imagen" accept=".jpg, .png">
       </label>
+      <p>Imagen de tamaño maximo 1MB</p>
+      <?php if (isset($errorMessage)): ?>
+        <p class="error-message"><?= $errorMessage ?></p>
+      <?php endif; ?>
 
       <input name="submit" type="submit" value="Crear Plato" />
     </form>
