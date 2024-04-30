@@ -47,7 +47,7 @@
     <section class="reservarMesaMain">
       <h3>Pide con aticipacion en nuestro locales</h3>
       <img src="./assets/ReservarMesa.png" alt="Reservar Mesa - Rapida Gula" width="300" />
-      <a href="./reserva">Reservar ahora</a>
+      <a href="./compra/reserva">Reservar ahora</a>
     </section>
 
     <h4 class="titulo-novedades">Novedades</h4>

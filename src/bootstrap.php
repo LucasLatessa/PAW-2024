@@ -42,6 +42,8 @@ $router->get('/compra/menu','PageController@menu');
 $router->get('/compra/carrito','PageController@carrito');
 $router->get('/compra/confirmarCompra','PageController@confirmarCompra');
 $router->post('/compra/confirmarCompra','PageController@confirmarCompra');
+
+#Pedir comida
 $router->get('/compra/pedirComida','PageController@pedirComida');
 $router->post('/compra/pedirComida','PedidoController@crearPedido');
 
@@ -66,22 +68,22 @@ $router->post('/menu/crearPlato','MenuController@crearPlato');
 
 #Agregar direccion
 $router->get('/cuenta/agregarDireccion','PageController@agregarDireccion');
-$router->post('/cuenta/agregarDireccion','CuentaController@crearDireccion');
+$router->post('/cuenta/agregarDireccion','UsuarioController@crearDireccion');
 
 #Consumos
 $router->get('/cuenta/consumos','PageController@consumos');
 
 #Perfil
 $router->get('/cuenta/perfil','PageController@perfil');
-$router->post('/cuenta/perfil','LoginController@actualizarPerfil');
+$router->post('/cuenta/perfil','UsuarioController@actualizarPerfil');
 
 #Login
 $router->get('/cuenta/login','PageController@login');
-$router->post('/cuenta/login','LoginController@login');
+$router->post('/cuenta/login','UsuarioController@login');
 
 #Registro
 $router->get('/cuenta/registrarse','PageController@registrarse');
-$router->post('/cuenta/registrarse','LoginController@registrarse');
+$router->post('/cuenta/registrarse','UsuarioController@registrarse');
 
 # ------------------------ INSTITUCIONAL --------------------------------
 

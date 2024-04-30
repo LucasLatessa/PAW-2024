@@ -1,16 +1,18 @@
 <?php
 
 namespace Paw\App\Controllers;
+use Paw\App\Models\Direccion;
 use Paw\App\Models\Usuario;
 use Paw\Core\Controlador;
 
-class LoginController extends Controlador{ 
+class UsuarioController extends Controlador{ 
     private $usuariosJSON = __DIR__ . "/../data/usuarios.json";
     public string $viewsDir; #Direccion a la vista indicada
     public function __construct(){
         parent::__construct();
     }
 
+    #Registro de usuarios
     public function registrarse(){
 
         global $request;
@@ -35,6 +37,7 @@ class LoginController extends Controlador{
     
     }
 
+    #Funcion privada que busca dentro de mi JSON si existe un usuario
     private function buscadorUsuarios($misUsuarios,$email,$contraseña){
         $usuarioEncontrado = false;
         foreach ($misUsuarios['usuarios'] as $usuario) {
@@ -46,6 +49,7 @@ class LoginController extends Controlador{
         return $usuarioEncontrado;
     }
 
+    #Login
     public function login(){
         global $request;
 
@@ -76,9 +80,10 @@ class LoginController extends Controlador{
 
     }
 
+    #Actualizar perfil, que esta en el perfil
     public function actualizarPerfil(){
         global $request;
-        //session_start();
+
         #Obtengo los datos de la peticion
         $email = $request->getRequest("email");
         $nombre = $request->getRequest("nombre");
@@ -92,14 +97,59 @@ class LoginController extends Controlador{
         }
         $title = "Perfil" . ' - PAW Power';
         
-        // Guarda las variables de sesión antes de la redirección
-        //session_write_close();
-        // Redirigir a otra página
-        //header("Location: /cuenta/perfil");
-        //exit(); 
         require $this->viewsDir . 'cuenta/perfil.view.php';
 
         #Faltaria agregar validaciones con la BD para realizar el intercambio
+    }
+
+    #Validar direccion que agrega el usuario
+    public function validarDireccion($request) {
+        $errores = [];
+
+        // Validar el código postal
+        $codigoPostal = $request->getRequest('ccpp');
+        if (!preg_match('/^\d{4}$/', $codigoPostal)) {
+            $errores['ccpp'] = "El código postal debe tener 4 dígitos numéricos.";
+        }
+
+        return $errores;
+    }
+    private function redirigir() {
+        // Iniciar sesión si aún no está iniciada
+        session_start();
+
+        // Redirigir al usuario a la página de origen
+        if (isset($_SESSION['origen'])) {
+            return $_SESSION['origen'];
+        } else {
+            return null;
+        }
+    }
+
+    #Crear/Agregar direccion
+    public function crearDireccion() {
+        global $request;
+
+        $errores = $this->validarDireccion($request);
+
+        if (empty($errores)) {
+            $pais= $request->getRequest('pais');
+            $provincia= $request->getRequest('provincia');
+            $ciudad= $request->getRequest('ciudad');
+            $ccpp= $request->getRequest('ccpp');
+            $direc= $request->getRequest('direccion');
+            $aclaraciones= $request->getRequest('aclaraciones');
+            $direccion=new Direccion($pais,$provincia,$ciudad,$ccpp,$direc,$aclaraciones);
+            $title = "Direccion agregada - PAW Power";
+            $creada = "Direccion creada!";
+            require __DIR__ . '/../views/' . $this->redirigir() . '.view.php';
+
+
+            //require __DIR__ . '/../views/cuenta/perfil.view.php';
+        } else {
+            $title = "Agregar Dirección - PAW Power";
+            require __DIR__ . '/../views/cuenta/agregarDireccion.view.php';
+        }
     }
 
 }

@@ -1,14 +1,9 @@
-<?php
-// Iniciar la sesión
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <?php require __DIR__ . '\../parts/head.view.php'; ?>
   <link rel="stylesheet" href="/assets/styles/formularios.css">
-
   <link rel="stylesheet" href="/assets/styles/cuentas.css" />
 </head>
 

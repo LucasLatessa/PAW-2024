@@ -10,6 +10,8 @@ class MenuController extends Controlador
     public function __construct(){
         parent::__construct();
     }
+
+    #Validador de imagenes, que sean menor a 1MB
     private function validarImage($tamaño_archivo,$nombreArchivo,$archivoTemporal){
             $limite_tamaño = 1048576; // 1MB en bytes
             if ($tamaño_archivo <= $limite_tamaño) {
@@ -21,11 +23,14 @@ class MenuController extends Controlador
             }
         } 
 
+    #Creacion de platos
     public function crearPlato(){
         global $request;
         $nombreArchivo = $_FILES['imagen']['name'];
         $tamanioArchivo =$_FILES["imagen"]["size"];
         $archivoTemporal = $_FILES['imagen']['tmp_name'];
+        
+        #Primero valido la imagen, que tiene que ser menor a 1MB
         if ($this->validarImage($tamanioArchivo,$nombreArchivo,$archivoTemporal)){
             $nombre = $request->getRequest('nombre');
             $descripcion = $request->getRequest('descripcion');
