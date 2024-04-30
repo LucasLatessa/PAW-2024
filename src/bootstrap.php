@@ -41,7 +41,10 @@ $router->get('/','PageController@index'); #Clase y metodo que procesa la peticio
 $router->get('/compra/menu','PageController@menu'); 
 $router->get('/compra/carrito','PageController@carrito');
 $router->get('/compra/confirmarCompra','PageController@confirmarCompra');
+
+#Pedir comida del Menú
 $router->get('/compra/pedirComida','PageController@pedirComida');
+$router->post('/compra/pedirComida','PedidoController@crearPedido');
 
 #Seleccionar direccion (en carrito)
 $router->get('/compra/selecDirec','PageController@selecDirec');
