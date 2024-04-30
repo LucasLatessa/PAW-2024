@@ -28,14 +28,13 @@
             <td>Cantidad</td>
             <td>Borrar</td>
           </tr>
-
           <tr>
-            <td>Nombre2</td>
-            <td>Descripcion2</td>
-            <td>Precio2</td>
-            <td>Notas2</td>
-            <td>Cantidad2</td>
-            <td>Borrar2</td>
+            <td>Nombre</td>
+            <td>Descripcion</td>
+            <td>Precio</td>
+            <td>Notas</td>
+            <td>Cantidad</td>
+            <td>Borrar</td>
           </tr>
         </tbody>
       </table>

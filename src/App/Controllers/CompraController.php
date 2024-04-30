@@ -52,6 +52,8 @@ class CompraController extends Controlador
         $envio = $request->getRequest('envio');
 
         $filaCarrito = new Carrito($nombre,$descripcion,$precio, $notas, $cantidad, $pago, $envio);
+
+        #No nos conviene realizarlo porque al final vamos a terminar cambiando todo porque implica BD
     }
 
 }
