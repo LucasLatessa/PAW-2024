@@ -14,7 +14,7 @@
     <header class="header-menu carrito-background">
       <h1>Carrito de Compras</h1>
     </header>
-    <form class="formulario-carrito">
+    <form class="formulario-carrito" method="POST" action="/compra/confirmarCompra">
       <table class="tabla-carrito">
         <caption>
           Mis productos
@@ -72,7 +72,7 @@
       </section>
 
       <h2 class="subtotal">Subtotal:$$$</h2>
-      <button class="realizar-pedido" type="submit" onclick="location.href='confirmarCompra'">
+      <button class="realizar-pedido" type="submit" >
         Realizar pedido
       </button>
 

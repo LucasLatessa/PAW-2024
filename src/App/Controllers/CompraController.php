@@ -1,13 +1,9 @@
 <?php
 
 namespace Paw\App\Controllers;
-<<<<<<< HEAD
 use Paw\App\Models\Reserva;
 use Paw\App\Models\Carrito;
-=======
 use Paw\Core\Controlador;
->>>>>>> 9bf6a90e64fcc6a14c235c385723a6219490979a
-
 class CompraController extends Controlador
 {
     public string $viewsDir; #Direccion a la vista indicada
