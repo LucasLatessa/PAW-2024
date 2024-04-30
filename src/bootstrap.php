@@ -43,6 +43,7 @@ $router->get('/compra/carrito','PageController@carrito');
 $router->get('/compra/confirmarCompra','PageController@confirmarCompra');
 $router->post('/compra/confirmarCompra','PageController@confirmarCompra');
 $router->get('/compra/pedirComida','PageController@pedirComida');
+$router->post('/compra/pedirComida','PedidoController@crearPedido');
 
 #Seleccionar direccion (en carrito)
 $router->get('/compra/selecDirec','PageController@selecDirec');
