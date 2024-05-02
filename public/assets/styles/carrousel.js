@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function showImage(index) {
         indexActual = index;
+        // desplazar el contenedor de images para mostrar la prox imagen
         imagesContainer.style.transform = `translateX(-${imageWidth * index}px)`;
         updateIndicators();
     }
@@ -37,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const indicator = document.createElement('li');
         indicator.setAttribute('index', index);
         indicatorsContainer.appendChild(indicator);
+        //event listener para cuando se hace click en un indicador
         indicator.addEventListener('click', () => {
             const index = parseInt(indicator.getAttribute('index'));
             showImage(index);
