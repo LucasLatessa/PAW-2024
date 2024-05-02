@@ -1,10 +1,12 @@
+//Se dispara cuando termina de cargar el HTML
 document.addEventListener("DOMContentLoaded", function() {
-    const imagesContainer = document.querySelector('.images');
-    const images = document.querySelectorAll('.images img');
-    const imageWidth = images[0].clientWidth;
-    const indicatorsContainer = document.querySelector('.indicators');
+    const imagesContainer = document.querySelector('.images'); //Ol
+    const images = document.querySelectorAll('.images img'); //Imagenes individuales
+    const imageWidth = images[0].clientWidth; //Tamaño de la primera imagen
+    const indicatorsContainer = document.querySelector('.indicators'); //Indicadores (globitos abajo de la imagen)
     let indexActual = 0;
 
+    //Indica cual es el indicador activo que se va a mostrar en pantalla
     function updateIndicators() {
         const indicators = document.querySelectorAll('.indicators li');
         indicators.forEach((indicator, index) => {
@@ -26,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
         showImage(indexActual);
     }
 
+    //Dado el indice, se muestra la imagen
     function showImage(index) {
         indexActual = index;
         // desplazar el contenedor de images para mostrar la prox imagen
