@@ -22,7 +22,7 @@
 .prev-button {
     position: absolute;
     top: 50%;
-    left: 10px; /* Ajusta la distancia desde el borde izquierdo */
+    left: 10px; 
     transform: translateY(-50%);
     border: none;
     cursor: pointer;
@@ -32,7 +32,7 @@
 .next-button {
     position: absolute;
     top: 50%;
-    right: 10px; /* Ajusta la distancia desde el borde derecho */
+    right: 10px; 
     transform: translateY(-50%);
     border: none;
     cursor: pointer;
