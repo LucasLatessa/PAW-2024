@@ -1,0 +1,30 @@
+/*
+    Style utilizado en app.js para darle estilo al carousel dinámico
+*/
+.carousel-home {
+    position:relative;
+    width: 80%;
+    margin: auto ;
+    overflow: hidden;
+}
+
+.carousel-home > h2{
+    font-size: 2rem;
+}
+
+.images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.images li{
+    flex: 0 0 100%;
+    list-style: none;
+}
+
+.images img{
+    width: 100%;
+    height: auto;
+}
+
+/*Barra de progreso, botones sig y ant, los indicators*/
