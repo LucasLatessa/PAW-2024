@@ -4,13 +4,13 @@
 <head>
   <?php require __DIR__ . '/parts/head.view.php'; ?>
   <link rel="stylesheet" href="/assets/styles/global.css" /> 
-  <link rel="stylesheet" href="/assets/styles/carrousel.css" />
-  <script src="/assets/styles/carrousel.js"></script> 
-  <!-- 
+ <!-- <link rel="stylesheet" href="/assets/styles/carrousel.css" />-->
+  <!--<script src="/assets/styles/carrousel.js"></script> -->
+  
     <script src="/assets/js/components/paw.js"></script>
     <script src="/assets/js/app.js"></script>
-  -->
-</head>
+  
+  </head>
 
 <body>
   <!--HEADER-->
@@ -18,7 +18,7 @@
 
   <main>
     <!-- CARROUSEL -->
-    <section class="carousel-container">
+    <!--<section class="carousel-container">
       <h2 class="titulo-promociones">Promociones</h2>
       <ol class="images">
           <li>
@@ -39,7 +39,7 @@
 
       </ol>
       <ol class="indicators"></ol>
-    </section>
+    </section>--->
 
 
     <section class="pedirMain">
