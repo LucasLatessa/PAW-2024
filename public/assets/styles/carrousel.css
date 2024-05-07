@@ -1,0 +1,60 @@
+.carousel-container {
+    position: relative;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.images li {
+    flex: 0 0 100%;
+    list-style: none;
+}
+
+.images img {
+    width: 100%;
+    height: auto;
+}
+.prev-button {
+    position: absolute;
+    top: 50%;
+    left: 10px; 
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.next-button {
+    position: absolute;
+    top: 50%;
+    right: 10px; 
+    transform: translateY(-50%);
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+.indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.indicators li {
+    width: 10px;
+    height: 10px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.indicators li.active {
+    background-color: #333;
+}

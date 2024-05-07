@@ -1,12 +1,9 @@
 <?php
 
 namespace Paw\App\Controllers;
-
 use Paw\App\Models\Reserva;
 use Paw\App\Models\Carrito;
 use Paw\Core\Controlador;
-
-
 class CompraController extends Controlador
 {
     public string $viewsDir; #Direccion a la vista indicada
@@ -60,11 +57,12 @@ class CompraController extends Controlador
         $precio = $request->getRequest('precio');
         $notas = $request->getRequest('notas');
         $cantidad = $request->getRequest('cantidad');
-        if ($this -> validarCarrito($nombre,$descripcion,$precio, $notas, $cantidad)){
-            $filaCarrito = new Carrito($nombre,$descripcion,$precio, $notas, $cantidad);
-            require $this -> viewsDir . 'compra/carrito.view.php';
-        }
-        
+        $pago = $request->getRequest('pago');
+        $envio = $request->getRequest('envio');
+
+        $filaCarrito = new Carrito($nombre,$descripcion,$precio, $notas, $cantidad, $pago, $envio);
+
+        #No nos conviene realizarlo porque al final vamos a terminar cambiando todo porque implica BD
     }
 
 }

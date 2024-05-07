@@ -14,7 +14,7 @@
     <header class="header-menu carrito-background">
       <h1>Carrito de Compras</h1>
     </header>
-    <form class="formulario-carrito">
+    <form class="formulario-carrito" method="POST" action="/compra/confirmarCompra">
       <table class="tabla-carrito">
         <caption>
           Mis productos
@@ -28,13 +28,12 @@
             <td>Cantidad</td>
             <td>Borrar</td>
           </tr>
-
           <tr>
-            <td><?php if (isset($nombre)): ?><?php echo $nombre; ?><?php endif; ?></td>
-            <td><?php if (isset($descripcion)): ?><?php echo $descripcion; ?><?php endif; ?></td>
-            <td><?php if (isset($precio)): ?><?php echo $precio; ?><?php endif; ?></td>
-            <td><?php if (isset($notas)): ?><?php echo $notas; ?><?php endif; ?></td>
-            <td><?php if (isset($cantidad)): ?><?php echo $cantidad; ?><?php endif; ?></td>
+            <td>Nombre</td>
+            <td>Descripcion</td>
+            <td>Precio</td>
+            <td>Notas</td>
+            <td>Cantidad</td>
             <td>Borrar</td>
           </tr>
 
@@ -73,7 +72,7 @@
       </section>
 
       <h2 class="subtotal">Subtotal:$$$</h2>
-      <button class="realizar-pedido" type="submit" onclick="location.href='confirmarCompra'">
+      <button class="realizar-pedido" type="submit" >
         Realizar pedido
       </button>
 

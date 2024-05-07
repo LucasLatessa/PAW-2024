@@ -17,22 +17,22 @@
     <li>
       <strong>Nombre del Local 1</strong>
       <p>Dirección del Local 1</p>
-      <a href="../reserva">Reservar Mesa</a>
+      <a href="../compra/reserva">Reservar Mesa</a>
     </li>
     <li>
       <strong>Nombre del Local 2</strong>
       <p>Dirección del Local 2</p>
-      <a href="../reserva">Reservar Mesa</a>
+      <a href="../compra/reserva">Reservar Mesa</a>
     </li>
     <li>
       <strong>Nombre del Local 3</strong>
       <p>Dirección del Local 3</p>
-      <a href="../reserva">Reservar Mesa</a>
+      <a href="../compra/reserva">Reservar Mesa</a>
     </li>
     <li>
       <strong>Nombre del Local 4</strong>
       <p>Dirección del Local 4</p>
-      <a href="../reserva">Reservar Mesa</a>
+      <a href="../compra/reserva">Reservar Mesa</a>
     </li>
   </ul>
   </main>

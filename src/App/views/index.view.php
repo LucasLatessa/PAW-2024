@@ -3,40 +3,44 @@
 
 <head>
   <?php require __DIR__ . '/parts/head.view.php'; ?>
-  <link rel="stylesheet" href="/assets/styles/global.css" />
-</head>
+  <link rel="stylesheet" href="/assets/styles/global.css" /> 
+ <!-- <link rel="stylesheet" href="/assets/styles/carrousel.css" />-->
+  <!--<script src="/assets/styles/carrousel.js"></script> -->
+  
+    <script src="/assets/js/components/paw.js"></script>
+    <script src="/assets/js/app.js"></script>
+  
+  </head>
 
 <body>
   <!--HEADER-->
   <?php require __DIR__ . '/parts/header.view.php'; ?>
 
   <main>
-    <section class="carrusel">
+    <!-- CARROUSEL -->
+    <!--<section class="carousel-container">
       <h2 class="titulo-promociones">Promociones</h2>
-      <!-- Agrego lista para carrusel -->
-      <ul>
-        <li>
-          <a href="./compra/menu">
+      <ol class="images">
+          <li>
+            <a href="./compra/menu">
             <img src="./assets/promo1.jpeg" alt="Promoción 1 - Descubre nuestras ofertas especiales" />
-          </a>
-        </li>
-        <li>
-          <a href="./compra/menu">
-            <img src="./assets/Hamburguesa.jpg" alt="Promoción 2 - Prueba nuestras hamburguesas" />
-          </a>
-        </li>
-        <li>
-          <a href="./compra/menu">
-            <img src="./assets/promo1.jpeg" alt="Promoción 3 - Descubre nuestras ofertas especiales" />
-          </a>
-        </li>
-        <li>
-          <a href="./compra/menu">
-            <img src="./assets/promo1.jpeg" alt="Promoción 4 - Descubre nuestras ofertas especiales" />
-          </a>
-        </li>
-      </ul>
-    </section>
+            </a>
+          </li>
+          <li>
+            <a href="./compra/menu">
+              <img src="./assets/Hamburguesa.jpg" alt="Promoción 2 - Prueba nuestras hamburguesas" />
+            </a>
+          </li>
+          <li>
+            <a href="./compra/menu">
+              <img src="./assets/novedad1.jpg" alt="Promoción 3 - Descubre nuestras ofertas especiales" />
+            </a>
+          </li>
+
+      </ol>
+      <ol class="indicators"></ol>
+    </section>--->
+
 
     <section class="pedirMain">
       <h3>Pide a domicilio y disfruta de tu comida</h3>
@@ -47,7 +51,7 @@
     <section class="reservarMesaMain">
       <h3>Pide con aticipacion en nuestro locales</h3>
       <img src="./assets/ReservarMesa.png" alt="Reservar Mesa - Rapida Gula" width="300" />
-      <a href="./reserva">Reservar ahora</a>
+      <a href="./compra/reserva">Reservar ahora</a>
     </section>
 
     <h4 class="titulo-novedades">Novedades</h4>
