@@ -30,13 +30,14 @@
           </tr>
 
           <tr>
-            <td>Nombre2</td>
-            <td>Descripcion2</td>
-            <td>Precio2</td>
-            <td>Notas2</td>
-            <td>Cantidad2</td>
-            <td>Borrar2</td>
+            <td><?php if (isset($nombre)): ?><?php echo $nombre; ?><?php endif; ?></td>
+            <td><?php if (isset($descripcion)): ?><?php echo $descripcion; ?><?php endif; ?></td>
+            <td><?php if (isset($precio)): ?><?php echo $precio; ?><?php endif; ?></td>
+            <td><?php if (isset($notas)): ?><?php echo $notas; ?><?php endif; ?></td>
+            <td><?php if (isset($cantidad)): ?><?php echo $cantidad; ?><?php endif; ?></td>
+            <td>Borrar</td>
           </tr>
+
         </tbody>
       </table>
 

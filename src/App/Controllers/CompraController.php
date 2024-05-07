@@ -1,12 +1,11 @@
 <?php
 
 namespace Paw\App\Controllers;
-<<<<<<< HEAD
+
 use Paw\App\Models\Reserva;
 use Paw\App\Models\Carrito;
-=======
 use Paw\Core\Controlador;
->>>>>>> 9bf6a90e64fcc6a14c235c385723a6219490979a
+
 
 class CompraController extends Controlador
 {
@@ -15,6 +14,15 @@ class CompraController extends Controlador
         parent::__construct();
     }
     
+    private function validarCarrito($nombre,$descripcion,$precio, $notas, $cantidad){
+        if (empty($nombre) || empty($Descripcion) || empty($Precio) || empty($Notas) || empty($Cantidad)){            
+            throw new \InvalidArgumentException("Nombre, imagen, descripción y precio son campos requeridos.");
+        }
+        return true;
+    }
+
+
+
     public function selecLoc(){
         global $request;
 
@@ -52,10 +60,11 @@ class CompraController extends Controlador
         $precio = $request->getRequest('precio');
         $notas = $request->getRequest('notas');
         $cantidad = $request->getRequest('cantidad');
-        $pago = $request->getRequest('pago');
-        $envio = $request->getRequest('envio');
-
-        $filaCarrito = new Carrito($nombre,$descripcion,$precio, $notas, $cantidad, $pago, $envio);
+        if ($this -> validarCarrito($nombre,$descripcion,$precio, $notas, $cantidad)){
+            $filaCarrito = new Carrito($nombre,$descripcion,$precio, $notas, $cantidad);
+            require $this -> viewsDir . 'compra/carrito.view.php';
+        }
+        
     }
 
 }
