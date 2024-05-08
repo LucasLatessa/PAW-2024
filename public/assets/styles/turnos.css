@@ -1,0 +1,96 @@
+@import url(reset.css);
+
+/* Fuente a utilizar */
+@font-face {
+  font-family: "Black regular";
+  src: url("../font/ArchivoBlack-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Century Gothic";
+  src: local("Century Gothic"),
+    url("../font/century_gothic.ttf") format("truetype");
+}
+
+/* Estilo basico del sitio en raiz */
+:root {
+  /*Colores a utilizar*/
+  --color-principal: #fbad18;
+  --color-principal-claro: #fddf8a;
+  --color-secundario: #231f20;
+  --color-letras: #000000;
+  --color-terceario: #ffffff;
+
+  /*Fuentes*/
+  font-family: "Black regular";
+  font-size: 16px;
+
+  background: radial-gradient(
+    circle,
+    var(--color-principal-claro) 10%,
+    var(--color-principal) 100%
+  );
+
+  min-height: 40vh;
+}
+
+/* --------------------------
+           HEADER
+-----------------------------*/
+
+.header-principal {
+  background-color: var(--color-secundario);
+  padding: 1rem 1.2rem;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
+/*Ubicacion del logo*/
+.header-principal > h1 {
+  flex-basis: 80%;
+  text-align: center;
+}
+
+.logo {
+  width: 13rem;
+}
+
+.section-turnera {
+    display: flex; 
+  }
+
+.section-retiros {
+    background-color: black;
+    margin: 10px;
+    height: 300px;
+}
+.section-retiros > :not(.retiro){
+    color: var(--color-principal-claro);
+    font-size: xx-large;
+    margin: 5px;
+}
+.retiro{
+    background-color: var(--color-terceario);
+    color:black;
+    margin: 5px;
+    padding: 5px;
+}
+  
+.pedido-estado {
+    flex-grow: 1; 
+    margin: 10px;
+}
+  
+.pedido-estado table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    background-color: black;
+    color: var(--color-terceario);
+    padding: 10px;
+}
+  
+  .pedido-estado td, .pedido-estado th {
+    padding: 10px;
+    border: 1px solid rgb(255, 255, 255);
+  }

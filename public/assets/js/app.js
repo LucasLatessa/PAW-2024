@@ -1,6 +1,6 @@
 class appPAW {
     /**
-     * Plantilla de clase para generar el script que se quiere
+     * Clase para generar el script que se quiere
      * e instanciar la clase que se encarga de crear los contenedores
      * y sus estilos. 
      */
@@ -17,6 +17,8 @@ class appPAW {
             });
 
             PAW.agregarStyle("/assets/styles/carousel.css");
+
+            
         });
         
     }

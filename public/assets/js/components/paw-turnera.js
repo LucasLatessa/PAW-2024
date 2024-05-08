@@ -1,0 +1,7 @@
+class PAWTurnera{
+    constructor(){
+
+    }
+
+    //FUNCIONES 
+}

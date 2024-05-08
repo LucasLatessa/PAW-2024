@@ -118,4 +118,11 @@ class PageController extends Controlador
         $title = 'Servicio al cliente - PAW Power';
         require $this->viewsDir . 'institucional/servCliente.view.php';
     }  
+
+    /*--------- TURNERA ------------*/
+    public function turnosPantalla()
+    {
+        $title = 'Turnos local - PAW Power';
+        require $this->viewsDir . 'turnero/turnos.view.php';
+    }
 }
