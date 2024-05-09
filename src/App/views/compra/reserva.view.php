@@ -34,8 +34,9 @@
         </label>
 
         <label>Día de la Reserva*
-            <input type="date" name="dia" required />
+            <input type="date" id="fecha-reserva" name="dia" required />
         </label>
+
         <label>Horario de la Reserva* 
             <input list="listaHorarios" name="horario" required />
         </label>

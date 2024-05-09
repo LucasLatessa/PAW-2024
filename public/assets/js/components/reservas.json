@@ -34,5 +34,18 @@
     "dia": "2024-05-19",
     "horario": "20:00",
     "cantidad_personas": "5"
+  },
+  {
+    "mesa": "mesa-161",
+    "dia": "2024-05-09",
+    "horario": "20:00",
+    "cantidad_personas": "5"
+  },
+  {
+    "mesa": "mesa-126",
+    "dia": "2024-05-09",
+    "horario": "20:00",
+    "cantidad_personas": "5"
   }
+
 ]

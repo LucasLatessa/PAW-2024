@@ -132,6 +132,7 @@ a {
   max-width: 27rem;
   text-align: center;
   margin: 5rem auto;
+  
 }
 
 
@@ -167,6 +168,7 @@ input[type="textAclaraciones"]{
 .form-reserva p {
   padding: 0.2rem;
   text-align: right;
+  
 }
 
 /*-------------------------------*/

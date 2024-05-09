@@ -3,6 +3,10 @@ class PAWReservas {
     //Obtengo el svg (que esta como imagen)
     let contenedor = svg.tagName ? pContenedor : document.querySelector(svg);
 
+    const hoy = new Date();
+    const fechaFormateada = hoy.toISOString().split('T')[0];
+    let hora = document.getElementById('fecha-reserva').value = fechaFormateada;
+
     if (contenedor) {
       //Cargo el SVG (reemplazando el img)
       fetch(contenedor.src)
