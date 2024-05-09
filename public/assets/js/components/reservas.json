@@ -1,0 +1,26 @@
+[
+  {
+    "mesa": "mesa-161",
+    "dia": "2024-05-20",
+    "horario": "20:00",
+    "cantidad_personas": "5"
+  },
+  {
+    "mesa": "mesa-162",
+    "dia": "2024-05-20",
+    "horario": "20:00",
+    "cantidad_personas": "5"
+  },
+  {
+    "mesa": "mesa-124",
+    "dia": "2024-05-20",
+    "horario": "20:00",
+    "cantidad_personas": "5"
+  },
+  {
+    "mesa": "mesa-124",
+    "dia": "2024-05-21",
+    "horario": "20:00",
+    "cantidad_personas": "5"
+  }
+]

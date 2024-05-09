@@ -388,3 +388,8 @@ svg, .planoSucursal{
   background-color: #fff;
 }
 
+/* Estilos mesa ocupada*/
+.ocupado, .ocupado:hover {
+  fill: red;
+  cursor: default;
+}
