@@ -22,9 +22,9 @@
 
             <div class="retiro"> <h2> A RETIRAR </h2> </div>
             
-            <article class="primer-retiro"> <p> 0001A </p> </article>
-            <article class="segundo-retiro"> <p> 00004A </p> </article>
-            <article class="tercer-retiro"> <p> 0008B </p> </article>
+            <article >  0001A </article>
+            <article >  00004A </article>
+            <article >  0008B </article>
 
         </section>
 
