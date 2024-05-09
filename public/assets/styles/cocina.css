@@ -1,0 +1,89 @@
+@import url(reset.css);
+
+/* Fuente a utilizar */
+@font-face {
+  font-family: "Black regular";
+  src: url("../font/ArchivoBlack-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Century Gothic";
+  src: local("Century Gothic"),
+    url("../font/century_gothic.ttf") format("truetype");
+}
+
+/* Estilo basico del sitio en raiz */
+:root {
+  /*Colores a utilizar*/
+  --color-principal: #fbad18;
+  --color-principal-claro: #fddf8a;
+  --color-secundario: #231f20;
+  --color-letras: #000000;
+  --color-terceario: #ffffff;
+
+  /*Fuentes*/
+  font-family: "Black regular";
+  font-size: 16px;
+
+  background: #ddd;
+
+  min-height: 40vh;
+}
+
+/* --------------------------
+           HEADER
+-----------------------------*/
+
+.header-principal {
+  background-color: var(--color-secundario);
+  padding: 1rem 1.2rem;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
+/*Ubicacion del logo*/
+.header-principal > h1 {
+  flex-basis: 80%;
+  text-align: center;
+}
+
+.logo {
+  width: 13rem;
+}
+h2{
+  color:var(--color-secundario);
+  margin: 10px;
+}
+.display-takeaway, .display-delivery{
+  margin:10px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border: 1px solid white;
+  text-align: left;
+  padding: 8px;
+}
+
+tr {
+  background-color: var(--color-secundario);
+  color:#ddd;
+}
+th{
+  color:var(--color-principal);
+}
+.head-pedido, .head-hora {
+  width: 10%;
+}
+
+.head-nombre, .head-ingredientes, .head-aclaraciones {
+  width: 20%;
+}
+
+tbody tr:hover {
+  background-color: #332d2e;
+}

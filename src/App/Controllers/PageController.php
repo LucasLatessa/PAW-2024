@@ -125,4 +125,10 @@ class PageController extends Controlador
         $title = 'Turnos local - PAW Power';
         require $this->viewsDir . 'turnero/turnos.view.php';
     }
+    /*--------- COCINA ------------*/
+    public function displayCocina()
+    {
+        $title = 'Cocina- PAW Power';
+        require $this->viewsDir . 'cocina/displayCocina.view.php';
+    }
 }

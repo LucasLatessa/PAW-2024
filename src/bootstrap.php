@@ -37,6 +37,8 @@ $router->setLoggeable($log); #Agrego el log
 $router->get('/','PageController@index'); #Clase y metodo que procesa la peticion
 # ------------------------ TURNERA --------------------------------
 $router->get('/turnera','PageController@turnosPantalla'); #Clase y metodo que procesa la peticion
+# ------------------------ DISPLAY COCINA --------------------------------
+$router->get('/display-cocina','PageController@displayCocina'); #Clase y metodo que procesa la peticion
 
 # ------------------------ COMPRA --------------------------------
 
