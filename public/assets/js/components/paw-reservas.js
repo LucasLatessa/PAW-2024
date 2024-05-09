@@ -55,31 +55,6 @@ class PAWReservas {
       };
 
       getReservas();
-      //console.log(reservas);
-
-      /*PINTAR MESAS OCUPADAS*/
-      /*const mesasOcupadas = (misReservas) => {
-        const diaReserva = document.querySelector("input[name='dia']");
-        const horarioReserva = document.querySelector("input[name='horario']");
-
-        //Pinta las mesas ocupadas
-        for (let i = 0; i < reservas.length; i++) {
-          const mesa = document.getElementById(reservas[i].mesa);
-          const elementosMesa = mesa.querySelectorAll("*");
-
-          if (reservas[i].dia == diaReserva.value) {
-            // Obtener todos los elementos dentro del grupo SVG
-            // Iterar sobre cada elemento y piso los estilos que tiene
-
-            elementosMesa.forEach((elemento) => {
-              console.log(elementosMesa[1])
-              elemento.classList.add("ocupado");
-              elemento.classList.remove("mesa");
-            });
-          } 
-        }
-      };*/
-
       
       const mesasOcupadas = (misReservas) => {
         const elementosMesa = []
