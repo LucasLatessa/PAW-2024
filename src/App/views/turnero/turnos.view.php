@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/styles/turnos.css" /> 
-    
+    <script src="/assets/js/components/paw.js"></script>
+    <script src="/assets/js/appTurnera.js"></script>
 </head>
 <body>
     <main>
@@ -21,9 +22,9 @@
 
             <div class="retiro"> <h2> A RETIRAR </h2> </div>
             
-            <article >  0001A </article>
+            <!--<article >  0001A </article>
             <article >  00004A </article>
-            <article >  0008B </article>
+            <article >  0008B </article>-->
 
         </section>
 
@@ -34,7 +35,7 @@
                     <th>Pedido</th>
                     <th>Estado</th>
                 </tr>
-                <tr>
+                <!--<tr>
                     <td>0001A</td>
                     <td>Listo para retirar</td>
                 </tr>
@@ -73,7 +74,7 @@
                 <tr>
                     <td>0010A</td>
                     <td>En espera</td>
-                </tr>
+                </tr>-->
             </table>
         </section>
 
