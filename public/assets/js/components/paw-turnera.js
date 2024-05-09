@@ -18,11 +18,13 @@ class PAWTurnera{
         let retirosSection = document.querySelector(".section-retiros");
         
         data.forEach(pedido => {
-            let nuevoArticulo = document.createElement("article");
-            nuevoArticulo.textContent = pedido.numero;
-            retirosSection.appendChild(nuevoArticulo);
+            if (pedido.estado=="Listo para retirar"){//hacer mas eficiente capaz
+                let nuevoArticulo = document.createElement("article");
+                nuevoArticulo.textContent = pedido.numero;
+                retirosSection.appendChild(nuevoArticulo);
+            }
+           
         });
-        
     }
 
     async actualizarTablaPedido(pedidos){
