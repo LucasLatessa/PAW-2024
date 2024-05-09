@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="/assets/styles/global.css" />
   <link rel="stylesheet" href="/assets/styles/compra.css" />
   <link rel="stylesheet" href="/assets/styles/formularios.css">
+  <script src="/assets/js/components/paw.js"></script>
+  <script src="/assets/js/appPlatos.js"></script>
 </head>
 
 <body>
@@ -34,9 +36,9 @@
         Precio
         <input name="precio" id="precio" required />
       </label>
-      <label for="imagen">
+      <label for="imagen" id="imagen-drop">
         Imagen
-        <input type="file" id="imagen" name="imagen" accept=".jpg, .png">
+        <input type="file" id="imagen-drop-input" name="imagen" accept=".jpg, .png">
       </label>
       <p>Imagen de tamaño maximo 1MB</p>
       <?php if (isset($errorMessage)): ?>
