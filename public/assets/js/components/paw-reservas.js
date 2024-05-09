@@ -58,9 +58,8 @@ class PAWReservas {
       //console.log(reservas);
 
       /*PINTAR MESAS OCUPADAS*/
-      const mesasOcupadas = (misReservas) => {
+      /*const mesasOcupadas = (misReservas) => {
         const diaReserva = document.querySelector("input[name='dia']");
-        //const diaReserva = "20/05/2024";
         const horarioReserva = document.querySelector("input[name='horario']");
 
         //Pinta las mesas ocupadas
@@ -71,17 +70,39 @@ class PAWReservas {
           if (reservas[i].dia == diaReserva.value) {
             // Obtener todos los elementos dentro del grupo SVG
             // Iterar sobre cada elemento y piso los estilos que tiene
+
             elementosMesa.forEach((elemento) => {
+              console.log(elementosMesa[1])
               elemento.classList.add("ocupado");
               elemento.classList.remove("mesa");
             });
-          } else {
-            elementosMesa.forEach((elemento) => {
-              elemento.classList.remove("ocupado");
-              elemento.classList.add("mesa");
-            });
-          }
+          } 
         }
+      };*/
+
+      
+      const mesasOcupadas = (misReservas) => {
+        const elementosMesa = []
+        const reservaDia = [] // se puede mejorar con json?
+        const diaReserva = document.querySelector("input[name='dia']");
+        const horarioReserva = document.querySelector("input[name='horario']");
+
+        //Pinta las mesas ocupadas
+        for (let i = 0; i < reservas.length; i++) {
+          const mesa = document.getElementById(reservas[i].mesa);
+          const agarroMesa = mesa.querySelectorAll("*")[0];
+          reservaDia.push(reservas[i].dia);
+          elementosMesa.push(agarroMesa);
+          agarroMesa.classList.remove("ocupado", "mesa");
+          agarroMesa.classList.add("mesa")
+        }
+        for (let i = 0; i < elementosMesa.length; i++) {
+          if (reservaDia[i] == diaReserva.value){
+            elementosMesa[i].classList.add("ocupado");
+            elementosMesa[i].classList.remove("mesa");
+          } 
+        }
+        
       };
 
       //mesasOcupadas();
