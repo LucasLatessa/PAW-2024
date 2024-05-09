@@ -33,8 +33,12 @@ class PAWReservas {
 
       //Obtengo el id de la mesa, que me servira para las reservas
       const stateClicked = (state) => {
+        //Obtengo el id de la mesa
         const code = state.getAttribute("id");
-        console.log(code);
+        //Obtengo el valor del formulario que indica la mesa seleccionada
+        const nombreMesa = document.querySelector(".listaMesas");
+        //Cambio la mesa que selecciono
+        nombreMesa.value = code;
       };
     } else { //En el caso de que no exista el SVG
       console.log("No existe");

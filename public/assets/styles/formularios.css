@@ -136,6 +136,7 @@ a {
 
 
 input[list="listaLocales"],
+input[list="listaMesas"],
 input[list="listaHorarios"],
 input[type="number"],
 input[type="date"],

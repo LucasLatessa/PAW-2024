@@ -46,9 +46,16 @@
 
         <img id="planoSurcursal" class="planoSucursal" src="../assets/planos/PlanoSucursalA.svg" alt="">
 
+        <label>Mesa 
+            <input class="listaMesas" list="listaMesas" name="mesa" required />
+        </label>
+        
         <label for="inputTexto">Aclaraciones
             <input id="inputTexto" type="text" name="aclaraciones" maxlength="500" minlength="5" size="30" />
         </label>
+
+        
+
         <p id="required">*requerido</p>
         <button type="submit">Reservar Mesa</button>
       </form>
