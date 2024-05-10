@@ -79,9 +79,17 @@
   text-align: center;
   font-size: 3em;
 }
+
 .section-retiros > article:first-of-type {
-  font-size: 5em;
+  /*font-size: 5em;*/
+  /*probando estilo y animación primer pedido listo
+  */
+  background: linear-gradient(90deg, rgba(115,213,130,1) 14%, rgba(35,199,35,1) 44%, rgba(115,227,0,1) 79%);
+  -webkit-background-clip: text; /* Permite que el gradiente sea visible solo donde hay texto */
+  -webkit-text-fill-color: transparent; /* Hace que el texto sea transparente para que el gradiente sea visible */
+  animation: animacion-destacar 5s infinite;
 }
+
 .retiro {
   background-color: var(--color-terceario);
   color: black;
@@ -105,4 +113,22 @@
 .pedido-estado th {
   padding: 10px;
   border: 1px solid rgb(255, 255, 255);
+}
+
+@keyframes animacion-destacar {
+  0% {
+    font-size: 5em; /* Tamaño inicial grande */
+  }
+  25% {
+    font-size: 6em; /* Crecimiento gradual */
+  }
+  50% {
+    font-size: 7em; /* Tamaño máximo */
+  }
+  75% {
+    font-size: 6em; /* Decrecimiento gradual */
+  }
+  100% {
+    font-size: 5em; /* Volver al tamaño inicial */
+  }
 }
