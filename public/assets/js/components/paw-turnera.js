@@ -45,6 +45,13 @@ class PAWTurnera{
             let estadoPedido = document.createElement("td");
             numeroPedido.textContent = pedido.numero;
             estadoPedido.textContent = pedido.estado;
+
+            if (pedido.estado === "Listo para retirar") {
+                estadoPedido.classList.add("listo");
+            } else if (pedido.estado === "En preparación") {
+                estadoPedido.classList.add("prep");
+            }
+
             nuevoPedido.appendChild(numeroPedido);
             nuevoPedido.appendChild(estadoPedido);
             tabla.appendChild(nuevoPedido);

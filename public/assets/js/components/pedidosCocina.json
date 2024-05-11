@@ -1,0 +1,42 @@
+[
+    {
+      "numero": "1",
+      "hora": "10:00",
+      "nombre": "Hamburguesa Simple",
+      "ingredientes": "Carne,Lechuga,Tomate",
+      "aclaraciones": "Sin cebolla",
+      "tipoPedido":"Delivery"  
+    },
+    {
+        "numero": "2",
+        "hora": "10:15",
+        "nombre": "Hamburguesa Doble",
+        "ingredientes": "Carne,Lechuga,Tomate,Queso",
+        "aclaraciones": "Sin pepinillos",
+        "tipoPedido":"Take away" 
+    },
+    {
+        "numero": "3",
+        "hora": "10:20",
+        "nombre": "Hamburguesa BBQ doble",
+        "ingredientes": "Carne,Queso cheddar,salsa barbacoa,bacon",
+        "aclaraciones": "-",
+        "tipoPedido":"Take away" 
+    },
+    {
+        "numero": "4",
+        "hora": "10:35",
+        "nombre": "Hamburguesa PAW",
+        "ingredientes": "Carne,salsa PAW,Pepinillos,Cebolla brunoise",
+        "aclaraciones": "-",
+        "tipoPedido":"Delivery" 
+    },
+    {
+        "numero": "5",
+        "hora": "10:40",
+        "nombre": "Hamburguesa triple cheddar",
+        "ingredientes": "Carne x3,Queso cheddar x3",
+        "aclaraciones": "-",
+        "tipoPedido":"Take away" 
+    }
+  ]
