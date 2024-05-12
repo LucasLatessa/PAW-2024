@@ -35,6 +35,11 @@ class PAWCarousel{
         //carouselSection.addEventListener("mouseover", () => this.stopCarousel());
         //carouselSection.addEventListener("mouseout", () => this.startCarousel(ulimages, ulindi, slides, totalSlides));
         ulindi.addEventListener("click", event => this.handleIndicatorClick(event, ulimages, ulindi));
+        let nextButton = carouselSection.querySelector(".next-button");
+        let prevButton = carouselSection.querySelector(".prev-button");
+
+        nextButton.addEventListener("click", () => this.nextImage());
+        prevButton.addEventListener("click", () => this.prevImage());
     }
 
     crearImagenes(imageSources, ulimages, ulindicators) {
@@ -109,7 +114,7 @@ class PAWCarousel{
             this.slideActual = (this.slideActual + 1) % totalSlides;
             ulimages.style.transform = `translateX(-${this.slideActual * 100}%)`;
             this.actualizarIndicador(ulindi, this.slideActual);
-        }, 1800);
+        }, 4000);
     }
 
     stopCarousel() {
@@ -133,16 +138,20 @@ class PAWCarousel{
             }
         });
     }
-
-
-    nextImage() {  
-        indexActual = (indexActual + 1) % images.length;//modulo % para calcular el indice de la siguiente imagen
-        showImage(indexActual);
+    nextImage() {
+        let ulimages = document.querySelector(".images");
+        const totalSlides = ulimages.children.length;
+        this.slideActual = (this.slideActual + 1) % totalSlides;
+        ulimages.style.transform = `translateX(-${this.slideActual * 100}%)`;
+        this.actualizarIndicador(document.querySelector('.indicators'), this.slideActual);
     }
-
+    
     prevImage() {
-        indexActual = (indexActual - 1 + images.length) % images.length;
-        showImage(indexActual);
+        let ulimages = document.querySelector(".images");
+        const totalSlides = ulimages.children.length;
+        this.slideActual = (this.slideActual - 1 + totalSlides) % totalSlides;
+        ulimages.style.transform = `translateX(-${this.slideActual * 100}%)`;
+        this.actualizarIndicador(document.querySelector('.indicators'), this.slideActual);
     }
 }
 

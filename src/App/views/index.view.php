@@ -4,11 +4,8 @@
 <head>
   <?php require __DIR__ . '/parts/head.view.php'; ?>
   <link rel="stylesheet" href="/assets/styles/global.css" /> 
- <!-- <link rel="stylesheet" href="/assets/styles/carrousel.css" />-->
-  <!--<script src="/assets/styles/carrousel.js"></script> -->
-  
-    <script src="/assets/js/components/paw.js"></script>
-    <script src="/assets/js/app.js"></script>
+  <script src="/assets/js/components/paw.js"></script>
+  <script src="/assets/js/app.js"></script>
   
   </head>
 
@@ -17,30 +14,6 @@
   <?php require __DIR__ . '/parts/header.view.php'; ?>
 
   <main>
-    <!-- CARROUSEL -->
-    <!--<section class="carousel-container">
-      <h2 class="titulo-promociones">Promociones</h2>
-      <ol class="images">
-          <li>
-            <a href="./compra/menu">
-            <img src="./assets/promo1.jpeg" alt="Promoción 1 - Descubre nuestras ofertas especiales" />
-            </a>
-          </li>
-          <li>
-            <a href="./compra/menu">
-              <img src="./assets/Hamburguesa.jpg" alt="Promoción 2 - Prueba nuestras hamburguesas" />
-            </a>
-          </li>
-          <li>
-            <a href="./compra/menu">
-              <img src="./assets/novedad1.jpg" alt="Promoción 3 - Descubre nuestras ofertas especiales" />
-            </a>
-          </li>
-
-      </ol>
-      <ol class="indicators"></ol>
-    </section>--->
-
 
     <section class="pedirMain">
       <h3>Pide a domicilio y disfruta de tu comida</h3>

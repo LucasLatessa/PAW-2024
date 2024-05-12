@@ -57,22 +57,35 @@
     margin-top: 10px;
 }
 
-.prev-button {
+.prev-button, .next-button {
     position: absolute;
     top: 50%;
-    left: 10px; 
     transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background-color: rgba(51, 51, 51, 0.5);
+    color: #ffffff; 
     border: none;
+    border-radius: 50%; 
     cursor: pointer;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prev-button {
+    left: 10px; 
 }
 
 .next-button {
-    position: absolute;
-    top: 50%;
     right: 10px; 
-    transform: translateY(-50%);
-    border: none;
-    cursor: pointer;
-    z-index: 1;
+}
+
+.prev-button::before {
+    content: "\2190";
+}
+
+.next-button::before {
+    content: "\2192";
 }
