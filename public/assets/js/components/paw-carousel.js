@@ -112,7 +112,37 @@ class PAWCarousel{
     startCarousel(ulimages, ulindi, totalSlides) {
         this.intervalId = setInterval(() => {
             this.slideActual = (this.slideActual + 1) % totalSlides;
-            ulimages.style.transform = `translateX(-${this.slideActual * 100}%)`;
+            
+            //diferentes efectos de transicion
+            const transitionEffects = ['slide', 'fade', 'zoom'];
+            const randomEffect = transitionEffects[Math.floor(Math.random() * transitionEffects.length)];
+            
+            switch (randomEffect) {
+                case 'slide':
+                    ulimages.style.transition = 'transform 0.5s ease';
+                    ulimages.style.transform = `translateX(-${this.slideActual * 100}%)`;
+                    break;
+                case 'fade':
+                    ulimages.style.transition = 'opacity 0.5s ease';
+                    ulimages.style.opacity = 0;
+                    setTimeout(() => {
+                        ulimages.style.transition = '';
+                        ulimages.style.opacity = 1;
+                        ulimages.style.transform = `translateX(-${this.slideActual * 100}%)`;
+                    }, 500);
+                    break;
+                case 'zoom':
+                    ulimages.style.transition = 'transform 0.5s ease';
+                    ulimages.style.transform = `scale(0.8)`;
+                    setTimeout(() => {
+                        ulimages.style.transition = '';
+                        ulimages.style.transform = `scale(1) translateX(-${this.slideActual * 100}%)`;
+                    }, 500);
+                    break;
+                default:
+                    ulimages.style.transform = `translateX(-${this.slideActual * 100}%)`;
+            }
+            
             this.actualizarIndicador(ulindi, this.slideActual);
         }, 4000);
     }
