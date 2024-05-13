@@ -10,12 +10,12 @@ class appPAW {
         "PAWCarousel",
         "./assets/js/components/paw-carousel.js",
         () => {
-          let imageSources = [
-            "/assets/promo1.jpeg",
-            "/assets/Hamburguesa.jpg",
-            "/assets/novedad1.jpg",
+          let images = [
+            { src: "/assets/promo1.jpeg", link: "/compra/menu" },
+            { src: "/assets/Hamburguesa.jpg", link: "/compra/menu" },
+            { src: "/assets/novedad1.jpg", link: "/compra/reserva" },
           ];
-          let carousel = new PAWCarousel(imageSources);
+          let carousel = new PAWCarousel(images);
         }
       );
 

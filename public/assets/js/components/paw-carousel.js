@@ -46,9 +46,9 @@ class PAWCarousel{
         imageSources.forEach(source => {
             let li = document.createElement("li");
             let a = document.createElement("a");
-            a.href = "#";
+            a.href = source.link; 
             let img = document.createElement("img");
-            img.src = source;
+            img.src = source.src;
             a.appendChild(img);
             li.appendChild(a);
             ulimages.appendChild(li);
@@ -100,12 +100,13 @@ class PAWCarousel{
                 loadedImages++;
                 let progress = (loadedImages / totalImages) * 100;
                 divProgressBar.style.width = progress + "%";
-    
+                divProgressBar.setAttribute("data-progress", Math.round(progress) + "%");
+                console.log("Cargando imagen " + source.src + " - " + Math.round(progress)  + "% completado.");//para ver en la consola que van cargando las imagenes
                 if (loadedImages === totalImages) { 
                    callback();
                 }
             };
-            img.src = source;
+            img.src = source.src;
         });
     }
 
