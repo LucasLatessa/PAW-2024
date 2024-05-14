@@ -40,6 +40,10 @@ $router->get('/turnera','PageController@turnosPantalla'); #Clase y metodo que pr
 # ------------------------ DISPLAY COCINA --------------------------------
 $router->get('/display-cocina','PageController@displayCocina'); #Clase y metodo que procesa la peticion
 
+#------------------------ DISPLAY ESTADOS COCINA opcion 2 --------------------------------
+$router->get('/display-estados-cocina','PageController@displayEstadosCocina');
+
+
 # ------------------------ COMPRA --------------------------------
 
 $router->get('/compra/menu','PageController@menu'); 

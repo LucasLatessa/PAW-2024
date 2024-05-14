@@ -131,4 +131,12 @@ class PageController extends Controlador
         $title = 'Cocina- PAW Power';
         require $this->viewsDir . 'cocina/displayCocina.view.php';
     }
+
+
+     /*--------- ESTADOS COCINA ------------*/
+    public function displayEstadosCocina()
+    {   
+        $title = 'Estados Cocina- PAW Power';
+        require $this->viewsDir . 'cocina/displayEstadosCocina.view.php';
+    }
 }

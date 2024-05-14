@@ -1,0 +1,134 @@
+/* se llamará desde el js*/
+@import url(reset.css);
+
+/* Fuente a utilizar */
+@font-face {
+  font-family: "Black regular";
+  src: url("../font/ArchivoBlack-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Century Gothic";
+  src: local("Century Gothic"),
+    url("../font/century_gothic.ttf") format("truetype");
+}
+
+/* --------------------------
+           HEADER
+-----------------------------*/
+
+.header-principal {
+    background-color: var(--color-secundario);
+    padding: 1rem 1.2rem;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+  }
+  
+  /*Ubicacion del logo*/
+  .header-principal > h1 {
+    flex-basis: 80%;
+    text-align: center;
+  }
+  
+  .logo {
+    width: 13rem;
+  }
+
+  .display-primario {
+    position:relative;
+    top:2rem;
+    flex:1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Estilo para el h2 de la HORA*/
+  .display-primario h2 {
+    margin: 0; 
+    padding: 1rem 0; /* Añade padding arriba y abajo */
+    color: var(--color-secundario);
+    text-align: center;
+    font-size: 20px; /*ver este tamaño de letra*/
+  }
+
+  .pedidos-primarios {
+    display: flex; /* Utiliza flexbox para los elementos hijos */
+    flex-direction: row; /* Asegura que elementos hijos estén en una fila */
+    justify-content: flex-start; /* Alinea los elementos hijos al inicio de la fila */
+    /*background*/
+    padding: 10px;
+    width:100%;
+    margin-top: 1rem;
+    flex: 1; /* Permite que .pedidos-primarios ocupe el espacio disponible en .display-primario */
+    overflow-y: auto;
+  }
+  
+  .pedidos-primarios article {
+    background-color: #c0c0c0;
+    margin-right: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 50%; /* Hace que los artículos sean flexibles y ocupen un 50% del contenedor */
+    min-height: 400px; /* REVISAR y ver de usar % . Altura mínima para cada artículo  */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Opcional: asegura que no haya margen derecho en el último article */
+  .pedidos-primarios article:last-child {
+    margin-right: 0;
+  }
+
+  .cabecera1, .cabecera2, .cabecera3, .cabecera4{
+    height: 15%;
+    text-align: center;
+  }
+
+  /* Estilos opcionales para las cabeceras, tablas y enlaces */
+  .cabecera1, .cabecera2, .cabecera4 {
+      /* Estilos para las cabeceras */
+      background-color: #fbad18;
+  }
+
+  .cabecera3{
+    background-color: #3DFA45;
+
+  }
+
+  .lista1{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 1rem; /* Espacio entre la lista y el enlace */
+  }
+  .lista1 li{
+    background-color: #f0f0f0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      flex: 1;
+      display: flex;
+      align-items: center;
+  }
+
+  .pedidos-primarios article a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background-color: #08D01C;
+    color: white;
+    text-decoration: border;
+    border-radius: 4px;
+    flex-shrink: 0; /* Para que el enlace no se achique */
+  }
+
+
+
