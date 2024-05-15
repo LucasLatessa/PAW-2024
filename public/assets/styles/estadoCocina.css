@@ -48,10 +48,11 @@
     display: flex; /* Utiliza flexbox para los elementos hijos */
     flex-direction: row; /* Asegura que elementos hijos estén en una fila */
     justify-content: flex-start; /* Alinea los elementos hijos al inicio de la fila */
-    /*background*/
+    align-content: flex-start;
+    flex-wrap: wrap;
     width:100%;
     margin-top: 1rem;
-    flex: 1; /* Permite que .pedidos-primarios ocupe el espacio disponible en .display-primario */
+    flex: 1;  /*Permite que .pedidos-primarios ocupe el espacio disponible en .display-primario */
     overflow-y: auto;
   }
   
@@ -60,18 +61,22 @@
     margin-right: 10px;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1 1 50%; /* Hace que los artículos sean flexibles y ocupen un 50% del contenedor */
+    flex: 1 1 300px; /* Hace que los artículos sean flexibles y ocupen un 50% del contenedor */
     min-height: 400px; /* REVISAR y ver de usar % . Altura mínima para cada artículo  */
+    max-width: 700px;
     box-sizing: border-box;
     border-radius: 10px;
     flex-direction: row;
+    margin-bottom: 10px;
   }
-.items{
-  display: flex;
-}
-.item{
-  margin: 5px;
-}
+
+  .items{
+    display: flex;
+  }
+  .item{
+    margin: 5px;
+  }
+  
   /* Opcional: asegura que no haya margen derecho en el último article */
   .pedidos article:last-child {
     margin-right: 0;

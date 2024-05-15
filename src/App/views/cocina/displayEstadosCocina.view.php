@@ -94,27 +94,6 @@
                 <a href="">LISTO</a>
             </article>
         </section>
-    
-
-        <section class="display-secundario">
-          <section class="pedidos-secundarios">
-            <!--idem-->
-                <article>
-
-                </article>
-                <article>
-
-                </article>
-                <article>
-
-                </article>
-                <article>
-
-                </article>
-           </section>
-    
-        </section>
-
     </main>
 </body>
 </html>
