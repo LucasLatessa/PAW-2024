@@ -62,16 +62,18 @@
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     flex: 1 1 300px; /* Hace que los artículos sean flexibles y ocupen un 50% del contenedor */
-    min-height: 400px; /* REVISAR y ver de usar % . Altura mínima para cada artículo  */
+    min-height: 200px; /* REVISAR y ver de usar % . Altura mínima para cada artículo  */
     max-width: 700px;
     box-sizing: border-box;
     border-radius: 10px;
     flex-direction: row;
     margin-bottom: 10px;
+ 
   }
 
   .items{
     display: flex;
+    justify-content: center;
   }
   .item{
     margin: 5px;
@@ -82,35 +84,33 @@
     margin-right: 0;
   }
 
-  .cabecera1, .cabecera2, .cabecera3, .cabecera4{
+
+  /* Estilos opcionales para las cabeceras, tablas y enlaces */
+  .cabeceraPreparacion , .cabeceraListo{
+      /* Estilos para las cabeceras */
+    background-color: #fbad18;
+    border-radius: 4px;
     height: 15%;
     text-align: center;
     margin-bottom: 10px;
     height: 20px;
-  }
-
-  /* Estilos opcionales para las cabeceras, tablas y enlaces */
-  .cabecera1, .cabecera2, .cabecera4 {
-      /* Estilos para las cabeceras */
-    background-color: #fbad18;
-    border-radius: 4px;
 
   }
 
-  .cabecera3{
+  .cabeceraListo{
     background-color: #3DFA45;
-    border-radius: 4px;
   }
 
   .item li{
     background-color: #f0f0f0;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      margin-bottom: 10px;
-      flex: 1;
-      display: flex;
-      align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-width: 200px; /* Ancho mínimo para los elementos li */
   }
 
   .pedidos article a {
@@ -119,7 +119,7 @@
     padding: 10px;
     background-color: #08D01C;
     color: white;
-    text-decoration: border;
+    text-decoration: none;
     border-radius: 4px;
     flex-shrink: 0; /* Para que el enlace no se achique */
   }

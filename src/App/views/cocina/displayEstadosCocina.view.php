@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="/assets/styles/estadoCocina.css" /> 
+    <!--<link rel="stylesheet" href="/assets/styles/estadoCocina.css" /> -->
     <script src="/assets/js/components/paw.js"></script>
-    <!--<script src="/assets/js/appEstadoCocina.js"></script>-->
+    <script src="/assets/js/appPedidoCocina.js"></script>
 
 
     <title>Estado Cocina - Paw Power</title>
@@ -25,8 +25,10 @@
         <h2>Hora - 16:00</h2>
 
         <section class="pedidos">
-            <article class="pedido">
-                <div class="cabecera1"> PEDIDO #0004A  </div> <!--con color de pedido-->
+            <!-- <article class="pedido">
+                <div class="cabecera1"> 
+                   
+                </div> 
                 <article class="items">
                     <ul class="item">
                         <li class="info-item">Hamburguesa Americana</li>
@@ -39,7 +41,7 @@
                         <li class="info-item">Obs</li>
                     </ul>
                 </article>
-                <a href="">LISTO</a> <!--boton a generar con js junto con el resto-->
+                <a href="">LISTO</a> 
             </article>
             <article class="pedido">
                 <div class="cabecera2"> PEDIDO #0005A </div>
@@ -92,7 +94,7 @@
                 </ul>
                 </article>
                 <a href="">LISTO</a>
-            </article>
+            </article> -->
         </section>
     </main>
 </body>
