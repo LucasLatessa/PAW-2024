@@ -8,7 +8,7 @@
     <!--<link rel="stylesheet" href="/assets/styles/estadoCocina.css" /> -->
     <script src="/assets/js/components/paw.js"></script>
     <script src="/assets/js/appPedidoCocina.js"></script>
-
+    <script src="/assets/js/appHora.js"></script>
 
     <title>Estado Cocina - Paw Power</title>
 </head>
@@ -22,7 +22,7 @@
         </header>
 
 
-        <h2>Hora - 16:00</h2>
+        <h2 class="hora"></h2>
 
         <section class="pedidos">
             <!-- <article class="pedido">
