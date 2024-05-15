@@ -35,20 +35,8 @@
     width: 13rem;
   }
 
-  .display-primario {
-    position:relative;
-    top:2rem;
-    flex:1;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; 
-    align-items: center;
-    width: 100%;
-  }
-
   /* Estilo para el h2 de la HORA*/
-  .display-primario h2 {
+  h2 {
     margin: 0; 
     padding: 1rem 0; /* Añade padding arriba y abajo */
     color: var(--color-secundario);
@@ -56,59 +44,60 @@
     font-size: 20px; /*ver este tamaño de letra*/
   }
 
-  .pedidos-primarios {
+  .pedidos {
     display: flex; /* Utiliza flexbox para los elementos hijos */
     flex-direction: row; /* Asegura que elementos hijos estén en una fila */
     justify-content: flex-start; /* Alinea los elementos hijos al inicio de la fila */
     /*background*/
-    padding: 10px;
     width:100%;
     margin-top: 1rem;
     flex: 1; /* Permite que .pedidos-primarios ocupe el espacio disponible en .display-primario */
     overflow-y: auto;
   }
   
-  .pedidos-primarios article {
-    background-color: #c0c0c0;
+  .pedidos > .pedido {
+    background-color: var(--color-secundario);
     margin-right: 10px;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     flex: 1 1 50%; /* Hace que los artículos sean flexibles y ocupen un 50% del contenedor */
     min-height: 400px; /* REVISAR y ver de usar % . Altura mínima para cada artículo  */
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+    border-radius: 10px;
+    flex-direction: row;
   }
-
+.items{
+  display: flex;
+}
+.item{
+  margin: 5px;
+}
   /* Opcional: asegura que no haya margen derecho en el último article */
-  .pedidos-primarios article:last-child {
+  .pedidos article:last-child {
     margin-right: 0;
   }
 
   .cabecera1, .cabecera2, .cabecera3, .cabecera4{
     height: 15%;
     text-align: center;
+    margin-bottom: 10px;
+    height: 20px;
   }
 
   /* Estilos opcionales para las cabeceras, tablas y enlaces */
   .cabecera1, .cabecera2, .cabecera4 {
       /* Estilos para las cabeceras */
-      background-color: #fbad18;
+    background-color: #fbad18;
+    border-radius: 4px;
+
   }
 
   .cabecera3{
     background-color: #3DFA45;
-
+    border-radius: 4px;
   }
 
-  .lista1{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 1rem; /* Espacio entre la lista y el enlace */
-  }
-  .lista1 li{
+  .item li{
     background-color: #f0f0f0;
       padding: 10px;
       border: 1px solid #ccc;
@@ -119,7 +108,7 @@
       align-items: center;
   }
 
-  .pedidos-primarios article a {
+  .pedidos article a {
     display: block;
     text-align: center;
     padding: 10px;

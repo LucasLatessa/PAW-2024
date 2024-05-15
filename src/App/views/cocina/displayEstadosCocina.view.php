@@ -21,50 +21,80 @@
                 </a>
         </header>
 
-        <section class="display-primario">
 
-            <h2>Hora - 16:00</h2>
+        <h2>Hora - 16:00</h2>
 
-            <section class="pedidos-primarios">
-                <article>
-                    <div class="cabecera1"> PEDIDO #0004A  </div> <!--con color de pedido-->
-                    <ul class="lista1">
+        <section class="pedidos">
+            <article class="pedido">
+                <div class="cabecera1"> PEDIDO #0004A  </div> <!--con color de pedido-->
+                <article class="items">
+                    <ul class="item">
                         <li class="info-item">Hamburguesa Americana</li>
                         <li class="info-item">lechuga, barbacoa, pepinillos, carne x2, tomate</li>
                         <li class="info-item">Obs</li>
                     </ul>
-                    <a href="">LISTO</a> <!--boton a generar con js junto con el resto-->
+                    <ul class="item">
+                        <li class="info-item">Hamburguesa Americana</li>
+                        <li class="info-item">lechuga, barbacoa, pepinillos, carne x2, tomate</li>
+                        <li class="info-item">Obs</li>
+                    </ul>
                 </article>
-                <article>
-                    <div class="cabecera2"> PEDIDO #0005A </div>
-                    <ul class="lista1">
+                <a href="">LISTO</a> <!--boton a generar con js junto con el resto-->
+            </article>
+            <article class="pedido">
+                <div class="cabecera2"> PEDIDO #0005A </div>
+                <article class="items">
+                    <ul class="item">
                         <li class="info-item">Hamburguesa con Queso</li>
                         <li class="info-item">lechuga, barbacoa, pepinillos, carne x2, tomate</li>
                         <li class="info-item">Obs</li>
                     </ul>
-                    <a href="">LISTO</a>
-                </article>
-                <article>
-                    <div class="cabecera3"> PEDIDO #0002A </div>
-                    <ul class="lista1">
-                        <li class="info-item">Hamburguesa PAW BBQ</li>
+                    <ul class="item">
+                        <li class="info-item">Hamburguesa con Queso</li>
                         <li class="info-item">lechuga, barbacoa, pepinillos, carne x2, tomate</li>
                         <li class="info-item">Obs</li>
                     </ul>
-                    <a href="">LISTO</a>
-                </article>
-                <article>
-                    <div class="cabecera4"> PEDIDO #0001A </div>
-                    <ul class="lista1">
-                        <li class="info-item">Hamburguesa Triple Cheddar</li>
+                    <ul class="item">
+                        <li class="info-item">Hamburguesa con Queso</li>
                         <li class="info-item">lechuga, barbacoa, pepinillos, carne x2, tomate</li>
                         <li class="info-item">Obs</li>
                     </ul>
-                    <a href="">LISTO</a>
+                    <ul class="item">
+                        <li class="info-item">Hamburguesa con Queso</li>
+                        <li class="info-item">lechuga, barbacoa, pepinillos, carne x2, tomate</li>
+                        <li class="info-item">Obs</li>
+                    </ul>
+                    </article>
+                <a href="">LISTO</a>
+            </article>
+            <article class="pedido">
+                <div class="cabecera3"> PEDIDO #0002A </div>
+                <article class="items">
+                <ul class="item">
+                    <li class="info-item">Hamburguesa PAW BBQ</li>
+                    <li class="info-item">lechuga, barbacoa, pepinillos, carne x2, tomate</li>
+                    <li class="info-item">Obs</li>
+                </ul>
                 </article>
-            </section>
-    
+            </article>
+            <article class="pedido">
+                <div class="cabecera4"> PEDIDO #0001A </div>
+                <article class="items">
+                <ul class="item">
+                    <li class="info-item">Hamburguesa Triple Cheddar</li>
+                    <li class="info-item">lechuga, barbacoa, pepinillos, carne x2, tomate</li>
+                    <li class="info-item">Obs</li>
+                </ul>
+                <ul class="item">
+                    <li class="info-item">Hamburguesa Triple Cheddar</li>
+                    <li class="info-item">lechuga, barbacoa, pepinillos, carne x2, tomate</li>
+                    <li class="info-item">Obs</li>
+                </ul>
+                </article>
+                <a href="">LISTO</a>
+            </article>
         </section>
+    
 
         <section class="display-secundario">
           <section class="pedidos-secundarios">

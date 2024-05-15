@@ -1,6 +1,7 @@
 [
     {
       "numero": "1",
+      "item": "1",
       "hora": "10:00",
       "nombre": "Hamburguesa Simple",
       "ingredientes": "Carne,Lechuga,Tomate",
@@ -8,7 +9,8 @@
       "tipoPedido":"Delivery"  
     },
     {
-        "numero": "2",
+        "numero": "1",
+        "item": "2",
         "hora": "10:15",
         "nombre": "Hamburguesa Doble",
         "ingredientes": "Carne,Lechuga,Tomate,Queso",
