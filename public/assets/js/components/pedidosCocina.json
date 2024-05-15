@@ -16,6 +16,18 @@
             "nombre": "Hamburguesa Simple",
             "ingredientes": "Carne, Lechuga, Tomate",
             "aclaraciones": "Sin cebolla"
+          },
+          {
+            "item": "3",
+            "nombre": "Hamburguesa Simple",
+            "ingredientes": "Carne, Lechuga, Tomate",
+            "aclaraciones": "Sin cebolla"
+          },
+          {
+            "item": "4",
+            "nombre": "Hamburguesa Simple",
+            "ingredientes": "Carne, Lechuga, Tomate",
+            "aclaraciones": "Sin cebolla"
           }
         ]
         

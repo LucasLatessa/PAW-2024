@@ -14,8 +14,7 @@ class PAWCocina{
         let boton = document.createElement("a");
         let hora = document.createElement("h5"); /** orden aceptada a : */
      
-        cabecera.textContent = "PEDIDO " + pedido.numero; /*#A0001*/
-        hora.textContent = pedido.hora;
+        cabecera.textContent = "PEDIDO " + pedido.numero +" - "+ pedido.hora; 
 
        
         

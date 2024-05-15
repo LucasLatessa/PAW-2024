@@ -1,128 +1,98 @@
-/* se llamará desde el js*/
-@import url(reset.css);
-
-/* Fuente a utilizar */
-@font-face {
-  font-family: "Black regular";
-  src: url("../font/ArchivoBlack-Regular.ttf") format("truetype");
+/* Estilos para el cuerpo de la página */
+body {
+  font-family: Arial, sans-serif; /* Fuente predeterminada */
+  margin: 0;
+  padding: 0;
 }
 
-@font-face {
-  font-family: "Century Gothic";
-  src: local("Century Gothic"),
-    url("../font/century_gothic.ttf") format("truetype");
-}
-
-/* --------------------------
-           HEADER
------------------------------*/
-
+/* Estilos para el encabezado */
 .header-principal {
-    background-color: var(--color-secundario);
-    padding: 1rem 1.2rem;
-    display: flex;
-    justify-content: left;
-    align-items: left;
-  }
-  
-  /*Ubicacion del logo*/
-  .header-principal > h1 {
-    flex-basis: 80%;
-    text-align: center;
-  }
-  
-  .logo {
-    width: 13rem;
-  }
+  background-color: #333; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 1rem; /* Espaciado interno */
+  text-align: center; /* Alineación del texto */
+}
 
-  /* Estilo para el h2 de la HORA*/
-  h2 {
-    margin: 0; 
-    padding: 1rem 0; /* Añade padding arriba y abajo */
-    color: var(--color-secundario);
-    text-align: center;
-    font-size: 20px; /*ver este tamaño de letra*/
-  }
+.logo {
+  width: 150px; /* Ancho del logo */
+}
 
-  .pedidos {
-    display: flex; /* Utiliza flexbox para los elementos hijos */
-    flex-direction: row; /* Asegura que elementos hijos estén en una fila */
-    justify-content: flex-start; /* Alinea los elementos hijos al inicio de la fila */
-    align-content: flex-start;
-    flex-wrap: wrap;
-    width:100%;
-    margin-top: 1rem;
-    flex: 1;  /*Permite que .pedidos-primarios ocupe el espacio disponible en .display-primario */
-    overflow-y: auto;
-  }
-  
-  .pedidos > .pedido {
-    background-color: var(--color-secundario);
-    margin-right: 10px;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    flex: 1 1 300px; /* Hace que los artículos sean flexibles y ocupen un 50% del contenedor */
-    min-height: 200px; /* REVISAR y ver de usar % . Altura mínima para cada artículo  */
-    max-width: 700px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    flex-direction: row;
-    margin-bottom: 10px;
- 
-  }
+/* Estilos para el contenedor principal */
+.main {
+  max-width: 1200px; /* Ancho máximo del contenido */
+  margin: 0 auto; /* Centrado horizontal */
+  padding: 20px; /* Espaciado interno */
+}
 
-  .items{
-    display: flex;
-    justify-content: center;
-  }
-  .item{
-    margin: 5px;
-  }
-  
-  /* Opcional: asegura que no haya margen derecho en el último article */
-  .pedidos article:last-child {
-    margin-right: 0;
-  }
+/* Estilos para el título de la hora */
+.hora {
+  text-align: center; /* Alineación del texto */
+  margin-top: 20px; /* Margen superior */
+}
 
+/* Estilos para la sección de pedidos */
+.pedidos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  margin: 10px; 
+}
 
-  /* Estilos opcionales para las cabeceras, tablas y enlaces */
-  .cabeceraPreparacion , .cabeceraListo{
-      /* Estilos para las cabeceras */
-    background-color: #fbad18;
-    border-radius: 4px;
-    height: 15%;
-    text-align: center;
-    margin-bottom: 10px;
-    height: 20px;
+/* Estilos para cada artículo de pedido */
+.pedido {
+  width: calc(33.33% - 20px); 
+  background-color: #333; 
+  color: white;
+  padding: 20px; 
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
 
-  }
+/* Estilos para el título del pedido */
+.cabeceraPreparacion, .cabeceraListo {
+  color: white; 
+  text-align: center; 
+  padding: 10px; /
+  margin-bottom: 10px; 
+}
+.cabeceraListo{
+  background-color: #3DFA45;
+}
+.cabeceraPreparacion{
+  background-color: #fbad18;
+}
+/* Estilos para la lista de items */
+.items {
+  margin-bottom: 10px; 
+}
 
-  .cabeceraListo{
-    background-color: #3DFA45;
-  }
+/* Estilos para cada item */
+.item {
+  list-style: none; 
+  padding: 5px 0; 
+  border-bottom: 1px solid #bcbcbc ;
+}
 
-  .item li{
-    background-color: #f0f0f0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-bottom: 10px;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    min-width: 200px; /* Ancho mínimo para los elementos li */
-  }
+/* Estilos para el botón */
+.pedido a  {
+  display: block; 
+  width: 70%; 
+  text-align: center; 
+  padding: 10px; 
+  background-color: #2aa736 ; 
+  color: white; 
+  text-decoration: none; 
+  border: none; 
+  border-radius: 4px;
+  cursor: pointer; 
+  position: relative; 
+  left: 50%;
+  transform: translateX(-50%); 
+}
 
-  .pedidos article a {
-    display: block;
-    text-align: center;
-    padding: 10px;
-    background-color: #08D01C;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    flex-shrink: 0; /* Para que el enlace no se achique */
-  }
-
+.pedidos article a:hover {
+  background-color: #336633;
+}
 
 
