@@ -1,33 +1,33 @@
 /* Estilos para el cuerpo de la página */
 body {
-  font-family: Arial, sans-serif; /* Fuente predeterminada */
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 /* Estilos para el encabezado */
 .header-principal {
-  background-color: #333; /* Color de fondo */
-  color: white; /* Color del texto */
-  padding: 1rem; /* Espaciado interno */
-  text-align: center; /* Alineación del texto */
+  background-color: #333; 
+  color: white; 
+  padding: 1rem; 
+  text-align: center; 
 }
 
 .logo {
-  width: 150px; /* Ancho del logo */
+  width: 150px;
 }
 
 /* Estilos para el contenedor principal */
 .main {
-  max-width: 1200px; /* Ancho máximo del contenido */
-  margin: 0 auto; /* Centrado horizontal */
-  padding: 20px; /* Espaciado interno */
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 20px; 
 }
 
 /* Estilos para el título de la hora */
 .hora {
-  text-align: center; /* Alineación del texto */
-  margin-top: 20px; /* Margen superior */
+  text-align: center; 
+  margin-top: 20px; 
 }
 
 /* Estilos para la sección de pedidos */
