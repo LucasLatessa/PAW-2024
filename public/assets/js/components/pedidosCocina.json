@@ -66,6 +66,31 @@
         "ingredientes": "Carne,Salsa PAW,Pepinillos,Cebolla brunoise",
         "aclaraciones": "-"
         }]
-
+    },
+    {
+      "numero": "5",
+      "hora": "10:40",
+      "tipoPedido":"Take away",
+      "estado": "En preparación",
+      "items": [{
+          "item": "1",
+          "nombre": "Hamburguesa Doble Cheddar ",
+          "ingredientes": "Carne,Queso cheddar X2",
+          "aclaraciones": "-"
+      }
+     ]
+    },
+    {
+      "numero": "6",
+      "hora": "10:40",
+      "tipoPedido":"Take away",
+      "estado": "En preparación",
+      "items": [{
+          "item": "1",
+          "nombre": "Hamburguesa Golden ",
+          "ingredientes": "Carne, Queso cheddar X2, Ketchup, Mostaza, Cebolla Brunoise, Bacon",
+          "aclaraciones": "-"
+      }
+     ]
     }
   ]

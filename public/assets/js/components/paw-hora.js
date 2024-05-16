@@ -3,6 +3,8 @@ class PAWHora{
         // Obtener el elemento HTML donde quieres mostrar la hora
         const horaElemento = document.querySelector('h2');
         this.actualizarHora(horaElemento);
+        //actualiza la hora cada 1000ms = 1s, sin tener que recargar el navegador
+        setInterval(() => this.actualizarHora(horaElemento), 1000); 
     }
     // Función para obtener la hora actual y actualizar el elemento HTML
     actualizarHora(horaElemento) {

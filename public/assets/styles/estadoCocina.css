@@ -26,6 +26,8 @@ body {
 
 /* Estilos para el título de la hora */
 .hora {
+  font-weight: bold;
+  font-size: 27px;
   text-align: center; 
   margin-top: 20px; 
 }
@@ -52,10 +54,12 @@ body {
 /* Estilos para el título del pedido */
 .cabeceraPreparacion, .cabeceraListo {
   color: white; 
+  font-size: 22px;
+  font-weight:bold;
   text-align: center; 
-  padding: 10px; /
+  padding: 10px; 
   margin-bottom: 10px; 
-}
+ }
 .cabeceraListo{
   background-color: #3DFA45;
 }
@@ -89,6 +93,8 @@ body {
   position: relative; 
   left: 50%;
   transform: translateX(-50%); 
+  font-weight: bold;
+  text-shadow: 1.5px black;
 }
 
 .pedidos article a:hover {
