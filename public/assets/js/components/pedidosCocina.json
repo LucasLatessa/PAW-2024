@@ -7,27 +7,27 @@
         "items": [
           {
             "item": "1",
-            "nombre": "Hamburguesa Simple",
-            "ingredientes": "Carne, Lechuga, Tomate",
+            "nombre": "Hamburguesa Americana",
+            "ingredientes": "Carne, Lechuga, Cebolla, Tomate, Queso cheddar",
             "aclaraciones": "Sin cebolla"
           },
           {
             "item": "2",
-            "nombre": "Hamburguesa Simple",
-            "ingredientes": "Carne, Lechuga, Tomate",
-            "aclaraciones": "Sin cebolla"
+            "nombre": "Hamburguesa con Queso",
+            "ingredientes": "Carne, Queso cheddar",
+            "aclaraciones": "-"
           },
           {
             "item": "3",
-            "nombre": "Hamburguesa Simple",
-            "ingredientes": "Carne, Lechuga, Tomate",
-            "aclaraciones": "Sin cebolla"
+            "nombre": "Hamburguesa BBQ",
+            "ingredientes": "Carne,Queso cheddar,Salsa Barbacoa,Bacon",
+            "aclaraciones": "-"
           },
           {
             "item": "4",
-            "nombre": "Hamburguesa Simple",
-            "ingredientes": "Carne, Lechuga, Tomate",
-            "aclaraciones": "Sin cebolla"
+            "nombre": "Hamburguesa PAW",
+            "ingredientes": "Carne,Salsa PAW,Pepinillos,Cebolla brunoise",
+            "aclaraciones": "Papas sin sal"
           }
         ]
         
@@ -40,7 +40,7 @@
         "items": [{
             "item": "1",
             "nombre": "Hamburguesa BBQ ",
-            "ingredientes": "Carne,Queso cheddar,salsa barbacoa,bacon",
+            "ingredientes": "Carne,Queso cheddar,Salsa Barbacoa,Bacon",
             "aclaraciones": "-"
         }
     ]
@@ -53,7 +53,7 @@
         "items": [{
             "item": "1",
             "nombre": "Hamburguesa BBQ doble",
-            "ingredientes": "Carne,Queso cheddar,salsa barbacoa,bacon",
+            "ingredientes": "Carne x2, Queso cheddar,Salsa Barbacoa,Baconn",
             "aclaraciones": "-"
         }]
     },
@@ -63,7 +63,7 @@
         "tipoPedido":"Take away",
         "estado": "Listo para retirar",
         "items":[{"nombre": "Hamburguesa PAW",
-        "ingredientes": "Carne,salsa PAW,Pepinillos,Cebolla brunoise",
+        "ingredientes": "Carne,Salsa PAW,Pepinillos,Cebolla brunoise",
         "aclaraciones": "-"
         }]
 
