@@ -66,6 +66,17 @@ body {
 .cabeceraPreparacion{
   background-color: #fbad18;
 }
+.cabeceraPRIORIDAD{
+  background-color: rgb(234, 58, 58);
+  animation: titilacion 1s infinite;
+}
+@keyframes titilacion {
+  0% { opacity: 1;}
+  25% {opacity: 0;}
+  50% { opacity: 1;}
+  75% { opacity: 0;}
+  100% { opacity: 1;}
+}
 /* Estilos para la lista de items */
 .items {
   margin-bottom: 10px; 

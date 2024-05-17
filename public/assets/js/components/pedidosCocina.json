@@ -1,9 +1,9 @@
 [
     {
         "numero": "1",
-        "hora": "10:00",
+        "hora": "15:03",
         "tipoPedido": "Delivery",
-        "estado": "En preparación",
+        "estado": "En preparación", 
         "items": [
           {
             "item": "1",
@@ -34,7 +34,7 @@
     },
     {
         "numero": "2",
-        "hora": "10:10",
+        "hora": "14:59",
         "tipoPedido":"Take away",
         "estado": "En preparación",
         "items": [{
@@ -47,7 +47,7 @@
     },
     {
         "numero": "3",
-        "hora": "10:20",
+        "hora": "17:20",
         "tipoPedido":"Take away",
         "estado": "En preparación",
         "items": [{
@@ -59,7 +59,7 @@
     },
     {
         "numero": "4",
-        "hora": "10:35",
+        "hora": "17:35",
         "tipoPedido":"Take away",
         "estado": "Listo para retirar",
         "items":[{"nombre": "Hamburguesa PAW",
@@ -69,7 +69,7 @@
     },
     {
       "numero": "5",
-      "hora": "10:40",
+      "hora": "17:40",
       "tipoPedido":"Take away",
       "estado": "En preparación",
       "items": [{
@@ -82,7 +82,7 @@
     },
     {
       "numero": "6",
-      "hora": "10:40",
+      "hora": "17:40",
       "tipoPedido":"Take away",
       "estado": "En preparación",
       "items": [{

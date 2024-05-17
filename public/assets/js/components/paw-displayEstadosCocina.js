@@ -1,14 +1,19 @@
 class PAWCocina{
-    
+
     constructor(pedidos){
         this.generarPedidos(pedidos);
+
+        // Intervalo para verificar pedidos demorados cada minuto
+        setInterval(() => {
+            this.verificarPedidosDemorados();
+        }, 60000);
     }
 
     async generarPedidos(pedidos){
         const response = await fetch(pedidos);
         const datapedidos = await response.json();
         let pedidosSection = document.querySelector(".pedidos");
-        
+  
         this.pedidos = datapedidos;
 
         datapedidos.forEach(pedido => {
@@ -32,9 +37,9 @@ class PAWCocina{
                 ingredientes.textContent = item.ingredientes;
                 aclaraciones.textContent = item.aclaraciones;
 
-                nombre.classList.add("nombre"); /*info-item*/
-                ingredientes.classList.add("ingredientes");/*info-item*/
-                aclaraciones.classList.add("aclaraciones");/*info-item*/
+                nombre.classList.add("nombre"); /info-item/
+                ingredientes.classList.add("ingredientes");/info-item/
+                aclaraciones.classList.add("aclaraciones");/info-item/
                 listItem.classList.add("item");
 
                 listItem.appendChild(nombre);
@@ -45,11 +50,12 @@ class PAWCocina{
             });
             
             items.classList.add("items");
+            //cabecera.classList.add(this.getEstadoClase(pedido.estado, pedido.hora));   /** "estado": "En preparación" y "hora": "10:00" */
             if (pedido.estado === "Listo para retirar"){
                 cabecera.classList.add("cabeceraListo");
             }else{
                 cabecera.classList.add("cabeceraPreparacion");
-            } /** poner cabecera en rojo para prioridad */
+            } 
             
             pedidoN.classList.add("pedido");
             pedidoN.appendChild(cabecera);
@@ -77,15 +83,15 @@ class PAWCocina{
 
     marcarComoListo(event) {
         const boton = event.target;
-        const pedidoN = boton.closest('article.pedido'); /*encuentra el ancestro más cercano (o el mismo elemento) que coincide con el selector especificado*/
+        const pedidoN = boton.closest('article.pedido'); //encuentra el ancestro más cercano (o el mismo elemento) que coincide con el selector especificado/
         const pedidoId = pedidoN.getAttribute('data-id');
 
         // Encontrar el pedido correspondiente en el JSON
         const pedido = this.pedidos.find(p => p.numero === pedidoId); /** find encuentra el 1° elemento de una array que coincida con una concidicion dada */
-        if (pedido) {                                                  /** aca seria encontrar el primer pedido donde el su numero sea igual al pedidoId */
+        if (pedido.estado === "En preparación" || pedido.estado === "PRIORIDAD") {     
             pedido.estado = "Listo para retirar";
             // Esta parte en la lógica se deberia genera algun POST hacia el servidor, enviando
-            //actualización del pedido en el json, usar un fetch
+            //actualización del pedido en el json, usar un fetch, es decir que ese Listo para retirar sea impactado en db o en el json 
             this.actualizarPedido(pedidoN); //esto actualiza el frontend, quitando boton y cambiando estilo
         }
     }
@@ -100,5 +106,77 @@ class PAWCocina{
         if (boton) {
             boton.remove();
         }
+    }
+
+    getEstadoClase(estado, horaPedido){
+        const horaActual = this.getHoraActual();
+        const limiteMinutosDemora = 2;
+        if (estado === "Listo para retirar") {
+            return "cabeceraListo";
+        } else if (estado === "En preparación" && this.estaDemorado(horaPedido, horaActual, limiteMinutosDemora)) {
+            return "cabeceraPRIORIDAD";
+        } else {
+            return "cabeceraPreparacion";
+        }
+    }
+
+    getHoraActual(){
+        const ahora = new Date();
+        const horas = String(ahora.getHours()).padStart(2, '0');
+        const minutos = String(ahora.getMinutes()).padStart(2, '0');
+        return `${horas}:${minutos}`;
+    }
+
+    estaDemorado(horaPedido, horaActual, limiteMinutos){
+        const [horasP, minutosP ] = horaPedido.split(':').map(Number);
+        const [horasActual, minutosActual] = horaActual.split(':').map(Number);
+
+        const orderDate = new Date();
+        orderDate.setHours(horasP, minutosP);
+
+        const currentDate = new Date();
+        currentDate.setHours(horasActual, minutosActual);
+
+        const diferenciaMilisegundos = currentDate - orderDate;
+        const diferenciaMinutos = diferenciaMilisegundos  / 1000 / 60;
+
+        return diferenciaMinutos > limiteMinutos;
+    }
+
+    verificarPedidosDemorados(){
+       
+
+        const pedidosSection = document.querySelector(".pedidos");
+        const horaA = this.getHoraActual();
+        console.log("Hora actual " + horaA);
+        const limiteMinutos = 1;
+        console.log("pedidos json " + this.pedidos);
+
+        this.pedidos.forEach(pedido => {
+            if (pedido.estado === "En preparación" && this.estaDemorado(pedido.hora, horaA, limiteMinutos)) {
+                let dataid = pedido.numero;
+                console.log(dataid);
+                //Buscar el elemento con el data-id coincidente
+                const pedidoElement = Array.from(pedidosSection.querySelectorAll(".pedido"))
+                .find(ped => ped.getAttribute('data-id') === dataid);
+
+                // Verificar si se encontró el elemento
+                if (pedidoElement) {
+                    /* es buena esta idea tambien porque
+                    hace titilar todo el article y se nota mas 
+                    pedidoElement.classList.add("cabeceraPRIORIDAD");*/
+
+                    const divContenido = pedidoElement.querySelector("div");
+                    if (divContenido) {
+                        divContenido.classList.add('cabeceraPRIORIDAD'); /**para dar estilo de alerta */
+                    }
+                    
+                } else {
+                    console.log("No se encontró ningún elemento con data-id:", dataid);
+                }
+
+              
+            }
+        });
     }
 }
