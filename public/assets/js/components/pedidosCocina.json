@@ -3,7 +3,7 @@
         "numero": "1",
         "hora": "15:03",
         "tipoPedido": "Delivery",
-        "estado": "En preparación", 
+        "estado": "Listo para retirar",
         "items": [
           {
             "item": "1",
