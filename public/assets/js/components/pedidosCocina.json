@@ -1,6 +1,6 @@
 [
     {
-        "numero": "1",
+        "numero": "A0001",
         "hora": "15:03",
         "tipoPedido": "Delivery",
         "estado": "Listo para retirar",
@@ -33,7 +33,7 @@
         
     },
     {
-        "numero": "2",
+        "numero": "A0002",
         "hora": "14:59",
         "tipoPedido":"Take away",
         "estado": "En preparación",
@@ -46,7 +46,7 @@
     ]
     },
     {
-        "numero": "3",
+        "numero": "A0003",
         "hora": "17:20",
         "tipoPedido":"Take away",
         "estado": "En preparación",
@@ -58,7 +58,7 @@
         }]
     },
     {
-        "numero": "4",
+        "numero": "A0004",
         "hora": "17:35",
         "tipoPedido":"Take away",
         "estado": "Listo para retirar",
@@ -68,7 +68,7 @@
         }]
     },
     {
-      "numero": "5",
+      "numero": "A0005",
       "hora": "17:40",
       "tipoPedido":"Take away",
       "estado": "En preparación",
@@ -81,7 +81,7 @@
      ]
     },
     {
-      "numero": "6",
+      "numero": "A0006",
       "hora": "17:40",
       "tipoPedido":"Take away",
       "estado": "En preparación",

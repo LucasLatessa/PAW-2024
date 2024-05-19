@@ -44,7 +44,7 @@
       <?php endif; ?>
     <section id="direcciones" class="direcciones">
       
-      <div class="direccion">
+      <article class="direccion">
         <?php if (isset($pais)): ?>
           <p>Pais: <?php echo $pais; ?></p>
         <?php endif; ?>
@@ -59,13 +59,16 @@
         <?php endif; ?>
         <?php if (isset($direc)): ?>
           <p>Direccion: <?php echo $direc; ?></p>
+        <?php endif; ?>
+        <?php if (isset($aclaraciones)): ?>
+          <p>Aclaraciones: <?php echo $aclaraciones; ?></p>
           <a href="./agregarDireccion">Editar Direccion</a><!--simil al agregar, pero con los datos viejos (Update) -->
         <?php endif; ?>
         <!-- <p>Aclaraciones: <?php if (isset($aclaraciones)): ?><?php echo $aclaraciones; ?><?php endif; ?></p> -->
         
        
-      </div>
-      <div class="direccion">
+      </article>
+      <article class="direccion">
         <p>Pais: Argentina</p>
         <p>Provincia: Buenos Aires</p>
         <p>Ciudad/barrio: Lujan</p>
@@ -73,7 +76,7 @@
         <p>Direccion: 123</p>
         <p>Aclaraciones: Nada</p>
         <a href="./agregarDireccion">Editar Direccion</a><!--simil al agregar, pero con los datos viejos (Update) -->
-      </div>
+      </article>
       <?php
         if (session_status() == PHP_SESSION_NONE) {
           session_start();
@@ -85,19 +88,23 @@
     <h2>Pedidos</h2>
     <section id="pedidos" class="pedidos">
 
-      <div class="pedido">
+      <article class="pedido">
         <p>Fecha: 13 de marzo de 2024</p>
+        <p>Pedido: #A0002</p>
+        <p>Tipo: Take away</p>
+        <p>Estado: Pasar a retirar</p>
         <p>Total pagado: $50.00</p>
-        <p>ID de pedido: 123456</p>
         <button>Ver detalles</button>
-      </div>
+      </article>
 
-      <div class="pedido">
+      <article class="pedido">
         <p>Fecha: 12 de marzo de 2024</p>
+        <p>Pedido: #A0006</p>
+        <p>Tipo: Delivery</p>
+        <p>Estado: Aceptado</p>
         <p>Total pagado: $35.00</p>
-        <p>ID de pedido: 789012</p>
         <button>Ver detalles</button>
-      </div>
+      </article>
     </section>
     <h2>Reservas</h2>
     <section class="reservas">
