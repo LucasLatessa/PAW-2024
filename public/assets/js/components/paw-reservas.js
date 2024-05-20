@@ -21,6 +21,7 @@ class PAWReservas {
         .then(() => {
           getActions();
         });
+      /* MANEJAR ERRORES QUE SEAN AMIGABLES PARA EL USUARIO */
 
       //Obtengo todos los elementos que sean g y comienzen con mesa (ya que solamente esto se podra reservar)
       const getActions = () => {
