@@ -9,8 +9,12 @@ class PAWReservas {
         //Cada vez que se produzca un cambio en el input, ejecuta cargarImagen
         inputFile.addEventListener("change",cargarImagen);
 
-        //Cargo la imagen
-        this.cargarImagen()
+        //Cargo la imagen y la pongo como fondo
+        function cargarImagen(){
+            //Creo la Url de la imagen y la pongo de fondo
+            let imgLink = URL.createObjectURL(inputFile.files[0]);
+            inputFile.style.backgroundImage = `url(${imgLink})`;
+        }
 
         //DragOver se activa cuando el mouse se mueve sobre un elemento cuando se tiene una operacion de arrastre
         dropArea.addEventListener("dragover", function(e) {
@@ -25,13 +29,6 @@ class PAWReservas {
             //Ejecuto cargar imagen
             cargarImagen();
         })
-    }
-
-    //Cargo la imagen y la pongo como fondo
-    cargarImagen(){
-        //Creo la Url de la imagen y la pongo de fondo
-        let imgLink = URL.createObjectURL(inputFile.files[0]);
-        inputFile.style.backgroundImage = `url(${imgLink})`;
     }
 
 }

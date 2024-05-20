@@ -175,14 +175,9 @@ input[type="textAclaraciones"]{
 
 /* Cargar plato */
 
-#imagen-drop{
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 #imagen-drop-input{
-  width: 31rem;
-  height: 15rem;
+  height: 20rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
