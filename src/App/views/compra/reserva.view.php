@@ -45,7 +45,9 @@
             <option value="7:00 PM - 10:00 PM"></option>
         </datalist>
 
+        <!--Modificar por contenedor del svg -->
         <img id="planoSurcursal" class="planoSucursal" src="../assets/planos/PlanoSucursalA.svg" alt="">
+        
 
         <label>Mesa 
             <input class="listaMesas" list="listaMesas" name="mesa" required />

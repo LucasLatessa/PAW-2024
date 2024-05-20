@@ -5,7 +5,7 @@
   <?php require __DIR__ . '/parts/head.view.php'; ?>
   <link rel="stylesheet" href="/assets/styles/global.css" /> 
   <script src="/assets/js/components/paw.js"></script>
-  <script src="/assets/js/app.js"></script>
+  <script src="/assets/js/appCarousel.js"></script>
   
   </head>
 

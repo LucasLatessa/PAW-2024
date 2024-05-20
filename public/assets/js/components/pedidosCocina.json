@@ -92,5 +92,18 @@
           "aclaraciones": "-"
       }
      ]
+    },
+    {
+      "numero": "A0007",
+      "hora": "17:40",
+      "tipoPedido":"Take away",
+      "estado": "Listo para retirar",
+      "items": [{
+          "item": "1",
+          "nombre": "Hamburguesa Golden ",
+          "ingredientes": "Carne, Queso cheddar X2, Ketchup, Mostaza, Cebolla Brunoise, Bacon",
+          "aclaraciones": "-"
+      }
+     ]
     }
   ]
