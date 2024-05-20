@@ -1,4 +1,5 @@
 class PAWReservas {
+  
   constructor(svg, listaReservas) {
     //Obtengo el svg (que esta como imagen)
     let contenedor = svg.tagName ? pContenedor : document.querySelector(svg);
@@ -27,7 +28,7 @@ class PAWReservas {
         const states = document.getElementsByTagName("g");
         for (let i = 0; i < states.length; i++) {
           const element = states[i];
-          if (element.id.startsWith("mesa")) {
+          if ((element.id.startsWith("mesa")) || (element.id.startsWith("barra"))){
             //Si se da click al elemento, ejecuto el stateClicked para obtener el id
             element.onclick = () => {
               stateClicked(element);
@@ -47,19 +48,20 @@ class PAWReservas {
       };
 
       /*OBTENGO TODAS LAS MESAS OCUPADAS*/
-      const reservas = [];
-
+      let reservas = [];
       //Cargo la lista de reservas
       const getReservas = () => {
         fetch(listaReservas)
           .then((response) => response.json())
           .then((data) => {
+            reservas = [];
             reservas.push(...data);
             mesasOcupadas(reservas); /*SOLUCIONAR: Problema con mesas ocupadas*/
           });
       };
 
       getReservas();
+
       
       const mesasOcupadas = (misReservas) => {
         const elementosMesa = []
