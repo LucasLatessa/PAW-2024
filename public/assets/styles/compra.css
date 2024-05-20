@@ -389,7 +389,7 @@ svg, .planoSucursal{
 }
 
 /* Estilos mesa ocupada*/
-.ocupado, .ocupado:hover {
+.ocupado, .ocupado ~ .silla, .ocupado:hover{
   fill: red;
   cursor: default;
   pointer-events: none;
