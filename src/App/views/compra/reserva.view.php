@@ -21,43 +21,40 @@
 
     <div id="formularioReserva" class="form-reserva-div">
       <form method="POST" action="" class="form-reserva">
-        <label>Seleccionar Local* 
-            <input list="listaLocales" name="local" required />
-        </label>
-        <datalist id="listaLocales">
-            <option value="Local 1"></option>
-            <option value="Local 2"></option>
-        </datalist>
-        
+
+        <label for="listaLocales">Seleccionar Local*</label>
+        <select  name="listaLocales" id="listaLocales" required>
+          <option value="Local 1">Local 1</option>
+          <option value="Local 2">Local 2</option>
+        </select>
+
         <label>Cantidad de Personas*
-            <input type="number" name="cantidadPersonas" min="1" required />
+          <input type="number" name="cantidadPersonas" min="1" required />
         </label>
 
         <label>Día de la Reserva*
-            <input type="date" id="fecha-reserva" name="dia" required />
+          <input type="date" id="fecha-reserva" name="dia" required />
         </label>
 
-        <label>Horario de la Reserva* 
-            <input list="listaHorarios" name="horario" required />
-        </label>
-        <datalist id="listaHorarios">
-            <option value="12:00 PM - 3:00 PM"></option>
-            <option value="7:00 PM - 10:00 PM"></option>
-        </datalist>
+        <label for="listaHorarios">Horario de la Reserva*</label>
+        <select name="listaHorarios" id="listaHorarios" requerid>
+          <option value="">Selecciona un horario</option>
+          <option value="08:00">08:00</option>
+          <option value="10:00">10:00</option>
+        </select>
 
         <!--Modificar por contenedor del svg -->
         <img id="planoSurcursal" class="planoSucursal" src="../assets/planos/PlanoSucursalA.svg" alt="">
-        
 
-        <label>Mesa 
-            <input class="listaMesas" list="listaMesas" name="mesa" required />
+        <label>Mesa
+          <input class="listaMesas" list="listaMesas" name="mesa" required readonly />
         </label>
-        
+
         <label for="inputTexto">Aclaraciones
-            <input id="inputTexto" type="text" name="aclaraciones" maxlength="500" minlength="5" size="30" />
+          <input id="inputTexto" type="text" name="aclaraciones" maxlength="500" minlength="5" size="30" />
         </label>
 
-        
+
 
         <p id="required">*requerido</p>
         <button type="submit">Reservar Mesa</button>

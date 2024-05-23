@@ -1,0 +1,7 @@
+Crear migrate 
+
+phinx create "Nombre"
+
+Correr migrate en un entorno
+
+phinx migrate -e development

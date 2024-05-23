@@ -2,16 +2,27 @@
 
 namespace Paw\Core;
 
+#Para manejar modelos
+use Paw\Core\Model;
+use Paw\Core\Database\QueryBuilder;
+
 class Controlador
 {
     public string $viewsDir; #Direccion a la vista indicada
-    public function __construct(){
 
-        
+    #Solo el nombre del modelo (? = significa que es optativo)
+    public ?string $modelName = null;
+
+
+    public function __construct()
+    {
+        #Obtengo objetos que ya fueron instanciados en un contexto superior al mio
+        global $connection, $log;
+
         $this->viewsDir = __DIR__ . "/../App/views/";
 
         $this->rutasMenuBurger = [
-            /* Menu hamburguesa 0-2*/ 
+            /* Menu hamburguesa 0-2*/
             [
                 "href" => '../compra/menu',
                 "name" => "Menu",
@@ -24,7 +35,7 @@ class Controlador
                 "href" => '../cuenta/perfil',
                 "name" => "Perfil"
             ]
-            ];
+        ];
         $this->rutasLogoHeader =
             /*Logo header 3*/
             [
@@ -60,6 +71,20 @@ class Controlador
                 "href" => '../cuenta/consumos',
                 "name" => "Consumos"
             ]
-            ];
+        ];
+
+        if (!is_null($this->modelName)) {
+            #HAY QUE IMPLEMENTAR EL PATRON SINGLETON EN ESTE CASO
+            $qb = new QueryBuilder($connection, $log);
+            $model = new $this->modelName;
+            $model->setQueryBuilder($qb);
+            $this->setModel($model);
+        }
     }
+
+    public function setModel(Model $model)
+    {
+        $this->model = $model;
+    }
+
 }
