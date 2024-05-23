@@ -8,6 +8,7 @@ use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Dotenv\Dotenv;
 
+use Paw\Core\Database\ConnectionBuilder;
 use Paw\Core\Request;
 use Paw\Core\Router; 
 use Paw\Core\Config;
@@ -23,6 +24,11 @@ $log = new Logger('mvc-app-paw-power'); #Instancio logger y le pongo un nombre
 $handler = new StreamHandler($config->get("LOG_PATH"));
 $handler->setLevel($config->get("LOG_LEVEL"));
 $log -> pushHandler($handler); #Nivel Debug en este caso, mas bajo
+
+#Conexion con la base de datos
+$connectionBuilder = new ConnectionBuilder;
+$connectionBuilder->setLoggeable($log);
+$connection = $connectionBuilder->make($config);
 
 $whoops = new \Whoops\Run;
 $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler); #Manejador de errores
