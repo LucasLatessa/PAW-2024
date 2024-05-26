@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  {% include 'parts/head.view.twig' %}
+  <link rel="stylesheet" href="/assets/styles/compra.css" />
+</head>
+
+<body>
+  <!--HEADER-->
+  {% include 'parts/header.view.twig' %}
+
+  <!--CODIGO DE MENU-->
+  <main>
+    <header class="header-menu menu-background">
+      <h1 class="menu-titulo">Menu</h1>
+    </header>
+    <h2 class="titulo-comida">COMIDA DEL MES</h2>
+    <section class="seccion-comida-mes">
+      {% for comida_mes in comidas_mes %}
+      <article class="article-comida-mes">
+        <h3>{{ comida_mes.nombre }}</h3>
+        <figure class="figura-hamburguesa">
+          <img class="comida-imagen" src="{{ comida_mes.imagen }}" alt="{{ comida_mes.nombre }}" width="500" />
+          <figcaption class="descripcion-comida">{{ comida_mes.descripcion }}</figcaption>
+        </figure>
+        <p class="precio-comida">{{ comida_mes.precio }}</p>
+        <a class="pedir-comida" href="./pedirComida">PEDIR</a>
+      </article>
+      {% endfor %}
+    </section>
+
+    <h2 class="titulo-comida">HAMBURGUESAS</h2>
+    <section class="seccion-comida">
+      {% for hamburguesa in hamburguesas %}
+      <article class="article-comida">
+        <h3>{{ hamburguesa.nombre }}</h3>
+        <figure class="figura-hamburguesa">
+          <img class="comida-imagen" src="{{ hamburguesa.imagen }}" alt="{{ hamburguesa.nombre }}" width="500" />
+          <figcaption class="descripcion-comida">{{ hamburguesa.descripcion }}</figcaption>
+        </figure>
+        <p class="precio-comida">{{ hamburguesa.precio }}</p>
+        <a class="pedir-comida" href="./pedirComida">PEDIR</a>
+      </article>
+      {% endfor %}
+    </section>
+
+    <a href="../menu/crearPlato">Crear plato</a>
+
+  </main>
+
+  <!--FOOTER-->
+  {% include 'parts/footer.view.twig' %}
+</body>
+
+</html>

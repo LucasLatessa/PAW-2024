@@ -3,7 +3,7 @@
         'name' => 'paw/paw-power',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'e24602b94039cb8b6c83ff69504d811f01e32cf1',
+        'reference' => '688fc1e5b8aa4ac9e66a1f219b3a4fd26a9f3b2d',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -83,9 +83,9 @@
             'dev_requirement' => false,
         ),
         'monolog/monolog' => array(
-            'pretty_version' => '3.5.0',
-            'version' => '3.5.0.0',
-            'reference' => 'c915e2634718dbc8a4a15c61b0e62e7a44e14448',
+            'pretty_version' => '3.6.0',
+            'version' => '3.6.0.0',
+            'reference' => '4b18b21a5527a3d5ffdac2fd35d3ab25a9597654',
             'type' => 'library',
             'install_path' => __DIR__ . '/../monolog/monolog',
             'aliases' => array(),
@@ -100,7 +100,7 @@
         'paw/paw-power' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'e24602b94039cb8b6c83ff69504d811f01e32cf1',
+            'reference' => '688fc1e5b8aa4ac9e66a1f219b3a4fd26a9f3b2d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -127,8 +127,8 @@
         'psr/container-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '^1.0',
-                1 => '^2.0',
+                0 => '^2.0',
+                1 => '^1.0',
             ),
         ),
         'psr/log' => array(
@@ -143,8 +143,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '3.0.0',
-                1 => '1.0|2.0|3.0',
+                0 => '1.0|2.0|3.0',
+                1 => '3.0.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -270,6 +270,15 @@
             'reference' => 'e405b5424dc2528e02e31ba26b83a79fd4eb8f63',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/string',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'twig/twig' => array(
+            'pretty_version' => 'v3.10.3',
+            'version' => '3.10.3.0',
+            'reference' => '67f29781ffafa520b0bbfbd8384674b42db04572',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../twig/twig',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

@@ -1,0 +1,24 @@
+{% set rutasMenuBurger = app.controlador.getRutasMenuBurger() %}
+{% set rutasHeaderDer = app.controlador.getRutasHeaderDer() %}
+{% set rutasLogoHeader = app.controlador.getRutasLogoHeader() %}
+<footer>
+    <header class="header-principal">
+        <nav class="menu">
+            <img src="/assets/MenuBurger.png" class="icono-menu" />
+            <ul class="lista-desplegable">
+                {% for item in rutasMenuBurger %}
+                    <li><a href="{{ item.href }}">{{ item.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+        <h1>
+            <a href="{{ rutasLogoHeader.href }}">
+                <img src="/assets/Imagotipo.svg" alt="Paw Power" class="logo" />
+            </a>
+        </h1>
+        {% set carrito = rutasHeaderDer[0] %}
+        <a href="{{ carrito.href }}"><img src="/assets/{{ carrito.name }}.png" alt="{{ carrito.name }}" class="icono-{{ carrito.name }}" /></a>
+        {% set usuario = rutasHeaderDer[1] %}
+        <a href="{{ usuario.href }}"><img src="/assets/{{ usuario.name }}.png" alt="{{ usuario.name }}" class="icono-{{ usuario.name }}" /></a>
+    </header>
+</footer>

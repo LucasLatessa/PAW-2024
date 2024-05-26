@@ -12,7 +12,10 @@ class Controlador
 
     #Solo el nombre del modelo (? = significa que es optativo)
     public ?string $modelName = null;
-
+    public array $rutasMenuBurger;
+    public array $rutasFooter;
+    public array $rutasHeaderDer;
+    public array $rutasLogoHeader;
 
     public function __construct()
     {
@@ -20,6 +23,7 @@ class Controlador
         global $connection, $log;
 
         $this->viewsDir = __DIR__ . "/../App/views/";
+
 
         $this->rutasMenuBurger = [
             /* Menu hamburguesa 0-2*/
@@ -86,5 +90,22 @@ class Controlador
     {
         $this->model = $model;
     }
+    public function getRutasMenuBurger()
+    {
+        return $this->rutasMenuBurger;
+    }
 
+    public function getRutasFooter()
+    {
+        return $this->rutasFooter;
+    }
+
+    public function getRutasHeaderDer()
+    {
+        return $this->rutasHeaderDer;
+    }
+    public function getRutasLogoHeader()
+    {
+        return $this->rutasLogoHeader;
+    }
 }

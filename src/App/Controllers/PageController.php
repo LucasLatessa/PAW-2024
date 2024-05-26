@@ -2,19 +2,23 @@
 
 namespace Paw\App\Controllers;
 use Paw\Core\Controlador;
-
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
 
 class PageController extends Controlador
 {
     public string $viewsDir; #Direccion a la vista indicada
-    public function __construct(){
-        parent::__construct();
+    private $twig;
+    public function __construct()
+    {
+        $loader = new FilesystemLoader(__DIR__ . '/../../App/views');
+        $this->twig = new Environment($loader);
     }
 
     public function index()
     {
         $title = 'Home - PAW Power';
-        require $this->viewsDir . 'index.view.php';
+        echo $this->twig->render('index.view.twig', ['title' =>  $title]);
     }
 
     /*--------------COMPRA------------------*/
@@ -22,13 +26,13 @@ class PageController extends Controlador
     public function menu()
     {
         $title = 'Menu - PAW Power';
-        require $this->viewsDir . 'compra/menu.view.php';
+        echo $this->twig->render('compra/menu.view.twig', ['title' => $title]);
     }
 
     public function carrito()
     {
         $title = 'Carrito - PAW Power';
-        require $this->viewsDir . 'compra/carrito.view.php';
+        echo $this->twig->render('compra/carrito.view.twig', ['title' => $title]);
     }
 
     public function confirmarCompra()
@@ -46,8 +50,8 @@ class PageController extends Controlador
     public function reserva()
     {
         $title = 'Reserva - PAW Power';
-        require $this->viewsDir . 'compra/reserva.view.php';
-    }
+        echo $this->twig->render('compra/reserva.view.twig', ['title' => $title]);
+        }
 
     public function selecDirec()
     {
