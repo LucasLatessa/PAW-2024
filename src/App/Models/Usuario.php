@@ -2,9 +2,10 @@
 
 namespace Paw\App\Models;
 use Paw\Core\Exceptions\EmailException;
+use Paw\Core\Model;
 
-class Usuario{
-
+class Usuario extends Model{
+    public $table = 'usuario';
     private $nombre;
 
     private $apellido;
@@ -13,7 +14,7 @@ class Usuario{
 
     private $contraseña;
 
-    public function __construct($nombre,$apellido, $correo, $contraseña){
+    /*public function __construct($nombre,$apellido, $correo, $contraseña){
 
         //Valido que esten todos los campos requeridos
         if (empty($nombre) || empty($apellido) || empty($correo) || empty($contraseña)) {
@@ -30,7 +31,7 @@ class Usuario{
         $this->setApellido($apellido);
         $this->setCorreo($correo);
         $this->setContraseña($contraseña);
-    }
+    }*/
 
     #Getters
     public function getNombre(){
@@ -66,4 +67,19 @@ class Usuario{
         $this->contraseña = $contraseña;
     }
 
+    public function set(array $values){
+        foreach ($values as $field => $value) {
+            $method = "set" . ucfirst($field);
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
+    }
+
+    public function load($usuarioEmail,$usuarioContraseña){
+        $params = ["correo" => $usuarioEmail, "contraseña" => $usuarioContraseña];
+
+        $record = current($this ->queryBuilder->select($this->table, $params));
+        $this ->set($record);
+    }
 }

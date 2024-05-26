@@ -13,9 +13,13 @@ class QueryBuilder
     }
 
     public function select($table, $params = []){
+
         $where = " 1 = 1 "; #Para que devuelva todo si no hay parametros
         if (isset($params['id'])){
-            $where = " id = :id";
+            $where = " id = :id ";
+        }
+        else if((isset($params['correo'])) and (isset($params['contraseña']))){
+            $where = " correo = :correo AND contraseña = :contraseña ";
         }
         #Preparo la consulta
         $query = "select * from {$table} where {$where}";
@@ -25,6 +29,12 @@ class QueryBuilder
         if (isset($params['id'])){
             $sentencia->bindValue(":id", $params['id']);
         }
+        else if((isset($params['correo'])) and (isset($params['contraseña']))){
+            error_log("Query: $query");
+            $sentencia->bindValue(":correo", $params['correo']);
+            $sentencia->bindValue(":contraseña", $params['contraseña']);
+        }
+        
         $sentencia->setFetchMode(PDO::FETCH_ASSOC); #Como me retorna todo el array de respuesta FETCH_ASSOC: trae nombre de las columnas
         $sentencia->execute();
         return  $sentencia->fetchAll(); #Me devuelve todos los registros que coincidan

@@ -2,11 +2,12 @@
 
 namespace Paw\App\Controllers;
 use Paw\App\Models\Direccion;
-use Paw\App\Models\Usuario;
+use Paw\App\Models\UsuariosCollections;
 use Paw\Core\Controlador;
 
 class UsuarioController extends Controlador{ 
     private $usuariosJSON = __DIR__ . "/../data/usuarios.json";
+    public ?string $modelName = UsuariosCollections::class;
     public string $viewsDir; #Direccion a la vista indicada
     public function __construct(){
         parent::__construct();
@@ -25,7 +26,7 @@ class UsuarioController extends Controlador{
         $validarcontraseña = $request->getRequest("validarContraseña");
 
     if($contraseña == $validarcontraseña){
-        $usuario = new Usuario($nombre,$apellido,$email,$contraseña);
+        $reserva = $this->model->create($nombre,$apellido, $email, $contraseña);
         $resultado = "¡Cuenta creada!";
         $title = "Perfil" . ' - PAW Power';
         require $this->viewsDir . 'cuenta/perfil.view.php';
@@ -59,18 +60,18 @@ class UsuarioController extends Controlador{
         
         #Obtengo los datos de todos los usuarios para corrobar que exista
         $usuarios = json_decode(file_get_contents($this->usuariosJSON), true);
-
         #Validacion de correo "Solo formato a@a.com"
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errorMessage = "Email invalido!";
             $title = "Login" . ' - PAW Power';
             require $this->viewsDir . 'cuenta/login.view.php';
         #Reviso que exista dentro del sistema
-        }elseif (!$this->buscadorUsuarios($usuarios,$email,$contraseña)){
+        }elseif (!$this->getUsuario($email,$contraseña)){
             $errorMessage = "Credenciales incorrectas";
             $title = "Login" . ' - PAW Power';
             require $this->viewsDir . 'cuenta/login.view.php';
         } else {
+            $this->sesionLogeo();
             $title = "Perfil" . ' - PAW Power';
             $resultado = "¡Logeado!";
             require $this->viewsDir . 'cuenta/perfil.view.php';
@@ -126,6 +127,18 @@ class UsuarioController extends Controlador{
         }
     }
 
+    private function sesionLogeo(){
+        session_start();
+        if (isset($_POST['login'])){
+            $_SESSION['login'] = $_POST['email'];
+        }
+
+        $hayLogin = isset($_SESSION['login']);
+        if ($hayLogin){
+            $email = $_SESSION['login'];
+        }
+
+    }
     #Crear/Agregar direccion
     public function crearDireccion() {
         global $request;
@@ -150,6 +163,15 @@ class UsuarioController extends Controlador{
             $title = "Agregar Dirección - PAW Power";
             require __DIR__ . '/../views/cuenta/agregarDireccion.view.php';
         }
+    }
+
+    public function getUsuario($email,$contraseña){
+        $usuarioEmail = $email;
+        $usuarioContraseña = $contraseña;
+
+
+        $usuario = $this->model->get($usuarioEmail,$usuarioContraseña);
+
     }
 
 }
