@@ -83,7 +83,10 @@ class PageController extends Controlador
 
     public function login()
     {
+        session_start();
         $title = 'Login - PAW Power';
+        if (!isset($_SESSION['login'])) $_SESSION['login'] = "";
+        $hayLogin = $_SESSION['login'];
         require $this->viewsDir . 'cuenta/login.view.php';
     }
 
@@ -107,7 +110,9 @@ class PageController extends Controlador
         require $this->viewsDir . 'institucional/locales.view.php';
     }
 
+
     public function nosotros()
+
     {
         $title = 'Sobre nosotros - PAW Power';
         require $this->viewsDir . 'institucional/nosotros.view.php';

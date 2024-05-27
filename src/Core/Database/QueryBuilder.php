@@ -22,19 +22,19 @@ class QueryBuilder
             $where = " correo = :correo AND contraseña = :contraseña ";
         }
         #Preparo la consulta
-        $query = "select * from {$table} where {$where}";
+        #$query = "select * from {$table} where {$where}"; no funciona
+        $query = "select * from {$table} where correo = '{$params['correo']}' and contraseña = '{$params['contraseña']}'";
         $sentencia = $this->pdo->prepare($query);
 
         #Si exxiste el id, se lo agrego al where
-        if (isset($params['id'])){
+        /*if (isset($params['id'])){
             $sentencia->bindValue(":id", $params['id']);
         }
         else if((isset($params['correo'])) and (isset($params['contraseña']))){
-            error_log("Query: $query");
+            
             $sentencia->bindValue(":correo", $params['correo']);
             $sentencia->bindValue(":contraseña", $params['contraseña']);
-        }
-        
+        }*/
         $sentencia->setFetchMode(PDO::FETCH_ASSOC); #Como me retorna todo el array de respuesta FETCH_ASSOC: trae nombre de las columnas
         $sentencia->execute();
         return  $sentencia->fetchAll(); #Me devuelve todos los registros que coincidan

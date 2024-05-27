@@ -11,7 +11,16 @@
   <!--HEADER-->
   <?php require __DIR__ . '\../parts/header.view.php' ?>
 
+
   <main class="login-usuario">
+    <!--Codigo logout-->
+    <?php if ($hayLogin): ?>
+      <p>Usted esta logeado</p>
+      <p><?= $hayLogin ?></p>
+      <p><a href ="./login?sesion=cerrar">Cerrar sesion</a></p>
+      
+    
+    <?php else: ?>
     <!--Codigo login-->
     <h1 class="login">Iniciar sesión</h1>
 
@@ -30,11 +39,13 @@
         <p class="error-message"><?= $errorMessage ?></p>
       <?php endif; ?>
       
-      <input type="submit" value="Login" />
+      <input name ="login" type="submit" value="login" />
 
     </form>
 
     <a class="registrarse-enlace" href="./registrarse">Registrarse</a>
+
+    <?php endif ; ?>
   </main>
 
   <!--FOOTER-->
