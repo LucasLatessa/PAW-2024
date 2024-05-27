@@ -1,0 +1,31 @@
+{% set rutasFooter = app.controlador.getRutasFooter() %}
+<footer>
+  <nav class="contenedor-links">
+    <ul class="links">
+      {% for item in rutasFooter %}
+        <li><a href="{{ item.href }}">{{ item.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+
+  <nav>
+    <ul class="redes">
+      <li id="youtube">
+        <a href="#" rel="external" target="_blank"><img src="/assets/youtube.png" alt="Youtube" width="50" /></a>
+      </li>
+      <li id="facebook">
+        <a href="#" rel="external" target="_blank"><img src="/assets/facebook.png" alt="Facebook" id="facebook" width="50" /></a>
+      </li>
+      <li id="x">
+        <a href="#" rel="external" target="_blank"><img src="/assets/x.png" alt="X" width="50" /></a>
+      </li>
+      <li id="instagram">
+        <a href="#" rel="external" target="_blank"><img src="/assets/instagram.png" alt="Instagram" width="50" /></a>
+      </li>
+    </ul>
+  </nav>
+
+  <small id="copyright">
+    <em>Copyright PAW Power @2024. Todos los derechos reservados.</em>
+  </small>
+</footer>

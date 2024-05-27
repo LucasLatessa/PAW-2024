@@ -2,16 +2,15 @@
 <html lang="es">
 
 <head>
-  <?php require __DIR__ . '/parts/head.view.php'; ?>
-  <link rel="stylesheet" href="/assets/styles/global.css" /> 
+  {% include 'parts/head.view.twig' %}
+  <link rel="stylesheet" href="/assets/styles/global.css" />
   <script src="/assets/js/components/paw.js"></script>
   <script src="/assets/js/appCarousel.js"></script>
-  
-  </head>
+</head>
 
 <body>
   <!--HEADER-->
-  <?php require __DIR__ . '/parts/header.view.php'; ?>
+  {% include 'parts/header.view.twig' %}
 
   <main>
 
@@ -75,7 +74,7 @@
   </main>
 
   <!--FOOTER-->
-  <?php require __DIR__ . '/parts/footer.view.php' ?>
+  {% include 'parts/footer.view.twig' %}
 
 </body>
 

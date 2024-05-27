@@ -2,13 +2,13 @@
 <html lang="es">
 
 <head>
-  <?php require __DIR__ . '\../parts/head.view.php'; ?>
+  {% include '\..\parts/head.view.twig' %}
   <link rel="stylesheet" href="/assets/styles/compra.css" />
 </head>
 
 <body>
   <!--HEADER-->
-  <?php require __DIR__ . '\../parts/header.view.php' ?>
+  {% include '\..\parts/header.view.twig' %}
 
   <main>
     <header class="header-menu carrito-background">
@@ -36,7 +36,6 @@
             <td>Cantidad</td>
             <td>Borrar</td>
           </tr>
-
         </tbody>
       </table>
 
@@ -57,18 +56,16 @@
         <label for="takeaway">Take Away</label>
         <input type="radio" id="delivery" name="envio" value="Delivery" />
         <label for="delivery">Delivery</label>
-        <?php if (isset($local)): ?>
-        <p>Local: <?php echo $local; ?></p>
-        <?php else: ?>
+        {% if local is defined %}
+          <p>Local: {{ local }}</p>
+        {% else %}
           <a href="./selecLoc">Seleccionar local</a>
-        <?php endif; ?>
-        <?php if (isset($direc)): ?>
-        <p>Direccion: <?php echo $direc; ?></p>
-        <?php else: ?>
+        {% endif %}
+        {% if direc is defined %}
+          <p>Direccion: {{ direc }}</p>
+        {% else %}
           <a href="./selecDirec">Seleccionar direccion</a>
-        <?php endif; ?>
-        
-
+        {% endif %}
       </section>
 
       <h2 class="subtotal">Subtotal:$$$</h2>
@@ -81,7 +78,7 @@
   </main>
 
   <!--FOOTER-->
-  <?php require __DIR__ . '\../parts/footer.view.php' ?>
+  {% include '\..\parts/footer.view.twig' %}
 </body>
 
 </html>

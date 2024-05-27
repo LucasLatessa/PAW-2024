@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-  <?php require __DIR__ . '\../parts/head.view.php'; ?>
+  {% include 'parts/head.view.twig' %}
   <link rel="stylesheet" href="/assets/styles/compra.css" />
   <link rel="stylesheet" href="/assets/styles/formularios.css">
   <script src="/assets/js/components/paw.js"></script>
@@ -11,7 +11,7 @@
 
 <body>
   <!--HEADER-->
-  <?php require __DIR__ . '\../parts/header.view.php' ?>
+  {% include 'parts/header.view.twig' %}
 
   <main>
     <!---CARRUSEL RESERVA -->
@@ -37,7 +37,7 @@
         </label>
 
         <label for="listaHorarios">Horario de la Reserva*</label>
-        <select name="listaHorarios" id="listaHorarios" requerid>
+        <select name="listaHorarios" id="listaHorarios" required>
           <option value="">Selecciona un horario</option>
           <option value="08:00">08:00</option>
           <option value="10:00">10:00</option>
@@ -54,8 +54,6 @@
           <input id="inputTexto" type="text" name="aclaraciones" maxlength="500" minlength="5" size="30" />
         </label>
 
-
-
         <p id="required">*requerido</p>
         <button type="submit">Reservar Mesa</button>
       </form>
@@ -63,7 +61,7 @@
   </main>
 
   <!--FOOTER-->
-  <?php require __DIR__ . '\../parts/footer.view.php' ?>
+  {% include 'parts/footer.view.twig' %}
 </body>
 
 </html>
