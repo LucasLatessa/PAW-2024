@@ -22,7 +22,6 @@ class UsuarioController extends Controlador{
     #Registro de usuarios
     public function registrarse(){
 
-
         global $request;
 
         #Obtengo los datos de la peticion
@@ -98,7 +97,6 @@ class UsuarioController extends Controlador{
 
     }
     public function logout(){
-        print_r("saefsef");
         global $request;
         $cerrarSesion = isset($_GET['session']);
         $haySesion = session_status() == PHP_SESSION_ACTIVE;
@@ -164,11 +162,11 @@ class UsuarioController extends Controlador{
 
     private function sesionLogeo(){
         session_start();
+        
         if (isset($_POST['login'])){
             $_SESSION['login'] = $_POST['email'];
 
         }
-
         $hayLogin = isset($_SESSION['login']);
         if ($hayLogin){         
             $email = $_SESSION['login'];
@@ -177,7 +175,8 @@ class UsuarioController extends Controlador{
         $resultado = "¡Logeado!";
         echo $this->twig->render('cuenta/login.view.twig', [
             'title' => $title,
-            'resultado' => $resultado
+            'resultado' => $resultado,
+            'hayLogin' =>  $hayLogin 
         ]);
     }
     #Crear/Agregar direccion
