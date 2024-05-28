@@ -3,7 +3,7 @@
         'name' => 'paw/paw-power',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '688fc1e5b8aa4ac9e66a1f219b3a4fd26a9f3b2d',
+        'reference' => '5676fc771f1ae3cdcce649433cfae3fc7baee617',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -100,7 +100,7 @@
         'paw/paw-power' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '688fc1e5b8aa4ac9e66a1f219b3a4fd26a9f3b2d',
+            'reference' => '5676fc771f1ae3cdcce649433cfae3fc7baee617',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -143,8 +143,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
