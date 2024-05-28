@@ -25,7 +25,10 @@ class UsuariosCollections extends Model{
         $usuario -> setQueryBuilder($this->queryBuilder);
 
         $usuario ->load($usuarioEmail,$usuarioContraseña);
-        return $usuario;
+        if (empty($usuario->getCorreo())){
+            return "";
+        }
+        else return $usuario;        
 
     }
 
