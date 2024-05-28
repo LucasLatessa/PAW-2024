@@ -89,9 +89,21 @@ class PageController extends Controlador
     {
         session_start();
         $title = 'Login - PAW Power';
-        if (!isset($_SESSION['login'])) $_SESSION['login'] = "";
+        if (!isset($_SESSION['login'])) {
+            $_SESSION['login'] = "";
+        }
         $hayLogin = $_SESSION['login'];
-        require $this->viewsDir . 'cuenta/login.view.php';
+
+        echo $this->twig->render('cuenta/login.view.twig', [
+            'title' => $title,
+            'hayLogin' => $hayLogin,
+            'errorMessage' => isset($_SESSION['errorMessage']) ? $_SESSION['errorMessage'] : null
+        ]);
+        
+        // Clear the error message after rendering
+        if (isset($_SESSION['errorMessage'])) {
+            unset($_SESSION['errorMessage']);
+        }
     }
 
     public function perfil()

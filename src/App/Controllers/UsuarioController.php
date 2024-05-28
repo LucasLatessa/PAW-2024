@@ -4,13 +4,18 @@ namespace Paw\App\Controllers;
 use Paw\App\Models\Direccion;
 use Paw\App\Models\UsuariosCollections;
 use Paw\Core\Controlador;
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
 
 class UsuarioController extends Controlador{ 
     private $usuariosJSON = __DIR__ . "/../data/usuarios.json";
     public ?string $modelName = UsuariosCollections::class;
     public string $viewsDir; #Direccion a la vista indicada
-    public function __construct(){
-        parent::__construct();
+    private $twig;
+    public function __construct()
+    {
+        $loader = new FilesystemLoader(__DIR__ . '/../../App/views');
+        $this->twig = new Environment($loader);
     }
 
     #Registro de usuarios
@@ -65,12 +70,18 @@ class UsuarioController extends Controlador{
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errorMessage = "Email invalido!";
             $title = "Login" . ' - PAW Power';
-            require $this->viewsDir . 'cuenta/login.view.php';
+            echo $this->twig->render('cuenta/login.view.twig', [
+                'title' => $title,
+                'errorMessage' => $errorMessage
+            ]);
         #Reviso que exista dentro del sistema
         }elseif (empty($this->getUsuario($email,$contraseña))){
             $errorMessage = "Credenciales incorrectas";
             $title = "Login" . ' - PAW Power';
-            require $this->viewsDir . 'cuenta/login.view.php';
+            echo $this->twig->render('cuenta/login.view.twig', [
+                'title' => $title,
+                'errorMessage' => $errorMessage
+            ]);
         } else {
             $this->sesionLogeo();
         }
@@ -89,8 +100,11 @@ class UsuarioController extends Controlador{
             session_destroy();
         }
         $title = "Logout" . ' - PAW Power';
-
-        require $this->viewsDir . 'cuenta/login.view.php';
+        $errorMessage = "Error al desloguearte!";
+        echo $this->twig->render('cuenta/login.view.twig', [
+            'title' => $title,
+            'errorMessage' => $errorMessage
+        ]);
     }
 
     #Actualizar perfil, que esta en el perfil
