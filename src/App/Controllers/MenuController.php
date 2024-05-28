@@ -32,31 +32,42 @@ class MenuController extends Controlador
     public function crearPlato()
     {
         global $request;
-
+        session_start();
         $nombreArchivo = $_FILES['imagen']['name'];
         $tamanioArchivo = $_FILES["imagen"]["size"];
         $archivoTemporal = $_FILES['imagen']['tmp_name'];
 
         # Primero valido la imagen, que tiene que ser menor a 1MB
-        if ($this->validarImage($tamanioArchivo, $nombreArchivo, $archivoTemporal)) {
-            $nombre = $request->getRequest('nombre');
-            $descripcion = $request->getRequest('descripcion');
-            $precio = $request->getRequest('precio');
-            $imagen = $nombreArchivo;
-            $plato = new Plato($nombre, $descripcion, $precio, $imagen);
-
-            $title = "Plato agregado - PAW Power";
-            echo $this->twig->render('compra/platoagregado.view.twig', [
-                'title' => $title,
-                'plato' => $plato
-            ]);
-        } else {
-            $errorMessage = "El archivo es muy pesado.";
+        if (!isset($_SESSION['login'])){
             $title = "Agregar plato - PAW Power";
+            $errorMessage = "usuario no logeado";
+
             echo $this->twig->render('compra/crearPlato.view.twig', [
                 'title' => $title,
                 'errorMessage' => $errorMessage
             ]);
+        }
+        else{
+            if ($this->validarImage($tamanioArchivo, $nombreArchivo, $archivoTemporal)) {
+                $nombre = $request->getRequest('nombre');
+                $descripcion = $request->getRequest('descripcion');
+                $precio = $request->getRequest('precio');
+                $imagen = $nombreArchivo;
+                $plato = new Plato($nombre, $descripcion, $precio, $imagen);
+
+                $title = "Plato agregado - PAW Power";
+                echo $this->twig->render('compra/platoagregado.view.twig', [
+                    'title' => $title,
+                    'plato' => $plato
+                ]);
+            } else {
+                $errorMessage = "El archivo es muy pesado.";
+                $title = "Agregar plato - PAW Power";
+                echo $this->twig->render('compra/crearPlato.view.twig', [
+                    'title' => $title,
+                    'errorMessage' => $errorMessage
+                ]);
+            }
         }
     }
 

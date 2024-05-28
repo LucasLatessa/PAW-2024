@@ -14,6 +14,7 @@ class UsuarioController extends Controlador{
     private $twig;
     public function __construct()
     {
+        parent::__construct();
         $loader = new FilesystemLoader(__DIR__ . '/../../App/views');
         $this->twig = new Environment($loader);
     }
@@ -32,14 +33,21 @@ class UsuarioController extends Controlador{
         $validarcontraseña = $request->getRequest("validarContraseña");
 
     if($contraseña == $validarcontraseña){
-        $reserva = $this->model->create($nombre,$apellido, $email, $contraseña);
+        $usuario = $this->model->create($nombre,$apellido, $email, $contraseña);
         $resultado = "¡Cuenta creada!";
         $title = "Perfil" . ' - PAW Power';
-        require $this->viewsDir . 'cuenta/perfil.view.php';
+        echo $this->twig->render('cuenta/perfil.view.twig', [
+            'title' => $title,
+            'resultado' => $resultado
+        ]);
+        
     }else{
         $errorMessage = "Las contranseñas no coinciden"; 
         $title = "Registrarse" . ' - PAW Power';
-        require $this->viewsDir . 'cuenta/registrarse.view.php';
+        echo $this->twig->render('cuenta/registrarse.view.twig', [
+            'title' => $title,
+            'errorMessage' => $errorMessage
+        ]);
     }
     
     }
@@ -167,7 +175,10 @@ class UsuarioController extends Controlador{
         }
         $title = "Perfil" . ' - PAW Power';
         $resultado = "¡Logeado!";
-        require $this->viewsDir . 'cuenta/login.view.php';
+        echo $this->twig->render('cuenta/login.view.twig', [
+            'title' => $title,
+            'resultado' => $resultado
+        ]);
     }
     #Crear/Agregar direccion
     public function crearDireccion() {
@@ -199,7 +210,7 @@ class UsuarioController extends Controlador{
         $usuarioEmail = $email;
         $usuarioContraseña = $contraseña;
 
-
+        
         $usuario = $this->model->get($usuarioEmail,$usuarioContraseña);
         return $usuario;
 
