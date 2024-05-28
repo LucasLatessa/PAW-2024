@@ -109,13 +109,17 @@ class PageController extends Controlador
     public function perfil()
     {
         $title = 'Perfil - PAW Power';
-        require $this->viewsDir . 'cuenta/perfil.view.php';
+        echo $this->twig->render('cuenta/perfil.view.twig', [
+            'title' => $title,
+            ]);
     }
 
     public function registrarse()
     {
         $title = "Registrarse" . ' - PAW Power';
-        require $this->viewsDir . 'cuenta/registrarse.view.php';
+        echo $this->twig->render('cuenta/registrarse.view.twig', [
+            'title' => $title,
+            ]);
     }
 
     /*--------------INSTITUCIONAL------------------*/
