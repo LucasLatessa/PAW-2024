@@ -30,4 +30,5 @@ replay_pid*
 vendor/
 
 #Logs
-logs/
+logs/*.log
+app/views/cache

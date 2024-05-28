@@ -2,13 +2,13 @@
 <html lang="es">
 
 <head>
-  <?php
-  require __DIR__ . '\../parts/head.view.php'; ?>
+  {% include 'parts/head.view.twig' %}
   <link rel="stylesheet" href="/assets/styles/compra.css" />
 </head>
+
 <body>
   <!--HEADER-->
-  <?php require __DIR__ . '\../parts/header.view.php' ?>
+  {% include 'parts/header.view.twig' %}
 
   <!--CODIGO DE MENU-->
   <main>
@@ -19,19 +19,19 @@
     <section class="seccion-comida">
 
       <article class="article-comida">
-        <h3><?= $plato->getNombre() ?></h3>
+        <h3>{{ plato.nombre }}</h3>
         <figure class="figura-hamburguesa">
-          <img class="comida-imagen" src="/assets/platos/<?= $plato->getImagen()?>" alt="Imagen plato agregado" width="500" />
-          <figcaption class="descripcion-comida"><?= $plato->getDescripcion() ?></figcaption>
+          <img class="comida-imagen" src="/assets/platos/{{ plato.imagen }}" alt="Imagen plato agregado" width="500" />
+          <figcaption class="descripcion-comida">{{ plato.descripcion }}</figcaption>
         </figure>
-        <p class="precio-comida">$<?= $plato->getPrecio() ?></p>
+        <p class="precio-comida">${{ plato.precio }}</p>
       </article>
     </section>
 
   </main>
 
   <!--FOOTER-->
-  <?php require __DIR__ . '\../parts/footer.view.php' ?>
+  {% include 'parts/footer.view.twig' %}
 </body>
 
 </html>
