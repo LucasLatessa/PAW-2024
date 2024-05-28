@@ -38,12 +38,12 @@ class MenuController extends Controlador
             $imagen = $nombreArchivo;
             $plato = new Plato($nombre,$descripcion,$precio,$imagen);
             $title = "Plato agregado - PAW Power";
-            require $this->viewsDir . 'compra/platoagregado.view.php';
+            require $this->viewsDir . 'compra/platoagregado.view.twig';
         }else{
             $errorMessage = "El archivo es muy pesado.";
     
             $title = "Agregar plato - PAW Power";
-            require $this->viewsDir . 'compra/crearPlato.view.php';
+            require $this->viewsDir . 'compra/crearPlato.view.twig';
         }
     }
 

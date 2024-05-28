@@ -62,13 +62,13 @@ class PageController extends Controlador
     public function selecLoc()
     {
         $title = "Seleccionar local" . ' - PAW Power';
-        require $this->viewsDir . 'compra/selecLoc.view.php';
+        require $this->viewsDir . 'compra/selecLoc.view.twig';
     }
 
     public function crearPlato()
     {
         $title = "Crear plato" . ' - PAW Power';
-        require $this->viewsDir . 'compra/crearPlato.view.php';
+        echo $this->twig->render('compra/crearPlato.view.twig', ['title' => $title]);
     }
 
     /*--------------CUENTA------------------*/
