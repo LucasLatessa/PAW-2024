@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head>
-  <?php require __DIR__ . '\../parts/head.view.php'; ?>
+  {% include 'parts/head.view.twig' %}
   <link rel="stylesheet" href="/assets/styles/global.css" />
   <link rel="stylesheet" href="/assets/styles/formularios.css">
 </head>
 
 <body>
   <!--HEADER-->
-  <?php require __DIR__ . '\../parts/header.view.php' ?>
+  {% include 'parts/header.view.twig' %}
 
   <main>
     <h1 class="registrarse">Registrarse</h1>
@@ -35,21 +35,20 @@
       </label>
 
       <!--Errores posibles a la hora de registrar -->
-      <?php if (isset($errorMessage)): ?>
-        <p class="error-message"><?= $errorMessage ?></p>
-      <?php endif; ?>
+      {% if errorMessage is defined %}
+        <p class="error-message">{{ errorMessage }}</p>
+      {% endif %}
 
       <input class="registrarse" type="submit" value="Registrarse" />
     </form>
 
-    
-    <?php if (isset($result)): ?>
-        <h2 class="error-message"><?= $result ?></h2>
-    <?php endif; ?>
+    {% if result is defined %}
+        <h2 class="error-message">{{ result }}</h2>
+    {% endif %}
   </main>
 
   <!--FOOTER-->
-  <?php require __DIR__ . '\../parts/footer.view.php' ?>
+  {% include 'parts/footer.view.twig' %}
 </body>
 
 </html>
