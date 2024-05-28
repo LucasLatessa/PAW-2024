@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  {% include 'parts/head.view.twig' %}
+  <link rel="stylesheet" href="/assets/styles/formularios.css">
+  <link rel="stylesheet" href="/assets/styles/cuentas.css" />
+</head>
+
+<body>
+  <!--HEADER-->
+  {% include 'parts/header.view.twig' %}
+
+  <main>
+    <h1>Perfil</h1>
+
+    {% if resultado is defined %}
+      <h2>{{ resultado }}</h2>
+    {% endif %}
+
+    <form method="POST" id="infoUsuari" action="">
+      <label for="email">Correo Electrónico
+        <input type="email" id="email" name="email" value="{{ email|default('') }}" required />
+      </label>
+
+      <label for="nombre">Nombre
+        <input type="text" id="nombre" name="nombre" value="{{ nombre|default('') }}" required />
+      </label>
+
+      <label for="apellido">Apellido
+        <input type="text" id="apellido" name="apellido" value="{{ apellido|default('') }}" required />
+      </label>
+
+      <input type="submit" value="Actualizar" />
+    </form>
+
+    <h2>Direcciones</h2>
+
+    {% if creada is defined %}
+      <h2>{{ creada }}</h2>
+    {% endif %}
+
+    <section id="direcciones" class="direcciones">
+      <article class="direccion">
+        {% if pais is defined %}
+          <p>País: {{ pais }}</p>
+        {% endif %}
+        {% if provincia is defined %}
+          <p>Provincia: {{ provincia }}</p>
+        {% endif %}
+        {% if ciudad is defined %}
+          <p>Ciudad/barrio: {{ ciudad }}</p>
+        {% endif %}
+        {% if ccpp is defined %}
+          <p>CCPP: {{ ccpp }}</p>
+        {% endif %}
+        {% if direc is defined %}
+          <p>Dirección: {{ direc }}</p>
+        {% endif %}
+        {% if aclaraciones is defined %}
+          <p>Aclaraciones: {{ aclaraciones }}</p>
+          <a href="./agregarDireccion">Editar Dirección</a>
+        {% endif %}
+      </article>
+
+      <article class="direccion">
+        <p>País: Argentina</p>
+        <p>Provincia: Buenos Aires</p>
+        <p>Ciudad/barrio: Luján</p>
+        <p>CCPP: 6700</p>
+        <p>Dirección: 123</p>
+        <p>Aclaraciones: Nada</p>
+        <a href="./agregarDireccion">Editar Dirección</a>
+      </article>
+    </section>
+
+    {% set session = app.session %}
+    {% do session.set('origen', 'cuenta/perfil') %}
+    <a href="./agregarDireccion">Agregar Dirección</a>
+
+    <h2>Pedidos</h2>
+    <section id="pedidos" class="pedidos">
+      <article class="pedido">
+        <p>Fecha: 13 de marzo de 2024</p>
+        <p>Pedido: #A0002</p>
+        <p>Tipo: Take away</p>
+        <p>Estado: Pasar a retirar</p>
+        <p>Total pagado: $50.00</p>
+        <button>Ver detalles</button>
+      </article>
+
+      <article class="pedido">
+        <p>Fecha: 12 de marzo de 2024</p>
+        <p>Pedido: #A0006</p>
+        <p>Tipo: Delivery</p>
+        <p>Estado: Aceptado</p>
+        <p>Total pagado: $35.00</p>
+        <button>Ver detalles</button>
+      </article>
+    </section>
+
+    <h2>Reservas</h2>
+    <section class="reservas">
+      <div class="reserva">
+        {% if local is defined %}
+          <p>Local: {{ local }}</p>
+        {% endif %}
+        {% if cantidadPersonas is defined %}
+          <p>Cantidad de personas: {{ cantidadPersonas }}</p>
+        {% endif %}
+        {% if dia is defined %}
+          <p>Día: {{ dia }}</p>
+        {% endif %}
+        {% if horario is defined %}
+          <p>Horario: {{ horario }}</p>
+        {% endif %}
+      </div>
+    </section>
+  </main>
+
+  <!--FOOTER-->
+  {% include 'parts/footer.view.twig' %}
+</body>
+
+</html>
