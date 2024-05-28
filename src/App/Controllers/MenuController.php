@@ -32,7 +32,9 @@ class MenuController extends Controlador
         $archivoTemporal = $_FILES['imagen']['tmp_name'];
         if (!isset($_SESSION['login'])){
             $title = "Agregar plato - PAW Power";
-            require $this->viewsDir . 'compra/platoagregado.view.php';
+            $errorMessage = "usuario no logeado";
+
+            require $this->viewsDir . 'compra/crearPlato.view.twig';
         }
         else{
             if ($this->validarImage($tamanioArchivo,$nombreArchivo,$archivoTemporal)){
@@ -42,16 +44,15 @@ class MenuController extends Controlador
                 $imagen = $nombreArchivo;
                 $plato = new Plato($nombre,$descripcion,$precio,$imagen);
                 $title = "Plato agregado - PAW Power";
-                require $this->viewsDir . 'compra/platoagregado.view.php';
+                require $this->viewsDir . 'compra/platoagregado.view.twig';
             }else{
                 $errorMessage = "El archivo es muy pesado.";
         
                 $title = "Agregar plato - PAW Power";
-                require $this->viewsDir . 'compra/crearPlato.view.php';
+                require $this->viewsDir . 'compra/crearPlato.view.twig';
             }
         }
-        #Primero valido la imagen, que tiene que ser menor a 1MB
-        
+        #Primero valido la imagen, que tiene que ser menor a 1MB        
     }
 
 }
