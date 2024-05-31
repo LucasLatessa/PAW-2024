@@ -8,23 +8,13 @@ use Twig\Environment;
 class PageController extends Controlador
 {
     private $twig;
-    public array $rutasMenuBurger;
-    public array $rutasHeaderDer;
-    public array $rutasLogoHeader;
-    public array $rutasFooter;
 
     public function __construct()
     {
         parent::__construct();
         $loader = new FilesystemLoader(__DIR__ . '/../../App/views');
         $this->twig = new Environment($loader);
-
-        // Obtener las rutas necesarias una vez en el constructor
-        $this->rutasMenuBurger = $this->getRutasMenuBurger();
-        $this->rutasLogoHeader = $this->getRutasLogoHeader();
-        $this->rutasHeaderDer = $this->getRutasHeaderDer();
-        $this->rutasFooter = $this->getRutasFooter();
-    }
+}
 
     public function index()
     {
