@@ -38,13 +38,13 @@ class PageController extends Controlador
     public function confirmarCompra()
     {
         $title = "Confirmar compra" . ' - PAW Power';
-        require $this->viewsDir . 'compra/confirmarCompra.view.php';
-    }
+        echo $this->twig->render('compra/confirmarCompra.view.twig', ['title' => $title]);
+        }
 
     public function pedirComida()
     {
         $title = "Pedir comida" . ' - PAW Power';
-        require $this->viewsDir . 'compra/pedirComida.view.php';
+        echo $this->twig->render('compra/pedirComida.view.twig', ['title' => $title]);
     }
 
     public function reserva()
@@ -56,13 +56,13 @@ class PageController extends Controlador
     public function selecDirec()
     {
         $title = "Seleccionar direccion" . ' - PAW Power';
-        require $this->viewsDir . 'compra/selecDirec.view.php';
+        echo $this->twig->render('compra/selecDirec.view.twig', ['title' => $title]);
     }
 
     public function selecLoc()
     {
         $title = "Seleccionar local" . ' - PAW Power';
-        require $this->viewsDir . 'compra/selecLoc.view.twig';
+        echo $this->twig->render('compra/selecLoc.view.twig', ['title' => $title]);
     }
 
     public function crearPlato()
@@ -76,13 +76,13 @@ class PageController extends Controlador
     public function agregarDireccion()
     {
         $title = "Agregar direccion" . ' - PAW Power';
-        require $this->viewsDir . 'cuenta/agregarDireccion.view.php';
+        echo $this->twig->render('cuenta/agregarDireccion.view.twig', ['title' => $title]);
     }
 
     public function consumos()
     {
         $title = 'Gestion de consumo - PAW Power';
-        require $this->viewsDir . 'cuenta/consumos.view.php';
+        echo $this->twig->render('cuenta/consumos.view.twig', ['title' => $title]);
     }
 
     public function login()
@@ -127,7 +127,9 @@ class PageController extends Controlador
     public function locales()
     {
         $title = 'Locales - PAW Power';
-        require $this->viewsDir . 'institucional/locales.view.php';
+        echo $this->twig->render('institucional/locales.view.twig', [
+            'title' => $title,
+            ]);
     }
 
 
@@ -135,33 +137,31 @@ class PageController extends Controlador
 
     {
         $title = 'Sobre nosotros - PAW Power';
-        require $this->viewsDir . 'institucional/nosotros.view.php';
+        echo $this->twig->render('institucional/nosotros.view.twig', [
+            'title' => $title,
+            ]);
     }
 
     public function servCliente()
     {
         $title = 'Servicio al cliente - PAW Power';
-        require $this->viewsDir . 'institucional/servCliente.view.php';
-    }  
+        echo $this->twig->render('institucional/servCliente.view.twig', [
+            'title' => $title,
+            ]);
+        }  
 
     /*--------- TURNERA ------------*/
     public function turnosPantalla()
     {
         $title = 'Turnos local - PAW Power';
-        require $this->viewsDir . 'turnero/turnos.view.php';
-    }
-    /*--------- COCINA ------------*/
-    public function displayCocina()
-    {
-        $title = 'Cocina- PAW Power';
-        require $this->viewsDir . 'cocina/displayCocina.view.php';
-    }
+        echo $this->twig->render('turnero/turnos.view.twig', ['title' => $title]);
 
-
+    }
+    
      /*--------- ESTADOS COCINA ------------*/
     public function displayEstadosCocina()
     {   
         $title = 'Estados Cocina- PAW Power';
-        require $this->viewsDir . 'cocina/displayEstadosCocina.view.php';
+        echo $this->twig->render('cocina/displayEstadosCocina.view.twig', ['title' => $title]);
     }
 }

@@ -16,8 +16,8 @@ use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
 // Configuro Twig
-$loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/App/views'); // Ruta a vistas Twig
-$twig = new \Twig\Environment($loader, [
+$loader = new FilesystemLoader(__DIR__ . '/App/views'); // Ruta a vistas Twig
+$twig = new Environment($loader, [
     'cache' => __DIR__ . '/App/cache',
 ]);
 $dotenv = Dotenv::createUnsafeImmutable(__DIR__ . '/../');

@@ -19,10 +19,11 @@ class ReservaController extends Controlador
         $hora = $request->getRequest('listaHorarios');
         $mesa = $request->getRequest('mesa');
         $aclaraciones = $request->getRequest('aclaraciones');
-
+    
         $aclaraciones = $request->getRequest('aclaraciones');
         $reserva = $this->model->create($local,$cantidadPersonas,$dia,$hora,$mesa,$aclaraciones);
         $title = "Reserva agregada - PAW Power";
-        require $this->viewsDir . 'cuenta/perfil.view.php';
+        
+        echo $this->twig->render('cuenta/perfil.view.twig', ['title' => $title]);
     }
 }

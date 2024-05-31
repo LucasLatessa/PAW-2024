@@ -3,12 +3,17 @@
 namespace Paw\App\Controllers;
 use Paw\App\Models\Pedido;
 use Paw\Core\Controlador;
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
 
 class PedidoController extends Controlador {
     public string $viewsDir;
     private $pedidos = []; // Almacenar los pedidos temporales,antes de pagar el carrito
-    public function __construct(){
-        parent::__construct();
+    private $twig;
+    public function __construct()
+    {
+        $loader = new FilesystemLoader(__DIR__ . '/../../App/views');
+        $this->twig = new Environment($loader);
     }
 
     private function validarPedido($cantidadDelPedido){
@@ -21,7 +26,7 @@ class PedidoController extends Controlador {
     public function crearPedido(){
         global $request;
         unset($_SESSION['mensaje_pedido']);
-
+    
         # Inicializar el mensaje como vacío
         $mensajePedido = '';
         # Procesar el formulario de pedido
@@ -40,7 +45,7 @@ class PedidoController extends Controlador {
             if(isset($_POST['mayonesa'])) {
                 $salsas[] = 'mayonesa';
             }
-
+    
             $aclaraciones = $request->getRequest('aclaracionesPedir');
             $cantidad = $request->getRequest('cantidadHamburguesa');
                       
@@ -56,11 +61,7 @@ class PedidoController extends Controlador {
                 $title = "Pedir comida" . ' - PAW Power';
             }
         }
-           require $this->viewsDir . 'compra/pedirComida.view.php';
-    }
-
-    # Método para obtener los pedidos temporales
-    public function getPedidos(){
-        return $this->pedidos;
+        $mensajePedido = 'Pedido agregado a su carrito.'; // Esto es un ejemplo, puedes ajustarlo según lo que necesites.
+        echo $this->twig->render('compra/pedirComida.twig', ['mensajePedido' => $mensajePedido]);
     }
 }

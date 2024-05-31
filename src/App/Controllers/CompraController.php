@@ -20,33 +20,53 @@ class CompraController extends Controlador
 
 
 
-    public function selecLoc(){
-        global $request;
+    public function selecLoc()
+{
+    // Obtener la solicitud HTTP actual
+    $request = Request::createFromGlobals();
 
-        // Verificar si se ha enviado el campo del local en el formulario
-        if (empty($request->getRequest('local'))) {
-            // Si el campo del local está vacío, redirigir de vuelta al formulario con un mensaje de error
-            $title = "Agregar Reserva - PAW Power";
-            require $this->viewsDir . 'compra/selecLoc.view.php';
-        } else{
-            $local=$request->getRequest('local');
-            $title = "Carrito - PAW Power";
-            require $this->viewsDir . 'compra/carrito.view.php';
-        }
+    // Verificar si se ha enviado el campo del local en el formulario
+    if (empty($request->request->get('local'))) {
+        // Si el campo del local está vacío, renderizar la vista de selección de local con un mensaje de error
+        $data = [
+            'title' => "Agregar Reserva - PAW Power",
+            'errorMessage' => 'Por favor, seleccione un local.',
+        ];
+        echo $this->twig->render('compra/selecLoc.view.twig', $data);
+    } else {
+        // Si el campo del local no está vacío, obtener el local y renderizar la vista del carrito
+        $local = $request->request->get('local');
+        $data = [
+            'title' => "Carrito - PAW Power",
+            'local' => $local,
+        ];
+        echo $this->twig->render('compra/carrito.view.twig', $data);
+    }
 }
-    public function selecDirec(){
-        global $request;
-
-        // Verificar si se ha enviado el campo del local en el formulario
-        if (empty($request->getRequest('direccion'))) {
-            // Si el campo del local está vacío, redirigir de vuelta al formulario con un mensaje de error
-            $title = "Seleccionar Direccion - PAW Power";
-            require $this->viewsDir . 'compra/selecDirec.view.php';
-        } else{
-            $direc=$request->getRequest('direccion');
-            $title = "Carrito - PAW Power";
-            require $this->viewsDir . 'compra/carrito.view.php';
-        }
+public function selecDirec(Request $request)
+{
+    // Verificar si se ha enviado el campo de dirección en el formulario
+    if (empty($request->request->get('direccion'))) {
+        // Si el campo de dirección está vacío, renderizar la vista de selección de dirección con un mensaje de error
+        $data = [
+            'title' => "Seleccionar Dirección - PAW Power",
+            'creada' => isset($_SESSION['creada']) ? $_SESSION['creada'] : null,
+            'pais' => isset($_SESSION['pais']) ? $_SESSION['pais'] : null,
+            'provincia' => isset($_SESSION['provincia']) ? $_SESSION['provincia'] : null,
+            'ciudad' => isset($_SESSION['ciudad']) ? $_SESSION['ciudad'] : null,
+            'ccpp' => isset($_SESSION['ccpp']) ? $_SESSION['ccpp'] : null,
+            'direc' => isset($_SESSION['direc']) ? $_SESSION['direc'] : null,
+        ];
+        echo $this->twig->render('compra/selec-direccion.view.twig', $data);
+    } else {
+        // Si el campo de dirección no está vacío, obtener la dirección y renderizar la vista del carrito
+        $direc = $request->request->get('direccion');
+        $data = [
+            'title' => "Carrito - PAW Power",
+            'direccion' => $direc,
+        ];
+        echo $this->twig->render('compra/carrito.view.twig', $data);
+    }
 }
 
     public function crearFilaCarrito(){

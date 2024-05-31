@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include '\..\parts/head.view.twig' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--<link rel="stylesheet" href="/assets/styles/estadoCocina.css" /> -->
+    <script src="/assets/js/components/paw.js"></script>
+    <script src="/assets/js/appPedidoCocina.js"></script>
+    <script src="/assets/js/appHora.js"></script>
+
+    <title>Estado Cocina - Paw Power</title>
+</head>
+
+<body>
+    <main>
+        <header class="header-principal">
+            {% set home = rutasLogoHeader %}
+            <a href=" {{ home["href"] }}">
+                <img src="../assets/Imagotipo-blanco.png" alt="Paw Power" class="logo" />
+            </a>
+        </header>
+
+
+        <h2 class="hora"></h2>
+
+        <section class="pedidos">
+            
+        </section>
+    </main>
+</body>
+
+</html>

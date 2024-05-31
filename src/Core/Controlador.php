@@ -2,15 +2,12 @@
 
 namespace Paw\Core;
 
-#Para manejar modelos
 use Paw\Core\Model;
 use Paw\Core\Database\QueryBuilder;
 
 class Controlador
 {
-    public string $viewsDir; #Direccion a la vista indicada
-
-    #Solo el nombre del modelo (? = significa que es optativo)
+    public string $viewsDir; 
     public ?string $modelName = null;
     public array $rutasMenuBurger;
     public array $rutasFooter;
@@ -19,14 +16,11 @@ class Controlador
 
     public function __construct()
     {
-        #Obtengo objetos que ya fueron instanciados en un contexto superior al mio
         global $connection, $log;
 
         $this->viewsDir = __DIR__ . "/../App/views/";
 
-
         $this->rutasMenuBurger = [
-            /* Menu hamburguesa 0-2*/
             [
                 "href" => '../compra/menu',
                 "name" => "Menu",
@@ -40,14 +34,13 @@ class Controlador
                 "name" => "Perfil"
             ]
         ];
-        $this->rutasLogoHeader =
-            /*Logo header 3*/
-            [
-                "href" => '../',
-                "name" => "Home",
-            ];
+
+        $this->rutasLogoHeader = [
+            "href" => '../',
+            "name" => "Home",
+        ];
+
         $this->rutasHeaderDer = [
-            /*Header parte derecha 4-5*/
             [
                 "href" => '../compra/carrito',
                 "name" => "carrito",
@@ -57,8 +50,8 @@ class Controlador
                 "name" => "usuario"
             ],
         ];
+
         $this->rutasFooter = [
-            /*Footer 6-9*/
             [
                 "href" => '../institucional/locales',
                 "name" => "Locales"
@@ -78,7 +71,6 @@ class Controlador
         ];
 
         if (!is_null($this->modelName)) {
-            #HAY QUE IMPLEMENTAR EL PATRON SINGLETON EN ESTE CASO
             $qb = new QueryBuilder($connection, $log);
             $model = new $this->modelName;
             $model->setQueryBuilder($qb);
@@ -90,6 +82,7 @@ class Controlador
     {
         $this->model = $model;
     }
+
     public function getRutasMenuBurger()
     {
         return $this->rutasMenuBurger;
@@ -104,6 +97,7 @@ class Controlador
     {
         return $this->rutasHeaderDer;
     }
+
     public function getRutasLogoHeader()
     {
         return $this->rutasLogoHeader;

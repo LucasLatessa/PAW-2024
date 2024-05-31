@@ -116,24 +116,25 @@ class UsuarioController extends Controlador{
     #Actualizar perfil, que esta en el perfil
     public function actualizarPerfil(){
         global $request;
-
-        #Obtengo los datos de la peticion
+    
+        # Obtengo los datos de la petición
         $email = $request->getRequest("email");
         $nombre = $request->getRequest("nombre");
         $apellido = $request->getRequest("apellido");
-
-        #Validacion de correo "Solo formato a@a.com"
+    
+        # Validación de correo "Solo formato a@a.com"
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $resultado = "Email invalido!";
+            $resultado = "Email inválido!";
         } else {
             $resultado = "¡Perfil actualizado!";
         }
         $title = "Perfil" . ' - PAW Power';
         
-        require $this->viewsDir . 'cuenta/perfil.view.php';
-
-        #Faltaria agregar validaciones con la BD para realizar el intercambio
+        echo $this->twig->render('cuenta/perfil.view.twig', ['title' => $title, 'resultado' => $resultado]);
+        
+        # Faltaría agregar validaciones con la BD para realizar el intercambio
     }
+    
 
     #Validar direccion que agrega el usuario
     public function validarDireccion($request) {
@@ -195,13 +196,13 @@ class UsuarioController extends Controlador{
             $direccion=new Direccion($pais,$provincia,$ciudad,$ccpp,$direc,$aclaraciones);
             $title = "Direccion agregada - PAW Power";
             $creada = "Direccion creada!";
-            require __DIR__ . '/../views/' . $this->redirigir() . '.view.php';
+            echo $this->twig->render(__DIR__ . '/../views/' . $this->redirigir() . '.view.twig', ['title' => $title]);
 
 
             //require __DIR__ . '/../views/cuenta/perfil.view.php';
         } else {
             $title = "Agregar Dirección - PAW Power";
-            require __DIR__ . '/../views/cuenta/agregarDireccion.view.php';
+            echo $this->twig->render(__DIR__ . '/../views/cuenta/agregarDireccion.view.twig', ['title' => $title]);
         }
     }
 

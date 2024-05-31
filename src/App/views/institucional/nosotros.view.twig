@@ -2,13 +2,13 @@
 <html lang="es">
 
 <head>
-  <?php require __DIR__ . '\../parts/head.view.php'; ?>
+  {% include 'parts/head.view.twig' %}
   <link rel="stylesheet" href="/assets/styles/institucional.css" />
 </head>
 
 <body>
   <!--HEADER-->
-  <?php require __DIR__ . '\../parts/header.view.php' ?>
+  {% include 'parts/header.view.twig' %}
 
   <main>
     <header class="header-institucional sobre-nosotros">
@@ -51,11 +51,10 @@
         expectativas de nuestros clientes en todas nuestras sedes y canales de servicio.
       </p>
     </section>
-    <!--CODIGO DE SOBRE NOSOTROS-->
   </main>
 
   <!--FOOTER-->
-  <?php require __DIR__ . '\../parts/footer.view.php' ?>
+  {% include 'parts/footer.view.twig' %}
 </body>
 
 </html>

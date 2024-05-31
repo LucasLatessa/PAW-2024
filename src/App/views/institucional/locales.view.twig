@@ -2,13 +2,13 @@
 <html lang="es">
 
 <head>
-  <?php require __DIR__ . '\../parts/head.view.php'; ?>
+  {% include 'parts/head.view.twig' %}
   <link rel="stylesheet" href="/assets/styles/institucional.css">
 </head>
 
 <body>
   <!--HEADER-->
-  <?php require __DIR__ . '\../parts/header.view.php' ?>
+  {% include 'parts/header.view.twig' %}
 
   <h1 class="header-institucional locales">Locales</h1>
   <iframe name="maps" loading="lazy" allowfullscreen
@@ -35,10 +35,9 @@
       <a href="../compra/reserva">Reservar Mesa</a>
     </li>
   </ul>
-  </main>
 
   <!--FOOTER-->
-  <?php require __DIR__ . '\../parts/footer.view.php' ?>
+  {% include 'parts/footer.view.twig' %}
 </body>
 
 </html>

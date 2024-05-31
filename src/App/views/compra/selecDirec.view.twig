@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  {% include 'parts/head.view.twig' %}
+  <link rel="stylesheet" href="/assets/styles/global.css" />
+  <link rel="stylesheet" href="/assets/styles/direccion_local.css">
+</head>
+
+<body>
+  <!--HEADER-->
+  {% include 'parts/header.view.twig' %}
+
+  <main>
+    <h1>Seleccionar dirección</h1>
+    {% if creada is defined %}
+      <h2>{{ creada }}</h2>
+    {% endif %}
+    <section id="direcciones">
+      <h2>Direcciones</h2>
+      <form method="POST" action="/compra/selecDirec">
+        {% if pais is defined %}
+          <div class="direccion">
+            <p>País: {{ pais }}</p>
+            {% if provincia is defined %}
+              <p>Provincia: {{ provincia }}</p>
+            {% endif %}
+            {% if ciudad is defined %}
+              <p>Ciudad/barrio: {{ ciudad }}</p>
+            {% endif %}
+            {% if ccpp is defined %}
+              <p>CCPP: {{ ccpp }}</p>
+            {% endif %}
+            {% if direc is defined %}
+              <p>Dirección: {{ direc }}</p>
+            {% endif %}
+            <a href="/cuenta/agregarDireccion">Editar Dirección</a>
+            <input type="radio" id="direccion1" name="direccion" value="{{ direc }}" />
+          </div>
+        {% endif %}
+        <div class="direccion">
+          <p>País: Argentina</p>
+          <p>Provincia: Buenos Aires</p>
+          <p>Ciudad/barrio: Luján</p>
+          <p>CCPP: 6700</p>
+          <p>Dirección: 123</p>
+          <p>Aclaraciones: Nada</p>
+          <a href="/cuenta/agregarDireccion">Editar Dirección</a>
+          <input type="radio" id="direccion2" name="direccion" value="123" />
+        </div>
+        <button type="submit">
+          Seleccionar dirección
+        </button>
+      </form>
+      {% if not app.session.started %}
+        {% do app.session.start() %}
+      {% endif %}
+      {% set app.session.origen = 'compra/selecDirec' %}
+      <a class="btn" href="/cuenta/agregarDireccion">Agregar Dirección</a>
+      <a class="btn" href="/compra/carrito">Volver al carrito</a>
+    </section>
+  </main>
+
+  <!--FOOTER-->
+  {% include 'parts/footer.view.twig' %}
+</body>
+
+</html>

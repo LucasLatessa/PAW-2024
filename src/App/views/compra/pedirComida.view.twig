@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  {% include 'parts/head.view.twig' %}
+  <link rel="stylesheet" href="/assets/styles/compra.css" />
+</head>
+
+<body>
+  <!--HEADER-->
+  {% include 'parts/header.view.twig' %}
+
+  <main>
+    <!--Codigo comida-->
+    <header class="header-menu menu-background">
+      <h1 class="menu-titulo">Menu</h1>
+    </header>
+
+    <section>
+      <h2 class="comida-seleccionada">Nombre comida seleccionada</h2>
+      <figure class="figura-comida-seleccionada">
+        <img class="img-comida-seleccionada" src="../assets/Hamburguesa.jpg" alt="Comida seleccionada para pedir"
+          width="500" />
+        <figcaption>descripcion</figcaption>
+      </figure>
+    </section>
+
+    <div class="formularioPedidoComida">
+      <form method="POST" action="" class="formPedidoComida">
+
+        <h3>¿Quieres agregar alguna salsa?</h3>
+
+        <label for="inputSalsaBBQ">
+          BBQ
+          <input type="checkbox" name="bbq" id="inputSalsaBBQ" value="BBQ" />
+        </label>
+
+        <label for="inputSalsaMostaza">
+          MOSTAZA
+          <input type="checkbox" name="mostaza" id="inputSalsaMostaza" value="Mostaza" />
+        </label>
+
+        <label for="inputSalsaKetchup">
+          KETCHUP
+          <input type="checkbox" name="ketchup" id="inputSalsaKetchup" value="Ketchup" />
+        </label>
+
+        <label for="inputSalsaMayonesa">
+          MAYONESA
+          <input type="checkbox" name="mayonesa" id="inputSalsaMayonesa" value="Mayonesa" />
+        </label>
+
+        <p class="precio">$$$</p>
+
+        <label for="inputTexto">
+          Aclaraciones del Menú elegido:
+          <input id="inputTexto" type="text" name="aclaracionesPedir" maxlength="500" minlength="5" size="30" />
+        </label>
+
+        <label class="cantidad-producto">Cantidad*
+          <!--Con javascript sera un contador-->
+          <input type="number" name="cantidadHamburguesa" min="1" required />
+        </label>
+
+        <p class="precio total">$$$$$$$$$$</p>
+        <button type="submit">Agregar al carrito</button>
+
+        {% if mensajePedido is defined %}
+          <p class="mensaje-pedido">{{ mensajePedido }}</p>
+        {% endif %}
+
+      </form>
+    </div>
+  </main>
+
+  <!--FOOTER-->
+  {% include 'parts/footer.view.twig' %}
+</body>
+
+</html>

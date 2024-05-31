@@ -13,13 +13,17 @@ class ErrorController extends Controlador
     public function notFound(){
         http_response_code(404);
         $title = "Pagina no encontrada";
-        require $this->viewsDir . 'not-found.view.php';
+        echo $this->twig->render('not-found.view.twig', [
+            'title' => $title,
+            ]);
     }
 
     public function internalError()
     {
         http_response_code(500);
         $title = "Internal error";
-        require $this->viewsDir . 'internal-error.view.php';
+        echo $this->twig->render('internal-error.view.twig', [
+            'title' => $title,
+            ]);
     }
 }
