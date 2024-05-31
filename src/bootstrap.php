@@ -1,7 +1,5 @@
 <?php
 
-#Separacion de responsabilidad del index.php
-
 require __DIR__ . '/../vendor/autoload.php';
 
 use Monolog\Logger;
@@ -20,6 +18,7 @@ $loader = new FilesystemLoader(__DIR__ . '/App/views'); // Ruta a vistas Twig
 $twig = new Environment($loader, [
     'cache' => __DIR__ . '/App/cache',
 ]);
+
 $dotenv = Dotenv::createUnsafeImmutable(__DIR__ . '/../');
 $dotenv->load();
 
@@ -111,3 +110,4 @@ $router->post('/cuenta/registrarse','UsuarioController@registrarse');
 $router->get('/institucional/locales','PageController@locales');
 $router->get('/institucional/nosotros','PageController@nosotros');
 $router->get('/institucional/servCliente','PageController@servCliente');
+?>
