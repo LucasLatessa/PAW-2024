@@ -30,17 +30,17 @@ class PageController extends Controlador
 
     /*--------------COMPRA------------------*/
 
-    public function menu()
-    {
-        $title = 'Menu - PAW Power';
-        echo $this->twig->render('compra/menu.view.twig',[
-            'title' =>  $title,
-            'rutasMenuBurger' => $this->rutasMenuBurger,
-            'rutasLogoHeader' => $this->rutasLogoHeader, 
-            'rutasHeaderDer' => $this->rutasHeaderDer, 
-            'rutasFooter' => $this->rutasFooter, 
-        ]);
-    }
+    // public function menu()
+    // {
+    //     $title = 'Menu - PAW Power';
+    //     echo $this->twig->render('compra/menu.view.twig',[
+    //         'title' =>  $title,
+    //         'rutasMenuBurger' => $this->rutasMenuBurger,
+    //         'rutasLogoHeader' => $this->rutasLogoHeader, 
+    //         'rutasHeaderDer' => $this->rutasHeaderDer, 
+    //         'rutasFooter' => $this->rutasFooter, 
+    //     ]);
+    // }
 
     public function carrito()
     {

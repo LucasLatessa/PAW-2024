@@ -54,7 +54,7 @@ $router->get('/display-estados-cocina', 'PageController@displayEstadosCocina');
 
 # ------------------------ COMPRA --------------------------------
 
-$router->get('/compra/menu', 'PageController@menu');
+$router->get('/compra/menu', 'MenuController@mostrarMenu');
 
 $router->get('/compra/carrito', 'PageController@carrito');
 $router->post('/compra/carrito', 'CompraController@crearFilaCarrito');

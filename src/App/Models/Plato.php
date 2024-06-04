@@ -4,21 +4,24 @@ namespace Paw\App\Models;
 
 class Plato{
 
+    #Asocio el model con la tabla
+    private $table = 'plato';
+
     private $nombre;
     private $descripcion;
     private $precio;
     private $imagen;
 
-    public function __construct($nombre, $descripcion, $precio, $imagen){
-        if (empty($nombre) || empty($descripcion) || empty($precio) || empty($imagen)) {
-            throw new \InvalidArgumentException("Nombre, imagen, descripción y precio son campos requeridos.");
-        }
+    // public function __construct($nombre, $descripcion, $precio, $imagen){
+    //     if (empty($nombre) || empty($descripcion) || empty($precio) || empty($imagen)) {
+    //         throw new \InvalidArgumentException("Nombre, imagen, descripción y precio son campos requeridos.");
+    //     }
 
-        $this->nombre = $nombre;
-        $this->descripcion = $descripcion;
-        $this->precio = $precio;
-        $this->imagen = $imagen;
-    }
+    //     $this->nombre = $nombre;
+    //     $this->descripcion = $descripcion;
+    //     $this->precio = $precio;
+    //     $this->imagen = $imagen;
+    // }
 
     public function getNombre(){
         return $this->nombre;
@@ -33,5 +36,33 @@ class Plato{
     }
     public function getImagen(){
         return $this->imagen;
+    }
+
+    public function setNombre(string $nombre){
+        $this->nombre = $nombre;
+    }
+
+    public function setDescripcion(string $descripcion){
+        $this->descripcion = $descripcion;
+    }
+
+    public function setPrecio(string $precio){
+        $this->precio = $precio;
+    }
+
+    public function setImagen(string $imagen){
+        $this->imagen = $imagen;
+    }
+
+    #Para aplicar todos los seters junto con sus validaciones
+    public function set(array $values)
+    {
+        foreach ($values as $field => $value) {
+            #Creo el methodo y si existe lo ejecuto
+            $method = "set" . ucfirst($field);
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
     }
 }
