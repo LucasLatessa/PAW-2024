@@ -98,7 +98,7 @@ $router->post('/cuenta/perfil','UsuarioController@actualizarPerfil');
 
 #Login
 $router->get('/cuenta/login','PageController@login');
-$router->get('/cuenta/login?sesion=cerrar','UsuarioController@logout');
+$router->get('/cuenta/logout','UsuarioController@logout');
 $router->post('/cuenta/login','UsuarioController@login');
 
 #Registro

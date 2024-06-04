@@ -5,14 +5,16 @@ namespace Paw\App\Models;
 use Paw\Core\Model;
 use Paw\App\Models\Usuario;
 
-class UsuariosCollections extends Model{
+class UsuariosCollections extends Model
+{
     public $table = 'usuario';
 
-    public function getAll(){
-        
+    public function getAll()
+    {
+
         $usuarios = $this->queryBuilder->select($this->table);
         $usuariosCollection = [];
-        foreach($usuarios as $usuario){
+        foreach ($usuarios as $usuario) {
             $nuevaReserva = new Usuario();
             $nuevaReserva->set($usuario);
             $usuariosCollection[] = $nuevaReserva;
@@ -20,15 +22,16 @@ class UsuariosCollections extends Model{
         return $usuariosCollection;
     }
 
-    public function get($usuarioEmail,$usuarioContraseña){
+    public function get($usuarioEmail, $usuarioContraseña)
+    {
         $usuario = new Usuario;
-        $usuario -> setQueryBuilder($this->queryBuilder);
+        $usuario->setQueryBuilder($this->queryBuilder);
 
-        $usuario ->load($usuarioEmail,$usuarioContraseña);
-        if (empty($usuario->getCorreo())){
+        $usuario->load($usuarioEmail, $usuarioContraseña);
+        if (empty($usuario->getCorreo())) {
             return "";
-        }
-        else return $usuario;        
+        } else
+            return $usuario;
 
     }
 
@@ -36,7 +39,8 @@ class UsuariosCollections extends Model{
 
 
 
-    public function create($nombre,$apellido, $correo, $contraseña){
+    public function create($nombre, $apellido, $correo, $contraseña)
+    {
         $newUsuario = new Usuario;
 
         $data = [
@@ -46,10 +50,10 @@ class UsuariosCollections extends Model{
             'contraseña' => $contraseña,
         ];
 
-        $newUsuario -> setQueryBuilder($this->queryBuilder);
+        $newUsuario->setQueryBuilder($this->queryBuilder);
         $newUsuario->set($data);
-        
-        $this->queryBuilder->insert($this->table,$data);
+
+        $this->queryBuilder->insert($this->table, $data);
         return $newUsuario;
 
     }
