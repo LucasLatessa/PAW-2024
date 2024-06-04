@@ -11,7 +11,7 @@ la compra
 Entorno de desarrollo: VSCode, <br>
 Sistema Operativo: Windows 11
 
-Instrucciones para configurar-instalacion
+## Instrucciones para configurar-instalacion
 
 1. Instalar todas las dependencias
 
