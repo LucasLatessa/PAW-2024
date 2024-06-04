@@ -394,3 +394,82 @@ svg, .planoSucursal{
   cursor: default;
   pointer-events: none;
 }
+
+
+
+/* PAGINACIÓN */
+.contenedor-links-pag {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2vh;
+}
+
+.contenedor-links-pag ul.links{
+  display: inline-flex;
+  background-color:var(--color-terceario);
+  border-radius: 2vh;
+  padding: 1vh 2vh;
+}
+
+/* Enlaces */
+.contenedor-links-pag ul.links li {
+  margin: 1rem;
+  font-size: 1rem;
+}
+
+/*estos estilos al final, ya que antes se da 
+estilo a los a en general y sino no se toman dichos cambios
+por la caida del codigo */
+.contenedor-links-pag ul li a{
+  display: block;
+  text-decoration: none;
+  color:var(--color-letras);
+}
+
+.contenedor-links-pag ul li a:hover{
+  color:var(--color-principal);
+}
+
+.form-menu-order-cat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   /* Ajusta el espacio entre los elementos si es necesario */ 
+   gap: 1rem;
+  margin-top: 8vh;
+  margin-bottom: 4vh;
+  background-color:var(--color-terceario);
+  border-radius: 2vh;
+  padding: 1vh 2vh;
+}
+
+
+
+.order-options, .filter-options {
+  display: flex;
+  align-items: center; /* Alinea los elementos verticalmente */
+  justify-content: center; /* Centra los elementos horizontalmente */
+  gap: 1rem;
+  
+  /* Ajusta el espacio entre los elementos dentro de cada div si es necesario */
+}
+
+.order-options select, .filter-options select, 
+.filter-options input {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.filter-options label {
+  margin-right: 0.5rem;
+}
+
+#filtrar {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: var(--color-principal);
+  color:var(--color-letras);
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
