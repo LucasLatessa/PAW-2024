@@ -98,7 +98,7 @@ $router->post('/cuenta/perfil','UsuarioController@actualizarPerfil');
 
 #Login
 $router->get('/cuenta/login','PageController@login');
-$router->get('/cuenta/logout','UsuarioController@logout');
+$router->get('/cuenta/login?session=cerrar','UsuarioController@logout');
 $router->post('/cuenta/login','UsuarioController@login');
 
 #Registro
@@ -110,4 +110,3 @@ $router->post('/cuenta/registrarse','UsuarioController@registrarse');
 $router->get('/institucional/locales','PageController@locales');
 $router->get('/institucional/nosotros','PageController@nosotros');
 $router->get('/institucional/servCliente','PageController@servCliente');
-?>
