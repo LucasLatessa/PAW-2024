@@ -97,20 +97,30 @@ class UsuarioController extends Controlador{
 
     }
     public function logout(){
+        
         global $request;
+        session_start();
         $cerrarSesion = isset($_GET['session']);
         $haySesion = session_status() == PHP_SESSION_ACTIVE;
-        if ($cerrarSesion && $haySesion){
+        if ($cerrarSesion == 1 && $haySesion == 1){
             $_SESSION = [];
             setcookie(session_name(),'',time() - 10000);
             session_destroy();
+            $title = "Logout" . ' - PAW Power';
+            $errorMessage = "Deslogueado";
+            echo $this->twig->render('cuenta/login.view.twig', [
+                'title' => $title,
+                'errorMessage' => $errorMessage
+            ]);
         }
-        $title = "Logout" . ' - PAW Power';
-        $errorMessage = "Error al desloguearte!";
-        echo $this->twig->render('cuenta/login.view.twig', [
-            'title' => $title,
-            'errorMessage' => $errorMessage
-        ]);
+        else{
+            $title = "Logout" . ' - PAW Power';
+            $errorMessage = "Error al desloguearte!";
+            echo $this->twig->render('cuenta/login.view.twig', [
+                'title' => $title,
+                'errorMessage' => $errorMessage
+            ]);
+        }
     }
 
     #Actualizar perfil, que esta en el perfil

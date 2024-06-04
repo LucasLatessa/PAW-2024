@@ -49,6 +49,7 @@ class MenuController extends Controlador
         }
         else{
             if ($this->validarImage($tamanioArchivo, $nombreArchivo, $archivoTemporal)) {
+                print_r($_SESSION['login']);
                 $nombre = $request->getRequest('nombre');
                 $descripcion = $request->getRequest('descripcion');
                 $precio = $request->getRequest('precio');

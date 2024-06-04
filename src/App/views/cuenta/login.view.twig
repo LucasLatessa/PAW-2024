@@ -16,9 +16,10 @@
     {% if hayLogin %}
       <p>Usted está logueado</p>
       <p>{{ hayLogin }}</p>
-      <p><a href ="./logout">Cerrar sesión</a></p>
+      <p><a href ="./login?session=cerrar">Cerrar sesión</a></p>
     {% else %}
     <!--Codigo login-->
+    {{ hayLogin }}
     <h1 class="login">Iniciar sesión</h1>
     <form method="POST" class="form-login" action="">
       <label for="inputCorreo">

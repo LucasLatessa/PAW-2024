@@ -98,9 +98,15 @@ $router->get('/cuenta/perfil', 'PageController@perfil');
 $router->post('/cuenta/perfil', 'UsuarioController@actualizarPerfil');
 
 #Login
+<<<<<<< HEAD
 $router->get('/cuenta/login', 'PageController@login');
 $router->get('/cuenta/logout', 'UsuarioController@logout');
 $router->post('/cuenta/login', 'UsuarioController@login');
+=======
+$router->get('/cuenta/login','PageController@login');
+$router->get('/cuenta/login?session=cerrar','UsuarioController@logout');
+$router->post('/cuenta/login','UsuarioController@login');
+>>>>>>> 87ee53154c38fe37cfebc10f18bb8bf535d60fd1
 
 #Registro
 $router->get('/cuenta/registrarse', 'PageController@registrarse');
@@ -108,7 +114,13 @@ $router->post('/cuenta/registrarse', 'UsuarioController@registrarse');
 
 # ------------------------ INSTITUCIONAL --------------------------------
 
+<<<<<<< HEAD
 $router->get('/institucional/locales', 'PageController@locales');
 $router->get('/institucional/nosotros', 'PageController@nosotros');
 $router->get('/institucional/servCliente', 'PageController@servCliente');
 ?>
+=======
+$router->get('/institucional/locales','PageController@locales');
+$router->get('/institucional/nosotros','PageController@nosotros');
+$router->get('/institucional/servCliente','PageController@servCliente');
+>>>>>>> 87ee53154c38fe37cfebc10f18bb8bf535d60fd1
