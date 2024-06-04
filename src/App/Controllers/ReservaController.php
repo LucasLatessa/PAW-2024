@@ -5,12 +5,23 @@ namespace Paw\App\Controllers;
 use Paw\App\Models\Reserva;
 use Paw\App\Models\ReservasCollections;
 use Paw\Core\Controlador;
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
 
 class ReservaController extends Controlador
 {
 
     public ?string $modelName = ReservasCollections::class;
     public string $viewsDir; #Direccion a la vista indicada
+
+    private $twig;
+
+    public function __construct()
+    {
+        parent::__construct();
+        $loader = new FilesystemLoader(__DIR__ . '/../../App/views');
+        $this->twig = new Environment($loader);
+    }
 
     public function crearReserva()
     {
@@ -22,7 +33,6 @@ class ReservaController extends Controlador
         $mesa = $request->getRequest('mesa');
         $aclaraciones = $request->getRequest('aclaraciones');
 
-        $aclaraciones = $request->getRequest('aclaraciones');
         $reserva = $this->model->create($local, $cantidadPersonas, $dia, $hora, $mesa, $aclaraciones);
         $title = "Reserva agregada - PAW Power";
 
