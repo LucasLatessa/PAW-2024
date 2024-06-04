@@ -10,14 +10,15 @@ class ReservasCollections extends Model{
 
     public function getAll(){
         #Obtengo todas las reservas
-        $reservas = $this->queryBuilder->select($this->table);
-        $reservasCollection = [];
-        foreach($reservas as $reserva){
-            $nuevaReserva = new Reserva();
-            $nuevaReserva->set($reserva);
-            $reservasCollection[] = $nuevaReserva;
-        }
-        return $reservasCollection;
+        $reservas = $this->queryBuilder->selectViejo($this->table);
+        #var_dump($reservas);
+        #$reservasCollection = [];
+        #foreach($reservas as $reserva){
+        #    $nuevaReserva = new Reserva();
+        #    $nuevaReserva->set($reserva);
+        #    $reservasCollection[] = $nuevaReserva;
+        #}
+        return $reservas;
     }
 
     public function create($local,$cantidadPersonas,$dia,$hora,$mesa,$aclaraciones){

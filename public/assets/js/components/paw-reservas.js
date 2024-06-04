@@ -1,12 +1,13 @@
 class PAWReservas {
-  
   constructor(svg, listaReservas) {
     //Obtengo el svg (que esta como imagen)
+    //console.log(listaReservas);
     let contenedor = svg.tagName ? pContenedor : document.querySelector(svg);
 
     const hoy = new Date();
-    const fechaFormateada = hoy.toISOString().split('T')[0];
-    let hora = document.getElementById('fecha-reserva').value = fechaFormateada;
+    const fechaFormateada = hoy.toISOString().split("T")[0];
+    let hora = (document.getElementById("fecha-reserva").value =
+      fechaFormateada);
 
     if (contenedor) {
       //Cargo el SVG (reemplazando el img)
@@ -28,7 +29,7 @@ class PAWReservas {
         const states = document.getElementsByTagName("g");
         for (let i = 0; i < states.length; i++) {
           const element = states[i];
-          if ((element.id.startsWith("mesa")) || (element.id.startsWith("barra"))){
+          if (element.id.startsWith("mesa") || element.id.startsWith("barra")) {
             //Si se da click al elemento, ejecuto el stateClicked para obtener el id
             element.onclick = () => {
               stateClicked(element);
@@ -54,6 +55,7 @@ class PAWReservas {
         fetch(listaReservas)
           .then((response) => response.json())
           .then((data) => {
+            console.log(data);
             reservas = [];
             reservas.push(...data);
             mesasOcupadas(reservas); /*SOLUCIONAR: Problema con mesas ocupadas*/
@@ -62,10 +64,10 @@ class PAWReservas {
 
       getReservas();
 
-      
       const mesasOcupadas = (misReservas) => {
-        const elementosMesa = []
-        const reservaDia = [] // se puede mejorar con json?
+        console.log(misReservas);
+        const elementosMesa = [];
+        const reservaDia = []; // se puede mejorar con json?
         const diaReserva = document.querySelector("input[name='dia']");
         const horarioReserva = document.querySelector("input[name='horario']");
 
@@ -76,17 +78,17 @@ class PAWReservas {
           reservaDia.push(reservas[i].dia);
           elementosMesa.push(agarroMesa);
           agarroMesa.classList.remove("ocupado", "mesa");
-          agarroMesa.classList.add("mesa")
+          agarroMesa.classList.add("mesa");
         }
         for (let i = 0; i < elementosMesa.length; i++) {
-          if (reservaDia[i] == diaReserva.value){
+          if (reservaDia[i] == diaReserva.value) {
             elementosMesa[i].classList.add("ocupado");
             elementosMesa[i].classList.remove("mesa");
-          } 
+          }
         }
-        
       };
 
+      mesasOcupadas(reservas);
       //mesasOcupadas();
       // Agregar un evento 'change' al elemento diaReserva
       // diaReserva.addEventListener("change", function (event) {

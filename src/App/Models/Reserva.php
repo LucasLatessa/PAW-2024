@@ -96,9 +96,9 @@ class Reserva extends Model
         // Expresión regular para validar el formato HH:MM
         $pattern = '/^(?:[01]\d|2[0-3]):[0-5]\d$/';
 
-        if (!preg_match($pattern, $hora)) {
-            throw new InvalidValueFormatoException("La hora proporcionada no es válida. Debe estar en formato HH:MM.");
-        }
+        #if (!preg_match($pattern, $hora)) {
+        #   throw new InvalidValueFormatoException("La hora proporcionada no es #válida. Debe estar en formato HH:MM.");
+        #}
 
         $this->hora = $hora;
     }

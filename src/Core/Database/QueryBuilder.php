@@ -12,6 +12,16 @@ class QueryBuilder
         $this->logger = $logger;
     }
 
+    public function selectViejo($table,$params = []){
+        $where = " 1 = 1 ";
+        $query = "select * from {$table} where {$where}";
+        $sentencia = $this->pdo->prepare($query);
+        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+        $sentencia->execute();
+        #$this->logger->info("Resultado consultas select: ", [$sentencia->fetchAll()]);
+        return  $sentencia->fetchAll(); 
+    }
+
     public function select($table, $params = []){
 
         $where = " 1 = 1 "; #Para que devuelva todo si no hay parametros
@@ -25,6 +35,7 @@ class QueryBuilder
         #$query = "select * from {$table} where {$where}"; no funciona
         $query = "select * from {$table} where correo = '{$params['correo']}' and contraseña = '{$params['contraseña']}'";
         $sentencia = $this->pdo->prepare($query);
+        
 
         #Si exxiste el id, se lo agrego al where
         /*if (isset($params['id'])){
@@ -37,6 +48,7 @@ class QueryBuilder
         }*/
         $sentencia->setFetchMode(PDO::FETCH_ASSOC); #Como me retorna todo el array de respuesta FETCH_ASSOC: trae nombre de las columnas
         $sentencia->execute();
+        
         return  $sentencia->fetchAll(); #Me devuelve todos los registros que coincidan
 
     }
