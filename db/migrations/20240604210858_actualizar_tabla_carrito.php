@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use Phinx\Migration\AbstractMigration;
 
-final class CreandoTablaCarrito extends AbstractMigration
+final class ActualizarTablaCarrito extends AbstractMigration
 {
     /**
      * Change Method.
@@ -26,11 +26,5 @@ final class CreandoTablaCarrito extends AbstractMigration
         ->addColumn('aclaraciones','string', ['limit' => 100])
         ->addColumn('cantidad','integer', ['limit' => 100])
         ->create();
-
-        $plato = $this->table('plato');
-        $plato
-        ->addColumn('imagen','string', ['limit' => 100])
-        ->update();
-    
     }
 }
