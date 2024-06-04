@@ -37,7 +37,6 @@ class MenuController extends Controlador
         $tamanioArchivo = $_FILES["imagen"]["size"];
         $archivoTemporal = $_FILES['imagen']['tmp_name'];
 
-        # Primero valido la imagen, que tiene que ser menor a 1MB
         if (!isset($_SESSION['login'])){
             $title = "Agregar plato - PAW Power";
             $errorMessage = "usuario no logeado";
