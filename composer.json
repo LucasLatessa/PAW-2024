@@ -11,7 +11,7 @@
         }
     ],
     "require": {
-        "php": ">= 8.2.18",
+        "php": ">= 8.2.12",
         "filp/whoops": "~2",
         "monolog/monolog": "^3.5",
         "vlucas/phpdotenv": "^5.6",

@@ -15,10 +15,10 @@ Sistema Operativo: Windows 11
 
 1. Instalar todas las dependencias
 
-´´´
+```
 composer update
 composer install
-´´´
+```
 
 2. Crear un archivo .env, este tendra los configuracion necesaria para conectar a la base de datos
 
@@ -26,20 +26,20 @@ composer install
 
 4. LLevar a cabo los migrates con el siguiente comando
 
-´´´
+```
 phinx migrate -e development
-´´´
+```
 
 5. Levantar el proyecto
 
-´´´
+```
 php -S localhost:8888 -t public
-´´´
+```
 
-6. En el caso que se quiera levantar en un servidor publico, ejecute el siguiente comando
+6. En el caso que se quiera levantar en un servidor publico, ejecute el siguiente comando (con el servidor levantado en local)
 
-´´´
+```
 ./ngrok http http://localhost:8888/
-´´´
+```
 
 Figma: https://www.figma.com/file/XK3M3D3Ikt8jG1kdT5zQEW/LMJR-(Chiv)---TP1(PAW)?type=design&node-id=58%3A486&mode=design&t=9VBFG6YhUoPuYjwA-1
