@@ -56,15 +56,15 @@ $router->get('/display-estados-cocina', 'PageController@displayEstadosCocina');
 
 $router->get('/compra/menu', 'MenuController@mostrarMenu');
 
+#Pedir comida
+$router->get('/compra/pedirComida', 'MenuController@pedirComida');
+$router->post('/compra/pedirComida', 'PedidoController@crearPedido');
+
 $router->get('/compra/carrito', 'PageController@carrito');
 $router->post('/compra/carrito', 'CompraController@crearFilaCarrito');
 
 $router->get('/compra/confirmarCompra', 'PageController@confirmarCompra');
 $router->post('/compra/confirmarCompra', 'PageController@confirmarCompra');
-
-#Pedir comida
-$router->get('/compra/pedirComida', 'PageController@pedirComida');
-$router->post('/compra/pedirComida', 'PedidoController@crearPedido');
 
 #Seleccionar direccion (en carrito)
 $router->get('/compra/selecDirec', 'PageController@selecDirec');

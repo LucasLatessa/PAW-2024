@@ -1,12 +1,14 @@
 <?php
 
 namespace Paw\App\Models;
+use Paw\Core\Model;
 
-class Plato{
+class Plato extends Model{
 
     #Asocio el model con la tabla
     private $table = 'plato';
 
+    private $id;
     private $nombre;
     private $descripcion;
     private $precio;
@@ -38,6 +40,10 @@ class Plato{
         return $this->imagen;
     }
 
+    public function getId(){
+        return $this->id;
+    }
+
     public function setNombre(string $nombre){
         $this->nombre = $nombre;
     }
@@ -54,6 +60,10 @@ class Plato{
         $this->imagen = $imagen;
     }
 
+    public function setId(string $id){
+        $this->id = $id;
+    }
+
     #Para aplicar todos los seters junto con sus validaciones
     public function set(array $values)
     {
@@ -64,5 +74,12 @@ class Plato{
                 $this->$method($value);
             }
         }
+    }
+
+    public function load($id){
+        $params = [ "id" => $id];
+        #Me devuelve el elemento solo
+        $record = current($this->queryBuilder->selectViejo($this->table,$params));
+        $this->set($record);
     }
 }

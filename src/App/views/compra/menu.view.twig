@@ -17,30 +17,28 @@
     </header>
     <h2 class="titulo-comida">COMIDA DEL MES</h2>
     <section class="seccion-comida-mes">
-      {% for comida_mes in comidas_mes %}
       <article class="article-comida-mes">
         <h3>{{ comida_mes.nombre }}</h3>
         <figure class="figura-hamburguesa">
-          <img class="comida-imagen" src="{{ comida_mes.imagen }}" alt="{{ comida_mes.nombre }}" width="500" />
-          <figcaption class="descripcion-comida">{{ comida_mes.descripcion }}</figcaption>
+          <img class="comida-imagen" src="/assets/platos/{{ comida_mes.imagen }}" alt="{{ comida_mes.nombre }}" width="500" />
+          <figcaption class="descripcion-cmida">{{ comida_mes.descripcion }}</figcaption>
         </figure>
         <p class="precio-comida">{{ comida_mes.precio }}</p>
-        <a class="pedir-comida" href="./pedirComida">PEDIR</a>
+        <a class="pedir-comida" href="./pedirComida?id={{ comida_mes.id }}">PEDIR</a>
       </article>
-      {% endfor %}
     </section>
 
     <h2 class="titulo-comida">HAMBURGUESAS</h2>
     <section class="seccion-comida">
-      {% for hamburguesa in menu %}
+      {% for comida in menu %}
       <article class="article-comida">
-        <h3>{{ hamburguesa.nombre }}</h3>
+        <h3>{{ comida.nombre }}</h3>
         <figure class="figura-hamburguesa">
-          <img class="comida-imagen" src="{{ hamburguesa.imagen }}" alt="{{ hamburguesa.nombre }}" width="500" />
-          <figcaption class="descripcion-comida">{{ hamburguesa.descripcion }}</figcaption>
+          <img class="comida-imagen" src="/assets/platos/{{ comida.imagen }}" alt="{{ comida.nombre }}" width="500" />
+          <figcaption class="descripcion-comida">{{ comida.descripcion }}</figcaption>
         </figure>
-        <p class="precio-comida">{{ hamburguesa.precio }}</p>
-        <a class="pedir-comida" href="./pedirComida">PEDIR</a>
+        <p class="precio-comida">{{ comida.precio }}</p>
+        <a class="pedir-comida" href="./pedirComida?id={{ comida.id }}">PEDIR</a>
       </article>
       {% endfor %}
     </section>

@@ -17,18 +17,18 @@
     </header>
 
     <section>
-      <h2 class="comida-seleccionada">Nombre comida seleccionada</h2>
+      <h2 class="comida-seleccionada">{{comida.nombre}}</h2>
       <figure class="figura-comida-seleccionada">
-        <img class="img-comida-seleccionada" src="../assets/Hamburguesa.jpg" alt="Comida seleccionada para pedir"
+        <img class="img-comida-seleccionada" src="/assets/platos/{{comida.imagen}}" alt="Comida seleccionada para pedir"
           width="500" />
-        <figcaption>descripcion</figcaption>
+        <figcaption>{{comida.descripcion}}</figcaption>
       </figure>
     </section>
 
     <div class="formularioPedidoComida">
       <form method="POST" action="" class="formPedidoComida">
 
-        <h3>¿Quieres agregar alguna salsa?</h3>
+        {# <h3>¿Quieres agregar alguna salsa?</h3>
 
         <label for="inputSalsaBBQ">
           BBQ
@@ -48,9 +48,9 @@
         <label for="inputSalsaMayonesa">
           MAYONESA
           <input type="checkbox" name="mayonesa" id="inputSalsaMayonesa" value="Mayonesa" />
-        </label>
+        </label> 
 
-        <p class="precio">$$$</p>
+        <p class="precio">$$$</p>#}
 
         <label for="inputTexto">
           Aclaraciones del Menú elegido:
@@ -62,7 +62,7 @@
           <input type="number" name="cantidadHamburguesa" min="1" required />
         </label>
 
-        <p class="precio total">$$$$$$$$$$</p>
+        <p class="precio total">$ {{comida.precio}}</p>
         <button type="submit">Agregar al carrito</button>
 
         {% if mensajePedido is defined %}

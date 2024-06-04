@@ -20,4 +20,11 @@ class PlatosCollections extends Model{
         }
         return $platosCollection;
     }
+
+    public function get($id){
+        $plato = new Plato;
+        $plato->setQueryBuilder($this->queryBuilder);
+        $plato->load($id);
+        return $plato;
+    }
 }

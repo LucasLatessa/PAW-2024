@@ -217,7 +217,6 @@ class UsuarioController extends Controlador{
         $usuarioEmail = $email;
         $usuarioContraseña = $contraseña;
 
-        
         $usuario = $this->model->get($usuarioEmail,$usuarioContraseña);
         return $usuario;
 

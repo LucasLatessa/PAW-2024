@@ -82,9 +82,29 @@ class MenuController extends Controlador
 
         $menu = $this->model->getAll();
 
+        $comida_mes = $this->model->get("1");
+
         echo $this->twig->render('compra/menu.view.twig',[
             'title' =>  $title,
             'menu' =>  $menu,
+            'comida_mes' => $comida_mes,
+            'rutasMenuBurger' => $this->rutasMenuBurger,
+            'rutasLogoHeader' => $this->rutasLogoHeader, 
+            'rutasHeaderDer' => $this->rutasHeaderDer, 
+            'rutasFooter' => $this->rutasFooter
+        ]);
+    }
+
+    public function pedirComida(){
+        global $request;
+
+        $title = "Pedir comida" . ' - PAW Power';
+        $comida_id = $request->get('id');
+        $comida = $this->model->get($comida_id);
+
+        echo $this->twig->render('compra/pedirComida.view.twig',  [
+            'title' =>  $title,
+            'comida' => $comida,
             'rutasMenuBurger' => $this->rutasMenuBurger,
             'rutasLogoHeader' => $this->rutasLogoHeader, 
             'rutasHeaderDer' => $this->rutasHeaderDer, 
