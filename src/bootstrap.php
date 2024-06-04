@@ -104,7 +104,7 @@ $router->get('/cuenta/logout', 'UsuarioController@logout');
 $router->post('/cuenta/login', 'UsuarioController@login');
 =======
 $router->get('/cuenta/login','PageController@login');
-$router->get('/cuenta/login?session=cerrar','UsuarioController@logout');
+$router->get('/cuenta/logout','UsuarioController@logout');
 $router->post('/cuenta/login','UsuarioController@login');
 >>>>>>> 87ee53154c38fe37cfebc10f18bb8bf535d60fd1
 

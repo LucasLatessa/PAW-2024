@@ -96,13 +96,10 @@ class UsuarioController extends Controlador{
         #Faltaria agregar validaciones con la BD para comprobar que existe esa instancia
 
     }
-    public function logout(){
-        
+    public function logout(){        
         global $request;
         session_start();
-        $cerrarSesion = isset($_GET['session']);
-        $haySesion = session_status() == PHP_SESSION_ACTIVE;
-        if ($cerrarSesion == 1 && $haySesion == 1){
+        if (isset($_SESSION['login'])){
             $_SESSION = [];
             setcookie(session_name(),'',time() - 10000);
             session_destroy();
