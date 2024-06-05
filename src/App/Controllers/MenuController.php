@@ -76,7 +76,7 @@ class MenuController extends Controlador
         }
     }
 
-    public function mostrarMenu()
+    /*public function mostrarMenu()
     {
         $title = 'Menu - PAW Power';
 
@@ -93,6 +93,55 @@ class MenuController extends Controlador
             'rutasHeaderDer' => $this->rutasHeaderDer, 
             'rutasFooter' => $this->rutasFooter
         ]);
+    }*/
+
+    public function mostrarMenu()
+    {
+        $title = 'Menu - PAW Power';
+        // Obtener los valores de "sort" y "direction" de la cadena de consulta
+        $sort = isset($_GET['sort']) ? $_GET['sort'] : null;
+        $direction = isset($_GET['direction']) ? $_GET['direction'] : null;
+         // Obtener los valores de "min_price" y "max_price" de la cadena de consulta
+        $minPrecio = isset($_GET['min_price']) && $_GET['min_price'] !== '' ? (int)$_GET['min_price'] : null;
+        $maxPrecio = isset($_GET['max_price']) && $_GET['max_price'] !== '' ? (int)$_GET['max_price'] : null;
+        
+        
+        $menu = $this->model->getItems($sort,$direction,$minPrecio,$maxPrecio);
+        
+        //$menu = $this->model->getAll();
+
+        $comida_mes = $this->model->get("1");
+      
+        echo $this->twig->render('compra/menu.view.twig',[
+            'title' =>  $title,
+            'menu' =>  $menu,
+            'comida_mes' => $comida_mes,
+            'rutasMenuBurger' => $this->rutasMenuBurger,
+            'rutasLogoHeader' => $this->rutasLogoHeader, 
+            'rutasHeaderDer' => $this->rutasHeaderDer, 
+            'rutasFooter' => $this->rutasFooter
+        ]);
+    }
+
+   
+    public function descargarMenuCSV() {
+        // Obtener los datos del menú en el formato deseado (CSV)
+        $menu = $this->model->getAll(); // O cualquier método que obtenga los datos del menú
+        
+        // Configurar las cabeceras HTTP para la descarga de un archivo CSV
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="menu.csv"');
+
+        // Crear un puntero al "output" (salida) del archivo CSV
+        $output = fopen('php://output', 'w');
+
+        // Escribir los datos del menú al archivo CSV
+        foreach ($menu as $row) {
+            fputcsv($output, $row);
+        }
+
+        // Cerrar el puntero del archivo
+        fclose($output);
     }
 
     public function pedirComida(){

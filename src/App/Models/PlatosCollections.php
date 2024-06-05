@@ -40,4 +40,25 @@ class PlatosCollections extends Model{
             return null; // O maneja el caso cuando no se encuentra el plato
         }
     }
+
+    /* usada antes para mostrar todo sin filtro, consulta general. Anda
+    public function getItems($params = [])
+    {
+        return $this->queryBuilder->select('plato', $params);
+    }*/
+
+    /* ANDA y trae todo ordenado segun la dirección 
+    public function getItems($sort,$direction){
+        return $this->queryBuilder->selectOrder('plato',$sort,$direction);
+    }*/
+
+    public function getItems($sort,$direction,$minPrecio,$maxPrecio){
+        return $this->queryBuilder->selectOrder2('plato',$sort,$direction,$minPrecio,$maxPrecio);
+    }
+
+    public function getTotalItems($params = [])
+    {
+        return $this->queryBuilder->count('plato', $params);
+    }
+
 }

@@ -1,32 +1,29 @@
 class PAWMenu {
     constructor() {
-        // Obtener el formulario
         this.form = document.querySelector('form');
-        // Obtener el botón de filtrado
-        this.filterButton = document.getElementById('filtrar');
-        // Inicializar eventos
-        this.initEvents();
-      
+        this.minPriceInput = document.getElementById('min_price');
+        this.maxPriceInput = document.getElementById('max_price');
+        this.sortSelect = document.getElementById('sort');
+        this.directionSelect = document.getElementById('direction');
+        this.init();
     }
 
-    initEvents() {
-        // Evento para el cambio en el elemento con id 'order'
-        document.getElementById('order').addEventListener('change', () => {
-            this.form.submit();
-        });
-
-        // Evento para el cambio en el elemento con id 'category'
-        document.getElementById('categoria').addEventListener('change', () => {
-            this.form.submit();
-        });
-
-        // Evento de clic en el botón de filtrado
-        this.filterButton.addEventListener('click', () => {
-            this.form.submit();
-        });
-
+    init() {
+        this.form.addEventListener('submit', this.handleSubmit.bind(this));
     }
 
-    
+    handleSubmit(event) {
+        event.preventDefault();
+        const minPrice = this.minPriceInput.value;
+        const maxPrice = this.maxPriceInput.value;
+        const sort = this.sortSelect.value;
+        const direction = this.directionSelect.value;
+        // Crear una cadena de consulta con los datos del formulario
+        const queryString = `?min_price=${minPrice}&max_price=${maxPrice}&sort=${sort}&direction=${direction}`;
+        
+        // Redirigir al controlador con la cadena de consulta
+        window.location.href = queryString;
+    }
 }
+
 

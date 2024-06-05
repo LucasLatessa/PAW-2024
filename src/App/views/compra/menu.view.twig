@@ -33,33 +33,26 @@
 
     <h2 class="titulo-comida">HAMBURGUESAS</h2>
 
-     <form method="GET" enctype="multipart/form-data" class="form-menu-order-cat" action=""> <!--Post y redireccionamiento a compra/menu -->
-      <div class="order-options">
-        <select name="order" id="order">
-          <option value="default">ORDENAR POR</option>
-          <option value="nombre_asc" {% if order == 'nombre_asc' %}selected{% endif %}>Nombre (A-Z)</option>
-          <option value="nombre_desc" {% if order == 'nombre_desc' %}selected{% endif %}>Nombre (Z-A)</option>
-          <option value="precio_asc" {% if order == 'precio_asc' %}selected{% endif %}>Precio (bajo a alto)</option>
-          <option value="precio_desc" {% if order == 'precio_desc' %}selected{% endif %}>Precio (alto a bajo)</option>
-        </select>
-      </div>
+     <form method="GET" class="form-menu-order-cat" action=""> 
+        <label for="min_price">Precio mínimo:</label>
+        <input type="number" id="min_price" name="min_price" value="{{ min_price }}">
 
-      <!--falta definir categoria a usar para trabajar con este filtrado--->
-      <div class="filter-options">
-        <label for="filter">FILTRAR</label>
-        <select name="categoria" id="categoria">
-          <option value="">Todas</option>
-          <option value="categoria1">Categoria 1</option> <!-- esto seria dinamico a las categorias que quisieramos-->
-          <option value="categoria2">Categoria 2</option>
-        </select>
-
-        <label for="min_precio">Precio mínimo:</label>
-        <input type="number" id="min_precio" name="min_precio" min="0">
-        
         <label for="max_price">Precio máximo:</label>
-        <input type="number" id="max_precio" name="max_precio" min="0">
-        <button type="submit" id="filtrar">&#9660;</button>
-      </div>
+        <input type="number" id="max_price" name="max_price" value="{{ max_price }}">
+
+        <label for="sort">Ordenar por:</label>
+        <select id="sort" name="sort">
+            <option value="precio">Precio</option>
+            <option value="nombre">Nombre</option>
+        </select>
+
+        <label for="direction">Dirección:</label>
+        <select id="direction" name="direction">
+            <option value="ASC">Ascendente</option>
+            <option value="DESC">Descendente</option>
+        </select>
+
+        <button type="submit">Filtrar</button>
     </form>
 
    
@@ -78,7 +71,9 @@
     </section>
 
     <a href="../menu/crearPlato">Crear plato</a>
+    <!--<a href="#" id="download-csv-link" class="button">Descargar CSV</a>-->
 
+    <!--Aca iria el nav contenedor-links que ya tiene su estilo, para generar la paginación items->
   </main>
 
   <!--FOOTER-->
