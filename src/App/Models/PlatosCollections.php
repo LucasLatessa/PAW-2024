@@ -28,18 +28,18 @@ class PlatosCollections extends Model{
         return $plato;
     }
 
-    public function getPlato($id){
+    // public function getPlato($id){
 
-        $platoData = $this->queryBuilder->selectViejo($this->table, ['id' => $id]);
+    //     $platoData = $this->queryBuilder->selectViejo($this->table, ['id' => $id]);
 
-        if ($platoData) {
-            $plato = new Plato;
-            $plato->set($platoData);
-            return $plato;
-        } else {
-            return null; // O maneja el caso cuando no se encuentra el plato
-        }
-    }
+    //     if ($platoData) {
+    //         $plato = new Plato;
+    //         $plato->set($platoData);
+    //         return $plato;
+    //     } else {
+    //         return null; // O maneja el caso cuando no se encuentra el plato
+    //     }
+    // }
 
     /* usada antes para mostrar todo sin filtro, consulta general. Anda
     public function getItems($params = [])
@@ -61,4 +61,20 @@ class PlatosCollections extends Model{
         return $this->queryBuilder->count('plato', $params);
     }
 
+    public function create($nombre, $descripcion, $precio, $imagen)
+    {
+        $newPlato = new Plato;
+        $data = [
+            'nombre' => $nombre,
+            'descripcion' => $descripcion,
+            'precio' => $precio,
+            'imagen' => $imagen
+        ];
+
+        $newPlato->setQueryBuilder($this->queryBuilder);
+        $newPlato->set($data);
+
+        $this->queryBuilder->insert($this->table,$data);
+        return $newPlato;
+    }
 }

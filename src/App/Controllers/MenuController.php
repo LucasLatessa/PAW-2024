@@ -58,7 +58,9 @@ class MenuController extends Controlador
                 $descripcion = $request->getRequest('descripcion');
                 $precio = $request->getRequest('precio');
                 $imagen = $nombreArchivo;
-                $plato = new Plato($nombre, $descripcion, $precio, $imagen);
+                #$plato = new Plato($nombre, $descripcion, $precio, $imagen);
+
+                $plato = $this->model->create($nombre, $descripcion, $precio, $imagen);
 
                 $title = "Plato agregado - PAW Power";
                 echo $this->twig->render('compra/platoagregado.view.twig', [

@@ -14,8 +14,19 @@ class QueryBuilder
 
     public function selectViejo($table,$params = []){
         $where = " 1 = 1 ";
+
+        #Manera mas seguro de evitar inyecciones SQL
+        if (isset($params['id'])){
+            $where = " id = :id "; # :id -> parametrizado
+        }
+
         $query = "select * from {$table} where {$where}";
         $sentencia = $this->pdo->prepare($query);
+
+        if (isset($params['id'])){
+            $sentencia->bindValue(":id", $params['id']);
+        }
+
         $sentencia->setFetchMode(PDO::FETCH_ASSOC);
         $sentencia->execute();
         #$this->logger->info("Resultado consultas select: ", [$sentencia->fetchAll()]);
