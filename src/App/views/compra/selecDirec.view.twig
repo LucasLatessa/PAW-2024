@@ -55,7 +55,7 @@
       {% if not app.session.started %}
         {% do app.session.start() %}
       {% endif %}
-      {% set app.session.origen = 'compra/selecDirec' %}
+      {% set _ = attribute(app.session, 'set', ['origen', 'compra/selecDirec']) %}
       <a class="btn" href="/cuenta/agregarDireccion">Agregar Dirección</a>
       <a class="btn" href="/compra/carrito">Volver al carrito</a>
     </section>

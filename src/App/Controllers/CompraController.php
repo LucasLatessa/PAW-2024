@@ -5,18 +5,25 @@ namespace Paw\App\Controllers;
 use Paw\App\Models\Reserva;
 use Paw\App\Models\Carrito;
 use Paw\Core\Controlador;
+use Paw\Core\Request;
+
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
 
 class CompraController extends Controlador
 {
     public string $viewsDir; #Direccion a la vista indicada
+    private $twig;
+
     public function __construct()
     {
         parent::__construct();
-    }
-
-    private function validarCarrito($nombre, $descripcion, $precio, $notas, $cantidad)
-    {
-        if (empty($nombre) || empty($Descripcion) || empty($Precio) || empty($Notas) || empty($Cantidad)) {
+        $loader = new FilesystemLoader(__DIR__ . '/../../App/views');
+        $this->twig = new Environment($loader);
+}
+    
+    private function validarCarrito($nombre,$descripcion,$precio, $notas, $cantidad){
+        if (empty($nombre) || empty($Descripcion) || empty($Precio) || empty($Notas) || empty($Cantidad)){            
             throw new \InvalidArgumentException("Nombre, imagen, descripción y precio son campos requeridos.");
         }
         return true;
@@ -24,28 +31,24 @@ class CompraController extends Controlador
 
 
 
-    public function selecLoc()
-    {
-        // Obtener la solicitud HTTP actual
-        $request = Request::createFromGlobals();
-
-        // Verificar si se ha enviado el campo del local en el formulario
-        if (empty($request->request->get('local'))) {
-            // Si el campo del local está vacío, renderizar la vista de selección de local con un mensaje de error
-            $data = [
-                'title' => "Agregar Reserva - PAW Power",
-                'errorMessage' => 'Por favor, seleccione un local.',
-            ];
-            echo $this->twig->render('compra/selecLoc.view.twig', $data);
-        } else {
-            // Si el campo del local no está vacío, obtener el local y renderizar la vista del carrito
-            $local = $request->request->get('local');
-            $data = [
-                'title' => "Carrito - PAW Power",
-                'local' => $local,
-            ];
-            echo $this->twig->render('compra/carrito.view.twig', $data);
-        }
+    public function selecLoc($postData)
+{
+    // Verificar si se ha enviado el campo del local en el formulario
+    if (empty($postData['local'])) {
+        // Si el campo del local está vacío, renderizar la vista de selección de local con un mensaje de error
+        $data = [
+            'title' => "Agregar Reserva - PAW Power",
+            'errorMessage' => 'Por favor, seleccione un local.',
+        ];
+        echo $this->twig->render('compra/selecLoc.view.twig', $data);
+    } else {
+        // Si el campo del local no está vacío, obtener el local y renderizar la vista del carrito
+        $local = $postData['local'];
+        $data = [
+            'title' => "Carrito - PAW Power",
+            'local' => $local,
+        ];
+        echo $this->twig->render('compra/carrito.view.twig', $data);
     }
     public function selecDirec(Request $request)
     {
