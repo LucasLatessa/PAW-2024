@@ -3,25 +3,50 @@
 namespace Paw\App\Models;
 
 use Paw\Core\Model;
-use Paw\App\Models\Carrito; 
+use Paw\App\Models\Carrito;
 
 class CarritoCollections extends Model{
 
     public $table = 'carrito';
 
-    public function getAll(){
+    public function getAll($idSesion){
+        $carritos = $this->queryBuilder->selectViejo($this->table, ['idSesion' => $idSesion]);
+        $carritoCollection = [];
 
+        $platosCollection = new PlatosCollections;
+
+        foreach($carritos as $carrito){
+            $nuevoCarrito = new Carrito;
+            $nuevoCarrito->set($carrito);
+
+            #var_dump($nuevoCarrito->getIdPlato());
+
+            #$plato = $this->getPlato($nuevoCarrito->getIdPlato());
+
+
+            // Obtén los detalles del plato asociado al carrito
+            #$plato = $platosCollection->get($nuevoCarrito->getIdPlato());
+            #$nuevoCarrito->plato = $plato; // Asigna los detalles del plato al carrito
+            $carritoCollection[] = $nuevoCarrito;
+        }
+        return $carritoCollection;
     }
 
-    public function get(){
-        
+    public function get($idSesion){
+        $carrito = new Carrito;
     }
 
-    public function create($id_producto, $aclaraciones,$cantidad, $idSesion){
+    public function getPlato($id_producto){
+        $platosCollection = new PlatosCollections;
+        $plato = $platosCollection->get($id_producto);
+        #return $plato;
+    }
+
+    public function create($idPlato, $aclaraciones,$cantidad, $idSesion){
         $newCarrito = new Carrito;
 
         $data = [
-            'id_producto' => $id_producto,
+            'idPlato' => $idPlato,
             'aclaraciones' => $aclaraciones,
             'cantidad' => $cantidad,
             'idSesion' => $idSesion,
@@ -32,5 +57,10 @@ class CarritoCollections extends Model{
 
         $this->queryBuilder->insert($this->table, $data);
         return $newCarrito;
+    }
+
+    public function borrar($idPedido)
+    {
+        $this->queryBuilder->delete($this->table, ['id' => $idPedido]);
     }
 }

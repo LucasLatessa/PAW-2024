@@ -27,4 +27,17 @@ class PlatosCollections extends Model{
         $plato->load($id);
         return $plato;
     }
+
+    public function getPlato($id){
+
+        $platoData = $this->queryBuilder->selectViejo($this->table, ['id' => $id]);
+
+        if ($platoData) {
+            $plato = new Plato;
+            $plato->set($platoData);
+            return $plato;
+        } else {
+            return null; // O maneja el caso cuando no se encuentra el plato
+        }
+    }
 }

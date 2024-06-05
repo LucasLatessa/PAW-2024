@@ -3,6 +3,7 @@
 namespace Paw\App\Controllers;
 use Paw\App\Models\CarritoCollections;
 use Paw\App\Models\Pedido;
+use Paw\App\Models\PlatosCollections;
 use Paw\Core\Controlador;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
@@ -71,7 +72,7 @@ class PedidoController extends Controlador {
     public function crearPedido(){
         global $request;
 
-        $id_producto = $request->get('id');
+        $idPlato = $request->get('id');
 
         $aclaraciones = $request->get('aclaracionesPedir');
 
@@ -80,11 +81,50 @@ class PedidoController extends Controlador {
         session_start();
         $idSesion = session_id();
 
-        $this->model->create($id_producto, $aclaraciones,$cantidad, $idSesion);
+        $this->model->create($idPlato, $aclaraciones,$cantidad, $idSesion);
 
         $title = "Pedido agregado - PAW Power";
 
         echo $this->twig->render('cuenta/perfil.view.twig', ['title' => $title]);
         
+    }
+
+    public function carrito()
+    {
+        global $request;
+        $title = 'Carrito - PAW Power';
+
+        session_start();
+        $idSesion = session_id();
+
+        $carrito = $this->model->getAll($idSesion);
+
+        #$carrito->get();
+
+        #var_dump($carrito);
+
+        echo $this->twig->render('compra/carrito.view.twig', [
+            'title' =>  $title,
+            'carrito' => $carrito,
+            'rutasMenuBurger' => $this->rutasMenuBurger,
+            'rutasLogoHeader' => $this->rutasLogoHeader, 
+            'rutasHeaderDer' => $this->rutasHeaderDer, 
+            'rutasFooter' => $this->rutasFooter, 
+        ]);
+    }
+
+    public function borrarProducto(){
+        global $request;
+
+        $id = $request->get('id');
+
+        $this->model->borrar($id);
+
+        echo $this->twig->render('index.view.twig', [
+            'rutasMenuBurger' => $this->rutasMenuBurger,
+            'rutasLogoHeader' => $this->rutasLogoHeader, 
+            'rutasHeaderDer' => $this->rutasHeaderDer, 
+            'rutasFooter' => $this->rutasFooter, 
+        ]);
     }
 }

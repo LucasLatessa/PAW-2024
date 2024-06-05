@@ -21,7 +21,7 @@ final class CreandoTablaCarrito extends AbstractMigration
     {
         $carrito = $this->table('carrito');
         $carrito
-        ->addColumn('id_producto','string', ['limit' => 100])
+        ->addColumn('idPlato','string', ['limit' => 100])
         ->addColumn('idSesion','string', ['limit' => 100])
         ->addColumn('aclaraciones','string', ['limit' => 100])
         ->addColumn('cantidad','integer', ['limit' => 100])

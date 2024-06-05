@@ -4,6 +4,7 @@ namespace Paw\Core;
 
 use Paw\Core\Model;
 use Paw\Core\Database\QueryBuilder;
+use Paw\Core\Traits\Loggable;
 
 class Controlador
 {
@@ -13,6 +14,11 @@ class Controlador
     public array $rutasFooter;
     public array $rutasHeaderDer;
     public array $rutasLogoHeader;
+    protected $model;
+
+    use Loggable;
+
+    public $qb;
 
     public function __construct()
     {
@@ -70,8 +76,10 @@ class Controlador
             ]
         ];
 
+        $qb = new QueryBuilder($connection, $log);
+
         if (!is_null($this->modelName)) {
-            $qb = new QueryBuilder($connection, $log);
+            
             $model = new $this->modelName;
             $model->setQueryBuilder($qb);
             $this->setModel($model);
@@ -81,6 +89,10 @@ class Controlador
     public function setModel(Model $model)
     {
         $this->model = $model;
+    }
+
+    public function getQb(){
+        return $this->qb;
     }
 
     public function getRutasMenuBurger()

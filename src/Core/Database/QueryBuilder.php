@@ -69,7 +69,20 @@ class QueryBuilder
         
     }
 
-    public function delete(){
-        
+    public function delete($table,$params = []){
+        $where = " 1 = 2 ";
+
+        #Manera mas seguro de evitar inyecciones SQL
+        if (isset($params['id'])){
+            $where = " id = :id "; # :id -> parametrizado
+        }
+
+        $query = "delete from {$table} where {$where}";
+        $sentencia = $this->pdo->prepare($query); #Prepara la consulta
+        if (isset($params['id'])){
+            $sentencia->bindValue(":id", $params['id']);
+        }
+        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+        $sentencia->execute();
     }
 }

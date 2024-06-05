@@ -52,6 +52,11 @@ class Carrito extends Model
         return $this->idPlato;
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
     public function setAclaraciones($aclaraciones)
     {
         $this->aclaraciones = $aclaraciones;
@@ -59,7 +64,7 @@ class Carrito extends Model
 
     public function setCantidad($cantidad)
     {
-        $this->aclaraciones = $cantidad;
+        $this->cantidad = $cantidad;
     }
 
     public function setIdPlato($idPlato)

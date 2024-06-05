@@ -60,8 +60,10 @@ $router->get('/compra/menu', 'MenuController@mostrarMenu');
 $router->get('/compra/pedirComida', 'MenuController@pedirComida');
 $router->post('/compra/pedirComida', 'PedidoController@crearPedido');
 
-$router->get('/compra/carrito', 'PageController@carrito');
+$router->get('/compra/carrito', 'PedidoController@carrito');
 $router->post('/compra/carrito', 'CompraController@crearFilaCarrito');
+
+$router->get('/compra/borrarProducto', 'PedidoController@borrarProducto');
 
 $router->get('/compra/confirmarCompra', 'PageController@confirmarCompra');
 $router->post('/compra/confirmarCompra', 'PageController@confirmarCompra');

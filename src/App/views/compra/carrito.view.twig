@@ -28,14 +28,16 @@
             <td>Cantidad</td>
             <td>Borrar</td>
           </tr>
+          {% for producto in carrito %}
           <tr>
-            <td>Nombre</td>
+            <td>{{producto.aclaraciones}}</td>
             <td>Descripcion</td>
             <td>Precio</td>
-            <td>Notas</td>
-            <td>Cantidad</td>
-            <td>Borrar</td>
+            <td>{{producto.aclaraciones}}</td>
+            <td>{{producto.cantidad}}</td>
+            <td><a href="./borrarProducto?id={{ producto.id }}">Borrar</td>
           </tr>
+          {% endfor %}
         </tbody>
       </table>
 
