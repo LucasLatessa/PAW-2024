@@ -49,7 +49,7 @@ class CompraController extends Controlador
             'local' => $local,
         ];
         echo $this->twig->render('compra/carrito.view.twig', $data);
-    }
+    }}
     public function selecDirec(Request $request)
     {
         // Verificar si se ha enviado el campo de dirección en el formulario
