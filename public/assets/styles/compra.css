@@ -76,6 +76,7 @@ article.article-comida, article.article-comida-mes{
   background-color: var(--color-terceario);
   margin: 2rem 2rem;
   box-shadow:  5px 5px 0px #666666;
+  max-width: 31.25rem;
 }
 
 
@@ -99,7 +100,7 @@ article.article-comida-mes{
   grid-area: imagen;
   max-width: 100%; 
   max-height: 15rem; 
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
 }
 
 .pedir-comida{
@@ -123,6 +124,8 @@ article.article-comida-mes{
 .descripcion-comida {
   grid-area: descripcion;
   font-family: "Century Gothic";
+  max-height: 1rem;
+  overflow: hidden;
 }
 
 /* Titulo de la comida */
