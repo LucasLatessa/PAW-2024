@@ -430,46 +430,47 @@ por la caida del codigo */
   color:var(--color-principal);
 }
 
+/* Estilos filtros menu */
 .form-menu-order-cat {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-   /* Ajusta el espacio entre los elementos si es necesario */ 
-   gap: 1rem;
-  margin-top: 8vh;
-  margin-bottom: 4vh;
-  background-color:var(--color-terceario);
-  border-radius: 2vh;
-  padding: 1vh 2vh;
+  gap: 10px; 
+  margin: 0px 10%;
+  padding: 10px; 
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-
-
-.order-options, .filter-options {
+.form-menu-order-cat label {
+  font-weight: bold;
+  margin-right: 5px;
   display: flex;
-  align-items: center; /* Alinea los elementos verticalmente */
-  justify-content: center; /* Centra los elementos horizontalmente */
-  gap: 1rem;
-  
-  /* Ajusta el espacio entre los elementos dentro de cada div si es necesario */
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.order-options select, .filter-options select, 
-.filter-options input {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+.form-menu-order-cat input[type="number"],
+.form-menu-order-cat select {
+  padding: 5px; 
+  margin: 0; 
   border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 120px; 
 }
 
-.filter-options label {
-  margin-right: 0.5rem;
-}
-
-#filtrar {
-  padding: 0.5rem 1rem;
+.form-menu-order-cat button {
+  padding: 5px 15px;
+  background-color: #f9a825;
+  color: #fff;
   border: none;
-  background-color: var(--color-principal);
-  color:var(--color-letras);
-  border-radius: 0.5rem;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-menu-order-cat button:hover {
+  background-color: #f57f17;
 }

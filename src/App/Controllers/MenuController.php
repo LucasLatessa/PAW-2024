@@ -97,33 +97,30 @@ class MenuController extends Controlador
         ]);
     }*/
 
-    public function mostrarMenu()
-    {
-        $title = 'Menu - PAW Power';
-        // Obtener los valores de "sort" y "direction" de la cadena de consulta
-        $sort = isset($_GET['sort']) ? $_GET['sort'] : null;
-        $direction = isset($_GET['direction']) ? $_GET['direction'] : null;
-         // Obtener los valores de "min_price" y "max_price" de la cadena de consulta
-        $minPrecio = isset($_GET['min_price']) && $_GET['min_price'] !== '' ? (int)$_GET['min_price'] : null;
-        $maxPrecio = isset($_GET['max_price']) && $_GET['max_price'] !== '' ? (int)$_GET['max_price'] : null;
-        
-        
-        $menu = $this->model->getItems($sort,$direction,$minPrecio,$maxPrecio);
-        
-        //$menu = $this->model->getAll();
+    public function mostrarMenu(){
+    $title = 'Menu - PAW Power';
+    $sort = isset($_GET['sort']) ? $_GET['sort'] : null;
+    $direction = isset($_GET['direction']) ? $_GET['direction'] : null;
+    $minPrecio = isset($_GET['min_price']) && $_GET['min_price'] !== '' ? (int)$_GET['min_price'] : null;
+    $maxPrecio = isset($_GET['max_price']) && $_GET['max_price'] !== '' ? (int)$_GET['max_price'] : null;
 
-        $comida_mes = $this->model->get("1");
-      
-        echo $this->twig->render('compra/menu.view.twig',[
-            'title' =>  $title,
-            'menu' =>  $menu,
-            'comida_mes' => $comida_mes,
-            'rutasMenuBurger' => $this->rutasMenuBurger,
-            'rutasLogoHeader' => $this->rutasLogoHeader, 
-            'rutasHeaderDer' => $this->rutasHeaderDer, 
-            'rutasFooter' => $this->rutasFooter
-        ]);
+    $menu = $this->model->getItems($sort, $direction, $minPrecio, $maxPrecio);
+    $comida_mes = $this->model->get("1");
+
+    if ($comida_mes && (empty($comida_mes->nombre) || empty($comida_mes->imagen) || empty($comida_mes->descripcion) || empty($comida_mes->precio))) {
+        $comida_mes = null;
     }
+
+    echo $this->twig->render('compra/menu.view.twig', [
+        'title' => $title,
+        'menu' => $menu,
+        'comida_mes' => $comida_mes,
+        'rutasMenuBurger' => $this->rutasMenuBurger,
+        'rutasLogoHeader' => $this->rutasLogoHeader,
+        'rutasHeaderDer' => $this->rutasHeaderDer,
+        'rutasFooter' => $this->rutasFooter
+    ]);
+}
 
    
     public function descargarMenuCSV() {
