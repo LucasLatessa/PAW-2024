@@ -31,11 +31,11 @@ class UsuarioController extends Controlador{
         $validarcontraseña = $request->getRequest("validarContraseña");
 
     if($contraseña == $validarcontraseña){
-        $usuario = $this->model->create($nombre,$apellido, $email, $contraseña);
+        $contraHash = password_hash($request->getRequest("contraseña"),PASSWORD_DEFAULT);
+        $usuario = $this->model->create($nombre,$apellido, $email, $contraHash);
         $resultado = "¡Cuenta creada!";
-        header('Location: /cuenta/perfil');
+        header('Location: /');
         exit();
-
         
     }else{
         $errorMessage = "Las contranseñas no coinciden"; 
@@ -52,18 +52,6 @@ class UsuarioController extends Controlador{
     
     }
 
-    #Funcion privada que busca dentro de mi JSON si existe un usuario
-    private function buscadorUsuarios($misUsuarios,$email,$contraseña){
-        $usuarioEncontrado = false;
-        foreach ($misUsuarios['usuarios'] as $usuario) {
-            if ($usuario['email'] === $email && $usuario['contraseña'] === $contraseña) {
-                $usuarioEncontrado = true;
-                break;
-            }
-        }
-        return $usuarioEncontrado;
-    }
-
     #Login
     public function login(){
         global $request;
@@ -71,33 +59,37 @@ class UsuarioController extends Controlador{
         #Obtengo los datos de la peticion
         $email = $request->getRequest("email");
         $contraseña = $request->getRequest("contraseña");
-        
-        #Obtengo los datos de todos los usuarios para corrobar que exista
+        var_dump($email);
 
-        #Validacion de correo "Solo formato a@a.com"
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errorMessage = "Email invalido!";
-            $title = "Login" . ' - PAW Power';
-            echo $this->twig->render('cuenta/login.view.twig', [
-                'title' => $title,
-                'errorMessage' => $errorMessage
-            ]);
+        #Obtengo los datos de la BD par aver si existe
+        $usuario = $this->model->get($email);
 
-        #Reviso que exista dentro del sistema
-        }elseif (empty($this->getUsuario($email,$contraseña))){
+        #Compruebo que exista en el sistema
+        var_dump($usuario);
+        #var_dump($usuario->getContraseña());
+        if ($usuario && password_verify($contraseña,$usuario->getContraseña())){
+            // Iniciar sesión
+            session_start();
+            $_SESSION['login'] = true;
+            $_SESSION['username'] = $usuario->getCorreo(); // Guardar otros datos de usuario si es necesario
+
+            // Redirigir al perfil del usuario u otra página protegida
+            header('Location: /cuenta/perfil');
+            exit();
+        } else {
             $errorMessage = "Credenciales incorrectas";
             $title = "Login" . ' - PAW Power';
             echo $this->twig->render('cuenta/login.view.twig', [
                 'title' => $title,
-                'errorMessage' => $errorMessage
+                'errorMessage' => $errorMessage,
+                'rutasMenuBurger' => $this->rutasMenuBurger,
+                'rutasLogoHeader' => $this->rutasLogoHeader, 
+                'rutasHeaderDer' => $this->rutasHeaderDer, 
+                'rutasFooter' => $this->rutasFooter,
             ]);
-        } else {
-            $this->sesionLogeo();
         }
-
-        #Faltaria agregar validaciones con la BD para comprobar que existe esa instancia
-
     }
+    
     public function logout(){        
         global $request;
         session_start();
@@ -230,15 +222,6 @@ class UsuarioController extends Controlador{
             $title = "Agregar Dirección - PAW Power";
             echo $this->twig->render(__DIR__ . '/../views/cuenta/agregarDireccion.view.twig', ['title' => $title]);
         }
-    }
-
-    public function getUsuario($email,$contraseña){
-        $usuarioEmail = $email;
-        $usuarioContraseña = $contraseña;
-
-        $usuario = $this->model->get($usuarioEmail,$usuarioContraseña);
-        return $usuario;
-
     }
 
 }

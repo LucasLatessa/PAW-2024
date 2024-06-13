@@ -20,11 +20,10 @@ final class PrimeraTablaUsuario extends AbstractMigration
     public function change(): void
     {
         $usuario = $this->table('usuario');
-        $usuario
-        ->addColumn('nombre','string', ['limit' => 60])
-        ->addColumn('apellido','string', ['limit' => 60])
-        ->addColumn('correo','string',['limit' => 60])
-        ->addColumn('contraseña','string')
-        ->create();
+        $usuario->addColumn('nombre', 'string', ['limit' => 60])
+                ->addColumn('apellido', 'string', ['limit' => 60])
+                ->addColumn('correo', 'string', ['limit' => 60])
+                ->addColumn('contraseña', 'string')
+                ->create();
     }
 }

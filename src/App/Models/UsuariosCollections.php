@@ -22,22 +22,21 @@ class UsuariosCollections extends Model
         return $usuariosCollection;
     }
 
-    public function get($usuarioEmail, $usuarioContraseña)
+    public function get($correo)
     {
-        $usuario = new Usuario;
-        $usuario->setQueryBuilder($this->queryBuilder);
-
-        $usuario->load($usuarioEmail, $usuarioContraseña);
-        if (empty($usuario->getCorreo())) {
-            return "";
-        } else
+        $usuarioData = $this->queryBuilder->selectViejo($this->table, ['correo' => $correo]);
+        var_dump($usuarioData);
+        if ($usuarioData) {
+            // Creo instancia de Usuario
+            $usuario = new Usuario();
+            $usuario->set($usuarioData[0]); // Cargar datos en el modelo Usuario
+            var_dump($usuario);
+            var_dump("aca");
             return $usuario;
-
+        }
+        var_dump("Nulo");
+        return null;
     }
-
-
-
-
 
     public function create($nombre, $apellido, $correo, $contraseña)
     {

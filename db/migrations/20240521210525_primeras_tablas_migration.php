@@ -23,6 +23,7 @@ final class PrimerasTablasMigration extends AbstractMigration
         $plato->addColumn('nombre','string', ['limit' => 60])
         ->addColumn('descripcion','string', ['limit' => 200])
         ->addColumn('precio','integer', ['limit' => 60])
+        ->addColumn('imagen','string', ['limit' => 100])
         ->create();
     }
 }

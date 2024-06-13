@@ -33,36 +33,36 @@ class QueryBuilder
         return  $sentencia->fetchAll(); 
     }
 
-    public function select($table, $params = []){
+    // public function select($table, $params = []){
 
-        $where = " 1 = 1 "; #Para que devuelva todo si no hay parametros
-        if (isset($params['id'])){
-            $where = " id = :id ";
-        }
-        else if((isset($params['correo'])) and (isset($params['contraseña']))){
-            $where = " correo = :correo AND contraseña = :contraseña ";
-        }
-        #Preparo la consulta
-        #$query = "select * from {$table} where {$where}"; no funciona
-        $query = "select * from {$table} where correo = '{$params['correo']}' and contraseña = '{$params['contraseña']}'";
-        $sentencia = $this->pdo->prepare($query);
+    //     $where = " 1 = 1 "; #Para que devuelva todo si no hay parametros
+    //     if (isset($params['id'])){
+    //         $where = " id = :id ";
+    //     }
+    //     else if((isset($params['correo'])) and (isset($params['contraseña']))){
+    //         $where = " correo = :correo AND contraseña = :contraseña ";
+    //     }
+    //     #Preparo la consulta
+    //     #$query = "select * from {$table} where {$where}"; no funciona
+    //     $query = "select * from {$table} where correo = '{$params['correo']}' and contraseña = '{$params['contraseña']}'";
+    //     $sentencia = $this->pdo->prepare($query);
         
 
-        #Si exxiste el id, se lo agrego al where
-        /*if (isset($params['id'])){
-            $sentencia->bindValue(":id", $params['id']);
-        }
-        else if((isset($params['correo'])) and (isset($params['contraseña']))){
+    //     #Si exxiste el id, se lo agrego al where
+    //     /*if (isset($params['id'])){
+    //         $sentencia->bindValue(":id", $params['id']);
+    //     }
+    //     else if((isset($params['correo'])) and (isset($params['contraseña']))){
             
-            $sentencia->bindValue(":correo", $params['correo']);
-            $sentencia->bindValue(":contraseña", $params['contraseña']);
-        }*/
-        $sentencia->setFetchMode(PDO::FETCH_ASSOC); #Como me retorna todo el array de respuesta FETCH_ASSOC: trae nombre de las columnas
-        $sentencia->execute();
+    //         $sentencia->bindValue(":correo", $params['correo']);
+    //         $sentencia->bindValue(":contraseña", $params['contraseña']);
+    //     }*/
+    //     $sentencia->setFetchMode(PDO::FETCH_ASSOC); #Como me retorna todo el array de respuesta FETCH_ASSOC: trae nombre de las columnas
+    //     $sentencia->execute();
         
-        return  $sentencia->fetchAll(); #Me devuelve todos los registros que coincidan
+    //     return  $sentencia->fetchAll(); #Me devuelve todos los registros que coincidan
 
-    }
+    // }
 
     /** Para el ordenamiento y filtrado de items  */
 

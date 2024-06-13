@@ -90,7 +90,10 @@ class PedidoController extends Controlador {
 
         $idSesion = session_id();
 
-        $this->model->create($idPlato, $aclaraciones,$cantidad, $idSesion);
+        // Obtener el ID del usuario actualmente autenticado
+        $idUsuario = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
+
+        $this->model->create($idPlato, $aclaraciones,$cantidad, $idSesion, $idUsuario);
 
         #$title = "Pedido agregado - PAW Power";
 

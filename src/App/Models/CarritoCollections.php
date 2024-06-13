@@ -20,9 +20,9 @@ class CarritoCollections extends Model{
             $nuevoCarrito = new Carrito;
             $nuevoCarrito->set($carrito);
 
-            // Obtén los detalles del plato asociado al carrito
+            // Detalles del plato asociado al carrito
             $plato = $platosCollection->get($nuevoCarrito->getIdPlato());
-            $nuevoCarrito->plato = $plato; // Asigna los detalles del plato al carrito
+            $nuevoCarrito->plato = $plato;
             $carritoCollection[] = $nuevoCarrito;
         }
         return $carritoCollection;
@@ -38,7 +38,7 @@ class CarritoCollections extends Model{
         #return $plato;
     }
 
-    public function create($idPlato, $aclaraciones,$cantidad, $idSesion){
+    public function create($idPlato, $aclaraciones,$cantidad, $idSesion, $idUsuario){
         $newCarrito = new Carrito;
 
         $data = [
@@ -46,6 +46,7 @@ class CarritoCollections extends Model{
             'aclaraciones' => $aclaraciones,
             'cantidad' => $cantidad,
             'idSesion' => $idSesion,
+            'idUsuario' => $idUsuario,
         ];
 
         $newCarrito->setQueryBuilder($this->queryBuilder);

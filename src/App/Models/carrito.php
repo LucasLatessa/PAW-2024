@@ -12,6 +12,8 @@ class Carrito extends Model
 
     private string $id;
 
+    private $idUsuario; // Agregar propiedad para el ID del usuario
+
     private int $idPlato;
 
     private string $idSession;
@@ -63,6 +65,11 @@ class Carrito extends Model
         return $this->plato;
     }
 
+    public function getIdUsuario()
+    {
+        return $this->idUsuario;
+    }
+
     public function setAclaraciones($aclaraciones)
     {
         $this->aclaraciones = $aclaraciones;
@@ -91,6 +98,11 @@ class Carrito extends Model
     public function setPlato($plato)
     {
         $this->plato = $plato;
+    }
+
+    public function setIdUsuario($idUsuario)
+    {
+        $this->idUsuario = $idUsuario;
     }
 
     #Para aplicar todos los seters junto con sus validaciones
