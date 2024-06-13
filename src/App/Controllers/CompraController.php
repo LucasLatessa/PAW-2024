@@ -20,7 +20,7 @@ class CompraController extends Controlador
         parent::__construct();
         $loader = new FilesystemLoader(__DIR__ . '/../../App/views');
         $this->twig = new Environment($loader);
-}
+    }
     
     private function validarCarrito($nombre,$descripcion,$precio, $notas, $cantidad){
         if (empty($nombre) || empty($Descripcion) || empty($Precio) || empty($Notas) || empty($Cantidad)){            
@@ -50,6 +50,7 @@ class CompraController extends Controlador
         ];
         echo $this->twig->render('compra/carrito.view.twig', $data);
     }
+}
     public function selecDirec(Request $request)
     {
         // Verificar si se ha enviado el campo de dirección en el formulario
@@ -92,5 +93,6 @@ class CompraController extends Controlador
 
         #No nos conviene realizarlo porque al final vamos a terminar cambiando todo porque implica BD
     }
+    
 
 }
