@@ -71,9 +71,10 @@ class UsuarioController extends Controlador{
             // Iniciar sesión
             session_start();
             $_SESSION['login'] = true;
-            $_SESSION['username'] = $usuario->getCorreo(); // Guardar otros datos de usuario si es necesario
+            $_SESSION['username'] = $usuario->getCorreo();
+            $_SESSION['usuario_id'] = $usuario->getId(); 
 
-            // Redirigir al perfil del usuario u otra página protegida
+            // Redirigir al perfil del usuario
             header('Location: /cuenta/perfil');
             exit();
         } else {

@@ -30,8 +30,8 @@ class UsuariosCollections extends Model
             // Creo instancia de Usuario
             $usuario = new Usuario();
             $usuario->set($usuarioData[0]); // Cargar datos en el modelo Usuario
-            var_dump($usuario);
-            var_dump("aca");
+            //var_dump($usuario);
+            //var_dump("aca");
             return $usuario;
         }
         var_dump("Nulo");

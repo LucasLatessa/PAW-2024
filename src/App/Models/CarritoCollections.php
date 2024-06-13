@@ -9,8 +9,8 @@ class CarritoCollections extends Model{
 
     public $table = 'carrito';
 
-    public function getAll($idSesion){
-        $carritos = $this->queryBuilder->selectViejo($this->table, ['idSesion' => $idSesion]);
+    public function getAll($idSesion,$idUsuario){
+        $carritos = $this->queryBuilder->selectViejo($this->table, ['idSesion' => $idSesion, 'idUsuario' => $idUsuario]);
         $carritoCollection = [];
 
         $platosCollection = new PlatosCollections();
@@ -60,4 +60,5 @@ class CarritoCollections extends Model{
     {
         $this->queryBuilder->delete($this->table, ['id' => $idPedido]);
     }
+
 }
