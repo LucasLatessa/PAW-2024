@@ -42,7 +42,11 @@ class UsuarioController extends Controlador{
         $title = "Registrarse" . ' - PAW Power';
         echo $this->twig->render('cuenta/registrarse.view.twig', [
             'title' => $title,
-            'errorMessage' => $errorMessage
+            'errorMessage' => $errorMessage,
+            'rutasMenuBurger' => $this->rutasMenuBurger,
+            'rutasLogoHeader' => $this->rutasLogoHeader, 
+            'rutasHeaderDer' => $this->rutasHeaderDer, 
+            'rutasFooter' => $this->rutasFooter, 
         ]);
     }
     
@@ -201,6 +205,7 @@ class UsuarioController extends Controlador{
         header('Location: /cuenta/perfil');
         exit();
     }
+
     #Crear/Agregar direccion
     public function crearDireccion() {
         global $request;

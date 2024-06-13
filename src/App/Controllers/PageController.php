@@ -157,7 +157,7 @@ class PageController extends Controlador
         session_start();
         $title = 'Login - PAW Power';
         if (!isset($_SESSION['login'])) {
-            $_SESSION['login'] = "";
+             $_SESSION['login'] = "";
         }
 
         $hayLogin = $_SESSION['login'];

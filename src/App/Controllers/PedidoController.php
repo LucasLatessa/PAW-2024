@@ -70,6 +70,16 @@ class PedidoController extends Controlador {
     // }
 
     public function crearPedido(){
+
+        session_start();
+
+        // Verificar si el usuario está logueado
+        if (!isset($_SESSION['login'])) {
+            // Si no está logueado, redirigir al login
+            header('Location: /cuenta/login');
+            exit();
+        }
+
         global $request;
 
         $idPlato = $request->get('id');
@@ -78,12 +88,11 @@ class PedidoController extends Controlador {
 
         $cantidad = $request->getRequest('cantidadHamburguesa');
 
-        session_start();
         $idSesion = session_id();
 
         $this->model->create($idPlato, $aclaraciones,$cantidad, $idSesion);
 
-        $title = "Pedido agregado - PAW Power";
+        #$title = "Pedido agregado - PAW Power";
 
         // Redirigir a la URL del carrito después de crear el pedido
         header('Location: /compra/carrito');
@@ -100,11 +109,8 @@ class PedidoController extends Controlador {
         session_start();
         $idSesion = session_id();
 
+        // Obtener el carrito para la sesión actual
         $carrito = $this->model->getAll($idSesion);
-
-        #$carrito->get();
-
-        #var_dump($carrito);
 
         echo $this->twig->render('compra/carrito.view.twig', [
             'title' =>  $title,

@@ -30,9 +30,9 @@
           </tr>
           {% for producto in carrito %}
           <tr>
-            <td>{{producto.aclaraciones}}</td>
-            <td>Descripcion</td>
-            <td>Precio</td>
+            <td>{{producto.plato.nombre}}</td>
+            <td>{{producto.plato.descripcion}}</td>
+            <td>{{producto.plato.precio}}</td>
             <td>{{producto.aclaraciones}}</td>
             <td>{{producto.cantidad}}</td>
             <td><a href="./borrarProducto?id={{ producto.id }}">Borrar</td>

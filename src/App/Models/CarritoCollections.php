@@ -13,20 +13,16 @@ class CarritoCollections extends Model{
         $carritos = $this->queryBuilder->selectViejo($this->table, ['idSesion' => $idSesion]);
         $carritoCollection = [];
 
-        $platosCollection = new PlatosCollections;
+        $platosCollection = new PlatosCollections();
+        $platosCollection->setQueryBuilder($this->queryBuilder); // Pasar el QueryBuilder a PlatosCollections
 
         foreach($carritos as $carrito){
             $nuevoCarrito = new Carrito;
             $nuevoCarrito->set($carrito);
 
-            #var_dump($nuevoCarrito->getIdPlato());
-
-            #$plato = $this->getPlato($nuevoCarrito->getIdPlato());
-
-
             // Obtén los detalles del plato asociado al carrito
-            #$plato = $platosCollection->get($nuevoCarrito->getIdPlato());
-            #$nuevoCarrito->plato = $plato; // Asigna los detalles del plato al carrito
+            $plato = $platosCollection->get($nuevoCarrito->getIdPlato());
+            $nuevoCarrito->plato = $plato; // Asigna los detalles del plato al carrito
             $carritoCollection[] = $nuevoCarrito;
         }
         return $carritoCollection;
