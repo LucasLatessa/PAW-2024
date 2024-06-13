@@ -21,6 +21,7 @@ class QueryBuilder
                 case 'id':
                 case 'idUsuario':
                 case 'idSesion':
+                case 'id_pedido':
                     $where[] = "$key = :$key";
                     $bindParams[":$key"] = $value;
                     break;

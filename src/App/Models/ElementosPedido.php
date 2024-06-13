@@ -6,19 +6,19 @@ use Paw\Core\Model;
 
 class ElementosPedido extends Model
 {
-    private $idPlato;
+    private $id_plato;
     private $cantidad;
     private $aclaraciones;
 
-    public function __construct($idPlato,$cantidad,$aclaraciones){
+    public function __construct($idPlato = null,$cantidad = null,$aclaraciones = null){
         $this->$idPlato = $idPlato;
         $this->$cantidad = $cantidad;
         $this->$aclaraciones = $aclaraciones;
     }
 
-    public function getIdPlato()
+    public function getId_plato()
     {
-        return $this->idPlato;
+        return $this->id_plato;
     }
 
     public function getCantidad()
@@ -32,9 +32,9 @@ class ElementosPedido extends Model
     }
 
 
-    public function setIdPlato($idPlato)
+    public function setId_plato($id_plato)
     {
-        $this->idPlato = $idPlato;
+        $this->id_plato = $id_plato;
     }
 
     public function setCantidad($cantidad)

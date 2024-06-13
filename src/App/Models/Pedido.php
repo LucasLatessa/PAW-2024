@@ -10,7 +10,7 @@ class Pedido extends Model
     private $table = 'pedidos';
     private $id;
     private $idUsuario;
-    private $fechaHora;
+    private $fecha_pedido;
     private $elementos = [];
 
     public function getId()
@@ -23,9 +23,9 @@ class Pedido extends Model
         return $this->idUsuario;
     }
 
-    public function getFechaHora()
+    public function getFecha_pedido()
     {
-        return $this->fechaHora;
+        return $this->fecha_pedido;
     }
 
     public function getElementos()
@@ -44,15 +44,22 @@ class Pedido extends Model
     }
 
 
-    public function setFechaHora($fechaHora)
+    public function setFecha_pedido($fecha_pedido)
     {
-        $this->fechaHora = $fechaHora;
+        $this->fecha_pedido = $fecha_pedido;
     }
 
     public function agregarElemento($idPlato, $cantidad, $aclaraciones)
     {
         $elemento = new ElementosPedido($idPlato,$cantidad,$aclaraciones);
         $this->elementos[] = $elemento;
+    }
+
+    public function agregarElementoArray($elemento)
+    {
+        $nuevoElemento = new ElementosPedido();
+        $nuevoElemento->set($elemento);
+        $this->elementos[] = $nuevoElemento;
     }
 
     #Para aplicar todos los seters junto con sus validaciones

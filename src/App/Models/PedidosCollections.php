@@ -17,11 +17,11 @@ class PedidosCollections extends Model{
 
         $pedido = new Pedido();
         $pedido->setIdUsuario($idUsuario);
-        $pedido->setFechaHora(date('Y-m-d H:i:s'));
+        $pedido->setFecha_pedido(date('Y-m-d H:i:s'));
 
         $data = [
             'idUsuario' => $pedido->getIdUsuario(),
-            'fecha_pedido' => $pedido->getFechaHora(),
+            'fecha_pedido' => $pedido->getFecha_pedido(),
         ];
         
         $idPedido = $this->queryBuilder->insert($this->table, $data);
@@ -41,8 +41,25 @@ class PedidosCollections extends Model{
         return $pedido;
     }
 
-    // public function getAll()
-    // {
-    //     $pedido = $this->quer
-    // }
+    public function getAll()
+    {
+        $pedidos = $this->queryBuilder->selectViejo($this->table);
+        $pedidoCollections = [];
+
+        foreach($pedidos as $pedido)
+        {
+            $nuevoPedido = new Pedido();
+            $nuevoPedido->set($pedido);
+
+            $elementos = $this->queryBuilder->selectViejo($this->tableElementos_pedido,['id_pedido' => $nuevoPedido->getId()]);
+
+            foreach($elementos as $elemento)
+            {
+                $nuevoPedido->agregarElementoArray($elemento);
+            }
+            $pedidoCollections[] = $nuevoPedido;
+        }
+
+        return $pedidoCollections;
+    }
 }

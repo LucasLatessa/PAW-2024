@@ -20,12 +20,13 @@ class PedidoController extends Controlador {
 
     public function verConsumos()
     {
-        #$pedidos = $this->model->getPedidos();
+        $pedidos = $this->model->getAll();
 
+        //var_dump($pedidos);
         $title = 'Gestion de consumo - PAW Power';
         echo $this->twig->render('cuenta/consumos.view.twig', [
             'title' =>  $title,
-            #'pedidos' => $pedidos,
+            'pedidos' => $pedidos,
             'rutasMenuBurger' => $this->rutasMenuBurger,
             'rutasLogoHeader' => $this->rutasLogoHeader, 
             'rutasHeaderDer' => $this->rutasHeaderDer, 

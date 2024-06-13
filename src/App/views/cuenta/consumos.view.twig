@@ -16,15 +16,28 @@
     <section id="pedidos">
       <h2>Pedidos</h2>
       <ul class="pedidosList">
+        {% for pedidosConsumo in pedidos %}
         <li>
-          <p>Pedido 1</p>
+          <p>IDPedido: {{pedidosConsumo.id}} - IDUsuario:{{pedidosConsumo.idUsuario}}- Fecha:{{pedidosConsumo.fecha_pedido}}</p>
+          <ul>
+            <p> -Productos: </p>
+            {% for productos in pedidosConsumo.elementos %}
+            <li>
+              <p> --- Plato: {{productos.id_plato}}</p>
+            </li>
+            <li>
+              <p> --- Cantidad: {{productos.cantidad}}</p>
+            </li>
+            <li>
+              <p> --- Aclaraciones: {{productos.aclaraciones}}</p>
+            </li>
+            </br>
+            {% endfor %}
+          </ul>
         </li>
-        <li>
-          <p>Pedido 2</p>
-        </li>
-        <li>
-          <p>Pedido 3</p>
-        </li>
+        </br>
+        {% endfor %}
+
       </ul>
     </section>
 
