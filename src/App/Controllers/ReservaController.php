@@ -34,9 +34,11 @@ class ReservaController extends Controlador
         $aclaraciones = $request->getRequest('aclaraciones');
 
         $reserva = $this->model->create($local, $cantidadPersonas, $dia, $hora, $mesa, $aclaraciones);
-        $title = "Reserva agregada - PAW Power";
+        #$title = "Reserva agregada - PAW Power";
 
-        echo $this->twig->render('cuenta/perfil.view.twig', ['title' => $title]);
+        #echo $this->twig->render('cuenta/perfil.view.twig', ['title' => $title]);
+        header('Location: /');
+        exit();
     }
 
     public function reservasAll()

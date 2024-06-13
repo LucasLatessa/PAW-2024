@@ -398,6 +398,13 @@ svg, .planoSucursal{
   pointer-events: none;
 }
 
+/* Estilo mesa seleccionada*/
+#seleccionada {
+  fill: var(--color-principal);
+  cursor: default;
+  pointer-events: none;
+}
+
 
 
 /* PAGINACIÓN */
