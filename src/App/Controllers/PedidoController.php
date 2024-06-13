@@ -1,16 +1,15 @@
 <?php
 
 namespace Paw\App\Controllers;
-use Paw\App\Models\CarritoCollections;
-use Paw\App\Models\Pedido;
-use Paw\App\Models\PlatosCollections;
+use Paw\App\Models\PedidosCollections;
+use Paw\App\Models\ReservasCollections;
 use Paw\Core\Controlador;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 
 class PedidoController extends Controlador {
-    
-    public ?string $modelName = CarritoCollections::class;
+
+    public ?string $modelName = PedidosCollections::class;
     public string $viewsDir;
     private $twig;
     public function __construct()
@@ -20,111 +19,50 @@ class PedidoController extends Controlador {
         $this->twig = new Environment($loader);
     }
 
-    private function validarPedido($cantidadDelPedido){
-        if ($cantidadDelPedido < 1) {
-            throw new \InvalidArgumentException("La cantidad de pedido debe ser mayor a 1.");
-        }
-        return true;
+    public function verConsumos()
+    {
+        $pedidos = $this->model->getAll();
+
+        $reservasCollections = new ReservasCollections();
+        #var_dump($this->getQb());
+        $reservasCollections->setQueryBuilder($this->getQb());
+        $reservas = $reservasCollections->getAll();
+
+        //var_dump($pedidos);
+        $title = 'Gestion de consumo - PAW Power';
+        echo $this->twig->render('cuenta/consumos.view.twig', [
+            'title' =>  $title,
+            'pedidos' => $pedidos,
+            'reservas' => $reservas,
+            'rutasMenuBurger' => $this->rutasMenuBurger,
+            'rutasLogoHeader' => $this->rutasLogoHeader, 
+            'rutasHeaderDer' => $this->rutasHeaderDer, 
+            'rutasFooter' => $this->rutasFooter, 
+        ]);
+
     }
 
-    // public function crearPedido(){
-    //     global $request;
-    //     unset($_SESSION['mensaje_pedido']);
-    
-    //     # Inicializar el mensaje como vacío
-    //     $mensajePedido = '';
-    //     # Procesar el formulario de pedido
-    //     if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //         # Obtener las salsas seleccionadas
-    //         $salsas = [];
-    //         if(isset($_POST['bbq'])) {
-    //             $salsas[] = 'bbq';
-    //         }
-    //         if(isset($_POST['mostaza'])) {
-    //             $salsas[] = 'mostaza';
-    //         }
-    //         if(isset($_POST['ketchup'])) {
-    //             $salsas[] = 'ketchup';
-    //         }
-    //         if(isset($_POST['mayonesa'])) {
-    //             $salsas[] = 'mayonesa';
-    //         }
-    
-    //         $aclaraciones = $request->getRequest('aclaracionesPedir');
-    //         $cantidad = $request->getRequest('cantidadHamburguesa');
-                      
-    //         # Validar el pedido
-    //         if ($this->validarPedido($cantidad)) {
-    //             # Crear un objeto Pedido con los detalles del pedido
-    //             $pedido = new Pedido($salsas, $aclaraciones, $cantidad); //ver si el precio lo adjunto dentro del constructor 
-    //             # Agregar el pedido a la matriz de pedidos temporales
-    //             $this->pedidos[] = $pedido;
-    //             $title = "Pedido agregado" . ' - PAW Power';
-    //             $mensajePedido = 'Pedido agregado a su carrito.';  
-    //         } else {
-    //             $title = "Pedir comida" . ' - PAW Power';
-    //         }
-    //     }
-    //     $mensajePedido = 'Pedido agregado a su carrito.'; // Esto es un ejemplo, puedes ajustarlo según lo que necesites.
-    //     echo $this->twig->render('compra/pedirComida.twig', ['mensajePedido' => $mensajePedido]);
-    // }
-
-    public function crearPedido(){
-        global $request;
-
-        $idPlato = $request->get('id');
-
-        $aclaraciones = $request->get('aclaracionesPedir');
-
-        $cantidad = $request->getRequest('cantidadHamburguesa');
-
-        session_start();
-        $idSesion = session_id();
-
-        $this->model->create($idPlato, $aclaraciones,$cantidad, $idSesion);
-
-        $title = "Pedido agregado - PAW Power";
-
-        echo $this->twig->render('cuenta/perfil.view.twig', ['title' => $title]);
-        
-    }
-
-    public function carrito()
+    public function crearPedido()
     {
         global $request;
-        $title = 'Carrito - PAW Power';
-
         session_start();
+
+        //$formaPago = $request->getRequest('nombre');
+        //$descripcion = $request->getRequest('descripcion');
+        //$precio = $request->getRequest('precio');
+        
         $idSesion = session_id();
 
-        $carrito = $this->model->getAll($idSesion);
+        //ID del usuario
+        $idUsuario = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
+        var_dump($idUsuario);
 
-        #$carrito->get();
+        $pedido = $this->model->create($idSesion,$idUsuario);
 
-        #var_dump($carrito);
-
-        echo $this->twig->render('compra/carrito.view.twig', [
-            'title' =>  $title,
-            'carrito' => $carrito,
-            'rutasMenuBurger' => $this->rutasMenuBurger,
-            'rutasLogoHeader' => $this->rutasLogoHeader, 
-            'rutasHeaderDer' => $this->rutasHeaderDer, 
-            'rutasFooter' => $this->rutasFooter, 
-        ]);
+        // Redirigir a la URL del carrito después de crear el pedido
+        //var_dump($pedido);
+        header('Location: /');
+        exit();
     }
 
-    public function borrarProducto(){
-        global $request;
-
-        $id = $request->get('id');
-
-        $this->model->borrar($id);
-
-        echo $this->twig->render('index.view.twig', [
-            'rutasMenuBurger' => $this->rutasMenuBurger,
-            'rutasLogoHeader' => $this->rutasLogoHeader, 
-            'rutasHeaderDer' => $this->rutasHeaderDer, 
-            'rutasFooter' => $this->rutasFooter, 
-        ]);
-    }
 }

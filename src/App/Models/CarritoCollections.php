@@ -9,24 +9,20 @@ class CarritoCollections extends Model{
 
     public $table = 'carrito';
 
-    public function getAll($idSesion){
-        $carritos = $this->queryBuilder->selectViejo($this->table, ['idSesion' => $idSesion]);
+    public function getAll($idSesion,$idUsuario){
+        $carritos = $this->queryBuilder->selectViejo($this->table, ['idUsuario' => $idUsuario]);
         $carritoCollection = [];
 
-        $platosCollection = new PlatosCollections;
+        $platosCollection = new PlatosCollections();
+        $platosCollection->setQueryBuilder($this->queryBuilder); // Pasar el QueryBuilder a PlatosCollections
 
         foreach($carritos as $carrito){
             $nuevoCarrito = new Carrito;
             $nuevoCarrito->set($carrito);
 
-            #var_dump($nuevoCarrito->getIdPlato());
-
-            #$plato = $this->getPlato($nuevoCarrito->getIdPlato());
-
-
-            // Obtén los detalles del plato asociado al carrito
-            #$plato = $platosCollection->get($nuevoCarrito->getIdPlato());
-            #$nuevoCarrito->plato = $plato; // Asigna los detalles del plato al carrito
+            // Detalles del plato asociado al carrito
+            $plato = $platosCollection->get($nuevoCarrito->getIdPlato());
+            $nuevoCarrito->plato = $plato;
             $carritoCollection[] = $nuevoCarrito;
         }
         return $carritoCollection;
@@ -42,7 +38,7 @@ class CarritoCollections extends Model{
         #return $plato;
     }
 
-    public function create($idPlato, $aclaraciones,$cantidad, $idSesion){
+    public function create($idPlato, $aclaraciones,$cantidad, $idSesion, $idUsuario){
         $newCarrito = new Carrito;
 
         $data = [
@@ -50,6 +46,7 @@ class CarritoCollections extends Model{
             'aclaraciones' => $aclaraciones,
             'cantidad' => $cantidad,
             'idSesion' => $idSesion,
+            'idUsuario' => $idUsuario,
         ];
 
         $newCarrito->setQueryBuilder($this->queryBuilder);
@@ -63,4 +60,5 @@ class CarritoCollections extends Model{
     {
         $this->queryBuilder->delete($this->table, ['id' => $idPedido]);
     }
+
 }

@@ -6,6 +6,7 @@ use Paw\Core\Model;
 
 class Usuario extends Model{
     public $table = 'usuario';
+    private $id;
     private $nombre;
 
     private $apellido;
@@ -50,6 +51,10 @@ class Usuario extends Model{
         return $this->contraseña;
     }
 
+    public function getId(){
+        return $this->id;
+    }
+
     #Setters
     public function setNombre($nombre){
         $this->nombre = $nombre;
@@ -65,6 +70,10 @@ class Usuario extends Model{
 
     public function setContraseña($contraseña){
         $this->contraseña = $contraseña;
+    }
+
+    public function setId($id){
+        $this->id = $id;
     }
 
     public function set(array $values){

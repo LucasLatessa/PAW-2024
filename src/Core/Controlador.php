@@ -77,6 +77,7 @@ class Controlador
         ];
 
         $qb = new QueryBuilder($connection, $log);
+        $this->qb = $qb;
 
         if (!is_null($this->modelName)) {
             

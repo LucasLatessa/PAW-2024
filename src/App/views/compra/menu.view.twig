@@ -20,6 +20,8 @@
     </header>
     <h2 class="titulo-comida">COMIDA DEL MES</h2>
     <section class="seccion-comida-mes">
+    {% if comida_mes %}
+    
       <article class="article-comida-mes">
         <h3>{{ comida_mes.nombre }}</h3>
         <figure class="figura-hamburguesa">
@@ -29,34 +31,41 @@
         <p class="precio-comida">{{ comida_mes.precio }}</p>
         <a class="pedir-comida" href="./pedirComida?id={{ comida_mes.id }}">PEDIR</a>
       </article>
+    {% else %}
+      <p>No hay comida del mes disponible.</p>
+    {% endif %}
     </section>
+    
 
     <h2 class="titulo-comida">HAMBURGUESAS</h2>
 
      <form method="GET" class="form-menu-order-cat" action=""> 
-        <label for="min_price">Precio mínimo:</label>
+     <p> Filtros</p>
+        <label for="min_price">Precio mínimo:
         <input type="number" id="min_price" name="min_price" value="{{ min_price }}">
-
-        <label for="max_price">Precio máximo:</label>
+        </label>
+        <label for="max_price">Precio máximo:
         <input type="number" id="max_price" name="max_price" value="{{ max_price }}">
-
-        <label for="sort">Ordenar por:</label>
+        </label>
+        <label for="sort">Ordenar por:
         <select id="sort" name="sort">
             <option value="precio">Precio</option>
             <option value="nombre">Nombre</option>
         </select>
-
-        <label for="direction">Dirección:</label>
+        </label>
+        <label for="direction">Dirección:
         <select id="direction" name="direction">
             <option value="ASC">Ascendente</option>
             <option value="DESC">Descendente</option>
         </select>
+        </label>
 
         <button type="submit">Filtrar</button>
     </form>
 
    
     <section class="seccion-comida">
+    {% if menu|length > 0 %}
       {% for comida in menu %}
       <article class="article-comida">
         <h3>{{ comida.nombre }}</h3>
@@ -68,6 +77,9 @@
         <a class="pedir-comida" href="./pedirComida?id={{ comida.id }}">PEDIR</a>
       </article>
       {% endfor %}
+    {% else %}
+    <p>No hay hamburguesas disponibles.</p>
+    {% endif %}
     </section>
 
     <a href="../menu/crearPlato">Crear plato</a>

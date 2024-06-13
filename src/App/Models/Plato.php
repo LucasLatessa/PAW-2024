@@ -77,9 +77,14 @@ class Plato extends Model{
     }
 
     public function load($id){
-        $params = [ "id" => $id];
-        #Me devuelve el elemento solo
-        $record = current($this->queryBuilder->selectViejo($this->table,$params));
-        $this->set($record);
+        $params = ["id" => $id];
+        $record = current($this->queryBuilder->selectViejo($this->table, $params));
+    
+        if ($record !== false) {
+            $this->set($record);
+            return $this;
+        } else {
+            return null;
+        }
     }
 }

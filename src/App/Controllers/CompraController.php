@@ -49,8 +49,7 @@ class CompraController extends Controlador
             'local' => $local,
         ];
         echo $this->twig->render('compra/carrito.view.twig', $data);
-    }
-}
+    }}
     public function selecDirec(Request $request)
     {
         // Verificar si se ha enviado el campo de dirección en el formulario
@@ -77,22 +76,21 @@ class CompraController extends Controlador
         }
     }
 
-    public function crearFilaCarrito()
-    {
-        global $request;
+    // public function crearFilaCarrito()
+    // {
+    //     global $request;
 
-        $nombre = $request->getRequest('nombre');
-        $descripcion = $request->getRequest('descripcion');
-        $precio = $request->getRequest('precio');
-        $notas = $request->getRequest('notas');
-        $cantidad = $request->getRequest('cantidad');
-        $pago = $request->getRequest('pago');
-        $envio = $request->getRequest('envio');
+    //     $nombre = $request->getRequest('nombre');
+    //     $descripcion = $request->getRequest('descripcion');
+    //     $precio = $request->getRequest('precio');
+    //     $notas = $request->getRequest('notas');
+    //     $cantidad = $request->getRequest('cantidad');
+    //     $pago = $request->getRequest('pago');
+    //     $envio = $request->getRequest('envio');
 
-        $filaCarrito = new Carrito($nombre, $descripcion, $precio, $notas, $cantidad, $pago, $envio);
+    //     $filaCarrito = new Carrito($nombre, $descripcion, $precio, $notas, $cantidad, $pago, $envio);
 
-        #No nos conviene realizarlo porque al final vamos a terminar cambiando todo porque implica BD
-    }
-    
+    //     #No nos conviene realizarlo porque al final vamos a terminar cambiando todo porque implica BD
+    // }
 
 }

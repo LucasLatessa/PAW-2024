@@ -3,6 +3,7 @@ class PAWReservas {
     //Obtengo el svg (que esta como imagen)
     //console.log(listaReservas);
     let contenedor = svg.tagName ? pContenedor : document.querySelector(svg);
+    let mesaSeleccionada = null;
 
     const hoy = new Date();
     const fechaFormateada = hoy.toISOString().split("T")[0];
@@ -38,16 +39,6 @@ class PAWReservas {
         }
       };
 
-      //Obtengo el id de la mesa, que me servira para las reservas
-      const stateClicked = (state) => {
-        //Obtengo el id de la mesa
-        const code = state.getAttribute("id");
-        //Obtengo el valor del formulario que indica la mesa seleccionada
-        const nombreMesa = document.querySelector(".listaMesas");
-        //Cambio la mesa que selecciono
-        nombreMesa.value = code;
-      };
-
       /*OBTENGO TODAS LAS MESAS OCUPADAS*/
       let reservas = [];
       //Cargo la lista de reservas
@@ -74,7 +65,9 @@ class PAWReservas {
         //Pinta las mesas ocupadas
         for (let i = 0; i < reservas.length; i++) {
           const mesa = document.getElementById(reservas[i].mesa);
-          const agarroMesa = mesa.querySelectorAll("*")[0];
+          console.log(mesa);
+          const agarroMesa = mesa.querySelectorAll("*");
+          console.log(agarroMesa);
           reservaDia.push(reservas[i].dia);
           elementosMesa.push(agarroMesa);
           agarroMesa.classList.remove("ocupado", "mesa");
@@ -83,7 +76,6 @@ class PAWReservas {
         for (let i = 0; i < elementosMesa.length; i++) {
           if (reservaDia[i] == diaReserva.value) {
             elementosMesa[i].classList.add("ocupado");
-            elementosMesa[i].classList.remove("mesa");
           }
         }
       };
@@ -104,16 +96,44 @@ class PAWReservas {
         console.log("El valor del input ha cambiado a:", event.target.value);
         getReservas();
       });
-
-      /*
-    g[id^="mesa-"]:hover .mesa {
-      fill: #ffaf10;
-      cursor: pointer;
-    } 
-    */
     } else {
       //En el caso de que no exista el SVG
       console.log("No existe");
     }
+
+    //Obtengo el id de la mesa, que me servira para las reservas
+    const stateClicked = (state) => {
+      // Verificar si la mesa está ocupada
+      if (state.classList.contains('ocupada')) {
+        alert('Esta mesa está ocupada y no se puede seleccionar.');
+        return;
+      }
+
+      //Borro los datos de la mesa anterior
+      if (this.mesaSeleccionada) {
+        const mesaAnterior = this.mesaSeleccionada.querySelectorAll("*");
+        mesaAnterior.forEach((elemento) => {
+          elemento.removeAttribute('id');
+        });
+      }
+
+      //Obtengo el id de la mesa
+      const code = state.getAttribute("id");
+
+      //Obtengo el valor del formulario que indica la mesa seleccionada
+      const nombreMesa = document.querySelector(".listaMesas");
+      //Cambio la mesa que selecciono
+      nombreMesa.value = code;
+
+      /*Tengo que pintar la mesa en amarillo*/
+      const mesa = document.getElementById(code);
+      const agarroMesa = mesa.querySelectorAll("*");
+      agarroMesa.forEach((elemento) => {
+        elemento.setAttribute('id', 'seleccionada');
+      });
+
+      // Actualizar la mesa seleccionada
+      this.mesaSeleccionada = mesa;
+    };
   }
 }

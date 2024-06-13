@@ -14,33 +14,32 @@
     <header class="header-menu carrito-background">
       <h1>Carrito de Compras</h1>
     </header>
-    <form class="formulario-carrito" method="POST" action="/compra/confirmarCompra">
-      <table class="tabla-carrito">
-        <caption>
-          Mis productos
-        </caption>
-        <tbody>
-          <tr>
-            <td>Nombre</td>
-            <td>Descripcion</td>
-            <td>Precio</td>
-            <td>Notas</td>
-            <td>Cantidad</td>
-            <td>Borrar</td>
-          </tr>
-          {% for producto in carrito %}
-          <tr>
-            <td>{{producto.aclaraciones}}</td>
-            <td>Descripcion</td>
-            <td>Precio</td>
-            <td>{{producto.aclaraciones}}</td>
-            <td>{{producto.cantidad}}</td>
-            <td><a href="./borrarProducto?id={{ producto.id }}">Borrar</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-
+    <table class="tabla-carrito">
+      <caption>
+        Mis productos
+      </caption>
+      <tbody>
+        <tr>
+          <td>Nombre</td>
+          <td>Descripcion</td>
+          <td>Precio</td>
+          <td>Notas</td>
+          <td>Cantidad</td>
+          <td>Borrar</td>
+        </tr>
+        {% for producto in carrito %}
+        <tr>
+          <td>{{producto.plato.nombre}}</td>
+          <td>{{producto.plato.descripcion}}</td>
+          <td>{{producto.plato.precio}}</td>
+          <td>{{producto.aclaraciones}}</td>
+          <td>{{producto.cantidad}}</td>
+          <td><a href="./borrarProducto?id={{ producto.id }}">Borrar</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <form class="formulario-carrito" method="POST" action=""
       <section class="forma-de-pago">
         <h3>Forma de pago</h3>
 
@@ -58,7 +57,7 @@
         <label for="takeaway">Take Away</label>
         <input type="radio" id="delivery" name="envio" value="Delivery" />
         <label for="delivery">Delivery</label>
-        {% if local is defined %}
+        {# {% if local is defined %}
           <p>Local: {{ local }}</p>
         {% else %}
           <a href="./selecLoc">Seleccionar local</a>
@@ -67,7 +66,7 @@
           <p>Direccion: {{ direc }}</p>
         {% else %}
           <a href="./selecDirec">Seleccionar direccion</a>
-        {% endif %}
+        {% endif %} #}
       </section>
 
       <h2 class="subtotal">Subtotal:$$$</h2>

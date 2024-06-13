@@ -22,10 +22,13 @@ class PlatosCollections extends Model{
     }
 
     public function get($id){
-        $plato = new Plato;
-        $plato->setQueryBuilder($this->queryBuilder);
-        $plato->load($id);
-        return $plato;
+        // $plato = new Plato;
+        // $plato->setQueryBuilder($this->queryBuilder);
+        // $plato->load($id);
+        // return $plato;
+        // Obtener el plato por ID
+        $plato = $this->queryBuilder->selectViejo($this->table, ['id' => $id]);
+        return $plato ? $plato[0] : null; // Retorna el primer resultado, o null si no hay resultados
     }
 
     // public function getPlato($id){

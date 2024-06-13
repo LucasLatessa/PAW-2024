@@ -2,32 +2,75 @@
 
 namespace Paw\App\Models;
 
-class Pedido
+use Paw\App\Models\ElementosPedido;
+use Paw\Core\Model;
+
+class Pedido extends Model
 {
-    private array $salsas;
-    private string $aclaraciones;
-    private int $cantidad;
+    private $table = 'pedidos';
+    private $id;
+    private $idUsuario;
+    private $fecha_pedido;
+    private $elementos = [];
 
-    public function __construct(array $salsas, string $aclaraciones, int $cantidad)
+    public function getId()
     {
-        $this->salsas = $salsas;
-        $this->aclaraciones = $aclaraciones;
-        $this->cantidad = $cantidad;
+        return $this->id;
     }
 
-    # Métodos para obtener los detalles del pedido
-    public function getSalsas(): array
+    public function getIdUsuario()
     {
-        return $this->salsas;
+        return $this->idUsuario;
     }
 
-    public function getAclaraciones(): string
+    public function getFecha_pedido()
     {
-        return $this->aclaraciones;
+        return $this->fecha_pedido;
     }
 
-    public function getCantidad(): int
+    public function getElementos()
     {
-        return $this->cantidad;
+        return $this->elementos;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function setIdUsuario($idUsuario)
+    {
+        $this->idUsuario = $idUsuario;
+    }
+
+
+    public function setFecha_pedido($fecha_pedido)
+    {
+        $this->fecha_pedido = $fecha_pedido;
+    }
+
+    public function agregarElemento($idPlato, $cantidad, $aclaraciones)
+    {
+        $elemento = new ElementosPedido($idPlato,$cantidad,$aclaraciones);
+        $this->elementos[] = $elemento;
+    }
+
+    public function agregarElementoArray($elemento)
+    {
+        $nuevoElemento = new ElementosPedido();
+        $nuevoElemento->set($elemento);
+        $this->elementos[] = $nuevoElemento;
+    }
+
+    #Para aplicar todos los seters junto con sus validaciones
+    public function set(array $values)
+    {
+        foreach ($values as $field => $value) {
+            #Creo el methodo y si existe lo ejecuto
+            $method = "set" . ucfirst($field);
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
     }
 }

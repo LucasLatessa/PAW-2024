@@ -18,24 +18,18 @@ class Reserva extends Model
     private $dia;
     private $hora;
     private $mesa;
-    private $aclaraciones;
-
-    #public function __construct($local, $cantidadPersonas, $dia, $horario, $aclaraciones)
-    #{
-        // if (empty($local) || empty($cantidadPersonas) || empty($dia) || empty($horario)) {
-        //     throw new \InvalidArgumentException("local, cantidad de personas, dia y horario son campos requeridos.");
-        // }
-        // $this->local = $local;
-        // $this->getCantidadPersonas = $cantidadPersonas;
-        // $this->dia = $dia;
-        // $this->horario = $horario;
-        // $this->aclaraciones = $aclaraciones;
-    #}
-
+    private $aclaracion;
+    
     public function getLocal()
     {
         return $this->local;
     }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
 
     public function getCantidadPersonas()
     {
@@ -52,10 +46,16 @@ class Reserva extends Model
         return $this->hora;
     }
 
-    public function getAclaraciones()
+    public function getAclaracion()
     {
-        return $this->aclaraciones;
+        return $this->aclaracion;
     }
+
+    public function getMesa()
+    {
+        return $this->mesa;
+    }
+
 
     public function setLocal(string $local)
     {
@@ -109,13 +109,13 @@ class Reserva extends Model
     }
 
 
-    public function setAclaraciones(string $aclaraciones)
+    public function setAclaracion(string $aclaracion)
     {
-        if (strlen($aclaraciones) > 100) {
-            throw new InvalidValueFormatoException("La aclaracion no debe ser mayor a 60 caracteres");
-        }
+        // if (strlen($aclaraciones) > 100) {
+        //     throw new InvalidValueFormatoException("La aclaracion no debe ser mayor a 60 caracteres");
+        // }
 
-        $this->aclaraciones = $aclaraciones;
+        $this->aclaracion = $aclaracion;
     }
 
     public function setId(string $id)

@@ -16,30 +16,46 @@
     <section id="pedidos">
       <h2>Pedidos</h2>
       <ul class="pedidosList">
+        {% for pedidosConsumo in pedidos %}
         <li>
-          <p>Pedido 1</p>
+          <p>IDPedido: {{pedidosConsumo.id}} - IDUsuario:{{pedidosConsumo.idUsuario}}- Fecha:{{pedidosConsumo.fecha_pedido}}</p>
+          <ul>
+            <p> -Productos: </p>
+            {% for productos in pedidosConsumo.elementos %}
+            <li>
+              <p> --- Plato: {{productos.id_plato}}</p>
+            </li>
+            <li>
+              <p> --- Cantidad: {{productos.cantidad}}</p>
+            </li>
+            <li>
+              <p> --- Aclaraciones: {{productos.aclaraciones}}</p>
+            </li>
+            </br>
+            {% endfor %}
+          </ul>
         </li>
-        <li>
-          <p>Pedido 2</p>
-        </li>
-        <li>
-          <p>Pedido 3</p>
-        </li>
+        </br>
+        {% endfor %}
+
       </ul>
     </section>
 
     <section class="reportes">
-      <h2>Reportes</h2>
+      <h2>Reservas</h2>
       <ul class="reportesList">
+        {% for reservasConsumo in reservas %}
         <li>
-          <p>Reporte 1</p>
+          <p>ID Pedido: {{reservasConsumo.id}}</p>
+          <p>-- Local: {{reservasConsumo.local}}</p>
+          <p>-- Cantidad personas: {{reservasConsumo.cantidadPersonas}}</p>
+          <p>-- Dia: {{reservasConsumo.dia}}</p>
+          <p>-- Hora: {{reservasConsumo.hora}}</p>
+          <p>-- Mesa: {{reservasConsumo.mesa}}</p>
+          <p>-- Aclaraciones: {{reservasConsumo.aclaracion}}</p>
         </li>
-        <li>
-          <p>Reporte 2</p>
-        </li>
-        <li>
-          <p>Reporte 3</p>
-        </li>
+        </br>
+        {% endfor %}
       </ul>
     </section>
   </main>

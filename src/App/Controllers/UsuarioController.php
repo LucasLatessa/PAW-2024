@@ -8,7 +8,6 @@ use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 
 class UsuarioController extends Controlador{ 
-    private $usuariosJSON = __DIR__ . "/../data/usuarios.json";
     public ?string $modelName = UsuariosCollections::class;
     public string $viewsDir; #Direccion a la vista indicada
     private $twig;
@@ -32,35 +31,25 @@ class UsuarioController extends Controlador{
         $validarcontraseña = $request->getRequest("validarContraseña");
 
     if($contraseña == $validarcontraseña){
-        $usuario = $this->model->create($nombre,$apellido, $email, $contraseña);
+        $contraHash = password_hash($request->getRequest("contraseña"),PASSWORD_DEFAULT);
+        $usuario = $this->model->create($nombre,$apellido, $email, $contraHash);
         $resultado = "¡Cuenta creada!";
-        $title = "Perfil" . ' - PAW Power';
-        echo $this->twig->render('cuenta/perfil.view.twig', [
-            'title' => $title,
-            'resultado' => $resultado
-        ]);
+        header('Location: /');
+        exit();
         
     }else{
         $errorMessage = "Las contranseñas no coinciden"; 
         $title = "Registrarse" . ' - PAW Power';
         echo $this->twig->render('cuenta/registrarse.view.twig', [
             'title' => $title,
-            'errorMessage' => $errorMessage
+            'errorMessage' => $errorMessage,
+            'rutasMenuBurger' => $this->rutasMenuBurger,
+            'rutasLogoHeader' => $this->rutasLogoHeader, 
+            'rutasHeaderDer' => $this->rutasHeaderDer, 
+            'rutasFooter' => $this->rutasFooter, 
         ]);
     }
     
-    }
-
-    #Funcion privada que busca dentro de mi JSON si existe un usuario
-    private function buscadorUsuarios($misUsuarios,$email,$contraseña){
-        $usuarioEncontrado = false;
-        foreach ($misUsuarios['usuarios'] as $usuario) {
-            if ($usuario['email'] === $email && $usuario['contraseña'] === $contraseña) {
-                $usuarioEncontrado = true;
-                break;
-            }
-        }
-        return $usuarioEncontrado;
     }
 
     #Login
@@ -70,45 +59,65 @@ class UsuarioController extends Controlador{
         #Obtengo los datos de la peticion
         $email = $request->getRequest("email");
         $contraseña = $request->getRequest("contraseña");
-        
-        #Obtengo los datos de todos los usuarios para corrobar que exista
-        #$usuarios = json_decode(file_get_contents($this->usuariosJSON), true); ya no lo usamos, tenemos db
-        #Validacion de correo "Solo formato a@a.com"
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errorMessage = "Email invalido!";
-            $title = "Login" . ' - PAW Power';
-            echo $this->twig->render('cuenta/login.view.twig', [
-                'title' => $title,
-                'errorMessage' => $errorMessage
-            ]);
-        #Reviso que exista dentro del sistema
-        }elseif (empty($this->getUsuario($email,$contraseña))){
+        var_dump($email);
+
+        #Obtengo los datos de la BD par aver si existe
+        $usuario = $this->model->get($email);
+
+        #Compruebo que exista en el sistema
+        var_dump($usuario);
+        #var_dump($usuario->getContraseña());
+        if ($usuario && password_verify($contraseña,$usuario->getContraseña())){
+            // Iniciar sesión
+            session_start();
+            $_SESSION['login'] = true;
+            $_SESSION['username'] = $usuario->getCorreo();
+            $_SESSION['usuario_id'] = $usuario->getId(); 
+
+            // Redirigir al perfil del usuario
+            header('Location: /cuenta/perfil');
+            exit();
+        } else {
             $errorMessage = "Credenciales incorrectas";
             $title = "Login" . ' - PAW Power';
             echo $this->twig->render('cuenta/login.view.twig', [
                 'title' => $title,
-                'errorMessage' => $errorMessage
+                'errorMessage' => $errorMessage,
+                'rutasMenuBurger' => $this->rutasMenuBurger,
+                'rutasLogoHeader' => $this->rutasLogoHeader, 
+                'rutasHeaderDer' => $this->rutasHeaderDer, 
+                'rutasFooter' => $this->rutasFooter,
             ]);
-        } else {
-            $this->sesionLogeo();
         }
-
-        #Faltaria agregar validaciones con la BD para comprobar que existe esa instancia
-
     }
+    
     public function logout(){        
         global $request;
         session_start();
         if (isset($_SESSION['login'])){
+            #Vacio el array de sesion
             $_SESSION = [];
-            setcookie(session_name(),'',time() - 10000);
+
+            #Obtener los parametros de la cookie de sesion
+            $params = session_get_cookie_params();
+
+            // Establecer la cookie de sesión con una fecha de expiración en el pasado
+            setcookie(session_name(), '', time() - 42000,
+                $params['path'], $params['domain'],
+                $params['secure'], $params['httponly']
+            );
+
+            #Destruir la sesion
             session_destroy();
+            
             $title = "Logout" . ' - PAW Power';
             $errorMessage = "Deslogueado";
-            echo $this->twig->render('cuenta/login.view.twig', [
-                'title' => $title,
-                'errorMessage' => $errorMessage
-            ]);
+            header('Location: /');
+            exit();
+            // echo $this->twig->render('cuenta/login.view.twig', [
+            //     'title' => $title,
+            //     'errorMessage' => $errorMessage
+            // ]);
         }
         else{
             $title = "Logout" . ' - PAW Power';
@@ -179,14 +188,17 @@ class UsuarioController extends Controlador{
         if ($hayLogin){         
             $email = $_SESSION['login'];
         }
-        $title = "Perfil" . ' - PAW Power';
-        $resultado = "¡Logeado!";
-        echo $this->twig->render('cuenta/login.view.twig', [
-            'title' => $title,
-            'resultado' => $resultado,
-            'hayLogin' =>  $hayLogin 
-        ]);
+        // $title = "Perfil" . ' - PAW Power';
+        // $resultado = "¡Logeado!";
+        // echo $this->twig->render('cuenta/login.view.twig', [
+        //     'title' => $title,
+        //     'resultado' => $resultado,
+        //     'hayLogin' =>  $hayLogin 
+        // ]);
+        header('Location: /cuenta/perfil');
+        exit();
     }
+
     #Crear/Agregar direccion
     public function crearDireccion() {
         global $request;
@@ -211,15 +223,6 @@ class UsuarioController extends Controlador{
             $title = "Agregar Dirección - PAW Power";
             echo $this->twig->render(__DIR__ . '/../views/cuenta/agregarDireccion.view.twig', ['title' => $title]);
         }
-    }
-
-    public function getUsuario($email,$contraseña){
-        $usuarioEmail = $email;
-        $usuarioContraseña = $contraseña;
-
-        $usuario = $this->model->get($usuarioEmail,$usuarioContraseña);
-        return $usuario;
-
     }
 
 }
