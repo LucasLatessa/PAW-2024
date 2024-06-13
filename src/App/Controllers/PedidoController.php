@@ -34,4 +34,27 @@ class PedidoController extends Controlador {
 
     }
 
+    public function crearPedido()
+    {
+        global $request;
+        session_start();
+
+        //$formaPago = $request->getRequest('nombre');
+        //$descripcion = $request->getRequest('descripcion');
+        //$precio = $request->getRequest('precio');
+        
+        $idSesion = session_id();
+
+        //ID del usuario
+        $idUsuario = isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : null;
+        var_dump($idUsuario);
+
+        $pedido = $this->model->create($idSesion,$idUsuario);
+
+        // Redirigir a la URL del carrito después de crear el pedido
+        //var_dump($pedido);
+        header('Location: /');
+        exit();
+    }
+
 }

@@ -7,7 +7,7 @@ use Paw\Core\Model;
 
 class Pedido extends Model
 {
-    private $table = 'pedido';
+    private $table = 'pedidos';
     private $id;
     private $idUsuario;
     private $fechaHora;

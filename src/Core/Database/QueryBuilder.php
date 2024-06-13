@@ -12,26 +12,60 @@ class QueryBuilder
         $this->logger = $logger;
     }
 
-    public function selectViejo($table,$params = []){
-        $where = " 1 = 1 ";
-
-        #Manera mas seguro de evitar inyecciones SQL
-        if (isset($params['id'])){
-            $where = " id = :id "; # :id -> parametrizado
+    public function selectViejo($table, $params = []) {
+        $where = [];
+        $bindParams = [];
+    
+        foreach ($params as $key => $value) {
+            switch ($key) {
+                case 'id':
+                case 'idUsuario':
+                case 'idSesion':
+                    $where[] = "$key = :$key";
+                    $bindParams[":$key"] = $value;
+                    break;
+                // Añadir más casos según los parámetros que necesites manejar
+            }
         }
-
-        $query = "select * from {$table} where {$where}";
+    
+        $whereClause = '';
+        if (!empty($where)) {
+            $whereClause = 'WHERE ' . implode(' AND ', $where);
+        }
+    
+        $query = "SELECT * FROM {$table} {$whereClause}";
         $sentencia = $this->pdo->prepare($query);
-
-        if (isset($params['id'])){
-            $sentencia->bindValue(":id", $params['id']);
+    
+        foreach ($bindParams as $param => $value) {
+            $sentencia->bindValue($param, $value);
         }
-
+    
         $sentencia->setFetchMode(PDO::FETCH_ASSOC);
         $sentencia->execute();
-        #$this->logger->info("Resultado consultas select: ", [$sentencia->fetchAll()]);
-        return  $sentencia->fetchAll(); 
+    
+        return $sentencia->fetchAll();
     }
+
+    // public function selectViejo($table,$params = []){
+    //     $where = " 1 = 1 ";
+
+    //     #Manera mas seguro de evitar inyecciones SQL
+    //     if (isset($params['id'])){
+    //         $where = " id = :id "; # :id -> parametrizado
+    //     }
+
+    //     $query = "select * from {$table} where {$where}";
+    //     $sentencia = $this->pdo->prepare($query);
+
+    //     if (isset($params['id'])){
+    //         $sentencia->bindValue(":id", $params['id']);
+    //     }
+
+    //     $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+    //     $sentencia->execute();
+    //     #$this->logger->info("Resultado consultas select: ", [$sentencia->fetchAll()]);
+    //     return  $sentencia->fetchAll(); 
+    // }
 
     // public function select($table, $params = []){
 
@@ -170,6 +204,9 @@ class QueryBuilder
         $sentencia = $this->pdo->prepare($query);
         #$sentencia->execute();
         $sentencia->execute(array_values($data));
+
+        // Devuelvo el ID del registro recién creado
+        return $this->pdo->lastInsertId();
     }
 
     public function update(){

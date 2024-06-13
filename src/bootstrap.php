@@ -61,12 +61,12 @@ $router->get('/compra/pedirComida', 'MenuController@pedirComida');
 $router->post('/compra/pedirComida', 'CarritoController@crearPedido');
 
 $router->get('/compra/carrito', 'CarritoController@carrito');
-$router->post('/compra/carrito', 'CompraController@crearFilaCarrito');
+$router->post('/compra/carrito', 'PedidoController@crearPedido');
 
 $router->get('/compra/borrarProducto', 'CarritoController@borrarProducto');
 
-$router->get('/compra/confirmarCompra', 'PageController@confirmarCompra');
-$router->post('/compra/confirmarCompra', 'PageController@confirmarCompra');
+// $router->get('/compra/confirmarCompra', 'PageController@confirmarCompra');
+// $router->post('/compra/confirmarCompra', 'PageController@confirmarCompra');
 
 #Seleccionar direccion (en carrito)
 $router->get('/compra/selecDirec', 'PageController@selecDirec');

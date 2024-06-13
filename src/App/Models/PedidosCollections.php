@@ -3,10 +3,46 @@
 namespace Paw\App\Models;
 
 use Paw\Core\Model;
-use Paw\App\Models\Plato;
+use Paw\App\Models\Pedido;
 
 class PedidosCollections extends Model{
-    public $table = 'pedido';
+    public $table = 'pedidos';
+    public $tableElementos_pedido = "elementos_pedido";
 
-    
+    public function create($idSesion,$idUsuario)
+    {
+        $carrito = new CarritoCollections();
+        $carrito->setQueryBuilder($this->queryBuilder);
+        $elementosCarrito = $carrito->getAll($idSesion,$idUsuario);
+
+        $pedido = new Pedido();
+        $pedido->setIdUsuario($idUsuario);
+        $pedido->setFechaHora(date('Y-m-d H:i:s'));
+
+        $data = [
+            'idUsuario' => $pedido->getIdUsuario(),
+            'fecha_pedido' => $pedido->getFechaHora(),
+        ];
+        
+        $idPedido = $this->queryBuilder->insert($this->table, $data);
+
+        foreach ($elementosCarrito as $elemento)
+        {
+            $dataElementos = [
+                "id_pedido" => $idPedido,
+                "id_plato" => $elemento->getIdPlato(),
+                "aclaraciones" => $elemento->getAclaraciones(),
+                "cantidad" => $elemento->getCantidad(),
+            ];
+
+            $this->queryBuilder->insert($this->tableElementos_pedido, $dataElementos);
+        }
+
+        return $pedido;
+    }
+
+    // public function getAll()
+    // {
+    //     $pedido = $this->quer
+    // }
 }
