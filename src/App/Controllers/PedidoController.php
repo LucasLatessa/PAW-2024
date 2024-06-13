@@ -2,6 +2,7 @@
 
 namespace Paw\App\Controllers;
 use Paw\App\Models\PedidosCollections;
+use Paw\App\Models\ReservasCollections;
 use Paw\Core\Controlador;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
@@ -22,11 +23,17 @@ class PedidoController extends Controlador {
     {
         $pedidos = $this->model->getAll();
 
+        $reservasCollections = new ReservasCollections();
+        #var_dump($this->getQb());
+        $reservasCollections->setQueryBuilder($this->getQb());
+        $reservas = $reservasCollections->getAll();
+
         //var_dump($pedidos);
         $title = 'Gestion de consumo - PAW Power';
         echo $this->twig->render('cuenta/consumos.view.twig', [
             'title' =>  $title,
             'pedidos' => $pedidos,
+            'reservas' => $reservas,
             'rutasMenuBurger' => $this->rutasMenuBurger,
             'rutasLogoHeader' => $this->rutasLogoHeader, 
             'rutasHeaderDer' => $this->rutasHeaderDer, 

@@ -44,15 +44,18 @@
     <section class="reportes">
       <h2>Reservas</h2>
       <ul class="reportesList">
+        {% for reservasConsumo in reservas %}
         <li>
-          <p>Reserva 1</p>
+          <p>ID Pedido: {{reservasConsumo.id}}</p>
+          <p>-- Local: {{reservasConsumo.local}}</p>
+          <p>-- Cantidad personas: {{reservasConsumo.cantidadPersonas}}</p>
+          <p>-- Dia: {{reservasConsumo.dia}}</p>
+          <p>-- Hora: {{reservasConsumo.hora}}</p>
+          <p>-- Mesa: {{reservasConsumo.mesa}}</p>
+          <p>-- Aclaraciones: {{reservasConsumo.aclaracion}}</p>
         </li>
-        <li>
-          <p>Reserva 2</p>
-        </li>
-        <li>
-          <p>Reserva 3</p>
-        </li>
+        </br>
+        {% endfor %}
       </ul>
     </section>
   </main>
