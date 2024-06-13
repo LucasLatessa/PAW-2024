@@ -85,8 +85,11 @@ class PedidoController extends Controlador {
 
         $title = "Pedido agregado - PAW Power";
 
-        echo $this->twig->render('cuenta/perfil.view.twig', ['title' => $title]);
-        
+        // Redirigir a la URL del carrito después de crear el pedido
+        header('Location: /compra/carrito');
+        exit();
+
+        #echo $this->twig->render('cuenta/perfil.view.twig', ['title' => $title]);
     }
 
     public function carrito()
@@ -120,11 +123,14 @@ class PedidoController extends Controlador {
 
         $this->model->borrar($id);
 
-        echo $this->twig->render('index.view.twig', [
-            'rutasMenuBurger' => $this->rutasMenuBurger,
-            'rutasLogoHeader' => $this->rutasLogoHeader, 
-            'rutasHeaderDer' => $this->rutasHeaderDer, 
-            'rutasFooter' => $this->rutasFooter, 
-        ]);
+        // #echo $this->twig->render('index.view.twig', [
+        //     'rutasMenuBurger' => $this->rutasMenuBurger,
+        //     'rutasLogoHeader' => $this->rutasLogoHeader, 
+        //     'rutasHeaderDer' => $this->rutasHeaderDer, 
+        //     'rutasFooter' => $this->rutasFooter, 
+        // ]);
+
+        header('Location: /compra/carrito');
+        exit();
     }
 }

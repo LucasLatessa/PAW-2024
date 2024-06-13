@@ -8,7 +8,6 @@ use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 
 class UsuarioController extends Controlador{ 
-    private $usuariosJSON = __DIR__ . "/../data/usuarios.json";
     public ?string $modelName = UsuariosCollections::class;
     public string $viewsDir; #Direccion a la vista indicada
     private $twig;
@@ -34,11 +33,9 @@ class UsuarioController extends Controlador{
     if($contraseña == $validarcontraseña){
         $usuario = $this->model->create($nombre,$apellido, $email, $contraseña);
         $resultado = "¡Cuenta creada!";
-        $title = "Perfil" . ' - PAW Power';
-        echo $this->twig->render('cuenta/perfil.view.twig', [
-            'title' => $title,
-            'resultado' => $resultado
-        ]);
+        header('Location: /cuenta/perfil');
+        exit();
+
         
     }else{
         $errorMessage = "Las contranseñas no coinciden"; 
@@ -72,7 +69,7 @@ class UsuarioController extends Controlador{
         $contraseña = $request->getRequest("contraseña");
         
         #Obtengo los datos de todos los usuarios para corrobar que exista
-        #$usuarios = json_decode(file_get_contents($this->usuariosJSON), true); ya no lo usamos, tenemos db
+
         #Validacion de correo "Solo formato a@a.com"
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $errorMessage = "Email invalido!";
@@ -81,6 +78,7 @@ class UsuarioController extends Controlador{
                 'title' => $title,
                 'errorMessage' => $errorMessage
             ]);
+
         #Reviso que exista dentro del sistema
         }elseif (empty($this->getUsuario($email,$contraseña))){
             $errorMessage = "Credenciales incorrectas";
@@ -100,15 +98,29 @@ class UsuarioController extends Controlador{
         global $request;
         session_start();
         if (isset($_SESSION['login'])){
+            #Vacio el array de sesion
             $_SESSION = [];
-            setcookie(session_name(),'',time() - 10000);
+
+            #Obtener los parametros de la cookie de sesion
+            $params = session_get_cookie_params();
+
+            // Establecer la cookie de sesión con una fecha de expiración en el pasado
+            setcookie(session_name(), '', time() - 42000,
+                $params['path'], $params['domain'],
+                $params['secure'], $params['httponly']
+            );
+
+            #Destruir la sesion
             session_destroy();
+            
             $title = "Logout" . ' - PAW Power';
             $errorMessage = "Deslogueado";
-            echo $this->twig->render('cuenta/login.view.twig', [
-                'title' => $title,
-                'errorMessage' => $errorMessage
-            ]);
+            header('Location: /');
+            exit();
+            // echo $this->twig->render('cuenta/login.view.twig', [
+            //     'title' => $title,
+            //     'errorMessage' => $errorMessage
+            // ]);
         }
         else{
             $title = "Logout" . ' - PAW Power';
@@ -179,13 +191,15 @@ class UsuarioController extends Controlador{
         if ($hayLogin){         
             $email = $_SESSION['login'];
         }
-        $title = "Perfil" . ' - PAW Power';
-        $resultado = "¡Logeado!";
-        echo $this->twig->render('cuenta/login.view.twig', [
-            'title' => $title,
-            'resultado' => $resultado,
-            'hayLogin' =>  $hayLogin 
-        ]);
+        // $title = "Perfil" . ' - PAW Power';
+        // $resultado = "¡Logeado!";
+        // echo $this->twig->render('cuenta/login.view.twig', [
+        //     'title' => $title,
+        //     'resultado' => $resultado,
+        //     'hayLogin' =>  $hayLogin 
+        // ]);
+        header('Location: /cuenta/perfil');
+        exit();
     }
     #Crear/Agregar direccion
     public function crearDireccion() {

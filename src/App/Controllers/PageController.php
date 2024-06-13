@@ -159,8 +159,14 @@ class PageController extends Controlador
         if (!isset($_SESSION['login'])) {
             $_SESSION['login'] = "";
         }
+
         $hayLogin = $_SESSION['login'];
-        
+
+        if ($hayLogin) {
+            header('Location: /cuenta/perfil');
+            exit();
+        }
+
         echo $this->twig->render('cuenta/login.view.twig', [
             'title' => $title,
             'hayLogin' => $hayLogin,
@@ -170,7 +176,6 @@ class PageController extends Controlador
             'rutasHeaderDer' => $this->rutasHeaderDer, 
             'rutasFooter' => $this->rutasFooter, 
         ]);
-        
         
         // Clear the error message after rendering
         if (isset($_SESSION['errorMessage'])) {
