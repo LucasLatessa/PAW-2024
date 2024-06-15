@@ -18,7 +18,9 @@
       <ul class="pedidosList">
         {% for pedidosConsumo in pedidos %}
         <li>
+          
           <p>IDPedido: {{pedidosConsumo.id}} - IDUsuario:{{pedidosConsumo.idUsuario}}- Fecha:{{pedidosConsumo.fecha_pedido}}</p>
+          <p>Estado: {{pedidosConsumo.estado}}</p>
           <ul>
             <p> -Productos: </p>
             {% for productos in pedidosConsumo.elementos %}
@@ -40,7 +42,7 @@
 
       </ul>
     </section>
-
+    
     <section class="reportes">
       <h2>Reservas</h2>
       <ul class="reportesList">

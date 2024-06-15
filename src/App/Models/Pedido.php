@@ -12,10 +12,15 @@ class Pedido extends Model
     private $idUsuario;
     private $fecha_pedido;
     private $elementos = [];
+    private $estado = 'Aceptado';
 
     public function getId()
     {
         return $this->id;
+    }
+    public function getEstado()
+    {
+        return $this->estado;
     }
 
     public function getIdUsuario()
@@ -36,6 +41,10 @@ class Pedido extends Model
     public function setId($id)
     {
         $this->id = $id;
+    }
+    public function setEstado($estado)
+    {
+        $this->estado = $estado;
     }
 
     public function setIdUsuario($idUsuario)

@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-    {% include '\..\parts/head.view.twig' %}
+    {% include 'parts/head.view.twig' %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/assets/js/components/paw.js"></script>
-    <script src="/assets/js/appTurnera.js"></script>
+    {# <script src="/assets/js/appTurnera.js"></script> #}
+    <link rel="stylesheet" href="/assets/styles/turnos.css" />
 </head>
 
 <body>
@@ -17,6 +18,11 @@
                 <img src="../assets/Imagotipo-blanco.png" alt="Paw Power" class="logo" />
             </a>
         </header>
+
+        
+          <section id="pedidos">
+        <h2>Pedidos</h2>
+      
         <section class="section-turnera">
 
             <section class="section-retiros">
@@ -25,10 +31,13 @@
                     <h2> A RETIRAR </h2>
                 </div>
 
+                {% for pedidosConsumo in pedidos %}
+                    {% if pedidosConsumo.estado == "Listo para retirar"%}
+                        <article>{{ pedidosConsumo.id }}</article>
+                    {% endif %}
+                {% endfor %}
                 
-                <!-- {% for retiro in retiros %}
-                    <article>{{ retiro }}</article>
-                {% endfor %} -->
+           
 
             </section>
 
@@ -39,17 +48,22 @@
                         <th>Pedido</th>
                         <th>Estado</th>
                     </tr>
-                    
-                    <!-- {% for pedido, estado in pedidos %}
+                    {% for pedidosConsumo in pedidos %}
                         <tr>
-                            <td>{{ pedido }}</td>
-                            <td>{{ estado }}</td>
+                            <td class="idPedido">{{ pedidosConsumo.id }}</td>
+                            <td id="estadoPedido" >{{ pedidosConsumo.estado }}</td>
                         </tr>
-                    {% endfor %} -->
+                   {% endfor %}
+
+                        
+
+
+
                 </table>
             </section>
 
         </section>
+        
 
     </main>
 </body>

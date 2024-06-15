@@ -247,30 +247,5 @@ class PageController extends Controlador
         ]);
         }  
 
-    /*--------- TURNERA ------------*/
-    public function turnosPantalla()
-    {
-        $title = 'Turnos local - PAW Power';
-        echo $this->twig->render('turnero/turnos.view.twig',[
-            'title' =>  $title,
-            'rutasMenuBurger' => $this->rutasMenuBurger,
-            'rutasLogoHeader' => $this->rutasLogoHeader, 
-            'rutasHeaderDer' => $this->rutasHeaderDer, 
-            'rutasFooter' => $this->rutasFooter, 
-        ]);
-
-    }
     
-     /*--------- ESTADOS COCINA ------------*/
-    public function displayEstadosCocina()
-    {   
-        $title = 'Estados Cocina- PAW Power';
-        echo $this->twig->render('cocina/displayEstadosCocina.view.twig', [
-            'title' =>  $title,
-            'rutasMenuBurger' => $this->rutasMenuBurger,
-            'rutasLogoHeader' => $this->rutasLogoHeader, 
-            'rutasHeaderDer' => $this->rutasHeaderDer, 
-            'rutasFooter' => $this->rutasFooter, 
-        ]);
-    }
 }

@@ -18,10 +18,10 @@ class PedidosCollections extends Model{
         $pedido = new Pedido();
         $pedido->setIdUsuario($idUsuario);
         $pedido->setFecha_pedido(date('Y-m-d H:i:s'));
-
         $data = [
             'idUsuario' => $pedido->getIdUsuario(),
             'fecha_pedido' => $pedido->getFecha_pedido(),
+            'estado' => $pedido->getEstado(),
         ];
         
         $idPedido = $this->queryBuilder->insert($this->table, $data);
