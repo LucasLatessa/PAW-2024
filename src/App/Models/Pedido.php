@@ -12,7 +12,7 @@ class Pedido extends Model
     private $idUsuario;
     private $fecha_pedido;
     private $elementos = [];
-    private $estado = 'Aceptado';
+    private $estado = 'En preparacion';
 
     public function getId()
     {

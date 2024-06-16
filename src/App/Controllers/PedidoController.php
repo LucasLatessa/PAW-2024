@@ -83,9 +83,11 @@ class PedidoController extends Controlador {
      /*--------- ESTADOS COCINA ------------*/
     public function displayEstadosCocina()
     {   
+        $pedidos = $this->model->getAll();
         $title = 'Estados Cocina- PAW Power';
         echo $this->twig->render('cocina/displayEstadosCocina.view.twig', [
             'title' =>  $title,
+            'pedidos' =>$pedidos,
             'rutasMenuBurger' => $this->rutasMenuBurger,
             'rutasLogoHeader' => $this->rutasLogoHeader, 
             'rutasHeaderDer' => $this->rutasHeaderDer, 
