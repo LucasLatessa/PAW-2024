@@ -28,7 +28,7 @@ class PedidoController extends Controlador {
         $reservasCollections->setQueryBuilder($this->getQb());
         $reservas = $reservasCollections->getAll();
 
-        //var_dump($pedidos);
+        #var_dump($pedidos);
         $title = 'Gestion de consumo - PAW Power';
         echo $this->twig->render('cuenta/consumos.view.twig', [
             'title' =>  $title,
@@ -63,6 +63,50 @@ class PedidoController extends Controlador {
         //var_dump($pedido);
         header('Location: /');
         exit();
+    }
+    /*--------- TURNERA ------------*/
+    public function turnosPantalla()
+    {
+        $pedidos = $this->model->getAll();
+        $title = 'Turnos local - PAW Power';
+        echo $this->twig->render('turnero/turnos.view.twig',[
+            'title' =>  $title,
+            'pedidos' =>$pedidos,
+            'rutasMenuBurger' => $this->rutasMenuBurger,
+            'rutasLogoHeader' => $this->rutasLogoHeader, 
+            'rutasHeaderDer' => $this->rutasHeaderDer, 
+            'rutasFooter' => $this->rutasFooter, 
+        ]);
+
+    }
+    
+     /*--------- ESTADOS COCINA ------------*/
+    public function displayEstadosCocina()
+    {   
+        $pedidos = $this->model->getAll();
+        $title = 'Estados Cocina- PAW Power';
+        echo $this->twig->render('cocina/displayEstadosCocina.view.twig', [
+            'title' =>  $title,
+            'pedidos' =>$pedidos,
+            'rutasMenuBurger' => $this->rutasMenuBurger,
+            'rutasLogoHeader' => $this->rutasLogoHeader, 
+            'rutasHeaderDer' => $this->rutasHeaderDer, 
+            'rutasFooter' => $this->rutasFooter, 
+        ]);
+    }
+    public function getPedidos() {
+        $pedidos = $this->model->getAll();
+    
+        $pedidosData = [];
+        foreach ($pedidos as $pedido) {
+            $pedidosData[] = [
+                'id' => $pedido->getId(),
+                'estado' => $pedido->getEstado()
+            ];
+        }
+    
+        header('Content-Type: application/json');
+        echo json_encode($pedidosData);
     }
 
 }
