@@ -21,6 +21,10 @@ class QueryBuilder
                 case 'id':
                 case 'idUsuario':
                 case 'idSesion':
+                case 'correo':
+                    $where[] = "$key = :$key";
+                    $bindParams[":$key"] = $value;
+                    break;
                 case 'id_pedido':
                     $where[] = "$key = :$key";
                     $bindParams[":$key"] = $value;
@@ -40,10 +44,10 @@ class QueryBuilder
         foreach ($bindParams as $param => $value) {
             $sentencia->bindValue($param, $value);
         }
+        //var_dump($query);
     
         $sentencia->setFetchMode(PDO::FETCH_ASSOC);
         $sentencia->execute();
-    
         return $sentencia->fetchAll();
     }
     // Nueva función para realizar un JOIN entre dos tablas

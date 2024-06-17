@@ -20,7 +20,7 @@ class CompraController extends Controlador
         parent::__construct();
         $loader = new FilesystemLoader(__DIR__ . '/../../App/views');
         $this->twig = new Environment($loader);
-}
+    }
     
     private function validarCarrito($nombre,$descripcion,$precio, $notas, $cantidad){
         if (empty($nombre) || empty($Descripcion) || empty($Precio) || empty($Notas) || empty($Cantidad)){            

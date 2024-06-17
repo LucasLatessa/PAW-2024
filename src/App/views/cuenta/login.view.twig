@@ -21,7 +21,7 @@
     <!--Codigo login-->
     {{ hayLogin }}
     <h1 class="login">Iniciar sesión</h1>
-    <form method="POST" class="form-login" action="">
+    <form method="POST" class="form-login" action="/cuenta/login">
       <label for="inputCorreo">
         Correo Electrónico
         <input type="email" id="inputCorreo" name="email" required />
@@ -30,7 +30,6 @@
         Contraseña
         <input type="password" id="inputPassword" name="contraseña" required />
       </label>
-
       <!--Errores posibles a la hora de registrar -->
       {% if errorMessage is defined %}
         <p class="error-message">{{ errorMessage }}</p>
@@ -41,6 +40,9 @@
 
     <a class="registrarse-enlace" href="./registrarse">Registrarse</a>
 
+    {% endif %}
+    {% if usuario_no_encontrado is defined %}
+     <h2 class="usuarionoencontrado">Usuario no encontrado</h2>
     {% endif %}
   </main>
 

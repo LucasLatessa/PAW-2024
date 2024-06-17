@@ -120,6 +120,10 @@ main {
   object-fit: cover;
 }
 
+.usuarionoencontrado{
+  color: red; 
+  margin-top: 20px;
+}
 
 /* MEDIA QUERIS INDEX */
 
