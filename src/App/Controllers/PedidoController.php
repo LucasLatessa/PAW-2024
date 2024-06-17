@@ -94,5 +94,19 @@ class PedidoController extends Controlador {
             'rutasFooter' => $this->rutasFooter, 
         ]);
     }
+    public function getPedidos() {
+        $pedidos = $this->model->getAll();
+    
+        $pedidosData = [];
+        foreach ($pedidos as $pedido) {
+            $pedidosData[] = [
+                'id' => $pedido->getId(),
+                'estado' => $pedido->getEstado()
+            ];
+        }
+    
+        header('Content-Type: application/json');
+        echo json_encode($pedidosData);
+    }
 
 }

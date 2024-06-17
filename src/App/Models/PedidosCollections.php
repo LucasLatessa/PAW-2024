@@ -8,6 +8,7 @@ use Paw\App\Models\Pedido;
 class PedidosCollections extends Model{
     public $table = 'pedidos';
     public $tableElementos_pedido = "elementos_pedido";
+    public $tablePlato = "plato";
 
     public function create($idSesion,$idUsuario)
     {
@@ -49,17 +50,39 @@ class PedidosCollections extends Model{
         foreach($pedidos as $pedido)
         {
             $nuevoPedido = new Pedido();
-            $nuevoPedido->set($pedido);
-
+            $nuevoPedido->set($pedido); 
             $elementos = $this->queryBuilder->selectViejo($this->tableElementos_pedido,['id_pedido' => $nuevoPedido->getId()]);
-
             foreach($elementos as $elemento)
             {
+                
                 $nuevoPedido->agregarElementoArray($elemento);
+                
             }
             $pedidoCollections[] = $nuevoPedido;
         }
 
-        return $pedidoCollections;
-    }
+        return $pedidoCollections; 
+        }   
+        public function getPedidosCocina()
+        {
+            $pedidos = $this->queryBuilder->selectViejo($this->table);
+            $pedidoCollections = [];
+    
+            foreach($pedidos as $pedido)
+            {
+                $nuevoPedido = new Pedido();
+                $nuevoPedido->set($pedido); 
+                //$elementos = $this->queryBuilder->selectViejo($this->tableElementos_pedido,['id_pedido' => $nuevoPedido->getId()]);
+                $elementos = $this->queryBuilder->joinPedidos($this->tableElementos_pedido,$this->tablePlato,['id_pedido' => $nuevoPedido->getId()]);
+                foreach($elementos as $elemento)
+                {
+                    var_dump($elemento);
+                    $nuevoPedido->agregarElementoArray($elemento);
+                    
+                }
+                $pedidoCollections[] = $nuevoPedido;
+            }
+    
+            return $pedidoCollections; 
+            }   
 }

@@ -8,7 +8,7 @@
 
     <!--<link rel="stylesheet" href="/assets/styles/estadoCocina.css" /> -->
     <script src="/assets/js/components/paw.js"></script>
-   {#  <script src="/assets/js/appPedidoCocina.js"></script> #}
+    {#  <script src="/assets/js/appPedidoCocina.js"></script> #}
     <script src="/assets/js/appHora.js"></script>
     <link rel="stylesheet" href="/assets/styles/estadococina.css" />
 
@@ -39,7 +39,8 @@
                     <article class="items">
                         {% for productos in pedidosConsumo.elementos %}
                             <ul class="item">
-                                <li class="nombre">{{productos.id_plato}}(nombre)</li>
+                                <li class="nombre">{{productos.id_plato}}{{productos.nombre}}</li>
+                                <li class="nombre">{{productos.descripcion}}</li>
                                 <li class="cantidad">Cantidad: {{productos.cantidad}}</li>
                                 <li class="aclaraciones">Aclaraciones: {{productos.aclaraciones}}</li>
                             </ul>

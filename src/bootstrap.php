@@ -50,6 +50,7 @@ $router->get('/', 'PageController@index'); #Clase y metodo que procesa la petici
 $router->get('/turnera', 'PedidoController@turnosPantalla'); #Clase y metodo que procesa la peticion
 #------------------------ DISPLAY ESTADOS COCINA--------------------------------
 $router->get('/display-estados-cocina', 'PedidoController@displayEstadosCocina');
+$router->get('/api/pedidos','PedidoController@getPedidos');
 
 
 # ------------------------ COMPRA --------------------------------

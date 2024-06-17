@@ -46,6 +46,41 @@ class QueryBuilder
     
         return $sentencia->fetchAll();
     }
+    // Nueva función para realizar un JOIN entre dos tablas
+    public function joinPedidos($table1, $table2, $params = []) {
+        $where = [];
+        $bindParams = [];
+    
+        foreach ($params as $key => $value) {
+            switch ($key) {
+                case 'id':
+                case 'idUsuario':
+                case 'idSesion':
+                case 'id_pedido':
+                    $where[] = "$key = :$key";
+                    $bindParams[":$key"] = $value;
+                    break;
+                // Añadir más casos según los parámetros que necesites manejar
+            }
+        }
+    
+        $whereClause = '';
+        if (!empty($where)) {
+            $whereClause = 'WHERE ' . implode(' AND ', $where);
+        }
+    
+        $query = "SELECT id_pedido, id_plato,estado, nombre, descripcion, aclaraciones, cantidad FROM {$table1} JOIN {$table2} ON {$table1}.id_plato = {$table2}.id {$whereClause}";
+        $sentencia = $this->pdo->prepare($query);
+    
+        foreach ($bindParams as $param => $value) {
+            $sentencia->bindValue($param, $value);
+        }
+    
+        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
+        $sentencia->execute();
+    
+        return $sentencia->fetchAll();
+    }
 
     // public function selectViejo($table,$params = []){
     //     $where = " 1 = 1 ";
