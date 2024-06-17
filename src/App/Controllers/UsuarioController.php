@@ -59,13 +59,13 @@ class UsuarioController extends Controlador{
         #Obtengo los datos de la peticion
         $email = $request->getRequest("email");
         $contraseña = $request->getRequest("contraseña");
-        var_dump($email);
+        //var_dump($email);
 
         #Obtengo los datos de la BD par aver si existe
         $usuario = $this->model->get($email);
 
         #Compruebo que exista en el sistema
-        var_dump($usuario);
+        //var_dump($usuario);
         #var_dump($usuario->getContraseña());
         if ($usuario && password_verify($contraseña,$usuario->getContraseña())){
             // Iniciar sesión
@@ -73,16 +73,19 @@ class UsuarioController extends Controlador{
             $_SESSION['login'] = true;
             $_SESSION['username'] = $usuario->getCorreo();
             $_SESSION['usuario_id'] = $usuario->getId(); 
-
+            
             // Redirigir al perfil del usuario
             header('Location: /cuenta/perfil');
+            //print_r ("holaa", $_SESSION['username']); 
             exit();
         } else {
             $errorMessage = "Credenciales incorrectas";
             $title = "Login" . ' - PAW Power';
+            $usuario_no_encontrado = true;
             echo $this->twig->render('cuenta/login.view.twig', [
                 'title' => $title,
                 'errorMessage' => $errorMessage,
+                'usuario_no_encontrado' => $usuario_no_encontrado,
                 'rutasMenuBurger' => $this->rutasMenuBurger,
                 'rutasLogoHeader' => $this->rutasLogoHeader, 
                 'rutasHeaderDer' => $this->rutasHeaderDer, 

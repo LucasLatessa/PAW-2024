@@ -25,7 +25,7 @@ class UsuariosCollections extends Model
     public function get($correo)
     {
         $usuarioData = $this->queryBuilder->selectViejo($this->table, ['correo' => $correo]);
-        var_dump($usuarioData);
+        //var_dump($usuarioData);
         if ($usuarioData) {
             // Creo instancia de Usuario
             $usuario = new Usuario();
@@ -33,8 +33,10 @@ class UsuariosCollections extends Model
             //var_dump($usuario);
             //var_dump("aca");
             return $usuario;
+
         }
-        var_dump("Nulo");
+
+        //var_dump("Nulo");
         return null;
     }
 
