@@ -1,6 +1,5 @@
 class PAWTurnera {
     constructor(urlPedidos) {
-        console.log("turnera");
         this.urlPedidos = urlPedidos;
         this.init();
     }

@@ -1,80 +1,93 @@
-class PAWCocina{
-
-    constructor(pedidos){
-        this.generarPedidos(pedidos);
-
-        // Intervalo para verificar pedidos demorados cada minuto
-        setInterval(() => {
-            this.verificarPedidosDemorados();
-        }, 60000);
+class PAWCocina {
+    constructor(pedidosUrl) {
+        this.pedidosUrl = pedidosUrl;
+        this.pedidos = null;
+        this.init();
     }
 
-    async generarPedidos(pedidos){
-        const response = await fetch(pedidos);
-        const datapedidos = await response.json();
-        let pedidosSection = document.querySelector(".pedidos");
-  
-        this.pedidos = datapedidos;
+    async init() {
+        await this.generarPedidos();
+        setInterval(() => {
+            this.generarPedidos();
+        }, 10000);
+    }
 
-        datapedidos.forEach(pedido => {
-            let pedidoN = document.createElement("article"); /**article pedido */
-            pedidoN.setAttribute('data-id', pedido.numero); /**seteo un id = numero pedido para el article */
-            let cabecera = document.createElement("div");
-            let items = document.createElement("article");
-            let boton = document.createElement("a");
-            let hora = document.createElement("h5"); /** orden aceptada a : */
-        
-            cabecera.textContent = "PEDIDO " + pedido.numero +" - "+ pedido.hora; 
-
-            // Iterar sobre los items del pedido
-            pedido.items.forEach(item => {
-                let listItem = document.createElement("ul");
-                let nombre = document.createElement("li");
-                let ingredientes = document.createElement("li");
-                let aclaraciones = document.createElement("li");
-
-                nombre.textContent = item.nombre;
-                ingredientes.textContent = item.ingredientes;
-                aclaraciones.textContent = item.aclaraciones;
-
-                nombre.classList.add("nombre"); /info-item/
-                ingredientes.classList.add("ingredientes");/info-item/
-                aclaraciones.classList.add("aclaraciones");/info-item/
-                listItem.classList.add("item");
-
-                listItem.appendChild(nombre);
-                listItem.appendChild(ingredientes);
-                listItem.appendChild(aclaraciones);
-
-                items.appendChild(listItem);
-            });
+    async generarPedidos() {
+        try {
+            const response = await fetch(this.pedidosUrl);
+            const datapedidos = await response.json();
             
-            items.classList.add("items");
-            //cabecera.classList.add(this.getEstadoClase(pedido.estado, pedido.hora));   /** "estado": "En preparación" y "hora": "10:00" */
-            if (pedido.estado === "Listo para retirar"){
-                cabecera.classList.add("cabeceraListo");
-            }else{
-                cabecera.classList.add("cabeceraPreparacion");
-            } 
-            
-            pedidoN.classList.add("pedido");
-            pedidoN.appendChild(cabecera);
-            pedidoN.appendChild(items);
-            if (pedido.estado === "En preparación"){
-                boton.textContent = "LISTO";
-                boton.classList.add("boton-listo"); /** para manejar los eventos del click */
-                pedidoN.appendChild(boton); 
+            let pedidosSection = document.querySelector(".pedidos");
+
+            this.pedidos = datapedidos;
+
+            // Limpiar solo los artículos existentes
+            let articles = pedidosSection.querySelectorAll('article');
+            articles.forEach(article => article.remove());
+
+            // Recorrer los pedidos en orden inverso
+            datapedidos.reverse().forEach(pedido => {
+                if (pedido.estado !="Finalizado"){
+                    let pedidoN = document.createElement("article");
+                    pedidoN.setAttribute('data-id', pedido.numero);
+                    let cabecera = document.createElement("div");
+                    let items = document.createElement("article");
+                    let boton = document.createElement("a");
+                    let hora = document.createElement("h5");
+                
+                    cabecera.textContent = "PEDIDO " + pedido.numero + " - " + pedido.hora;
+
+                    // Iterar sobre los items del pedido
+                    pedido.items.forEach(item => {
+                        
+                            let listItem = document.createElement("ul");
+                            let nombre = document.createElement("li");
+                            let ingredientes = document.createElement("li");
+                            let aclaraciones = document.createElement("li");
+
+                            nombre.textContent = item.nombre;
+                            ingredientes.textContent = item.descripcion; 
+                            aclaraciones.textContent = item.aclaraciones;
+
+                            nombre.classList.add("nombre");
+                            ingredientes.classList.add("ingredientes");
+                            aclaraciones.classList.add("aclaraciones");
+                            listItem.classList.add("item");
+
+                            listItem.appendChild(nombre);
+                            listItem.appendChild(ingredientes);
+                            listItem.appendChild(aclaraciones);
+
+                            items.appendChild(listItem);
+                        
+                    });
+                    
+                    items.classList.add("items");
+
+                    if (pedido.estado === "Listo para retirar") {
+                        cabecera.classList.add("cabeceraListo");
+                    } else {
+                        cabecera.classList.add("cabeceraPreparacion");
+                    }
+                    
+                    pedidoN.classList.add("pedido");
+                    pedidoN.appendChild(cabecera);
+                    pedidoN.appendChild(items);
+                    if (pedido.estado === "En preparacion") {
+                        boton.textContent = "LISTO";
+                        boton.classList.add("boton-listo");
+                        pedidoN.appendChild(boton);
+                    }
+                    pedidosSection.appendChild(pedidoN);
             }
-            pedidosSection.appendChild(pedidoN);         
-        });
+            });
 
-        this.eventos(); 
-    }   
+            this.eventos();
+        } catch (error) {
+            console.error("Error al generar pedidos:", error);
+        }
+    }
 
-    /** se consultan todos los botones de cada article pedido y se agrega evento click
-     * y en caso de marcar uno de ellos como listo, se lo busca para actualizar front end
-     * y a futuro avisar al servidor el cambio del estado del pedido a Listo para retirar.
-     */
     eventos() {
         document.querySelectorAll('.boton-listo').forEach(boton => {
             boton.addEventListener('click', this.marcarComoListo.bind(this));
@@ -83,52 +96,66 @@ class PAWCocina{
 
     marcarComoListo(event) {
         const boton = event.target;
-        const pedidoN = boton.closest('article.pedido'); //encuentra el ancestro más cercano (o el mismo elemento) que coincide con el selector especificado/
+        const pedidoN = boton.closest('article.pedido');
         const pedidoId = pedidoN.getAttribute('data-id');
-
-        // Encontrar el pedido correspondiente en el JSON
-        const pedido = this.pedidos.find(p => p.numero === pedidoId); /** find encuentra el 1° elemento de una array que coincida con una concidicion dada */
-        if (pedido.estado === "En preparación" || pedido.estado === "PRIORIDAD") {     
+        const pedido = this.pedidos.find(p => p.numero == pedidoId);
+        if (pedido.estado === "En preparacion" || pedido.estado === "PRIORIDAD") {
             pedido.estado = "Listo para retirar";
-            // Esta parte en la lógica se deberia genera algun POST hacia el servidor, enviando
-            //actualización del pedido en el json, usar un fetch, es decir que ese Listo para retirar sea impactado en db o en el json 
-            this.actualizarPedido(pedidoN); //esto actualiza el frontend, quitando boton y cambiando estilo
-        }
-    }
+            this.actualizarPedido(pedidoId)
+            .then(() => { 
+                const cabecera = pedidoN.querySelector('div');
+                cabecera.classList.remove('cabeceraPreparacion');
+                cabecera.classList.add('cabeceraListo');
 
-    actualizarPedido(pedidoN) {
-        const cabecera = pedidoN.querySelector('div');
-        cabecera.classList.remove('cabeceraPreparacion');
-        cabecera.classList.add('cabeceraListo');
+                const boton = pedidoN.querySelector('.boton-listo');
+                if (boton) {
+                boton.remove();
+                }
+            })
+            .catch(error => {
+                console.error("Error al actualizar el pedido:", error);
+            });
+  }
+}
 
-        // Eliminar el botón "LISTO"
-        const boton = pedidoN.querySelector('.boton-listo');
-        if (boton) {
-            boton.remove();
-        }
-    }
+    async actualizarPedido(pedidoId) {
+    const url = `/api/pedidosCocina?pedidoId=${pedidoId}`;
+    const datos = {
+        "pedidoId": 4
+    };
 
-    getEstadoClase(estado, horaPedido){
-        const horaActual = this.getHoraActual();
-        const limiteMinutosDemora = 2;
-        if (estado === "Listo para retirar") {
-            return "cabeceraListo";
-        } else if (estado === "En preparación" && this.estaDemorado(horaPedido, horaActual, limiteMinutosDemora)) {
-            return "cabeceraPRIORIDAD";
+    const opciones = {
+        method: 'PUT',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datos)
+    };
+
+    return fetch(url, opciones)
+        .then(response => {
+        if (response.ok) {
+            return response.json();
         } else {
-            return "cabeceraPreparacion";
+            throw new Error(`Error al actualizar el pedido: ${response.status}`);
         }
+        })
+        .catch(error => {
+        console.error("Error al enviar la solicitud:", error.message); // Mensaje de error más detallado
+        // Mostrar mensaje de error al usuario (opcional)
+        });
     }
+      
 
-    getHoraActual(){
+    getHoraActual() {
         const ahora = new Date();
         const horas = String(ahora.getHours()).padStart(2, '0');
         const minutos = String(ahora.getMinutes()).padStart(2, '0');
         return `${horas}:${minutos}`;
     }
 
-    estaDemorado(horaPedido, horaActual, limiteMinutos){
-        const [horasP, minutosP ] = horaPedido.split(':').map(Number);
+    estaDemorado(horaPedido, horaActual, limiteMinutos) {
+        const [horasP, minutosP] = horaPedido.split(':').map(Number);
         const [horasActual, minutosActual] = horaActual.split(':').map(Number);
 
         const orderDate = new Date();
@@ -138,44 +165,29 @@ class PAWCocina{
         currentDate.setHours(horasActual, minutosActual);
 
         const diferenciaMilisegundos = currentDate - orderDate;
-        const diferenciaMinutos = diferenciaMilisegundos  / 1000 / 60;
+        const diferenciaMinutos = diferenciaMilisegundos / 1000 / 60;
 
         return diferenciaMinutos > limiteMinutos;
     }
 
-    verificarPedidosDemorados(){
-       
-
+    verificarPedidosDemorados() {
         const pedidosSection = document.querySelector(".pedidos");
         const horaA = this.getHoraActual();
-        console.log("Hora actual " + horaA);
         const limiteMinutos = 1;
-        console.log("pedidos json " + this.pedidos);
 
         this.pedidos.forEach(pedido => {
-            if (pedido.estado === "En preparación" && this.estaDemorado(pedido.hora, horaA, limiteMinutos)) {
+            if (pedido.estado === "En preparacion" && this.estaDemorado(pedido.hora, horaA, limiteMinutos)) {
                 let dataid = pedido.numero;
-                console.log(dataid);
-                //Buscar el elemento con el data-id coincidente
+
                 const pedidoElement = Array.from(pedidosSection.querySelectorAll(".pedido"))
-                .find(ped => ped.getAttribute('data-id') === dataid);
+                    .find(ped => ped.getAttribute('data-id') === dataid);
 
-                // Verificar si se encontró el elemento
                 if (pedidoElement) {
-                    /* es buena esta idea tambien porque
-                    hace titilar todo el article y se nota mas 
-                    pedidoElement.classList.add("cabeceraPRIORIDAD");*/
-
                     const divContenido = pedidoElement.querySelector("div");
                     if (divContenido) {
-                        divContenido.classList.add('cabeceraPRIORIDAD'); /**para dar estilo de alerta */
+                        divContenido.classList.add('cabeceraPRIORIDAD');
                     }
-                    
-                } else {
-                    console.log("No se encontró ningún elemento con data-id:", dataid);
                 }
-
-              
             }
         });
     }

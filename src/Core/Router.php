@@ -13,7 +13,8 @@ class Router
     use Loggable; #Interpreta como un Trait
     public array $routes = [
         'GET' => [],
-        'POST' => []
+        'POST' => [],
+        'PUT' => []
     ];
 
     public string $notFound = 'not_found';
@@ -37,6 +38,10 @@ class Router
     public function post($path, $action)
     {
         $this->loadRoutes($path, $action, "POST");
+    }
+    public function put($path, $action)
+    {
+        $this->loadRoutes($path, $action, "PUT");
     }
     public function exists($path, $method)
     {

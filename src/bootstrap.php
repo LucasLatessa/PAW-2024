@@ -51,8 +51,8 @@ $router->get('/turnera', 'PedidoController@turnosPantalla'); #Clase y metodo que
 #------------------------ DISPLAY ESTADOS COCINA--------------------------------
 $router->get('/display-estados-cocina', 'PedidoController@displayEstadosCocina');
 $router->get('/api/pedidos','PedidoController@getPedidos');
-
-
+$router->get('/api/pedidosCocina','PedidoController@getPedidosCocina');
+$router->put('/api/pedidosCocina','PedidoController@changePedido');
 # ------------------------ COMPRA --------------------------------
 
 $router->get('/compra/menu', 'MenuController@mostrarMenu');

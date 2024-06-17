@@ -63,26 +63,30 @@ class PedidosCollections extends Model{
 
         return $pedidoCollections; 
         }   
-        public function getPedidosCocina()
-        {
+        public function getPedidosEstadosCocina() {
             $pedidos = $this->queryBuilder->selectViejo($this->table);
             $pedidoCollections = [];
-    
-            foreach($pedidos as $pedido)
-            {
+        
+            foreach ($pedidos as $pedido) {
                 $nuevoPedido = new Pedido();
-                $nuevoPedido->set($pedido); 
-                //$elementos = $this->queryBuilder->selectViejo($this->tableElementos_pedido,['id_pedido' => $nuevoPedido->getId()]);
-                $elementos = $this->queryBuilder->joinPedidos($this->tableElementos_pedido,$this->tablePlato,['id_pedido' => $nuevoPedido->getId()]);
-                foreach($elementos as $elemento)
-                {
-                    var_dump($elemento);
+                $nuevoPedido->set($pedido);
+                //var_dump($nuevoPedido);
+        
+                $elementos = $this->queryBuilder->joinPedidos($this->tableElementos_pedido, $this->tablePlato, ['id_pedido' => $nuevoPedido->getId()]);
+                foreach ($elementos as $elemento) {
+                    //var_dump($elemento);
                     $nuevoPedido->agregarElementoArray($elemento);
-                    
+                        
+                    //var_dump($nuevoPedido);
                 }
                 $pedidoCollections[] = $nuevoPedido;
             }
-    
-            return $pedidoCollections; 
-            }   
+            //var_dump($pedidoCollections);
+            return $pedidoCollections;
+        }  
+
+
+        public function actualizarPedido($id){
+            return $this->queryBuilder->updatePedidoListo($this->table, $id);
+        }
 }

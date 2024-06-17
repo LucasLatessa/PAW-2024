@@ -69,7 +69,7 @@ class QueryBuilder
             $whereClause = 'WHERE ' . implode(' AND ', $where);
         }
     
-        $query = "SELECT id_pedido, id_plato,estado, nombre, descripcion, aclaraciones, cantidad FROM {$table1} JOIN {$table2} ON {$table1}.id_plato = {$table2}.id {$whereClause}";
+        $query = "SELECT id_pedido, id_plato, nombre, descripcion, aclaraciones, cantidad FROM {$table1} JOIN {$table2} ON {$table1}.id_plato = {$table2}.id {$whereClause}";
         $sentencia = $this->pdo->prepare($query);
     
         foreach ($bindParams as $param => $value) {
@@ -245,9 +245,18 @@ class QueryBuilder
         return $this->pdo->lastInsertId();
     }
 
-    public function update(){
-        
-    }
+    public function updatePedidoListo($table, $id) {
+        try {
+          $query = "UPDATE {$table} SET estado = :estado WHERE id = :id";
+          $sentencia = $this->pdo->prepare($query);
+          $sentencia->bindParam(':estado', 'Listo para retirar');
+          $sentencia->bindParam(':id', $id, PDO::PARAM_INT); // Asegurar tipo de dato entero
+          $sentencia->execute();
+        } catch (PDOException $e) {
+          echo "Error al actualizar el pedido: " . $e->getMessage();
+          // Registrar el error en un archivo de log o notificarlo a través de un sistema de alertas
+        }
+      }
 
     public function delete($table,$params = []){
         $where = " 1 = 2 ";

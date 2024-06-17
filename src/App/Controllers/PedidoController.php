@@ -83,7 +83,7 @@ class PedidoController extends Controlador {
      /*--------- ESTADOS COCINA ------------*/
     public function displayEstadosCocina()
     {   
-        $pedidos = $this->model->getAll();
+        $pedidos = $this->model->getPedidosEstadosCocina();
         $title = 'Estados Cocina- PAW Power';
         echo $this->twig->render('cocina/displayEstadosCocina.view.twig', [
             'title' =>  $title,
@@ -108,5 +108,56 @@ class PedidoController extends Controlador {
         header('Content-Type: application/json');
         echo json_encode($pedidosData);
     }
+    public function getPedidosCocina() {
+        $pedidos = $this->model->getPedidosEstadosCocina();
+        //var_dump($pedidos);
+        $pedidosData = [];
+        foreach ($pedidos as $pedido) {
+            $items = [];
+     
+            foreach ($pedido->getElementos() as $elemento) {
+                $itemData = [
+                    'nombre' => $elemento->getNombre(),
+                    'descripcion' => $elemento->getDescripcion(),
+                    'aclaraciones' => $elemento->getAclaraciones()
+                ];
+                $items[] = $itemData;
+            }
+    
+            $pedidosData[] = [
+                'numero' => $pedido->getId(),
+                'hora' => $pedido->getFecha_pedido(),
+                'estado' => $pedido->getEstado(),
+                'items' => $items
+            ];
+        } 
+        //var_dump($pedidosData);
+        header('Content-Type: application/json');
+        echo json_encode($pedidosData); 
+    }
+
+    public function changePedido() {
+        // Obtener el ID del pedido y el nuevo estado de la solicitud
+        global $request;
+        $pedidoId = $request->input('pedidoId');
+        var_dump("aahjhaha".$pedidoId);
+        error_log("ID del pedido: " . $pedidoId);
+
+        #$this->model->actualizarPedido($pedidoId);
+        // Consultar la base de datos para actualizar el estado del pedido
+        // ... (Implementar la lógica de actualización de la base de datos)
+       
+        // Preparar la respuesta JSON
+        $respuesta = [
+          'success' => true // Cambiar a 'false' en caso de error
+        ];
+      
+        // Enviar la respuesta JSON
+        return response()->json($respuesta);
+      }
+      
+
+    
+    
 
 }

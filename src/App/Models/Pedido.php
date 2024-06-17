@@ -58,9 +58,9 @@ class Pedido extends Model
         $this->fecha_pedido = $fecha_pedido;
     }
 
-    public function agregarElemento($idPlato, $cantidad, $aclaraciones)
+    public function agregarElemento($idPlato, $cantidad, $aclaraciones,$nombre,$descripcion)
     {
-        $elemento = new ElementosPedido($idPlato,$cantidad,$aclaraciones);
+        $elemento = new ElementosPedido($idPlato,$cantidad,$aclaraciones,$nombre,$descripcion);
         $this->elementos[] = $elemento;
     }
 

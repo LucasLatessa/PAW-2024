@@ -8,7 +8,7 @@
 
     <!--<link rel="stylesheet" href="/assets/styles/estadoCocina.css" /> -->
     <script src="/assets/js/components/paw.js"></script>
-    {#  <script src="/assets/js/appPedidoCocina.js"></script> #}
+    <script src="/assets/js/appPedidoCocina.js"></script> 
     <script src="/assets/js/appHora.js"></script>
     <link rel="stylesheet" href="/assets/styles/estadococina.css" />
 
@@ -28,19 +28,18 @@
         <h2 class="hora"></h2>
 
         <section class="pedidos">
-            {% for pedidosConsumo in pedidos %}
+           {#  {% for pedidosConsumo in pedidos %}
                 <article data-id="{{ pedidosConsumo.id }}" class="pedido">
                     {% if pedidosConsumo.estado == "Listo para retirar"%}
                         <div class="cabeceraListo">PEDIDO {{ pedidosConsumo.id }} - {{pedidosConsumo.fecha_pedido}}</div>
                     {% elseif pedidosConsumo.estado == "En preparacion" %}
                         <div class="cabeceraPreparacion">PEDIDO {{ pedidosConsumo.id }} - {{ pedidosConsumo.fecha_pedido }}</div>
                     {% endif %}
-                    {# VER COMO HACER PARA LA DE PRIORIDAD #}
                     <article class="items">
                         {% for productos in pedidosConsumo.elementos %}
                             <ul class="item">
-                                <li class="nombre">{{productos.id_plato}}{{productos.nombre}}</li>
-                                <li class="nombre">{{productos.descripcion}}</li>
+                                <li class="nombre">Nombre: {{productos.nombre}}</li>
+                                <li class="nombre">Descripcion: {{productos.descripcion}}</li>
                                 <li class="cantidad">Cantidad: {{productos.cantidad}}</li>
                                 <li class="aclaraciones">Aclaraciones: {{productos.aclaraciones}}</li>
                             </ul>
@@ -48,7 +47,7 @@
                         {% endfor %}
                     </article>
                 </article>
-            {% endfor %}
+            {% endfor %}  #}
         </section>
     </main>
 </body>

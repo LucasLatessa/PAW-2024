@@ -9,11 +9,15 @@ class ElementosPedido extends Model
     private $id_plato;
     private $cantidad;
     private $aclaraciones;
+    private $nombre;
+    private $descripcion;
 
-    public function __construct($idPlato = null,$cantidad = null,$aclaraciones = null){
+    public function __construct($idPlato = null,$cantidad = null,$aclaraciones = null, $nombre=null,$descripcion=null){
         $this->$idPlato = $idPlato;
         $this->$cantidad = $cantidad;
         $this->$aclaraciones = $aclaraciones;
+        $this->$nombre = $nombre;
+        $this->$descripcion = $descripcion;
     }
 
     public function getId_plato()
@@ -24,6 +28,15 @@ class ElementosPedido extends Model
     public function getCantidad()
     {
         return $this->cantidad;
+    }
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    public function getDescripcion()
+    {
+        return $this->descripcion;
     }
 
     public function getAclaraciones()
@@ -40,6 +53,15 @@ class ElementosPedido extends Model
     public function setCantidad($cantidad)
     {
         $this->cantidad = $cantidad;
+    }
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
     }
 
 

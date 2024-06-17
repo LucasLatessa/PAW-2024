@@ -2,7 +2,7 @@ class appCocina{
     constructor(){
         document.addEventListener("DOMContentLoaded", () => {
             PAW.cargarScript("PAWCocina","./assets/js/components/paw-displayEstadosCocina.js",() => {
-                 let displayCocina = new PAWCocina("/assets/js/components/pedidosCocina.json"); //ver de usar tambien json
+                 let displayCocina = new PAWCocina("/api/pedidosCocina"); 
             });
             PAW.agregarStyle("/assets/styles/estadococina.css");
          });
