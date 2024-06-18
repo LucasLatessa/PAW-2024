@@ -137,24 +137,29 @@ class PedidoController extends Controlador {
     }
 
     public function changePedido() {
-        // Obtener el ID del pedido y el nuevo estado de la solicitud
-        global $request;
-        $pedidoId = $request->input('pedidoId');
-        var_dump("aahjhaha".$pedidoId);
+        $pedidoId = isset($_GET['pedidoId']) ? $_GET['pedidoId'] : null;
+        $jsonData = json_decode(file_get_contents('php://input'), true);
+        $nuevoEstado = isset($jsonData['estado']) ? $jsonData['estado'] : null;
+    
+        if (empty($pedidoId) || empty($nuevoEstado)) {
+            error_log("Datos inválidos: Pedido ID o Estado están vacíos.");
+            header('Content-Type: application/json');
+            echo json_encode(['success' => false, 'error' => 'Datos inválidos']);
+            return;
+        }
+    
         error_log("ID del pedido: " . $pedidoId);
-
-        #$this->model->actualizarPedido($pedidoId);
-        // Consultar la base de datos para actualizar el estado del pedido
-        // ... (Implementar la lógica de actualización de la base de datos)
-       
-        // Preparar la respuesta JSON
+        error_log("Nuevo estado: " . $nuevoEstado);
+    
+        $actualizado = $this->model->actualizarPedido($pedidoId, $nuevoEstado);
+    
         $respuesta = [
-          'success' => true // Cambiar a 'false' en caso de error
+            'success' => $actualizado
         ];
-      
-        // Enviar la respuesta JSON
-        return response()->json($respuesta);
-      }
+    
+        header('Content-Type: application/json');
+        echo json_encode($respuesta);
+    }
       
 
     

@@ -249,18 +249,13 @@ class QueryBuilder
         return $this->pdo->lastInsertId();
     }
 
-    public function updatePedidoListo($table, $id) {
-        try {
-          $query = "UPDATE {$table} SET estado = :estado WHERE id = :id";
-          $sentencia = $this->pdo->prepare($query);
-          $sentencia->bindParam(':estado', 'Listo para retirar');
-          $sentencia->bindParam(':id', $id, PDO::PARAM_INT); // Asegurar tipo de dato entero
-          $sentencia->execute();
-        } catch (PDOException $e) {
-          echo "Error al actualizar el pedido: " . $e->getMessage();
-          // Registrar el error en un archivo de log o notificarlo a través de un sistema de alertas
-        }
-      }
+    public function updatePedidoListo($table, $id, $nuevoEstado) {
+        $query = "UPDATE {$table} SET estado = :estado WHERE id = :id";
+        $sentencia = $this->pdo->prepare($query);
+        $sentencia->bindValue(':estado', $nuevoEstado);
+        $sentencia->bindValue(':id', $id);
+        return $sentencia->execute();
+    }
 
     public function delete($table,$params = []){
         $where = " 1 = 2 ";

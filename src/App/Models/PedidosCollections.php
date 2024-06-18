@@ -86,7 +86,7 @@ class PedidosCollections extends Model{
         }  
 
 
-        public function actualizarPedido($id){
-            return $this->queryBuilder->updatePedidoListo($this->table, $id);
+        public function actualizarPedido($id, $nuevoEstado) {
+            return $this->queryBuilder->updatePedidoListo($this->table, $id, $nuevoEstado);
         }
 }

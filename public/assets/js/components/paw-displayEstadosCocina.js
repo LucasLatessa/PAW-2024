@@ -106,44 +106,43 @@ class PAWCocina {
                 const cabecera = pedidoN.querySelector('div');
                 cabecera.classList.remove('cabeceraPreparacion');
                 cabecera.classList.add('cabeceraListo');
-
+   
                 const boton = pedidoN.querySelector('.boton-listo');
                 if (boton) {
-                boton.remove();
+                    boton.remove();
                 }
             })
             .catch(error => {
                 console.error("Error al actualizar el pedido:", error);
             });
-  }
-}
+        }
+    }
 
     async actualizarPedido(pedidoId) {
-    const url = `/api/pedidosCocina?pedidoId=${pedidoId}`;
-    const datos = {
-        "pedidoId": 4
-    };
-
-    const opciones = {
-        method: 'PUT',
-        headers: {
-        'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(datos)
-    };
-
-    return fetch(url, opciones)
-        .then(response => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error(`Error al actualizar el pedido: ${response.status}`);
-        }
-        })
-        .catch(error => {
-        console.error("Error al enviar la solicitud:", error.message); // Mensaje de error más detallado
-        // Mostrar mensaje de error al usuario (opcional)
-        });
+        const url = `/api/pedidosCocina?pedidoId=${pedidoId}`;
+        const datos = {
+            "estado": "Listo para retirar"
+        };
+    
+        const opciones = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datos)
+        };
+    
+        return fetch(url, opciones)
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error(`Error al actualizar el pedido: ${response.status}`);
+                }
+            })
+            .catch(error => {
+                console.error("Error al enviar la solicitud:", error.message);
+            });
     }
       
 
