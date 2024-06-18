@@ -74,6 +74,14 @@ class Controlador
                 "href" => '../cuenta/consumos',
                 "name" => "Consumos"
             ]
+            /*[ #Agregado para acceder más rápido y poder ver las correciones de los turnos
+                "href" => '/turnera',
+                "name" => "Turnera"
+            ],
+            [ #Agregado para acceder más rápido y poder ver las correciones de display Cocina
+            "href" => '/display-estados-cocina',
+            "name" => "Display cocina-pedidos"
+            ]*/
         ];
 
         $qb = new QueryBuilder($connection, $log);
